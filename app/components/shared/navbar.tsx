@@ -174,10 +174,10 @@ export function Navbar() {
                                     <NavigationMenuLink asChild>
                                       <a
                                         href={subItem.href}
-                                        className="block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                       >
                                         <div className="text-base font-medium leading-none">{subItem.name}</div>
-                                        <p className="line-clamp-2 text-base leading-snug text-muted-foreground">
+                                        <p className="line-clamp-2 text-base leading-snug text-muted-foreground group-hover:text-accent-foreground group-focus:text-accent-foreground">
                                           {subItem.description}
                                         </p>
                                       </a>
