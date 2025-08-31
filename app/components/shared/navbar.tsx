@@ -69,15 +69,15 @@ export function Navbar() {
     <>
       {/* Desktop Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-gray-50 shadow-md hidden lg:block">
-        <div className="max-w-7xl mx-auto px-4">
+        <div className="max-w-[1600px] mx-auto px-5">
           <div className="flex items-stretch">
             {/* Logo - Vertically centered across both bars */}
-            <div className="flex items-center pr-8">
+            <div className="flex items-center pr-10">
               <Image 
                 src="/Volleyball-Fraser Valley.png" 
                 alt="Volleyball Fraser Valley" 
-                width={260} 
-                height={85}
+                width={325} 
+                height={106}
                 className="object-contain"
                 priority
               />
@@ -86,13 +86,13 @@ export function Navbar() {
             {/* Right side containing both bars */}
             <div className="flex-1">
               {/* Top bar */}
-              <div className="flex items-center justify-end h-16">
-                <div className="flex items-center space-x-6">
+              <div className="flex items-center justify-end h-20">
+                <div className="flex items-center space-x-8">
                   <a href="tel:403-510-1784" className="flex items-center space-x-2 text-gray-700 hover:text-primary transition-colors">
-                    <Phone className="h-4 w-4" />
-                    <span className="font-medium">403-510-1784</span>
+                    <Phone className="h-5 w-5" />
+                    <span className="text-[17.5px] font-medium">403-510-1784</span>
                   </a>
-                  <Button className="bg-primary hover:bg-primary/90 text-black font-semibold px-6">
+                  <Button className="bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-8 h-12 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer">
                     Start Today
                   </Button>
                 </div>
@@ -100,29 +100,29 @@ export function Navbar() {
               
               {/* Bottom navigation bar */}
               <div className="border-t">
-                <nav className="flex items-center justify-between h-12">
+                <nav className="flex items-center justify-between h-[60px]">
                   {navItems.map((item) => (
                     item.subItems ? (
                       <NavigationMenu key={item.name}>
                         <NavigationMenuList>
                           <NavigationMenuItem>
                             <NavigationMenuTrigger className={cn(
-                              "inline-flex h-12 items-center justify-center transition-all text-sm font-medium px-5",
+                              "inline-flex h-[60px] items-center justify-center transition-all text-[17.5px] font-medium px-6",
                               "text-gray-700 hover:text-primary bg-transparent hover:bg-transparent data-[state=open]:bg-transparent"
                             )}>
                               <span>{item.name}</span>
                             </NavigationMenuTrigger>
                             <NavigationMenuContent>
-                              <ul className="grid w-[400px] gap-3 p-4">
+                              <ul className="grid w-[500px] gap-3 p-5">
                                 {item.subItems.map((subItem) => (
                                   <li key={subItem.name}>
                                     <NavigationMenuLink asChild>
                                       <a
                                         href={subItem.href}
-                                        className="block select-none space-y-1 rounded-md p-3 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                        className="block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                       >
-                                        <div className="text-sm font-medium leading-none">{subItem.name}</div>
-                                        <p className="line-clamp-2 text-sm leading-snug text-muted-foreground">
+                                        <div className="text-base font-medium leading-none">{subItem.name}</div>
+                                        <p className="line-clamp-2 text-base leading-snug text-muted-foreground">
                                           {subItem.description}
                                         </p>
                                       </a>
@@ -139,7 +139,7 @@ export function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={cn(
-                          "inline-flex h-12 items-center justify-center px-5 text-sm font-medium transition-colors focus:outline-none",
+                          "inline-flex h-[60px] items-center justify-center px-6 text-[17.5px] font-medium transition-colors focus:outline-none",
                           "text-gray-700 hover:text-primary hover:bg-gray-100/50"
                         )}
                       >
@@ -156,30 +156,30 @@ export function Navbar() {
 
       {/* Mobile Navbar */}
       <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md lg:hidden">
-        <div className="flex items-center justify-between h-16 px-4">
+        <div className="flex items-center justify-between h-20 px-5">
           {/* Logo */}
           <Image 
             src="/Volleyball-Fraser Valley.png" 
             alt="Volleyball Fraser Valley" 
-            width={180} 
-            height={50}
+            width={225} 
+            height={63}
             className="object-contain"
             priority
           />
 
           {/* Right side with phone and menu */}
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-3">
             <a 
               href="tel:403-510-1784" 
               className="hidden sm:flex items-center justify-center p-2 text-gray-700 hover:text-primary transition-colors"
               aria-label="Call us"
             >
-              <Phone className="h-5 w-5" />
+              <Phone className="h-6 w-6" />
             </a>
             
             <Button 
               size="sm" 
-              className="hidden sm:inline-flex bg-primary hover:bg-primary/90 text-black font-semibold px-3 h-9"
+              className="hidden sm:inline-flex bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-4 h-11 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer"
             >
               Register
             </Button>
@@ -190,38 +190,38 @@ export function Navbar() {
                 <Button 
                   variant="ghost" 
                   size="icon" 
-                  className="h-10 w-10"
+                  className="h-12 w-12"
                   aria-label="Open menu"
                 >
-                  <Menu className="h-6 w-6" />
+                  <Menu className="h-[30px] w-[30px]" />
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[85vw] sm:w-[400px] p-0">
                 {/* Sheet Header */}
-                <div className="p-6 pb-4 border-b">
+                <div className="p-8 pb-5 border-b">
                   <SheetHeader>
-                    <SheetTitle className="text-xl font-bold">Menu</SheetTitle>
+                    <SheetTitle className="text-2xl font-bold">Menu</SheetTitle>
                   </SheetHeader>
                 </div>
 
                 {/* Navigation Items */}
-                <nav className="flex flex-col h-[calc(100vh-5rem)]">
-                  <div className="flex-1 overflow-y-auto py-4">
+                <nav className="flex flex-col h-[calc(100vh-6rem)]">
+                  <div className="flex-1 overflow-y-auto py-5">
                     {navItems.map((item) => (
                       <div key={item.name} className="border-b border-gray-100 last:border-0">
                         {item.subItems ? (
                           <Accordion type="single" collapsible>
                             <AccordionItem value={item.name} className="border-0">
-                              <AccordionTrigger className="px-6 py-4 text-base font-medium hover:no-underline hover:bg-gray-50 data-[state=open]:bg-gray-50">
+                              <AccordionTrigger className="px-8 py-5 text-lg font-medium hover:no-underline hover:bg-gray-50 data-[state=open]:bg-gray-50">
                                 <span className="text-left">{item.name}</span>
                               </AccordionTrigger>
-                              <AccordionContent className="pb-4">
+                              <AccordionContent className="pb-5">
                                 <div className="space-y-1">
                                   {item.subItems.map((subItem) => (
                                     <a
                                       key={subItem.name}
                                       href={subItem.href}
-                                      className="block px-6 py-3 pl-10 text-sm text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors"
+                                      className="block px-8 py-4 pl-12 text-base text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors"
                                     >
                                       {subItem.name}
                                     </a>
@@ -233,7 +233,7 @@ export function Navbar() {
                         ) : (
                           <a 
                             href={item.href} 
-                            className="block px-6 py-4 text-base font-medium hover:bg-gray-50 transition-colors"
+                            className="block px-8 py-5 text-lg font-medium hover:bg-gray-50 transition-colors"
                           >
                             {item.name}
                           </a>
@@ -243,15 +243,15 @@ export function Navbar() {
                   </div>
 
                   {/* Bottom Section */}
-                  <div className="border-t bg-gray-50 p-6 space-y-4">
+                  <div className="border-t bg-gray-50 p-8 space-y-5">
                     <a 
                       href="tel:403-510-1784" 
-                      className="flex items-center justify-center space-x-2 text-gray-700 hover:text-primary transition-colors"
+                      className="flex items-center justify-center space-x-3 text-gray-700 hover:text-primary transition-colors"
                     >
-                      <Phone className="h-5 w-5" />
-                      <span className="font-medium">403-510-1784</span>
+                      <Phone className="h-6 w-6" />
+                      <span className="text-lg font-medium">403-510-1784</span>
                     </a>
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-black font-semibold h-12 text-base">
+                    <Button className="w-full bg-primary hover:bg-primary/90 text-black font-semibold h-14 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 cursor-pointer">
                       Start Today
                     </Button>
                   </div>
