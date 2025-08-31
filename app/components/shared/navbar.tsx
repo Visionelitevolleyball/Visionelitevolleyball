@@ -1,5 +1,6 @@
 "use client"
 
+import { useState, useEffect } from "react"
 import Image from "next/image"
 import { Menu, Phone } from "lucide-react"
 
@@ -63,14 +64,31 @@ const navItems = [
 ]
 
 export function Navbar() {
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+    const handleScroll = () => {
+      setIsScrolled(window.scrollY > 50)
+    }
+
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
+
   return (
     <>
       {/* Desktop Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-gray-50 shadow-md hidden lg:block">
+      <header className={cn(
+        "fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 hidden lg:block transition-all duration-300",
+        isScrolled ? "h-[60px]" : ""
+      )}>
         <div className="max-w-[1600px] mx-auto px-5">
-          <div className="flex items-stretch">
+          <div className="flex items-stretch relative">
             {/* Logo - Vertically centered across both bars */}
-            <div className="flex items-center pr-10">
+            <div className={cn(
+              "flex items-center pr-10 transition-all duration-300",
+              isScrolled ? "opacity-0 -translate-x-10 pointer-events-none" : "opacity-100 translate-x-0"
+            )}>
               <Image 
                 src="/Volleyball-Fraser Valley.png" 
                 alt="Volleyball Fraser Valley" 
@@ -81,10 +99,31 @@ export function Navbar() {
               />
             </div>
             
+            {/* Small Logo for scrolled state */}
+            <div className={cn(
+              "absolute left-0 flex items-center h-[60px] transition-all duration-300",
+              isScrolled ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"
+            )}>
+              <Image 
+                src="/Volleyball-Fraser Valley.png" 
+                alt="Volleyball Fraser Valley" 
+                width={180} 
+                height={60}
+                className="object-contain"
+                priority
+              />
+            </div>
+            
             {/* Right side containing both bars */}
-            <div className="flex-1">
+            <div className={cn(
+              "flex-1 transition-all duration-300",
+              isScrolled ? "ml-0" : ""
+            )}>
               {/* Top bar */}
-              <div className="flex items-center justify-end h-20">
+              <div className={cn(
+                "flex items-center justify-end transition-all duration-300",
+                isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-20 opacity-100"
+              )}>
                 <div className="flex items-center space-x-8">
                   <a href="tel:403-510-1784" className="flex items-center space-x-2 text-gray-700 hover:text-primary transition-colors">
                     <Phone className="h-5 w-5" />
@@ -97,11 +136,17 @@ export function Navbar() {
               </div>
               
               {/* Bottom navigation bar */}
-              <div className="border-t">
-                <nav className="flex items-center justify-between h-[60px]">
+              <div className={cn(
+                "border-t transition-all duration-300",
+                isScrolled ? "border-transparent" : ""
+              )}>
+                <nav className={cn(
+                  "flex items-center h-[60px]",
+                  isScrolled ? "justify-center ml-[200px]" : "justify-between"
+                )}>
                   {navItems.map((item) => (
                     item.subItems ? (
-                      <NavigationMenu key={item.name}>
+                      <NavigationMenu key={item.name} viewport={item.name === "Contact Us" ? false : true}>
                         <NavigationMenuList>
                           <NavigationMenuItem>
                             <NavigationMenuTrigger className={cn(
@@ -110,8 +155,18 @@ export function Navbar() {
                             )}>
                               <span>{item.name}</span>
                             </NavigationMenuTrigger>
-                            <NavigationMenuContent>
-                              <ul className="grid w-[500px] gap-3 p-5">
+                            <NavigationMenuContent
+                              {...(item.name === "Contact Us" ? { align: "end", collisionPadding: 10 } : {})}
+                              className={item.name === "Contact Us" ? "left-auto right-0 max-w-[calc(100vw-20px)]" : undefined}
+                            >
+                              <ul
+                                className={cn(
+                                  "grid gap-3 p-5",
+                                  item.name === "Contact Us"
+                                    ? "w-[min(500px,calc(100vw-20px))]"
+                                    : "w-[500px]"
+                                )}
+                              >
                                 {item.subItems.map((subItem) => (
                                   <li key={subItem.name}>
                                     <NavigationMenuLink asChild>
@@ -153,15 +208,21 @@ export function Navbar() {
       </header>
 
       {/* Mobile Navbar */}
-      <header className="fixed top-0 left-0 right-0 z-50 bg-white shadow-md lg:hidden">
-        <div className="flex items-center justify-between h-20 px-5">
+      <header className={cn(
+        "fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 lg:hidden transition-all duration-300",
+        isScrolled ? "h-16" : "h-20"
+      )}>
+        <div className={cn(
+          "flex items-center justify-between px-5 transition-all duration-300",
+          isScrolled ? "h-16" : "h-20"
+        )}>
           {/* Logo */}
           <Image 
             src="/Volleyball-Fraser Valley.png" 
             alt="Volleyball Fraser Valley" 
-            width={225} 
-            height={63}
-            className="object-contain"
+            width={isScrolled ? 180 : 225} 
+            height={isScrolled ? 50 : 63}
+            className="object-contain transition-all duration-300"
             priority
           />
 

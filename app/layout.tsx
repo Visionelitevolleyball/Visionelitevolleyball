@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import { Navbar } from "@/app/components/shared/navbar";
+import { ProgramFinderBar } from "@/app/components/shared/program-finder-bar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -29,7 +30,8 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <Navbar />
-        <main className="pt-20 lg:pt-[140px]">
+        <ProgramFinderBar />
+        <main className="pt-[136px] lg:pt-[188px] bg-white">
           {children}
         </main>
       </body>
