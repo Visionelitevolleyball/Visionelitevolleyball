@@ -281,7 +281,7 @@ export function Navbar() {
                         {item.subItems ? (
                           <Accordion type="single" collapsible>
                             <AccordionItem value={item.name} className="border-0">
-                              <AccordionTrigger className="px-8 py-5 text-lg font-medium hover:no-underline hover:bg-gray-50 data-[state=open]:bg-gray-50">
+                              <AccordionTrigger className="px-8 py-5 text-lg font-medium hover:no-underline hover:bg-gray-50 dark:hover:bg-gray-800 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-gray-800">
                                 <span className="text-left">{item.name}</span>
                               </AccordionTrigger>
                               <AccordionContent className="pb-5">
@@ -290,7 +290,7 @@ export function Navbar() {
                                     <a
                                       key={subItem.name}
                                       href={subItem.href}
-                                      className="block px-8 py-4 pl-12 text-base text-gray-600 hover:text-primary hover:bg-gray-50 transition-colors"
+                                      className="block px-8 py-4 pl-12 text-base text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                                     >
                                       {subItem.name}
                                     </a>
@@ -302,7 +302,7 @@ export function Navbar() {
                         ) : (
                           <a 
                             href={item.href} 
-                            className="block px-8 py-5 text-lg font-medium hover:bg-gray-50 transition-colors"
+                            className="block px-8 py-5 text-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                           >
                             {item.name}
                           </a>
@@ -312,10 +312,10 @@ export function Navbar() {
                   </div>
 
                   {/* Bottom Section */}
-                  <div className="border-t bg-gray-50 p-8 space-y-5">
+                  <div className="border-t bg-gray-50 dark:bg-gray-900 p-8 space-y-5">
                     <a 
                       href="tel:403-510-1784" 
-                      className="flex items-center justify-center space-x-3 text-gray-700 hover:text-primary transition-colors"
+                      className="flex items-center justify-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
                     >
                       <Phone className="h-6 w-6" />
                       <span className="text-lg font-medium">403-510-1784</span>
