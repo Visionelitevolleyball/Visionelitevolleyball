@@ -59,9 +59,7 @@ const navItems = [
       { name: "Location", href: "/contact#location", description: "Find our training facilities" },
       { name: "Join Our Team", href: "/careers", description: "Coaching opportunities" },
     ]
-  },
-  { name: "Testimonials", href: "/testimonials" },
-  { name: "Blog", href: "/blog" }
+  }
 ]
 
 export function Navbar() {
