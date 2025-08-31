@@ -37,8 +37,8 @@ export function ProgramFinderBar() {
                   "shadow-md hover:shadow-xl hover:shadow-primary/20",
                   "transition-all duration-300 hover:scale-[1.02]",
                   "cursor-pointer overflow-hidden",
-                  "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem]",
-                  "hover:before:translate-x-[12rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+                  "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem]",
+                  "hover:before:translate-x-[6rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                   "before:transition-all before:bg-white before:blur-[10px] before:opacity-70"
                 )}
               >
@@ -61,7 +61,7 @@ export function ProgramFinderBar() {
               <Link 
                 href="/login"
                 className={cn(
-                  "group flex items-center gap-2.5 text-gray-700 hover:text-secondary",
+                  "group flex items-center gap-2.5 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
                   "transition-all duration-200 text-[15px] font-medium",
                   "relative py-2"
                 )}
@@ -79,7 +79,7 @@ export function ProgramFinderBar() {
               <Link 
                 href="/affiliate"
                 className={cn(
-                  "group flex items-center gap-2.5 text-gray-700 hover:text-secondary",
+                  "group flex items-center gap-2.5 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
                   "transition-all duration-200 text-[15px] font-medium",
                   "relative py-2"
                 )}
@@ -107,8 +107,8 @@ export function ProgramFinderBar() {
               "shadow-md hover:shadow-lg hover:shadow-primary/20",
               "transition-all duration-300 hover:scale-[1.01]",
               "cursor-pointer overflow-hidden",
-              "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem]",
-              "hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+              "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem]",
+              "hover:before:translate-x-[15rem] before:duration-[0.8s] before:-skew-x-[10deg]",
               "before:transition-all before:bg-white before:blur-[10px] before:opacity-70"
             )}
           >
@@ -124,7 +124,7 @@ export function ProgramFinderBar() {
             <Link 
               href="/login"
               className={cn(
-                "flex items-center gap-2 text-gray-700 hover:text-secondary",
+                "flex items-center gap-2 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
                 "transition-colors duration-300 text-[15px] font-medium",
                 "py-2 px-3"
               )}
@@ -138,7 +138,7 @@ export function ProgramFinderBar() {
             <Link 
               href="/affiliate"
               className={cn(
-                "flex items-center gap-2 text-gray-700 hover:text-secondary",
+                "flex items-center gap-2 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
                 "transition-colors duration-300 text-[15px] font-medium",
                 "py-2 px-3"
               )}

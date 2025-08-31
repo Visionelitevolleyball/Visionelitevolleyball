@@ -126,12 +126,12 @@ export function Navbar() {
                 isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-20 opacity-100"
               )}>
                 <div className="flex items-center space-x-8">
-                  <a href="tel:403-510-1784" className="flex items-center space-x-2 text-gray-700 hover:text-primary transition-colors">
+                  <a href="tel:403-510-1784" className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
                     <Phone className="h-5 w-5" />
                     <span className="text-[17.5px] font-medium">403-510-1784</span>
                   </a>
-                  <Button className="bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-8 h-12 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[10rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
-                    <span className="relative">Start Today</span>
+                  <Button className="relative bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-8 h-12 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem] hover:before:translate-x-[5rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
+                    <span className="relative">Register Today</span>
                   </Button>
                 </div>
               </div>
@@ -237,7 +237,7 @@ export function Navbar() {
           <div className="flex items-center gap-3">
             <a 
               href="tel:403-510-1784" 
-              className="hidden sm:flex items-center justify-center p-2 text-gray-700 hover:text-primary transition-colors"
+              className="hidden sm:flex items-center justify-center p-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
               aria-label="Call us"
             >
               <Phone className="h-6 w-6" />
@@ -245,7 +245,7 @@ export function Navbar() {
             
             <Button 
               size="sm" 
-              className="hidden sm:inline-flex bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-4 h-11 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[10rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70"
+              className="hidden sm:inline-flex relative bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-4 h-11 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem] hover:before:translate-x-[5rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70"
             >
               <span className="relative">Register</span>
             </Button>
@@ -320,8 +320,8 @@ export function Navbar() {
                       <Phone className="h-6 w-6" />
                       <span className="text-lg font-medium">403-510-1784</span>
                     </a>
-                    <Button className="w-full bg-primary hover:bg-primary/90 text-black font-semibold h-14 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
-                      <span className="relative">Start Today</span>
+                    <Button className="w-full relative bg-primary hover:bg-primary/90 text-black font-semibold h-14 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem] hover:before:translate-x-[15rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
+                      <span className="relative">Register Today</span>
                     </Button>
                   </div>
                 </nav>
