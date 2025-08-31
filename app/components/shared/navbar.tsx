@@ -151,8 +151,9 @@ export function Navbar() {
                         <NavigationMenuList>
                           <NavigationMenuItem>
                             <NavigationMenuTrigger className={cn(
-                              "inline-flex h-[60px] items-center justify-center transition-all text-[17.5px] font-medium px-6",
-                              "text-gray-700 hover:text-primary bg-transparent hover:bg-transparent data-[state=open]:bg-transparent"
+                              "inline-flex h-[60px] items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md",
+                              "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary",
+                              "data-[state=open]:bg-primary/10 data-[state=open]:text-secondary dark:data-[state=open]:bg-primary/20 dark:data-[state=open]:text-primary"
                             )}>
                               <span>{item.name}</span>
                             </NavigationMenuTrigger>
@@ -193,8 +194,8 @@ export function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={cn(
-                          "inline-flex h-[60px] items-center justify-center px-6 text-[17.5px] font-medium transition-colors focus:outline-none",
-                          "text-gray-700 hover:text-primary hover:bg-gray-100/50"
+                          "inline-flex h-[60px] items-center justify-center px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md",
+                          "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary"
                         )}
                       >
                         <span>{item.name}</span>
