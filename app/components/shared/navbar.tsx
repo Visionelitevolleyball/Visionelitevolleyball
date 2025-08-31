@@ -156,7 +156,7 @@ export function Navbar() {
                               <span>{item.name}</span>
                             </NavigationMenuTrigger>
                             <NavigationMenuContent
-                              {...(item.name === "Contact Us" ? { align: "end", collisionPadding: 10 } : {})}
+                              {...(item.name === "Contact Us" ? { align: "end" } : {})}
                               className={item.name === "Contact Us" ? "left-auto right-0 max-w-[calc(100vw-20px)]" : undefined}
                             >
                               <ul
