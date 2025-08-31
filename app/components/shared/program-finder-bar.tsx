@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect } from "react"
-import { MapPin, UserCircle, Award, ChevronRight, Search } from "lucide-react"
+import { MapPin, UserCircle, Award, ChevronRight } from "lucide-react"
 import Link from "next/link"
 import { Button } from "@/components/ui/button"
 import { cn } from "@/lib/utils"
@@ -20,7 +20,7 @@ export function ProgramFinderBar() {
 
   return (
     <section className={cn(
-      "fixed left-0 right-0 z-40 bg-white border-b border-gray-100 transition-all duration-300",
+      "fixed left-0 right-0 z-40 bg-background border-b border-border transition-all duration-300",
       isScrolled ? "top-16 lg:top-[60px]" : "top-20 lg:top-[140px]"
     )}>
       {/* Desktop Layout */}
