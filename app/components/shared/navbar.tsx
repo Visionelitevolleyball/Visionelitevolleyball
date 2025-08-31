@@ -80,7 +80,7 @@ export function Navbar() {
     <>
       {/* Desktop Navbar */}
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 bg-background hidden lg:block transition-all duration-300",
         isScrolled ? "h-[60px]" : ""
       )}>
         <div className="max-w-[1600px] mx-auto px-5">
@@ -216,7 +216,7 @@ export function Navbar() {
 
       {/* Mobile Navbar */}
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border lg:hidden transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 bg-background lg:hidden transition-all duration-300",
         isScrolled ? "h-16" : "h-20"
       )}>
         <div className={cn(
