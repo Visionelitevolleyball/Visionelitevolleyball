@@ -286,15 +286,7 @@ export function FeatureCarousel() {
                       : "w-3 h-3 bg-white/60 hover:bg-white/80 hover:scale-125"
                   )}
                   aria-label={`Go to slide ${index + 1}`}
-                >
-                  {index === currentFeature && (
-                    <motion.div
-                      className="absolute inset-0 rounded-full bg-white/30"
-                      animate={{ scale: [1, 1.5, 1] }}
-                      transition={{ duration: 2, repeat: Infinity }}
-                    />
-                  )}
-                </button>
+                />
               ))}
             </div>
           </div>
