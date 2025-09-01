@@ -34,7 +34,7 @@ export function ProgramFinderBar() {
                 className={cn(
                   "group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary",
                   "text-black font-semibold text-[15px] px-6 h-[38px]",
-                  "shadow-md hover:shadow-xl hover:shadow-primary/20",
+                  "hover:shadow-sm",
                   "transition-all duration-300 hover:scale-[1.02]",
                   "cursor-pointer overflow-hidden",
                   "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-12rem]",
@@ -104,7 +104,7 @@ export function ProgramFinderBar() {
             className={cn(
               "w-full group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary",
               "text-black font-semibold text-[16px] h-[48px]",
-              "shadow-md hover:shadow-lg hover:shadow-primary/20",
+              "hover:shadow-sm",
               "transition-all duration-300 hover:scale-[1.01]",
               "cursor-pointer overflow-hidden",
               "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-12rem]",
