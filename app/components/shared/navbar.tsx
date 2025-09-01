@@ -126,7 +126,7 @@ export function Navbar() {
                 "flex items-center justify-between transition-all duration-300",
                 isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-20 opacity-100"
               )}>
-                <AnimatedTagline className="ml-8" />
+                <AnimatedTagline className="ml-6" />
                 <div className="flex items-center space-x-8">
                   <a href="tel:403-510-1784" className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
                     <Phone className="h-5 w-5" />
