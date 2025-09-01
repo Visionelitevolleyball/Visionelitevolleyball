@@ -6,6 +6,7 @@ import { Menu, Phone } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
+import { AnimatedTagline } from "@/components/ui/animated-tagline"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -122,9 +123,10 @@ export function Navbar() {
             )}>
               {/* Top bar */}
               <div className={cn(
-                "flex items-center justify-end transition-all duration-300",
+                "flex items-center justify-between transition-all duration-300",
                 isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-20 opacity-100"
               )}>
+                <AnimatedTagline className="ml-8" />
                 <div className="flex items-center space-x-8">
                   <a href="tel:403-510-1784" className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors">
                     <Phone className="h-5 w-5" />
