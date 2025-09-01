@@ -97,7 +97,7 @@ export function ProgramFinderBar() {
 
       {/* Mobile Layout */}
       <div className="lg:hidden">
-        <div className="px-4 py-4 space-y-4">
+        <div className="px-4 py-3">
           {/* Find a Program - Full Width */}
           <Button 
             size="lg"
@@ -118,35 +118,6 @@ export function ProgramFinderBar() {
               <ChevronRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-1" />
             </span>
           </Button>
-
-          {/* Login & Affiliate Links */}
-          <div className="flex items-center justify-around py-1">
-            <Link 
-              href="/login"
-              className={cn(
-                "flex items-center gap-2 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
-                "transition-colors duration-300 text-[15px] font-medium",
-                "py-2 px-3"
-              )}
-            >
-              <UserCircle className="h-4 w-4" />
-              <span>Login/Sign up</span>
-            </Link>
-
-            <div className="h-5 w-px bg-gray-300" />
-
-            <Link 
-              href="/affiliate"
-              className={cn(
-                "flex items-center gap-2 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
-                "transition-colors duration-300 text-[15px] font-medium",
-                "py-2 px-3"
-              )}
-            >
-              <Award className="h-4 w-4" />
-              <span>Affiliate Program</span>
-            </Link>
-          </div>
         </div>
       </div>
     </section>

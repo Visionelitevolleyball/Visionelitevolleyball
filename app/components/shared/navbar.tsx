@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Menu, Phone } from "lucide-react"
+import { Menu, Phone, UserCircle, Award } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
@@ -272,14 +272,14 @@ export function Navbar() {
               </SheetTrigger>
               <SheetContent side="right" className="w-[85vw] sm:w-[400px] p-0">
                 {/* Sheet Header */}
-                <div className="p-8 pb-5 border-b">
+                <div className="p-6 pb-4 border-b">
                   <SheetHeader>
                     <SheetTitle className="text-2xl font-bold">Menu</SheetTitle>
                   </SheetHeader>
                 </div>
 
                 {/* Navigation Items */}
-                <nav className="flex flex-col h-[calc(100vh-6rem)]">
+                <nav className="flex flex-col h-[calc(100vh-5rem)]">
                   <div className="flex-1 overflow-y-auto py-5">
                     {navItems.map((item) => (
                       <div key={item.name} className="border-b border-gray-100 last:border-0">
@@ -314,10 +314,31 @@ export function Navbar() {
                         )}
                       </div>
                     ))}
+                    
+                    {/* Divider */}
+                    <div className="my-4 border-t border-gray-200 dark:border-gray-700" />
+
+                    {/* Account Links */}
+                    <div className="space-y-1 px-8">
+                      <a 
+                        href="/login" 
+                        className="flex items-center gap-3 py-4 text-base font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                      >
+                        <UserCircle className="h-5 w-5" />
+                        <span>Login/Sign up</span>
+                      </a>
+                      <a 
+                        href="/affiliate" 
+                        className="flex items-center gap-3 py-4 text-base font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                      >
+                        <Award className="h-5 w-5" />
+                        <span>Affiliate Program</span>
+                      </a>
+                    </div>
                   </div>
 
                   {/* Bottom Section */}
-                  <div className="border-t bg-gray-50 dark:bg-gray-900 p-8 space-y-5">
+                  <div className="border-t bg-gray-50 dark:bg-gray-900 p-6 space-y-4">
                     <a 
                       href="tel:403-510-1784" 
                       className="flex items-center justify-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
