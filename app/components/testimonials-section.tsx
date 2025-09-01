@@ -29,8 +29,7 @@ const testimonials: Testimonial[] = [
       initials: "CA"
     },
     text: "These classes have truly been life-changing for my daughter. She didn't just enjoy them—she's grown in confidence, built lasting friendships, and discovered a real passion for volleyball. The group sizes made sure she felt included, the coaches inspired her every step of the way, and the drills and games turned learning into something she looks forward to all week. We've seen such a positive difference in her, both on and off the court.",
-    rating: 5,
-    featured: true
+    rating: 5
   },
   {
     author: {
@@ -57,8 +56,7 @@ const testimonials: Testimonial[] = [
       initials: "AS"
     },
     text: "My daughter learned more in one season here than two years anywhere else. She finally believes in herself and can't wait for the next camp. The coaching is consistent, clear, and focused. My son's confidence skyrocketed.",
-    rating: 5,
-    featured: true
+    rating: 5
   }
 ]
 
@@ -98,7 +96,7 @@ export function TestimonialsSection() {
           className="font-bold mb-6"
         >
           <span className={cn(
-            "block text-xl sm:text-3xl lg:text-4xl font-medium mb-3",
+            "block text-xl sm:text-3xl lg:text-4xl font-medium mb-2",
             "bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600",
             "dark:from-gray-100 dark:via-gray-200 dark:to-gray-400",
             "bg-clip-text text-transparent",
@@ -111,7 +109,7 @@ export function TestimonialsSection() {
             "bg-gradient-to-r from-primary via-primary/80 to-yellow-600",
             "dark:from-primary dark:via-primary dark:to-yellow-500",
             "bg-clip-text text-transparent",
-            "leading-tight",
+            "leading-normal",
             "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.2)]"
           )}>
             OUR COMMUNITY
