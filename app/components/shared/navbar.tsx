@@ -80,8 +80,7 @@ export function Navbar() {
     <>
       {/* Desktop Navbar */}
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300 overflow-visible",
-        isScrolled ? "h-[60px]" : ""
+        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300 overflow-visible"
       )}>
         <div className="max-w-[1600px] mx-auto px-5">
           <div className="flex items-stretch relative">
