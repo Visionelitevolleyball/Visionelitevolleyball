@@ -18,8 +18,6 @@ import {
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import {
@@ -271,31 +269,29 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[85vw] sm:w-[400px] p-0">
-                {/* Sheet Header */}
-                <div className="p-6 pb-4 border-b">
-                  <SheetHeader>
-                    <SheetTitle className="text-2xl font-bold">Menu</SheetTitle>
-                  </SheetHeader>
+                {/* Sheet Header with Menu title - simplified */}
+                <div className="px-6 pt-12 pb-4 border-b">
+                  <h2 className="text-2xl font-bold">Menu</h2>
                 </div>
 
                 {/* Navigation Items */}
-                <nav className="flex flex-col h-[calc(100vh-5rem)]">
-                  <div className="flex-1 overflow-y-auto py-5">
+                <nav className="flex flex-col h-[calc(100vh-4.5rem)]">
+                  <div className="flex-1 overflow-y-auto">
                     {navItems.map((item) => (
-                      <div key={item.name} className="border-b border-gray-100 last:border-0">
+                      <div key={item.name} className="border-b border-gray-100 dark:border-gray-800 last:border-0">
                         {item.subItems ? (
                           <Accordion type="single" collapsible>
                             <AccordionItem value={item.name} className="border-0">
-                              <AccordionTrigger className="px-8 py-5 text-lg font-medium hover:no-underline hover:bg-gray-50 dark:hover:bg-gray-800 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-gray-800">
+                              <AccordionTrigger className="px-6 py-3.5 text-base font-medium hover:no-underline hover:bg-gray-50 dark:hover:bg-gray-800 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-gray-800">
                                 <span className="text-left">{item.name}</span>
                               </AccordionTrigger>
-                              <AccordionContent className="pb-5">
+                              <AccordionContent className="pb-2">
                                 <div className="space-y-1">
                                   {item.subItems.map((subItem) => (
                                     <a
                                       key={subItem.name}
                                       href={subItem.href}
-                                      className="block px-8 py-4 pl-12 text-base text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                                      className="block px-6 py-3 pl-12 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                                     >
                                       {subItem.name}
                                     </a>
@@ -307,7 +303,7 @@ export function Navbar() {
                         ) : (
                           <a 
                             href={item.href} 
-                            className="block px-8 py-5 text-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                            className="block px-6 py-3.5 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                           >
                             {item.name}
                           </a>
@@ -319,17 +315,17 @@ export function Navbar() {
                     <div className="my-4 border-t border-gray-200 dark:border-gray-700" />
 
                     {/* Account Links */}
-                    <div className="space-y-1 px-8">
+                    <div className="space-y-0 px-6">
                       <a 
                         href="/login" 
-                        className="flex items-center gap-3 py-4 text-base font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                        className="flex items-center gap-3 py-3.5 text-base font-medium hover:text-primary dark:hover:text-primary transition-colors"
                       >
                         <UserCircle className="h-5 w-5" />
                         <span>Login/Sign up</span>
                       </a>
                       <a 
                         href="/affiliate" 
-                        className="flex items-center gap-3 py-4 text-base font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                        className="flex items-center gap-3 py-3.5 text-base font-medium hover:text-primary dark:hover:text-primary transition-colors"
                       >
                         <Award className="h-5 w-5" />
                         <span>Affiliate Program</span>
