@@ -34,11 +34,11 @@ export function TestimonialCard({
         "backdrop-blur-sm",
         "p-6 sm:p-8",
         "hover:border-primary/30 dark:hover:border-primary/40",
-        "hover:shadow-2xl hover:shadow-primary/10 dark:hover:shadow-primary/20",
+        "hover:shadow-lg hover:shadow-primary/10 dark:hover:shadow-primary/20",
         "hover:-translate-y-1",
         "transition-all duration-500",
         "min-w-[340px] max-w-[380px]",
-        featured && "border-primary/20 dark:border-primary/30 shadow-xl shadow-primary/10",
+        featured && "border-primary/20 dark:border-primary/30 shadow-md shadow-primary/10",
         className
       )}
     >
