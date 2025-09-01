@@ -117,6 +117,11 @@ Blog
 
 ## Git Commit & PR Guidelines
 
+### Branch Strategy
+- **Always work in development branch** - never commit directly to main
+- Create PR from development to main when ready
+- Switch to development: `git checkout development`
+
 ### Commit Message Rules
 - **Always lowercase** - no capital/uppercase letters
 - **One-liner only** - no descriptions or multi-line commits
