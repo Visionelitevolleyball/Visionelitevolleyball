@@ -14,6 +14,7 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuIndicator,
 } from "@/components/ui/navigation-menu"
 import {
   Sheet,
@@ -79,7 +80,7 @@ export function Navbar() {
     <>
       {/* Desktop Navbar */}
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300 overflow-visible",
         isScrolled ? "h-[60px]" : ""
       )}>
         <div className="max-w-[1600px] mx-auto px-5">
@@ -138,11 +139,11 @@ export function Navbar() {
               
               {/* Bottom navigation bar */}
               <div className={cn(
-                "border-t transition-all duration-300",
+                "border-t transition-all duration-300 relative",
                 isScrolled ? "border-transparent" : ""
               )}>
                 <nav className={cn(
-                  "flex items-center h-[60px]",
+                  "flex items-center h-[60px] relative overflow-visible",
                   isScrolled ? "justify-center ml-[200px]" : "justify-between"
                 )}>
                   {navItems.map((item) => (
@@ -190,6 +191,7 @@ export function Navbar() {
                               </ul>
                             </NavigationMenuContent>
                           </NavigationMenuItem>
+                          <NavigationMenuIndicator />
                         </NavigationMenuList>
                       </NavigationMenu>
                     ) : (
