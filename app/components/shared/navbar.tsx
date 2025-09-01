@@ -80,7 +80,8 @@ export function Navbar() {
     <>
       {/* Desktop Navbar */}
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300 overflow-visible"
+        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300 overflow-visible",
+        isScrolled ? "h-[60px]" : ""
       )}>
         <div className="max-w-[1600px] mx-auto px-5">
           <div className="flex items-stretch relative">
@@ -151,7 +152,8 @@ export function Navbar() {
                         <NavigationMenuList>
                           <NavigationMenuItem>
                             <NavigationMenuTrigger className={cn(
-                              "inline-flex h-[60px] items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md cursor-pointer",
+                              "inline-flex items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md cursor-pointer",
+                              isScrolled ? "h-[48px]" : "h-[60px]",
                               "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary",
                               "data-[state=open]:text-secondary dark:data-[state=open]:text-primary"
                             )}>
@@ -198,7 +200,8 @@ export function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={cn(
-                          "inline-flex h-[60px] items-center justify-center px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md",
+                          "inline-flex items-center justify-center px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md",
+                          isScrolled ? "h-[48px]" : "h-[60px]",
                           "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary"
                         )}
                       >
