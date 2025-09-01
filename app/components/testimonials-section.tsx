@@ -171,38 +171,6 @@ export function TestimonialsSection() {
         <div className="pointer-events-none absolute inset-y-0 left-0 w-32 bg-gradient-to-r from-background to-transparent" />
         <div className="pointer-events-none absolute inset-y-0 right-0 w-32 bg-gradient-to-l from-background to-transparent" />
       </div>
-
-      {/* CTA Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        whileInView={{ opacity: 1, y: 0 }}
-        viewport={{ once: true }}
-        transition={{ duration: 0.6 }}
-        className="relative max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center mt-20"
-      >
-        <div className={cn(
-          "p-8 sm:p-12 rounded-3xl",
-          "bg-gradient-to-br from-primary/10 via-primary/5 to-transparent",
-          "dark:from-primary/20 dark:via-primary/10",
-          "border border-primary/20",
-          "backdrop-blur-sm"
-        )}>
-          <h3 className="text-2xl sm:text-3xl font-bold text-gray-900 dark:text-gray-100 mb-4">
-            Ready to Join Our Community?
-          </h3>
-          <p className="text-gray-600 dark:text-gray-400 mb-8">
-            Experience the difference that professional coaching and a supportive community can make.
-          </p>
-          <button className={cn(
-            "group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary",
-            "text-black font-semibold text-lg px-8 py-4",
-            "rounded-xl hover:shadow-xl hover:scale-105",
-            "transition-all duration-300"
-          )}>
-            Start Your Journey Today
-          </button>
-        </div>
-      </motion.div>
     </section>
   )
 }
