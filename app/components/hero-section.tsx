@@ -40,7 +40,7 @@ export function HeroSection() {
         <motion.h1
           initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
           animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-          transition={{ duration: 0.8, ease: "easeOut", delay: 0.2 }}
+          transition={{ duration: 1.0, ease: "easeOut", delay: 0.3 }}
           className="text-5xl sm:text-6xl md:text-7xl lg:text-8xl font-bold tracking-tight mb-6"
         >
           <span className="block text-3xl sm:text-4xl md:text-5xl font-medium text-gray-600 dark:text-gray-400 mb-2">
@@ -69,9 +69,9 @@ export function HeroSection() {
 
         {/* Subtitle */}
         <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.4 }}
+          initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
+          animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+          transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
           className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10"
         >
           Where passion meets excellence. Transform your game with elite coaching 
@@ -82,7 +82,7 @@ export function HeroSection() {
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, ease: "easeOut", delay: 0.6 }}
+          transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
           <Button 
