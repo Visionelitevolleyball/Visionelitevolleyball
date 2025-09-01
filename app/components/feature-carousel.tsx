@@ -65,7 +65,7 @@ export function FeatureCarousel() {
 
   return (
     <section 
-      className="relative py-20 lg:py-24 overflow-hidden"
+      className="relative py-16 lg:py-18 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
@@ -75,20 +75,20 @@ export function FeatureCarousel() {
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
 
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="relative z-10 max-w-[96rem] mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
-        <div className="text-center mb-12">
+        <div className="text-center mb-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-6"
+            className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 border border-primary/20 mb-4"
           >
-            <span className="relative flex h-2 w-2">
-              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-primary opacity-75" />
-              <span className="relative inline-flex rounded-full h-2 w-2 bg-primary" />
+            <span className="relative flex h-2.5 w-2.5">
+              <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-gradient-to-r from-primary to-yellow-500 opacity-75" />
+              <span className="relative inline-flex rounded-full h-2.5 w-2.5 bg-gradient-to-r from-primary to-yellow-500 shadow-lg shadow-primary/50" />
             </span>
-            <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
+            <span className="text-sm font-semibold bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-200 dark:to-gray-400 bg-clip-text text-transparent">
               Our Training Philosophy
             </span>
           </motion.div>
@@ -97,7 +97,7 @@ export function FeatureCarousel() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold"
+            className="text-3xl sm:text-4xl lg:text-5xl font-bold"
           >
             <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent">
               Excellence in Every
@@ -110,17 +110,17 @@ export function FeatureCarousel() {
         </div>
 
         {/* Desktop Layout */}
-        <div className="hidden lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        <div className="hidden lg:grid lg:grid-cols-[2fr_3fr] gap-6 lg:gap-10 xl:gap-12 items-center">
           {/* Left: Feature Steps */}
-          <div className="order-2 lg:order-1 space-y-6">
+          <div className="order-2 lg:order-1 space-y-4">
             {features.map((feature, index) => (
               <motion.div
                 key={index}
                 className={cn(
-                  "group relative flex gap-6 p-6 rounded-2xl cursor-pointer transition-all duration-300",
+                  "group relative flex gap-5 p-5 rounded-2xl cursor-pointer transition-all duration-300",
                   index === currentFeature 
-                    ? "bg-gradient-to-r from-primary/15 to-primary/5 border-2 border-primary/30 shadow-lg dark:from-primary/10 dark:to-primary/5 dark:border-primary/20" 
-                    : "hover:bg-gray-100 dark:hover:bg-gray-800/50"
+                    ? "bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary/40 shadow-xl shadow-primary/10 dark:from-primary/15 dark:via-primary/5 dark:to-transparent dark:border-primary/30 dark:shadow-primary/5" 
+                    : "hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100/50 dark:hover:from-gray-800/30 dark:hover:to-gray-800/10 border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
                 )}
                 onClick={() => handleFeatureClick(index)}
                 initial={{ opacity: 0, x: -20 }}
@@ -131,38 +131,41 @@ export function FeatureCarousel() {
                 <div className="relative">
                   <motion.div
                     className={cn(
-                      "w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300",
+                      "w-11 h-11 rounded-full flex items-center justify-center border-2 transition-all duration-300",
                       index === currentFeature
-                        ? "bg-primary border-primary text-black scale-110 shadow-lg shadow-primary/30"
-                        : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400"
+                        ? "bg-gradient-to-br from-primary via-yellow-500 to-primary border-primary text-black scale-110 shadow-xl shadow-primary/40"
+                        : "bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400"
                     )}
-                    animate={{ scale: index === currentFeature ? [1, 1.1, 1] : 1 }}
-                    transition={{ duration: 2, repeat: Infinity }}
+                    animate={{ 
+                      scale: index === currentFeature ? [1, 1.1, 1] : 1,
+                      rotate: index === currentFeature ? [0, 5, -5, 0] : 0
+                    }}
+                    transition={{ duration: 3, repeat: Infinity }}
                   >
                     <span className="text-lg font-bold">{index + 1}</span>
                   </motion.div>
                   
                   {/* Progress Ring for Active */}
                   {index === currentFeature && (
-                    <svg className="absolute inset-0 w-12 h-12 -rotate-90">
+                    <svg className="absolute inset-0 w-11 h-11 -rotate-90">
                       <circle
-                        cx="24"
-                        cy="24"
-                        r="22"
+                        cx="22"
+                        cy="22"
+                        r="20"
                         stroke="currentColor"
                         strokeWidth="2"
                         fill="none"
                         className="text-primary/20"
                       />
                       <circle
-                        cx="24"
-                        cy="24"
-                        r="22"
+                        cx="22"
+                        cy="22"
+                        r="20"
                         stroke="currentColor"
                         strokeWidth="2"
                         fill="none"
-                        strokeDasharray={`${2 * Math.PI * 22}`}
-                        strokeDashoffset={`${2 * Math.PI * 22 * (1 - progress / 100)}`}
+                        strokeDasharray={`${2 * Math.PI * 20}`}
+                        strokeDashoffset={`${2 * Math.PI * 20 * (1 - progress / 100)}`}
                         className="text-primary transition-all duration-100"
                       />
                     </svg>
@@ -171,7 +174,7 @@ export function FeatureCarousel() {
 
                 {/* Content */}
                 <div className="flex-1">
-                  <h3 className="text-xl lg:text-2xl font-semibold mb-2">
+                  <h3 className="text-lg lg:text-xl font-semibold mb-2">
                     <span className={cn(
                       "transition-colors duration-300",
                       index === currentFeature ? "text-gray-900 dark:text-gray-100" : "text-gray-500 dark:text-gray-500"
@@ -188,7 +191,7 @@ export function FeatureCarousel() {
                     </span>
                   </h3>
                   <p className={cn(
-                    "text-sm lg:text-base transition-all duration-300",
+                    "text-sm transition-all duration-300",
                     index === currentFeature 
                       ? "text-gray-700 dark:text-gray-300" 
                       : "text-gray-400 dark:text-gray-600"
@@ -208,11 +211,12 @@ export function FeatureCarousel() {
                       >
                         <Button
                           className={cn(
-                            "group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary",
-                            "text-black font-semibold",
-                            "hover:shadow-lg hover:scale-105",
+                            "group relative bg-gradient-to-r from-primary via-yellow-500 to-primary hover:from-primary hover:via-yellow-400 hover:to-primary",
+                            "text-black font-bold px-6 py-2.5",
+                            "hover:shadow-2xl hover:shadow-primary/30 hover:scale-105",
                             "transition-all duration-300",
                             "cursor-pointer overflow-hidden",
+                            "ring-2 ring-primary/20 hover:ring-primary/40",
                             "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
                             "hover:before:translate-x-[15rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                             "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
@@ -232,7 +236,7 @@ export function FeatureCarousel() {
           </div>
 
           {/* Right: Image Carousel */}
-          <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-900">
+          <div className="order-1 lg:order-2 relative h-[280px] sm:h-[380px] lg:h-[480px] xl:h-[520px] rounded-xl overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-900 ring-1 ring-black/5 dark:ring-white/5">
             <AnimatePresence mode="wait">
               {features.map(
                 (feature, index) =>
@@ -247,9 +251,9 @@ export function FeatureCarousel() {
                     >
                       <motion.div
                         className="relative w-full h-full"
-                        initial={{ scale: 1.05 }}
+                        initial={{ scale: 1.1 }}
                         animate={{ scale: 1 }}
-                        transition={{ duration: 8, ease: "easeOut" }}
+                        transition={{ duration: 10, ease: "easeOut" }}
                       >
                         <Image
                           src={feature.image}
@@ -257,8 +261,12 @@ export function FeatureCarousel() {
                           fill
                           className="object-cover"
                           priority={index === 0}
-                          sizes="(max-width: 768px) 100vw, 50vw"
+                          sizes="(max-width: 768px) 100vw, 60vw"
+                          quality={95}
                         />
+                        {/* Premium gradient overlay */}
+                        <div className="absolute inset-0 bg-gradient-to-t from-black/10 via-transparent to-transparent" />
+                        <div className="absolute inset-0 bg-gradient-to-r from-black/5 via-transparent to-transparent" />
                       </motion.div>
                     </motion.div>
                   )
@@ -266,19 +274,27 @@ export function FeatureCarousel() {
             </AnimatePresence>
 
             {/* Manual Navigation Dots */}
-            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-2 z-10">
+            <div className="absolute bottom-4 left-1/2 -translate-x-1/2 flex gap-3 z-10 px-5 py-2.5 bg-black/20 backdrop-blur-md rounded-full">
               {features.map((_, index) => (
                 <button
                   key={index}
                   onClick={() => handleFeatureClick(index)}
                   className={cn(
-                    "w-2 h-2 rounded-full transition-all duration-300",
+                    "rounded-full transition-all duration-500 relative",
                     index === currentFeature 
-                      ? "w-8 bg-primary" 
-                      : "bg-white/50 hover:bg-white/70"
+                      ? "w-10 h-3 bg-gradient-to-r from-primary via-yellow-500 to-primary shadow-lg shadow-primary/50" 
+                      : "w-3 h-3 bg-white/60 hover:bg-white/80 hover:scale-125"
                   )}
                   aria-label={`Go to slide ${index + 1}`}
-                />
+                >
+                  {index === currentFeature && (
+                    <motion.div
+                      className="absolute inset-0 rounded-full bg-white/30"
+                      animate={{ scale: [1, 1.5, 1] }}
+                      transition={{ duration: 2, repeat: Infinity }}
+                    />
+                  )}
+                </button>
               ))}
             </div>
           </div>
@@ -382,25 +398,25 @@ export function FeatureCarousel() {
                   
                   {/* Progress Ring for Active */}
                   {index === currentFeature && (
-                    <svg className="absolute inset-0 w-12 h-12 -rotate-90">
+                    <svg className="absolute inset-0 w-11 h-11 -rotate-90">
                       <circle
-                        cx="24"
-                        cy="24"
-                        r="22"
+                        cx="22"
+                        cy="22"
+                        r="20"
                         stroke="currentColor"
                         strokeWidth="2"
                         fill="none"
                         className="text-primary/20"
                       />
                       <circle
-                        cx="24"
-                        cy="24"
-                        r="22"
+                        cx="22"
+                        cy="22"
+                        r="20"
                         stroke="currentColor"
                         strokeWidth="2"
                         fill="none"
-                        strokeDasharray={`${2 * Math.PI * 22}`}
-                        strokeDashoffset={`${2 * Math.PI * 22 * (1 - progress / 100)}`}
+                        strokeDasharray={`${2 * Math.PI * 20}`}
+                        strokeDashoffset={`${2 * Math.PI * 20 * (1 - progress / 100)}`}
                         className="text-primary transition-all duration-100"
                       />
                     </svg>
