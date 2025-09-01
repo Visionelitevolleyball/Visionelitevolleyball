@@ -12,7 +12,7 @@ const features = [
     title: "Don't Just Play –",
     highlight: "Train like a Hero",
     description: "Transform your game with elite training methods and personalized coaching that brings out the champion in you.",
-    image: "/image1-1.jpg",
+    image: "/image1-1.jpeg",
     buttonText: "Start Your Transformation",
     buttonIcon: <Play className="h-5 w-5" />,
     href: "/programs"
