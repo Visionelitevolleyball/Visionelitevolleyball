@@ -84,21 +84,23 @@ export function PathwaySection() {
             whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 1, ease: "easeOut", delay: 0.1 }}
-            className="text-4xl sm:text-5xl lg:text-6xl font-bold mb-8"
+            className="font-bold mb-8"
           >
-            <span className="block text-2xl sm:text-3xl lg:text-4xl font-medium text-gray-600 dark:text-gray-400 mb-3">
+            <span className="block text-xl sm:text-3xl lg:text-4xl font-medium text-gray-600 dark:text-gray-400 mb-3">
               YOUR PATHWAY FROM
             </span>
-            <span className="inline-flex items-center gap-3">
+            <span className="flex flex-col items-center gap-2 sm:flex-row sm:gap-3 sm:justify-center">
               <span className={cn(
+                "text-3xl sm:text-5xl lg:text-6xl",
                 "bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600",
                 "dark:from-gray-100 dark:via-gray-200 dark:to-gray-400",
                 "bg-clip-text text-transparent"
               )}>
                 BEGINNER
               </span>
-              <span className="text-gray-600 dark:text-gray-400">TO</span>
+              <span className="text-gray-600 dark:text-gray-400 text-xl sm:text-4xl lg:text-6xl">TO</span>
               <span className={cn(
+                "text-3xl sm:text-5xl lg:text-6xl whitespace-nowrap",
                 "bg-gradient-to-r from-primary via-primary/80 to-yellow-600",
                 "dark:from-primary dark:via-primary dark:to-yellow-500",
                 "bg-clip-text text-transparent"
