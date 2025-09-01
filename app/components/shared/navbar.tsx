@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Menu, Phone, UserCircle, Award } from "lucide-react"
+import { Menu, Phone, UserCircle, Award, ChevronDownIcon } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
@@ -20,6 +20,8 @@ import {
   Sheet,
   SheetContent,
   SheetTrigger,
+  SheetTitle,
+  SheetHeader,
 } from "@/components/ui/sheet"
 import {
   Accordion,
@@ -28,6 +30,12 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion"
 import { cn } from "@/lib/utils"
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
 
 const navItems = [
   { name: "Home", href: "/" },
@@ -66,8 +74,10 @@ const navItems = [
 
 export function Navbar() {
   const [isScrolled, setIsScrolled] = useState(false)
+  const [mounted, setMounted] = useState(false)
 
   useEffect(() => {
+    setMounted(true)
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 50)
     }
@@ -80,8 +90,8 @@ export function Navbar() {
     <>
       {/* Desktop Navbar */}
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300 overflow-visible",
-        isScrolled ? "h-[60px]" : ""
+        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300",
+        isScrolled ? "h-[60px] overflow-hidden" : "overflow-visible"
       )}>
         <div className="max-w-[1600px] mx-auto px-5">
           <div className="flex items-stretch relative">
@@ -118,12 +128,12 @@ export function Navbar() {
             {/* Right side containing both bars */}
             <div className={cn(
               "flex-1 transition-all duration-300",
-              isScrolled ? "ml-0" : ""
+              isScrolled ? "ml-0 h-[60px] overflow-visible" : ""
             )}>
               {/* Top bar */}
               <div className={cn(
                 "flex items-center justify-between transition-all duration-300",
-                isScrolled ? "h-0 opacity-0 overflow-hidden" : "h-20 opacity-100"
+                isScrolled ? "h-0 opacity-0 overflow-hidden pointer-events-none" : "h-20 opacity-100"
               )}>
                 <AnimatedTagline className="ml-6" />
                 <div className="flex items-center space-x-8">
@@ -144,57 +154,98 @@ export function Navbar() {
               )}>
                 <nav className={cn(
                   "flex items-center h-[60px] relative overflow-visible",
-                  isScrolled ? "justify-center ml-[200px]" : "justify-between"
+                  isScrolled ? "justify-between ml-[200px]" : "justify-between"
                 )}>
                   {navItems.map((item) => (
                     item.subItems ? (
-                      <NavigationMenu key={item.name} viewport={item.name === "Contact Us" ? false : true}>
-                        <NavigationMenuList>
-                          <NavigationMenuItem>
-                            <NavigationMenuTrigger className={cn(
-                              "inline-flex items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md cursor-pointer",
-                              isScrolled ? "h-[48px]" : "h-[60px]",
-                              "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary",
-                              "data-[state=open]:text-secondary dark:data-[state=open]:text-primary"
-                            )}>
-                              <span>{item.name}</span>
-                            </NavigationMenuTrigger>
-                            <NavigationMenuContent
-                              {...(item.name === "Contact Us" ? { align: "end" } : {})}
-                              className={item.name === "Contact Us" ? "left-auto right-0 max-w-[calc(100vw-20px)]" : undefined}
+                      mounted && isScrolled ? (
+                        <DropdownMenu key={item.name}>
+                          <DropdownMenuTrigger asChild>
+                            <button
+                              className={cn(
+                                "inline-flex items-center justify-center gap-1 px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md",
+                                "h-[48px]",
+                                "text-gray-700 dark:text-gray-300",
+                                "hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100"
+                              )}
                             >
-                              <ul
-                                className={cn(
-                                  "grid gap-3 p-5",
-                                  item.name === "Contact Us"
-                                    ? "w-[min(500px,calc(100vw-20px))]"
-                                    : "w-[500px]"
-                                )}
+                              <span>{item.name}</span>
+                              <ChevronDownIcon className="h-[15px] w-[15px]" />
+                            </button>
+                          </DropdownMenuTrigger>
+                          <DropdownMenuContent
+                            align={item.name === "Contact Us" ? "end" : "start"}
+                            side="bottom"
+                            sideOffset={6}
+                            className="w-[min(500px,calc(100vw-20px))]"
+                          >
+                            {item.subItems.map((subItem) => (
+                              <DropdownMenuItem asChild key={subItem.name}>
+                                <a
+                                  href={subItem.href}
+                                  className="flex flex-col gap-1 rounded-[6px] px-2 py-1.5"
+                                >
+                                  <span className="text-base font-medium leading-none">{subItem.name}</span>
+                                  <span className="text-sm leading-snug text-gray-600 dark:text-gray-300">{subItem.description}</span>
+                                </a>
+                              </DropdownMenuItem>
+                            ))}
+                          </DropdownMenuContent>
+                        </DropdownMenu>
+                      ) : (
+                        <NavigationMenu
+                          key={item.name}
+                          viewport={item.name !== "Contact Us"}
+                        >
+                          <NavigationMenuList>
+                            <NavigationMenuItem>
+                              <NavigationMenuTrigger className={cn(
+                                "inline-flex items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md cursor-pointer",
+                                "h-[60px]",
+                                "text-gray-700 dark:text-gray-300",
+                                "hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100",
+                                "data-[state=open]:bg-gray-100 data-[state=open]:text-gray-900",
+                                "dark:data-[state=open]:bg-gray-800 dark:data-[state=open]:text-gray-100"
+                              )}>
+                                <span>{item.name}</span>
+                              </NavigationMenuTrigger>
+                              <NavigationMenuContent
+                                {...(item.name === "Contact Us" ? { align: "end" } : {})}
+                                className={item.name === "Contact Us" ? "left-auto right-0 max-w-[calc(100vw-20px)]" : undefined}
                               >
-                                {item.subItems.map((subItem) => (
-                                  <li key={subItem.name}>
-                                    <NavigationMenuLink asChild>
-                                      <a
-                                        href={subItem.href}
-                                        className="group/item block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
-                                      >
-                                        <div className="text-base font-medium leading-none">{subItem.name}</div>
-                                        <p className={cn(
-                                          "line-clamp-2 text-base leading-snug text-muted-foreground group-hover/item:!text-accent-foreground group-focus/item:!text-accent-foreground",
-                                          item.name === "Contact Us" && "!text-muted-foreground"
-                                        )}>
-                                          {subItem.description}
-                                        </p>
-                                      </a>
-                                    </NavigationMenuLink>
-                                  </li>
-                                ))}
-                              </ul>
-                            </NavigationMenuContent>
-                          </NavigationMenuItem>
-                          <NavigationMenuIndicator />
-                        </NavigationMenuList>
-                      </NavigationMenu>
+                                <ul
+                                  className={cn(
+                                    "grid gap-3 p-5",
+                                    item.name === "Contact Us"
+                                      ? "w-[min(500px,calc(100vw-20px))]"
+                                      : "w-[500px]"
+                                  )}
+                                >
+                                  {item.subItems.map((subItem) => (
+                                    <li key={subItem.name}>
+                                      <NavigationMenuLink asChild>
+                                        <a
+                                          href={subItem.href}
+                                          className="group/item block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                        >
+                                          <div className="text-base font-medium leading-none">{subItem.name}</div>
+                                          <p className={cn(
+                                            "line-clamp-2 text-base leading-snug text-muted-foreground group-hover/item:!text-accent-foreground group-focus/item:!text-accent-foreground",
+                                            item.name === "Contact Us" && "!text-muted-foreground"
+                                          )}>
+                                            {subItem.description}
+                                          </p>
+                                        </a>
+                                      </NavigationMenuLink>
+                                    </li>
+                                  ))}
+                                </ul>
+                              </NavigationMenuContent>
+                            </NavigationMenuItem>
+                            <NavigationMenuIndicator />
+                          </NavigationMenuList>
+                        </NavigationMenu>
+                      )
                     ) : (
                       <a
                         key={item.name}
@@ -202,7 +253,8 @@ export function Navbar() {
                         className={cn(
                           "inline-flex items-center justify-center px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md",
                           isScrolled ? "h-[48px]" : "h-[60px]",
-                          "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary"
+                          "text-gray-700 dark:text-gray-300",
+                          "hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100"
                         )}
                       >
                         <span>{item.name}</span>
@@ -211,7 +263,7 @@ export function Navbar() {
                   ))}
                   
                   {/* Theme Toggle */}
-                  <div className="flex items-center ml-4">
+                  <div className={cn("flex items-center ml-4", isScrolled && "pointer-events-auto")}>
                     <ModeToggle />
                   </div>
                 </nav>
@@ -273,10 +325,10 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[85vw] sm:w-[400px] p-0">
-                {/* Sheet Header with Menu title - simplified */}
-                <div className="px-6 pt-12 pb-4 border-b">
-                  <h2 className="text-2xl font-bold">Menu</h2>
-                </div>
+                {/* Sheet Header with Menu title for accessibility */}
+                <SheetHeader className="px-6 pt-12 pb-4 border-b">
+                  <SheetTitle className="text-2xl font-bold">Menu</SheetTitle>
+                </SheetHeader>
 
                 {/* Navigation Items */}
                 <nav className="flex flex-col h-[calc(100vh-4.5rem)]">
