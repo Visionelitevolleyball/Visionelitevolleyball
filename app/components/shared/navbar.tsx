@@ -130,7 +130,7 @@ export function Navbar() {
                     <Phone className="h-5 w-5" />
                     <span className="text-[17.5px] font-medium">403-510-1784</span>
                   </a>
-                  <Button className="relative bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-8 h-12 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem] hover:before:translate-x-[5rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
+                  <Button className="relative bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-8 h-12 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[12rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
                     <span className="relative">Register Today</span>
                   </Button>
                 </div>
@@ -174,10 +174,13 @@ export function Navbar() {
                                     <NavigationMenuLink asChild>
                                       <a
                                         href={subItem.href}
-                                        className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                        className="group/item block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                       >
                                         <div className="text-base font-medium leading-none">{subItem.name}</div>
-                                        <p className="line-clamp-2 text-base leading-snug text-muted-foreground group-hover:text-accent-foreground group-focus:text-accent-foreground transition-none">
+                                        <p className={cn(
+                                          "line-clamp-2 text-base leading-snug text-muted-foreground group-hover/item:!text-accent-foreground group-focus/item:!text-accent-foreground",
+                                          item.name === "Contact Us" && "!text-muted-foreground"
+                                        )}>
                                           {subItem.description}
                                         </p>
                                       </a>
@@ -245,7 +248,7 @@ export function Navbar() {
             
             <Button 
               size="sm" 
-              className="hidden sm:inline-flex relative bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-4 h-11 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem] hover:before:translate-x-[5rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70"
+              className="hidden sm:inline-flex relative bg-primary hover:bg-primary/90 text-black text-lg font-semibold px-4 h-11 transition-all duration-300 hover:scale-105 hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-8rem] hover:before:translate-x-[10rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70"
             >
               <span className="relative">Register</span>
             </Button>
@@ -320,7 +323,7 @@ export function Navbar() {
                       <Phone className="h-6 w-6" />
                       <span className="text-lg font-medium">403-510-1784</span>
                     </a>
-                    <Button className="w-full relative bg-primary hover:bg-primary/90 text-black font-semibold h-14 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem] hover:before:translate-x-[15rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
+                    <Button className="w-full relative bg-primary hover:bg-primary/90 text-black font-semibold h-14 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-lg hover:shadow-primary/25 cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
                       <span className="relative">Register Today</span>
                     </Button>
                   </div>

@@ -37,8 +37,8 @@ export function ProgramFinderBar() {
                   "shadow-md hover:shadow-xl hover:shadow-primary/20",
                   "transition-all duration-300 hover:scale-[1.02]",
                   "cursor-pointer overflow-hidden",
-                  "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem]",
-                  "hover:before:translate-x-[6rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+                  "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-12rem]",
+                  "hover:before:translate-x-[20rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                   "before:transition-all before:bg-white before:blur-[10px] before:opacity-70"
                 )}
               >
@@ -107,7 +107,7 @@ export function ProgramFinderBar() {
               "shadow-md hover:shadow-lg hover:shadow-primary/20",
               "transition-all duration-300 hover:scale-[1.01]",
               "cursor-pointer overflow-hidden",
-              "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-5rem]",
+              "before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-12rem]",
               "hover:before:translate-x-[15rem] before:duration-[0.8s] before:-skew-x-[10deg]",
               "before:transition-all before:bg-white before:blur-[10px] before:opacity-70"
             )}
