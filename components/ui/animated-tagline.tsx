@@ -18,13 +18,13 @@ export function AnimatedTagline({ className }: AnimatedTaglineProps) {
       animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
       transition={{ duration: 0.8, ease: "easeOut" }}
     >
-      <span className="text-[17px] font-medium text-gray-600 dark:text-gray-400">
+      <span className="text-[19px] font-medium text-gray-600 dark:text-gray-400">
         Where Young Athletes Become
       </span>
       <WordRotate
         words={rotatingWords}
         duration={3000}
-        className="text-[17px] font-extrabold text-primary"
+        className="text-[20px] font-extrabold text-primary"
         motionProps={{
           initial: { opacity: 0, y: -20 },
           animate: { opacity: 1, y: 0 },
