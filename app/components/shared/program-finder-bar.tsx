@@ -119,13 +119,8 @@ export function ProgramFinderBar() {
             </span>
           </Button>
 
-          {/* Affiliation text - Mobile */}
-          <p className="text-center text-[12px] text-gray-500 px-4 mt-3">
-            Volleyball Fraser Valley is an Affiliate of VISION Elite Academy, and all coaches must complete the VEA Coaching Academy to instruct athletes.
-          </p>
-
           {/* Login & Affiliate Links */}
-          <div className="flex items-center justify-around py-1 mt-2">
+          <div className="flex items-center justify-around py-1">
             <Link 
               href="/login"
               className={cn(
