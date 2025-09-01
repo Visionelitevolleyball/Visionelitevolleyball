@@ -7,6 +7,7 @@ import { Menu, Phone, UserCircle, Award, ChevronDownIcon } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
 import { AnimatedTagline } from "@/components/ui/animated-tagline"
+import { HoverDropdown } from "@/app/components/shared/hover-dropdown"
 import {
   NavigationMenu,
   NavigationMenuContent,
@@ -31,10 +32,7 @@ import {
 } from "@/components/ui/accordion"
 import { cn } from "@/lib/utils"
 import {
-  DropdownMenu,
-  DropdownMenuContent,
   DropdownMenuItem,
-  DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu"
 
 const navItems = [
@@ -159,11 +157,14 @@ export function Navbar() {
                   {navItems.map((item) => (
                     item.subItems ? (
                       mounted && isScrolled ? (
-                        <DropdownMenu key={item.name}>
-                          <DropdownMenuTrigger asChild>
+                        <HoverDropdown
+                          key={item.name}
+                          align={item.name === "Contact Us" ? "end" : "start"}
+                          contentClassName="w-[min(500px,calc(100vw-20px))]"
+                          trigger={
                             <button
                               className={cn(
-                                "inline-flex items-center justify-center gap-1 px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md",
+                                "inline-flex items-center justify-center gap-1 px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md cursor-pointer",
                                 "h-[48px]",
                                 "text-gray-700 dark:text-gray-300",
                                 "hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100"
@@ -172,26 +173,26 @@ export function Navbar() {
                               <span>{item.name}</span>
                               <ChevronDownIcon className="h-[15px] w-[15px]" />
                             </button>
-                          </DropdownMenuTrigger>
-                          <DropdownMenuContent
-                            align={item.name === "Contact Us" ? "end" : "start"}
-                            side="bottom"
-                            sideOffset={6}
-                            className="w-[min(500px,calc(100vw-20px))]"
-                          >
-                            {item.subItems.map((subItem) => (
-                              <DropdownMenuItem asChild key={subItem.name}>
-                                <a
-                                  href={subItem.href}
-                                  className="flex flex-col gap-1 rounded-[6px] px-2 py-1.5"
-                                >
-                                  <span className="text-base font-medium leading-none">{subItem.name}</span>
-                                  <span className="text-sm leading-snug text-gray-600 dark:text-gray-300">{subItem.description}</span>
-                                </a>
-                              </DropdownMenuItem>
-                            ))}
-                          </DropdownMenuContent>
-                        </DropdownMenu>
+                          }
+                          content={
+                            <>
+                              {item.subItems.map((subItem) => (
+                                <DropdownMenuItem asChild key={subItem.name}>
+                                  <a
+                                    href={subItem.href}
+                                    className={cn(
+                                      "flex flex-col gap-1.5 rounded-[6px] px-4 py-3 cursor-pointer",
+                                      item.name === "Contact Us" ? "items-end" : "items-start"
+                                    )}
+                                  >
+                                    <span className="text-base font-medium leading-none">{subItem.name}</span>
+                                    <span className="text-sm leading-snug text-gray-600 dark:text-gray-300">{subItem.description}</span>
+                                  </a>
+                                </DropdownMenuItem>
+                              ))}
+                            </>
+                          }
+                        />
                       ) : (
                         <NavigationMenu
                           key={item.name}
@@ -226,7 +227,7 @@ export function Navbar() {
                                       <NavigationMenuLink asChild>
                                         <a
                                           href={subItem.href}
-                                          className="group/item block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
+                                          className="group/item block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground cursor-pointer"
                                         >
                                           <div className="text-base font-medium leading-none">{subItem.name}</div>
                                           <p className={cn(
@@ -251,7 +252,7 @@ export function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={cn(
-                          "inline-flex items-center justify-center px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md",
+                          "inline-flex items-center justify-center px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md cursor-pointer",
                           isScrolled ? "h-[48px]" : "h-[60px]",
                           "text-gray-700 dark:text-gray-300",
                           "hover:bg-gray-100 hover:text-gray-900 dark:hover:bg-gray-800 dark:hover:text-gray-100"
