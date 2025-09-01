@@ -151,7 +151,7 @@ export function Navbar() {
                         <NavigationMenuList>
                           <NavigationMenuItem>
                             <NavigationMenuTrigger className={cn(
-                              "inline-flex h-[60px] items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md",
+                              "inline-flex h-[60px] items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md cursor-pointer",
                               "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary",
                               "data-[state=open]:text-secondary dark:data-[state=open]:text-primary"
                             )}>
