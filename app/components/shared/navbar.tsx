@@ -311,11 +311,11 @@ export function Navbar() {
                       </div>
                     ))}
                     
-                    {/* Divider */}
-                    <div className="my-4 border-t border-gray-200 dark:border-gray-700" />
+                    {/* Spacer to push account links to bottom */}
+                    <div className="flex-grow" />
 
                     {/* Account Links */}
-                    <div className="space-y-0 px-6">
+                    <div className="space-y-0 px-6 pb-4">
                       <a 
                         href="/login" 
                         className="flex items-center gap-3 py-3.5 text-base font-medium hover:text-primary dark:hover:text-primary transition-colors"
