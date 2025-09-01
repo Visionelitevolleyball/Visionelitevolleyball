@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Menu, Phone } from "lucide-react"
+import { Menu, Phone, UserCircle, Award } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
@@ -14,12 +14,11 @@ import {
   NavigationMenuLink,
   NavigationMenuList,
   NavigationMenuTrigger,
+  NavigationMenuIndicator,
 } from "@/components/ui/navigation-menu"
 import {
   Sheet,
   SheetContent,
-  SheetHeader,
-  SheetTitle,
   SheetTrigger,
 } from "@/components/ui/sheet"
 import {
@@ -81,7 +80,7 @@ export function Navbar() {
     <>
       {/* Desktop Navbar */}
       <header className={cn(
-        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300",
+        "fixed top-0 left-0 right-0 z-50 bg-background border-b border-border hidden lg:block transition-all duration-300 overflow-visible",
         isScrolled ? "h-[60px]" : ""
       )}>
         <div className="max-w-[1600px] mx-auto px-5">
@@ -140,11 +139,11 @@ export function Navbar() {
               
               {/* Bottom navigation bar */}
               <div className={cn(
-                "border-t transition-all duration-300",
+                "border-t transition-all duration-300 relative",
                 isScrolled ? "border-transparent" : ""
               )}>
                 <nav className={cn(
-                  "flex items-center h-[60px]",
+                  "flex items-center h-[60px] relative overflow-visible",
                   isScrolled ? "justify-center ml-[200px]" : "justify-between"
                 )}>
                   {navItems.map((item) => (
@@ -153,7 +152,8 @@ export function Navbar() {
                         <NavigationMenuList>
                           <NavigationMenuItem>
                             <NavigationMenuTrigger className={cn(
-                              "inline-flex h-[60px] items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md cursor-pointer",
+                              "inline-flex items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md cursor-pointer",
+                              isScrolled ? "h-[48px]" : "h-[60px]",
                               "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary",
                               "data-[state=open]:text-secondary dark:data-[state=open]:text-primary"
                             )}>
@@ -192,6 +192,7 @@ export function Navbar() {
                               </ul>
                             </NavigationMenuContent>
                           </NavigationMenuItem>
+                          <NavigationMenuIndicator />
                         </NavigationMenuList>
                       </NavigationMenu>
                     ) : (
@@ -199,7 +200,8 @@ export function Navbar() {
                         key={item.name}
                         href={item.href}
                         className={cn(
-                          "inline-flex h-[60px] items-center justify-center px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md",
+                          "inline-flex items-center justify-center px-6 text-[17.5px] font-medium transition-all duration-200 focus:outline-none rounded-md",
+                          isScrolled ? "h-[48px]" : "h-[60px]",
                           "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary"
                         )}
                       >
@@ -271,31 +273,29 @@ export function Navbar() {
                 </Button>
               </SheetTrigger>
               <SheetContent side="right" className="w-[85vw] sm:w-[400px] p-0">
-                {/* Sheet Header */}
-                <div className="p-8 pb-5 border-b">
-                  <SheetHeader>
-                    <SheetTitle className="text-2xl font-bold">Menu</SheetTitle>
-                  </SheetHeader>
+                {/* Sheet Header with Menu title - simplified */}
+                <div className="px-6 pt-12 pb-4 border-b">
+                  <h2 className="text-2xl font-bold">Menu</h2>
                 </div>
 
                 {/* Navigation Items */}
-                <nav className="flex flex-col h-[calc(100vh-6rem)]">
-                  <div className="flex-1 overflow-y-auto py-5">
+                <nav className="flex flex-col h-[calc(100vh-4.5rem)]">
+                  <div className="flex-1 overflow-y-auto">
                     {navItems.map((item) => (
-                      <div key={item.name} className="border-b border-gray-100 last:border-0">
+                      <div key={item.name} className="border-b border-gray-100 dark:border-gray-800 last:border-0">
                         {item.subItems ? (
                           <Accordion type="single" collapsible>
                             <AccordionItem value={item.name} className="border-0">
-                              <AccordionTrigger className="px-8 py-5 text-lg font-medium hover:no-underline hover:bg-gray-50 dark:hover:bg-gray-800 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-gray-800">
+                              <AccordionTrigger className="px-6 py-3.5 text-base font-medium hover:no-underline hover:bg-gray-50 dark:hover:bg-gray-800 data-[state=open]:bg-gray-50 dark:data-[state=open]:bg-gray-800">
                                 <span className="text-left">{item.name}</span>
                               </AccordionTrigger>
-                              <AccordionContent className="pb-5">
+                              <AccordionContent className="pb-2">
                                 <div className="space-y-1">
                                   {item.subItems.map((subItem) => (
                                     <a
                                       key={subItem.name}
                                       href={subItem.href}
-                                      className="block px-8 py-4 pl-12 text-base text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                                      className="block px-6 py-3 pl-12 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                                     >
                                       {subItem.name}
                                     </a>
@@ -307,17 +307,38 @@ export function Navbar() {
                         ) : (
                           <a 
                             href={item.href} 
-                            className="block px-8 py-5 text-lg font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                            className="block px-6 py-3.5 text-base font-medium hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
                           >
                             {item.name}
                           </a>
                         )}
                       </div>
                     ))}
+                    
+                    {/* Spacer to push account links to bottom */}
+                    <div className="flex-grow" />
+
+                    {/* Account Links */}
+                    <div className="space-y-0 px-6 pb-4">
+                      <a 
+                        href="/login" 
+                        className="flex items-center gap-3 py-3.5 text-base font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                      >
+                        <UserCircle className="h-5 w-5" />
+                        <span>Login/Sign up</span>
+                      </a>
+                      <a 
+                        href="/affiliate" 
+                        className="flex items-center gap-3 py-3.5 text-base font-medium hover:text-primary dark:hover:text-primary transition-colors"
+                      >
+                        <Award className="h-5 w-5" />
+                        <span>Affiliate Program</span>
+                      </a>
+                    </div>
                   </div>
 
                   {/* Bottom Section */}
-                  <div className="border-t bg-gray-50 dark:bg-gray-900 p-8 space-y-5">
+                  <div className="border-t bg-gray-50 dark:bg-gray-900 p-6 space-y-4">
                     <a 
                       href="tel:403-510-1784" 
                       className="flex items-center justify-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
