@@ -153,7 +153,7 @@ export function Navbar() {
                             <NavigationMenuTrigger className={cn(
                               "inline-flex h-[60px] items-center justify-center transition-all duration-200 text-[17.5px] font-medium px-6 rounded-md",
                               "text-gray-700 dark:text-gray-300 hover:bg-primary/10 hover:text-secondary dark:hover:bg-primary/20 dark:hover:text-primary",
-                              "data-[state=open]:bg-primary/10 data-[state=open]:text-secondary dark:data-[state=open]:bg-primary/20 dark:data-[state=open]:text-primary"
+                              "data-[state=open]:text-secondary dark:data-[state=open]:text-primary"
                             )}>
                               <span>{item.name}</span>
                             </NavigationMenuTrigger>
@@ -177,7 +177,7 @@ export function Navbar() {
                                         className="group block select-none space-y-1 rounded-md p-4 leading-none no-underline outline-none transition-colors hover:bg-accent hover:text-accent-foreground focus:bg-accent focus:text-accent-foreground"
                                       >
                                         <div className="text-base font-medium leading-none">{subItem.name}</div>
-                                        <p className="line-clamp-2 text-base leading-snug text-muted-foreground group-hover:text-accent-foreground group-focus:text-accent-foreground">
+                                        <p className="line-clamp-2 text-base leading-snug text-muted-foreground group-hover:text-accent-foreground group-focus:text-accent-foreground transition-none">
                                           {subItem.description}
                                         </p>
                                       </a>
