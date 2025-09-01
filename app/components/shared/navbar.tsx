@@ -181,12 +181,12 @@ export function Navbar() {
                                   <a
                                     href={subItem.href}
                                     className={cn(
-                                      "flex flex-col gap-1.5 rounded-[6px] px-4 py-3 cursor-pointer",
+                                      "group flex flex-col gap-1.5 rounded-[6px] px-4 py-3 cursor-pointer",
                                       item.name === "Contact Us" ? "items-end" : "items-start"
                                     )}
                                   >
                                     <span className="text-base font-medium leading-none">{subItem.name}</span>
-                                    <span className="text-sm leading-snug text-gray-600 dark:text-gray-300">{subItem.description}</span>
+                                    <span className="text-sm leading-snug text-gray-600 dark:text-gray-300 dark:group-hover:text-gray-100">{subItem.description}</span>
                                   </a>
                                 </DropdownMenuItem>
                               ))}
