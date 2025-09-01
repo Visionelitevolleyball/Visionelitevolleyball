@@ -125,9 +125,9 @@ export function HeroSection() {
           className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16"
         >
           {[
-            { number: "500+", label: "Athletes Trained" },
-            { number: "15+", label: "Expert Coaches" },
-            { number: "10", label: "Years Excellence" },
+            { number: "10,000+", label: "Athletes Trained" },
+            { number: "45+", label: "Expert Coaches" },
+            { number: "26+", label: "Years Experience" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-b from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
