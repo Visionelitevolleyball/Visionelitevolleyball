@@ -99,11 +99,11 @@ export function FeatureCarousel() {
             transition={{ duration: 0.6, delay: 0.1 }}
             className="text-4xl sm:text-5xl lg:text-6xl font-bold"
           >
-            <span className="bg-gradient-to-r from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent">
               Excellence in Every
             </span>
             <br />
-            <span className="bg-gradient-to-r from-primary via-primary/80 to-yellow-600 dark:from-primary dark:via-primary/90 dark:to-yellow-500 bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-primary via-primary to-yellow-600 dark:from-primary dark:via-primary dark:to-yellow-500 bg-clip-text text-transparent">
               Training Session
             </span>
           </motion.h2>
@@ -118,8 +118,8 @@ export function FeatureCarousel() {
                 className={cn(
                   "group relative flex gap-6 p-6 rounded-2xl cursor-pointer transition-all duration-300",
                   index === currentFeature 
-                    ? "bg-gradient-to-r from-primary/10 to-primary/5 border border-primary/20 shadow-lg" 
-                    : "hover:bg-accent/50"
+                    ? "bg-gradient-to-r from-primary/15 to-primary/5 border-2 border-primary/30 shadow-lg dark:from-primary/10 dark:to-primary/5 dark:border-primary/20" 
+                    : "hover:bg-gray-100 dark:hover:bg-gray-800/50"
                 )}
                 onClick={() => handleFeatureClick(index)}
                 initial={{ opacity: 0, x: -20 }}
@@ -132,8 +132,8 @@ export function FeatureCarousel() {
                     className={cn(
                       "w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300",
                       index === currentFeature
-                        ? "bg-primary border-primary text-black scale-110"
-                        : "bg-background border-gray-300 dark:border-gray-700"
+                        ? "bg-primary border-primary text-black scale-110 shadow-lg shadow-primary/30"
+                        : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400"
                     )}
                     animate={{ scale: index === currentFeature ? [1, 1.1, 1] : 1 }}
                     transition={{ duration: 2, repeat: Infinity }}
@@ -173,15 +173,15 @@ export function FeatureCarousel() {
                   <h3 className="text-xl lg:text-2xl font-semibold mb-2">
                     <span className={cn(
                       "transition-colors duration-300",
-                      index === currentFeature ? "text-foreground" : "text-muted-foreground"
+                      index === currentFeature ? "text-gray-900 dark:text-gray-100" : "text-gray-500 dark:text-gray-500"
                     )}>
                       {feature.title}
                     </span>{" "}
                     <span className={cn(
                       "transition-colors duration-300",
                       index === currentFeature 
-                        ? "text-primary" 
-                        : "text-muted-foreground"
+                        ? "text-primary font-bold" 
+                        : "text-gray-500 dark:text-gray-500"
                     )}>
                       {feature.highlight}
                     </span>
@@ -189,8 +189,8 @@ export function FeatureCarousel() {
                   <p className={cn(
                     "text-sm lg:text-base transition-all duration-300",
                     index === currentFeature 
-                      ? "text-gray-600 dark:text-gray-300 opacity-100" 
-                      : "text-muted-foreground opacity-60"
+                      ? "text-gray-700 dark:text-gray-300" 
+                      : "text-gray-400 dark:text-gray-600"
                   )}>
                     {feature.description}
                   </p>
@@ -231,7 +231,7 @@ export function FeatureCarousel() {
           </div>
 
           {/* Right: Image Carousel */}
-          <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl">
+          <div className="order-1 lg:order-2 relative h-[300px] sm:h-[400px] lg:h-[500px] rounded-2xl overflow-hidden shadow-2xl bg-gray-100 dark:bg-gray-900">
             <AnimatePresence mode="wait">
               {features.map(
                 (feature, index) =>
@@ -239,32 +239,25 @@ export function FeatureCarousel() {
                     <motion.div
                       key={index}
                       className="absolute inset-0"
-                      initial={{ scale: 1.1, opacity: 0 }}
-                      animate={{ scale: 1, opacity: 1 }}
-                      exit={{ scale: 0.95, opacity: 0 }}
-                      transition={{ duration: 0.7, ease: "easeInOut" }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
+                      exit={{ opacity: 0 }}
+                      transition={{ duration: 0.5, ease: "easeInOut" }}
                     >
-                      <Image
-                        src={feature.image}
-                        alt={feature.highlight}
-                        fill
-                        className="object-cover"
-                        priority={index === 0}
-                      />
-                      
-                      {/* Gradient Overlay */}
-                      <div className="absolute inset-0 bg-gradient-to-t from-background/80 via-transparent to-transparent" />
-                      
-                      {/* Feature Title Overlay */}
                       <motion.div
-                        className="absolute bottom-0 left-0 right-0 p-8"
-                        initial={{ y: 20, opacity: 0 }}
-                        animate={{ y: 0, opacity: 1 }}
-                        transition={{ delay: 0.3, duration: 0.5 }}
+                        className="relative w-full h-full"
+                        initial={{ scale: 1.05 }}
+                        animate={{ scale: 1 }}
+                        transition={{ duration: 8, ease: "easeOut" }}
                       >
-                        <h3 className="text-2xl lg:text-3xl font-bold text-white drop-shadow-lg">
-                          {feature.title} <span className="text-primary">{feature.highlight}</span>
-                        </h3>
+                        <Image
+                          src={feature.image}
+                          alt={feature.highlight}
+                          fill
+                          className="object-cover"
+                          priority={index === 0}
+                          sizes="(max-width: 768px) 100vw, 50vw"
+                        />
                       </motion.div>
                     </motion.div>
                   )
