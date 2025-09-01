@@ -95,14 +95,27 @@ export function TestimonialsSection() {
           whileInView={{ opacity: 1, filter: "blur(0px)", y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.8, delay: 0.1 }}
-          className={cn(
-            "text-4xl sm:text-5xl md:text-6xl font-bold tracking-tight mb-6",
-            "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-600",
-            "dark:from-gray-100 dark:via-gray-300 dark:to-gray-500",
-            "bg-clip-text text-transparent"
-          )}
+          className="font-bold mb-6"
         >
-          What Our Community Says
+          <span className={cn(
+            "block text-xl sm:text-3xl lg:text-4xl font-medium mb-3",
+            "bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600",
+            "dark:from-gray-100 dark:via-gray-200 dark:to-gray-400",
+            "bg-clip-text text-transparent",
+            "leading-normal"
+          )}>
+            REAL STORIES FROM
+          </span>
+          <span className={cn(
+            "block text-4xl sm:text-5xl lg:text-6xl",
+            "bg-gradient-to-r from-primary via-primary/80 to-yellow-600",
+            "dark:from-primary dark:via-primary dark:to-yellow-500",
+            "bg-clip-text text-transparent",
+            "leading-tight",
+            "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.2)]"
+          )}>
+            OUR COMMUNITY
+          </span>
         </motion.h2>
 
         <motion.p
@@ -145,7 +158,7 @@ export function TestimonialsSection() {
       {/* Testimonials Marquee */}
       <div className="relative">
         {/* Single Row Marquee */}
-        <div className="flex overflow-hidden [--gap:1.5rem] [--duration:60s]">
+        <div className="flex overflow-hidden py-3 [--gap:1.5rem] [--duration:60s]">
           <div className="flex shrink-0 justify-around gap-6 animate-marquee">
             {[...testimonials, ...testimonials].map((testimonial, i) => (
               <TestimonialCard 
