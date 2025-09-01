@@ -51,7 +51,7 @@ export function ProgramFinderBar() {
 
               {/* Affiliation text */}
               <span className="ml-5 text-gray-500 text-[14px] hidden xl:block">
-                Volleyball Fraser Valley is an Affiliate of VISION Elite Academy, and all coaches must complete the VEA Coaching Academy to instruct athletes.
+                Volleyball Fraser Valley is an Affiliate of VISION Elite Academy, and coaches must complete the VEA Coaching Academy to instruct athletes.
               </span>
             </div>
 
