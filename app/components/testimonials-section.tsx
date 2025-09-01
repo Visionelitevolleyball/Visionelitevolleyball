@@ -96,11 +96,11 @@ export function TestimonialsSection() {
           className="font-bold mb-6"
         >
           <span className={cn(
-            "block text-xl sm:text-3xl lg:text-4xl font-medium mb-2",
+            "block text-xl sm:text-3xl lg:text-4xl font-medium mb-1",
             "bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600",
             "dark:from-gray-100 dark:via-gray-200 dark:to-gray-400",
             "bg-clip-text text-transparent",
-            "leading-normal"
+            "leading-tight"
           )}>
             REAL STORIES FROM
           </span>
@@ -109,7 +109,7 @@ export function TestimonialsSection() {
             "bg-gradient-to-r from-primary via-primary/80 to-yellow-600",
             "dark:from-primary dark:via-primary dark:to-yellow-500",
             "bg-clip-text text-transparent",
-            "leading-normal",
+            "leading-tight",
             "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.2)]"
           )}>
             OUR COMMUNITY
