@@ -12,23 +12,23 @@ export function AnimatedTagline({ className }: AnimatedTaglineProps) {
   const rotatingWords = ["Champions", "Leaders", "Winners", "Elite"]
   
   return (
-    <div className={cn("flex items-center gap-2", className)}>
+    <div className={cn("flex items-center gap-2.5", className)}>
       <BlurText
         text="Where Young Athletes Become"
         delay={100}
         animateBy="words"
         direction="top"
-        className="text-sm font-medium text-gray-600 dark:text-gray-400"
+        className="text-[17px] font-medium text-gray-600 dark:text-gray-400"
       />
       <WordRotate
         words={rotatingWords}
         duration={3000}
-        className="text-sm font-bold text-primary"
+        className="text-[19px] font-extrabold text-primary"
         motionProps={{
-          initial: { opacity: 0, filter: "blur(8px)", y: -20 },
+          initial: { opacity: 0, filter: "blur(10px)", y: -25 },
           animate: { opacity: 1, filter: "blur(0px)", y: 0 },
-          exit: { opacity: 0, filter: "blur(8px)", y: 20 },
-          transition: { duration: 0.35, ease: "easeInOut" },
+          exit: { opacity: 0, filter: "blur(10px)", y: 25 },
+          transition: { duration: 0.4, ease: "easeInOut" },
         }}
       />
     </div>
