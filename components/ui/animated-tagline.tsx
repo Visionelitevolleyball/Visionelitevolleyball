@@ -16,7 +16,7 @@ export function AnimatedTagline({ className }: AnimatedTaglineProps) {
       className={cn("flex items-baseline gap-1", className)}
       initial={{ opacity: 0, filter: "blur(10px)", y: -10 }}
       animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-      transition={{ duration: 0.8, ease: "easeOut" }}
+      transition={{ duration: 1.0, ease: "easeOut" }}
     >
       <span className="text-[19px] font-medium text-gray-600 dark:text-gray-400">
         Where Young Athletes Become
