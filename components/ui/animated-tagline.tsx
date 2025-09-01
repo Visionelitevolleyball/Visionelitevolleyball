@@ -12,7 +12,7 @@ export function AnimatedTagline({ className }: AnimatedTaglineProps) {
   const rotatingWords = ["Champions", "Leaders", "Winners", "Elite"]
   
   return (
-    <div className={cn("flex items-center gap-2.5", className)}>
+    <div className={cn("flex items-baseline gap-1", className)}>
       <BlurText
         text="Where Young Athletes Become"
         delay={100}
@@ -23,7 +23,7 @@ export function AnimatedTagline({ className }: AnimatedTaglineProps) {
       <WordRotate
         words={rotatingWords}
         duration={3000}
-        className="text-[19px] font-extrabold text-primary"
+        className="text-[17px] font-extrabold text-primary"
         motionProps={{
           initial: { opacity: 0, filter: "blur(10px)", y: -25 },
           animate: { opacity: 1, filter: "blur(0px)", y: 0 },
