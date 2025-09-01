@@ -3,7 +3,7 @@
 import React from "react"
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
-import { Award, Star, Trophy, Target, Sun, Users, Medal, ArrowRight, Calendar, Clock } from "lucide-react"
+import { Award, Star, Trophy, Sun, Users, Medal, ArrowRight, Calendar } from "lucide-react"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 
 export function PathwaySection() {
@@ -118,7 +118,7 @@ export function PathwaySection() {
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed"
           >
             At Volleyball Fraser Valley, we provide a clear pathway for every player — from learning 
-            the fundamentals to competing at the highest level. Whether you're just stepping onto 
+            the fundamentals to competing at the highest level. Whether you&apos;re just stepping onto 
             the court for the first time or training with dreams of university recruitment, our 
             programs are designed to guide and support athletes at every stage of their journey.
           </motion.p>
