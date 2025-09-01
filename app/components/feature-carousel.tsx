@@ -109,7 +109,8 @@ export function FeatureCarousel() {
           </motion.h2>
         </div>
 
-        <div className="grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
+        {/* Desktop Layout */}
+        <div className="hidden lg:grid lg:grid-cols-2 gap-8 lg:gap-12 items-center">
           {/* Left: Feature Steps */}
           <div className="order-2 lg:order-1 space-y-6">
             {features.map((feature, index) => (
@@ -280,6 +281,143 @@ export function FeatureCarousel() {
                 />
               ))}
             </div>
+          </div>
+        </div>
+
+        {/* Mobile Layout */}
+        <div className="lg:hidden">
+          {/* Mobile Carousel Container */}
+          <div className="relative">
+            {/* Active Feature Card */}
+            <AnimatePresence mode="wait">
+              <motion.div
+                key={currentFeature}
+                initial={{ opacity: 0, scale: 0.95 }}
+                animate={{ opacity: 1, scale: 1 }}
+                exit={{ opacity: 0, scale: 0.95 }}
+                transition={{ duration: 0.3, ease: "easeInOut" }}
+                className="bg-white dark:bg-gray-900 rounded-2xl shadow-xl overflow-hidden border border-gray-200 dark:border-gray-800"
+                drag="x"
+                dragConstraints={{ left: 0, right: 0 }}
+                dragElastic={0.2}
+                onDragEnd={(e, { offset, velocity }) => {
+                  const swipeThreshold = 50
+                  if (offset.x > swipeThreshold && currentFeature > 0) {
+                    handleFeatureClick(currentFeature - 1)
+                  } else if (offset.x < -swipeThreshold && currentFeature < features.length - 1) {
+                    handleFeatureClick(currentFeature + 1)
+                  }
+                }}
+              >
+                {/* Image Section */}
+                <div className="relative h-[180px] sm:h-[220px]">
+                  <Image
+                    src={features[currentFeature].image}
+                    alt={features[currentFeature].highlight}
+                    fill
+                    className="object-cover"
+                    priority
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
+                  
+                  {/* Step Badge */}
+                  <div className="absolute top-4 left-4 w-10 h-10 bg-primary text-black rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
+                    {currentFeature + 1}
+                  </div>
+                </div>
+
+                {/* Content Section */}
+                <div className="p-6">
+                  <h3 className="text-2xl font-bold mb-3">
+                    <span className="text-gray-900 dark:text-gray-100">
+                      {features[currentFeature].title}
+                    </span>{" "}
+                    <span className="text-primary">
+                      {features[currentFeature].highlight}
+                    </span>
+                  </h3>
+                  
+                  <p className="text-gray-600 dark:text-gray-300 mb-6">
+                    {features[currentFeature].description}
+                  </p>
+
+                  <Button
+                    className={cn(
+                      "w-full group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary",
+                      "text-black font-semibold",
+                      "hover:shadow-lg hover:scale-105",
+                      "transition-all duration-300",
+                      "cursor-pointer overflow-hidden",
+                      "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
+                      "hover:before:translate-x-[20rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+                      "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                    )}
+                  >
+                    <span className="relative flex items-center justify-center gap-2">
+                      {features[currentFeature].buttonIcon}
+                      {features[currentFeature].buttonText}
+                    </span>
+                  </Button>
+                </div>
+              </motion.div>
+            </AnimatePresence>
+
+            {/* Mobile Progress Indicators */}
+            <div className="flex justify-center gap-3 mt-6">
+              {features.map((_, index) => (
+                <button
+                  key={index}
+                  onClick={() => handleFeatureClick(index)}
+                  className="relative"
+                  aria-label={`Go to feature ${index + 1}`}
+                >
+                  <div className={cn(
+                    "w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300",
+                    index === currentFeature
+                      ? "bg-primary border-primary text-black scale-110"
+                      : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400"
+                  )}>
+                    {index + 1}
+                  </div>
+                  
+                  {/* Progress Ring for Active */}
+                  {index === currentFeature && (
+                    <svg className="absolute inset-0 w-12 h-12 -rotate-90">
+                      <circle
+                        cx="24"
+                        cy="24"
+                        r="22"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                        className="text-primary/20"
+                      />
+                      <circle
+                        cx="24"
+                        cy="24"
+                        r="22"
+                        stroke="currentColor"
+                        strokeWidth="2"
+                        fill="none"
+                        strokeDasharray={`${2 * Math.PI * 22}`}
+                        strokeDashoffset={`${2 * Math.PI * 22 * (1 - progress / 100)}`}
+                        className="text-primary transition-all duration-100"
+                      />
+                    </svg>
+                  )}
+                </button>
+              ))}
+            </div>
+
+            {/* Swipe Hint */}
+            <motion.p 
+              className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4"
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              transition={{ delay: 1 }}
+            >
+              Swipe or tap numbers to explore
+            </motion.p>
           </div>
         </div>
       </div>
