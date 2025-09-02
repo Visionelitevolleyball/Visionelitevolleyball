@@ -6,6 +6,7 @@ import { ProgramFinderBar } from "@/app/components/shared/program-finder-bar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/app/components/scroll-to-top";
 import { Footer } from "@/app/components/shared/footer";
+import { NewsletterPopup } from "@/app/components/newsletter-popup";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -45,6 +46,7 @@ export default function RootLayout({
           </main>
           <Footer />
           <ScrollToTop />
+          <NewsletterPopup />
         </ThemeProvider>
       </body>
     </html>
