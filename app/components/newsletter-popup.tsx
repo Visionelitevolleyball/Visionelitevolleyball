@@ -126,7 +126,7 @@ export function NewsletterPopup() {
 
                 {/* Headline */}
                 <h2 className="text-2xl font-bold text-foreground mb-2">
-                  Get Exclusive Training Updates
+                  Join Our Exclusive Newsletter
                 </h2>
                 
                 {/* Subheadline */}
