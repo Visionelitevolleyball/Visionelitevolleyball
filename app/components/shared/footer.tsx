@@ -230,13 +230,19 @@ export function Footer() {
               />
               <button className={cn(
                 "px-4 sm:px-6 py-2.5 rounded-lg",
-                "bg-gradient-to-r from-primary to-yellow-500",
-                "hover:from-primary/90 hover:to-yellow-500/90",
+                "bg-primary hover:bg-primary/90",
                 "text-black font-semibold text-sm",
-                "transition-all duration-200",
-                "hover:shadow-lg",
+                "transition-all duration-300",
+                "hover:scale-105 hover:shadow-lg",
                 "flex items-center gap-2 justify-center",
-                "w-full sm:w-auto"
+                "w-full sm:w-auto",
+                "relative cursor-pointer overflow-hidden",
+                "before:absolute before:w-[0.4rem] before:h-[20rem]",
+                "before:top-0 before:translate-x-[-10rem]",
+                "hover:before:translate-x-[15rem]",
+                "before:duration-[0.8s] before:-skew-x-[10deg]",
+                "before:transition-all before:bg-white",
+                "before:blur-[10px] before:opacity-70"
               )}>
                 Subscribe
                 <ArrowRight className="h-4 w-4" />
