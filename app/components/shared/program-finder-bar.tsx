@@ -26,14 +26,14 @@ export function ProgramFinderBar() {
       {/* Desktop Layout */}
       <div className="hidden lg:block">
         <div className="max-w-[1600px] mx-auto px-5">
-          <div className="flex items-center justify-between h-[48px]">
+          <div className="flex items-center justify-between min-h-[48px] py-2">
             {/* Left Side - Find a Program */}
             <div className="flex items-center">
               <Button 
                 size="lg"
                 className={cn(
                   "group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary",
-                  "text-black font-semibold text-[15px] px-6 h-[38px]",
+                  "text-black font-semibold text-[14px] px-5 h-[36px]",
                   "hover:shadow-sm",
                   "transition-all duration-300 hover:scale-[1.02]",
                   "cursor-pointer overflow-hidden",
@@ -50,24 +50,25 @@ export function ProgramFinderBar() {
               </Button>
 
               {/* Affiliation text */}
-              <span className="ml-5 text-gray-500 text-[14px] hidden xl:block">
-                Volleyball Fraser Valley is an Affiliate of VISION Elite Academy, and coaches must complete the VEA Coaching Academy to instruct athletes.
+              <span className="ml-4 text-gray-500 text-[12.5px] leading-[1.3] max-w-[500px] hidden xl:block">
+                Volleyball Fraser Valley is an Affiliate of VISION Elite Academy,<br />
+                and coaches must complete the VEA Coaching Academy to instruct athletes.
               </span>
             </div>
 
             {/* Right Side - Login & Affiliate */}
-            <div className="flex items-center gap-8">
+            <div className="flex items-center gap-4 flex-shrink-0">
               {/* Login/Sign up */}
               <Link 
                 href="/login"
                 className={cn(
                   "group flex items-center gap-2.5 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
-                  "transition-all duration-200 text-[15px] font-medium",
+                  "transition-all duration-200 text-[14px] font-medium",
                   "relative py-2"
                 )}
               >
                 <UserCircle className="h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
-                <span className="relative">
+                <span className="relative whitespace-nowrap">
                   Login/Sign up
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-200 group-hover:w-full" />
                 </span>
@@ -80,12 +81,12 @@ export function ProgramFinderBar() {
                 href="/affiliate"
                 className={cn(
                   "group flex items-center gap-2.5 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
-                  "transition-all duration-200 text-[15px] font-medium",
+                  "transition-all duration-200 text-[14px] font-medium",
                   "relative py-2"
                 )}
               >
                 <Award className="h-4 w-4 transition-transform duration-200 group-hover:scale-110" />
-                <span className="relative">
+                <span className="relative whitespace-nowrap">
                   Affiliate Program
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-secondary transition-all duration-200 group-hover:w-full" />
                 </span>
