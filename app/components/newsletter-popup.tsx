@@ -126,7 +126,7 @@ export function NewsletterPopup() {
 
                 {/* Headline */}
                 <h2 className="text-2xl font-bold text-foreground mb-2">
-                  Join Our Exclusive Newsletter
+                  Join our weekly VISION e-blast
                 </h2>
                 
                 {/* Subheadline */}
@@ -147,7 +147,7 @@ export function NewsletterPopup() {
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Users className="h-4 w-4 text-primary" />
-                  <span>Notifications on upcoming special events</span>
+                  <span>Helpful content on training, nutrition and health</span>
                 </div>
               </div>
 
@@ -229,7 +229,7 @@ export function NewsletterPopup() {
                   className={cn(
                     "w-full px-6 py-3 rounded-lg",
                     "bg-primary hover:bg-primary/90",
-                    "text-black font-semibold",
+                    "text-black font-semibold text-sm",
                     "transition-all duration-300",
                     "hover:scale-[1.02] hover:shadow-lg",
                     "relative cursor-pointer overflow-hidden",
@@ -241,7 +241,7 @@ export function NewsletterPopup() {
                     "before:blur-[10px] before:opacity-70"
                   )}
                 >
-                  Join Now & Level Up Your Game
+                  Unlock exclusive savings and never miss an event!
                 </button>
               </form>
 
