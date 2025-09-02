@@ -2,7 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
-import { Menu, Phone, UserCircle, Award, ChevronDownIcon } from "lucide-react"
+import { Menu, Phone, UserCircle, Award, ChevronDownIcon, Home, Calendar, Users, Star, Video, BookOpen, HelpCircle, Info, MapPin, Mail, Briefcase } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
 import { ModeToggle } from "@/components/mode-toggle"
@@ -32,10 +32,10 @@ const navItems = [
     name: "Programs", 
     href: "/programs",
     subItems: [
-      { name: "Program Overview", href: "/programs", description: "Explore all our volleyball programs" },
-      { name: "Summer Camps", href: "/programs/camps", description: "Fun-filled summer training sessions" },
-      { name: "Coach Bios", href: "/programs/coaches", description: "Meet our experienced coaching team" },
-      { name: "Reviews", href: "/programs/reviews", description: "What parents and athletes are saying" },
+      { name: "Program Overview", href: "/programs", icon: Home },
+      { name: "Summer Camps", href: "/programs/camps", icon: Calendar },
+      { name: "Coach Bios", href: "/programs/coaches", icon: Users },
+      { name: "Reviews", href: "/programs/reviews", icon: Star },
     ]
   },
   { name: "Club", href: "/club" },
@@ -44,9 +44,9 @@ const navItems = [
     name: "Resources", 
     href: "/resources",
     subItems: [
-      { name: "Training Videos", href: "/resources/videos", description: "Learn from the best" },
-      { name: "Parent Guide", href: "/resources/parents", description: "Support your athlete" },
-      { name: "FAQ", href: "/resources/faq", description: "Get your questions answered" },
+      { name: "Training Videos", href: "/resources/videos", icon: Video },
+      { name: "Parent Guide", href: "/resources/parents", icon: BookOpen },
+      { name: "FAQ", href: "/resources/faq", icon: HelpCircle },
     ]
   },
   { name: "Blog", href: "/blog" },
@@ -54,10 +54,10 @@ const navItems = [
     name: "Contact Us", 
     href: "/contact",
     subItems: [
-      { name: "About Us", href: "/about", description: "Learn about our mission and values" },
-      { name: "Get in Touch", href: "/contact", description: "Send us a message" },
-      { name: "Location", href: "/contact#location", description: "Find our training facilities" },
-      { name: "Join Our Team", href: "/careers", description: "Coaching opportunities" },
+      { name: "About Us", href: "/about", icon: Info },
+      { name: "Get in Touch", href: "/contact", icon: Mail },
+      { name: "Location", href: "/contact#location", icon: MapPin },
+      { name: "Join Our Team", href: "/careers", icon: Briefcase },
     ]
   }
 ]
@@ -149,7 +149,7 @@ export function Navbar() {
                       <HoverDropdown
                         key={item.name}
                         align={item.name === "Contact Us" ? "end" : "start"}
-                        contentClassName="w-[min(500px,calc(100vw-20px))]"
+                        contentClassName="w-[240px]"
                         trigger={
                           <button
                             className={cn(
@@ -165,20 +165,20 @@ export function Navbar() {
                         }
                         content={
                           <>
-                            {item.subItems.map((subItem) => (
-                              <DropdownMenuItem asChild key={subItem.name}>
-                                <a
-                                  href={subItem.href}
-                                  className={cn(
-                                    "group flex flex-col gap-1.5 rounded-[6px] px-4 py-3 cursor-pointer",
-                                    item.name === "Contact Us" ? "items-end" : "items-start"
-                                  )}
-                                >
-                                  <span className="text-base font-medium leading-none">{subItem.name}</span>
-                                  <span className="text-sm leading-snug text-gray-600 dark:text-gray-300 dark:group-hover:text-gray-100">{subItem.description}</span>
-                                </a>
-                              </DropdownMenuItem>
-                            ))}
+                            {item.subItems.map((subItem) => {
+                              const Icon = subItem.icon
+                              return (
+                                <DropdownMenuItem asChild key={subItem.name}>
+                                  <a
+                                    href={subItem.href}
+                                    className="group flex items-center gap-2.5 rounded-[6px] px-3 py-2.5 cursor-pointer"
+                                  >
+                                    <Icon className="h-4 w-4 text-gray-500 dark:text-gray-400 group-hover:text-primary" />
+                                    <span className="text-[15px] font-medium leading-none">{subItem.name}</span>
+                                  </a>
+                                </DropdownMenuItem>
+                              )
+                            })}
                           </>
                         }
                       />
@@ -279,15 +279,19 @@ export function Navbar() {
                               </AccordionTrigger>
                               <AccordionContent className="pb-2">
                                 <div className="space-y-1">
-                                  {item.subItems.map((subItem) => (
-                                    <a
-                                      key={subItem.name}
-                                      href={subItem.href}
-                                      className="block px-6 py-3 pl-12 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
-                                    >
-                                      {subItem.name}
-                                    </a>
-                                  ))}
+                                  {item.subItems.map((subItem) => {
+                                    const Icon = subItem.icon
+                                    return (
+                                      <a
+                                        key={subItem.name}
+                                        href={subItem.href}
+                                        className="flex items-center gap-2.5 px-6 py-3 pl-12 text-sm text-gray-600 dark:text-gray-400 hover:text-primary dark:hover:text-primary hover:bg-gray-50 dark:hover:bg-gray-800 transition-colors"
+                                      >
+                                        <Icon className="h-4 w-4" />
+                                        <span>{subItem.name}</span>
+                                      </a>
+                                    )
+                                  })}
                                 </div>
                               </AccordionContent>
                             </AccordionItem>
@@ -326,7 +330,7 @@ export function Navbar() {
                   </div>
 
                   {/* Bottom Section */}
-                  <div className="border-t bg-gray-50 dark:bg-gray-900 p-6 space-y-4">
+                  <div className="border-t bg-secondary/10 dark:bg-secondary/20 p-6 space-y-4">
                     <a 
                       href="tel:403-510-1784" 
                       className="flex items-center justify-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
