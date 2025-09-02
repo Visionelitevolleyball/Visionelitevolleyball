@@ -23,26 +23,20 @@ export function HoverDropdown({
   content,
   align = "start",
   side = "bottom",
-  sideOffset = 6, // Back to original gap
+  sideOffset = 6,
   className,
   contentClassName,
 }: HoverDropdownProps) {
   const [open, setOpen] = React.useState(false)
 
   return (
-    <div 
-      onMouseLeave={() => setOpen(false)}
-      className={className}
-    >
+    <div className={className}>
       <DropdownMenu 
         modal={false}
         open={open} 
         onOpenChange={setOpen}
       >
-        <DropdownMenuTrigger 
-          asChild
-          onMouseEnter={() => setOpen(true)}
-        >
+        <DropdownMenuTrigger asChild>
           <div>
             {trigger}
           </div>
@@ -51,11 +45,7 @@ export function HoverDropdown({
           align={align}
           side={side}
           sideOffset={sideOffset}
-          className={cn(
-            contentClassName,
-            // Invisible bridge to cover gap
-            "before:absolute before:h-[10px] before:w-full before:top-[-10px] before:content-[''] before:z-50"
-          )}
+          className={contentClassName}
           onCloseAutoFocus={(e) => e.preventDefault()}
         >
           {content}
