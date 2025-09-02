@@ -145,8 +145,13 @@ export function NewsletterPopup() {
                 
                 {/* Subheadline */}
                 <p className="text-muted-foreground">
-                  Get discounts, special offers, and notifications<br/>
-                  on upcoming special events!
+                  <span className="sm:hidden">
+                    Get discounts, special offers, and notifications on upcoming special events!
+                  </span>
+                  <span className="hidden sm:inline">
+                    Get discounts, special offers, and notifications<br/>
+                    on upcoming special events!
+                  </span>
                 </p>
               </div>
 
