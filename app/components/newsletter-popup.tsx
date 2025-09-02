@@ -238,10 +238,11 @@ export function NewsletterPopup() {
                 </div>
 
                 {/* Submit Button with shine effect */}
-                <button
-                  type="submit"
-                  className={cn(
-                    "w-full px-4 py-3 rounded-lg",
+                <div className="flex justify-center">
+                  <button
+                    type="submit"
+                    className={cn(
+                      "px-8 py-3 rounded-lg",
                     "bg-primary hover:bg-primary/90",
                     "text-black font-semibold text-sm",
                     "transition-all duration-300",
@@ -255,9 +256,10 @@ export function NewsletterPopup() {
                     "before:blur-[10px] before:opacity-70"
                   )}
                 >
-                  <span className="sm:hidden">Unlock exclusive savings and<br/>never miss an event!</span>
-                  <span className="hidden sm:inline">Unlock exclusive savings and never miss an event!</span>
-                </button>
+                    <span className="sm:hidden">Unlock exclusive savings and<br/>never miss an event!</span>
+                    <span className="hidden sm:inline">Unlock exclusive savings and never miss an event!</span>
+                  </button>
+                </div>
               </form>
 
               {/* Privacy Notice */}
