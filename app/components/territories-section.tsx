@@ -121,13 +121,25 @@ export function TerritoriesSection() {
                 
                 {/* Territory Table */}
                 <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
-                  {/* Table Header - Hidden on mobile */}
-                  <div className="hidden sm:block bg-gray-50 dark:bg-gray-800/50 px-6 py-3 border-b border-gray-200 dark:border-gray-700">
-                    <div className="grid grid-cols-12 gap-4 text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">
-                      <div className="col-span-4">Territory</div>
-                      <div className="col-span-2 text-center">Status</div>
-                      <div className="col-span-3 text-center">Growth Rate</div>
-                      <div className="col-span-3 text-center">Active Teams</div>
+                  {/* Table Header - Visible on all devices */}
+                  <div className="bg-gray-50 dark:bg-gray-800/50 px-3 sm:px-6 py-2 sm:py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="grid grid-cols-12 gap-2 sm:gap-4 text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">
+                      <div className="col-span-4">
+                        <span className="hidden sm:inline">Territory</span>
+                        <span className="sm:hidden">Territory</span>
+                      </div>
+                      <div className="col-span-2 text-center">
+                        <span className="hidden sm:inline">Status</span>
+                        <span className="sm:hidden">Status</span>
+                      </div>
+                      <div className="col-span-3 text-center">
+                        <span className="hidden sm:inline">Growth Rate</span>
+                        <span className="sm:hidden">Growth</span>
+                      </div>
+                      <div className="col-span-3 text-center">
+                        <span className="hidden sm:inline">Active Teams</span>
+                        <span className="sm:hidden">Teams</span>
+                      </div>
                     </div>
                   </div>
                   
@@ -140,9 +152,9 @@ export function TerritoriesSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: index * 0.05 }}
-                        className="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors"
+                        className="px-3 sm:px-6 py-3 sm:py-4 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors"
                       >
-                        <div className="grid grid-cols-12 gap-4 items-center">
+                        <div className="grid grid-cols-12 gap-2 sm:gap-4 items-center">
                           {/* Territory Name */}
                           <div className="col-span-4">
                             <span className="font-semibold text-gray-900 dark:text-gray-100">
