@@ -92,20 +92,20 @@ export function NewsletterPopup() {
           {showThankYou ? (
             // Thank You Message
             <div className="text-center py-8">
-              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-green-100 dark:bg-green-900/30 mb-4">
-                <CheckCircle className="h-8 w-8 text-green-600 dark:text-green-400" />
+              <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-primary/10 mb-4">
+                <CheckCircle className="h-8 w-8 text-primary" />
               </div>
               
               <h2 className="text-2xl font-bold text-foreground mb-2">
-                Welcome to the Squad! 🎉
+                Welcome to Volleyball Fraser Valley
               </h2>
               
               <p className="text-muted-foreground">
-                Thank you for subscribing! Check your inbox for your first training tips.
+                You&apos;re all set! We&apos;ll send exclusive volleyball training content straight to your inbox.
               </p>
               
               <p className="text-sm text-muted-foreground mt-4">
-                This window will close automatically...
+                Closing in a moment...
               </p>
             </div>
           ) : (
@@ -118,7 +118,7 @@ export function NewsletterPopup() {
 
                 {/* Headline */}
                 <h2 className="text-2xl font-bold text-foreground mb-2">
-                  Join the Spike Squad! 🏐
+                  Get Exclusive Training Updates
                 </h2>
                 
                 {/* Subheadline */}
