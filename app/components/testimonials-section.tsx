@@ -16,7 +16,7 @@ const testimonials: Testimonial[] = [
   {
     author: {
       name: "Laura Anderson",
-      role: "Parent",
+      role: "Athlete",
       initials: "LA"
     },
     text: "Great coaching and skill development. The drills were excellent, my daughter loved this camp. The time of day was also perfect.",
