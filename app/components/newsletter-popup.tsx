@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react"
 import { X, Trophy, Star, Users, CheckCircle, MapPin } from "lucide-react"
 import { cn } from "@/lib/utils"
+import { motion, AnimatePresence } from "motion/react"
 import {
   Select,
   SelectContent,
@@ -66,23 +67,36 @@ export function NewsletterPopup() {
     if (emailError) setEmailError("")
   }
 
-  if (!isVisible) return null
-
   return (
-    <>
-      {/* Backdrop with blur */}
-      <div 
-        className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50 transition-all duration-300"
-        onClick={handleClose}
-      />
-      
-      {/* Popup Container */}
-      <div className="fixed inset-0 flex items-center justify-center z-50 p-4">
-        <div className={cn(
-          "bg-background border border-border rounded-xl shadow-2xl",
-          "p-8 max-w-md w-full relative",
-          "transform transition-all duration-300"
-        )}>
+    <AnimatePresence>
+      {isVisible && (
+        <>
+          {/* Backdrop with blur */}
+          <motion.div 
+            className="fixed inset-0 bg-black/30 backdrop-blur-sm z-50"
+            onClick={handleClose}
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            transition={{ duration: 0.3 }}
+          />
+          
+          {/* Popup Container */}
+          <motion.div 
+            className="fixed inset-0 flex items-center justify-center z-50 p-4"
+            initial={{ y: "100vh", opacity: 0 }}
+            animate={{ y: 0, opacity: 1 }}
+            exit={{ y: "100vh", opacity: 0 }}
+            transition={{ 
+              type: "spring",
+              damping: 35,
+              stiffness: 150
+            }}
+          >
+            <div className={cn(
+              "bg-background border border-border rounded-xl shadow-2xl",
+              "p-8 w-full max-w-md sm:max-w-lg md:max-w-xl relative"
+            )}>
           {/* Close Button */}
           <button
             onClick={handleClose}
@@ -227,7 +241,7 @@ export function NewsletterPopup() {
                 <button
                   type="submit"
                   className={cn(
-                    "w-full px-6 py-3 rounded-lg",
+                    "w-full px-4 py-3 rounded-lg",
                     "bg-primary hover:bg-primary/90",
                     "text-black font-semibold text-sm",
                     "transition-all duration-300",
@@ -241,7 +255,8 @@ export function NewsletterPopup() {
                     "before:blur-[10px] before:opacity-70"
                   )}
                 >
-                  Unlock exclusive savings and never miss an event!
+                  <span className="sm:hidden">Unlock exclusive savings and<br/>never miss an event!</span>
+                  <span className="hidden sm:inline">Unlock exclusive savings and never miss an event!</span>
                 </button>
               </form>
 
@@ -251,8 +266,10 @@ export function NewsletterPopup() {
               </p>
             </>
           )}
-        </div>
-      </div>
-    </>
+            </div>
+          </motion.div>
+        </>
+      )}
+    </AnimatePresence>
   )
 }
