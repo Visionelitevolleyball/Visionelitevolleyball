@@ -26,39 +26,45 @@ export function Footer() {
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-8 lg:gap-12 mb-8">
           {/* Left Section - Logo, Contact, Social */}
           <div className="lg:col-span-2 space-y-4">
-            <Image
-              src="/Volleyball-Fraser Valley.png"
-              alt="Volleyball Fraser Valley"
-              width={240}
-              height={78}
-              className="mb-3"
-              priority
-            />
-            
-            {/* Contact Info */}
-            <div className="space-y-2">
-              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                <MapPin className="h-3.5 w-3.5" />
-                <span>Fraser Valley, BC</span>
+            {/* Logo and Contact Info Container - Side by side on mobile */}
+            <div className="flex flex-row gap-4 sm:block sm:space-y-4">
+              {/* Logo */}
+              <div className="w-1/2 sm:w-auto flex-shrink-0">
+                <Image
+                  src="/Volleyball-Fraser Valley.png"
+                  alt="Volleyball Fraser Valley"
+                  width={240}
+                  height={78}
+                  className="w-[120px] h-[40px] sm:w-[240px] sm:h-[78px] object-contain"
+                  priority
+                />
               </div>
-              <a 
-                href="tel:403-510-1784" 
-                className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-              >
-                <Phone className="h-3.5 w-3.5" />
-                <span>403-510-1784</span>
-              </a>
-              <a 
-                href="mailto:info@volleyballfraser.ca" 
-                className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-              >
-                <Mail className="h-3.5 w-3.5" />
-                <span>info@volleyballfraser.ca</span>
-              </a>
+              
+              {/* Contact Info */}
+              <div className="flex-1 space-y-1 sm:space-y-2">
+                <div className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400">
+                  <MapPin className="h-3 sm:h-3.5 w-3 sm:w-3.5 flex-shrink-0" />
+                  <span>Fraser Valley, BC</span>
+                </div>
+                <a 
+                  href="tel:403-510-1784" 
+                  className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                >
+                  <Phone className="h-3 sm:h-3.5 w-3 sm:w-3.5 flex-shrink-0" />
+                  <span>403-510-1784</span>
+                </a>
+                <a 
+                  href="mailto:info@volleyballfraser.ca" 
+                  className="flex items-center gap-2 text-xs sm:text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors break-all"
+                >
+                  <Mail className="h-3 sm:h-3.5 w-3 sm:w-3.5 flex-shrink-0" />
+                  <span>info@volleyballfraser.ca</span>
+                </a>
+              </div>
             </div>
             
             {/* Social Icons */}
-            <div className="flex items-center gap-3 pt-2">
+            <div className="flex items-center gap-3">
               <a
                 href="https://facebook.com"
                 className={cn(
@@ -114,86 +120,89 @@ export function Footer() {
             </div>
           </div>
 
-          {/* Company Links */}
-          <div className="lg:col-span-1">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">
-              Company
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="/about"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                >
-                  About Us
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/programs/coaches"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                >
-                  Coach Bios
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/testimonials"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                >
-                  Testimonials
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/careers"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                >
-                  Careers
-                </a>
-              </li>
-            </ul>
-          </div>
+          {/* Company and Quick Links - Side by side on mobile */}
+          <div className="lg:col-span-2 grid grid-cols-2 gap-6 lg:gap-8">
+            {/* Company Links */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">
+                Company
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="/about"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  >
+                    About Us
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/programs/coaches"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  >
+                    Coach Bios
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/testimonials"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  >
+                    Testimonials
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/careers"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  >
+                    Careers
+                  </a>
+                </li>
+              </ul>
+            </div>
 
-          {/* Quick Links */}
-          <div className="lg:col-span-1">
-            <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">
-              Quick Links
-            </h3>
-            <ul className="space-y-3">
-              <li>
-                <a
-                  href="/programs"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                >
-                  Programs
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/club"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                >
-                  Club Teams
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/programs/league"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                >
-                  Leagues
-                </a>
-              </li>
-              <li>
-                <a
-                  href="/resources"
-                  className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
-                >
-                  Resources
-                </a>
-              </li>
-            </ul>
+            {/* Quick Links */}
+            <div>
+              <h3 className="text-sm font-semibold text-gray-900 dark:text-gray-100 uppercase tracking-wider mb-4">
+                Quick Links
+              </h3>
+              <ul className="space-y-3">
+                <li>
+                  <a
+                    href="/programs"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  >
+                    Programs
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/club"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  >
+                    Club Teams
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/programs/league"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  >
+                    Leagues
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="/resources"
+                    className="text-sm text-gray-600 dark:text-gray-400 hover:text-primary transition-colors"
+                  >
+                    Resources
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
 
           {/* Newsletter Section */}
