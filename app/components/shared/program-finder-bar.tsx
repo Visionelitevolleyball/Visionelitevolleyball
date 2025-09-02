@@ -32,7 +32,7 @@ export function ProgramFinderBar() {
               <Button 
                 size="lg"
                 className={cn(
-                  "group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary",
+                  "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
                   "text-black font-semibold text-[14px] px-5 h-[36px]",
                   "hover:shadow-sm",
                   "transition-all duration-300 hover:scale-[1.02]",

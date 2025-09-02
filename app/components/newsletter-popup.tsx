@@ -249,7 +249,7 @@ export function NewsletterPopup() {
                     type="submit"
                     className={cn(
                       "px-8 py-3 rounded-lg",
-                    "bg-primary hover:bg-primary/90",
+                    "bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
                     "text-black font-semibold text-sm",
                     "transition-all duration-300",
                     "hover:scale-[1.02] hover:shadow-lg",

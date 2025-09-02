@@ -230,7 +230,7 @@ export function Footer() {
               />
               <button className={cn(
                 "px-4 sm:px-6 py-2.5 rounded-lg",
-                "bg-primary hover:bg-primary/90",
+                "bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
                 "text-black font-semibold text-sm",
                 "transition-all duration-300",
                 "hover:scale-105 hover:shadow-lg",

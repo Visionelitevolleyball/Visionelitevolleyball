@@ -345,7 +345,7 @@ export function BlogSection() {
             href="/blog"
             className={cn(
               "group relative inline-flex items-center gap-2 px-8 py-4",
-              "bg-gradient-to-r from-primary to-yellow-600 text-black",
+              "bg-gradient-to-r from-primary to-yellow-500 text-black",
               "rounded-full font-semibold text-lg",
               "transform transition-all duration-300",
               "hover:scale-105 hover:shadow-xl",

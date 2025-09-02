@@ -88,7 +88,7 @@ export function HeroSection() {
           <Button 
             size="lg"
             className={cn(
-              "group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary",
+              "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
               "text-black font-semibold text-lg px-8 h-14",
               "hover:shadow-lg hover:scale-105",
               "transition-all duration-300",
