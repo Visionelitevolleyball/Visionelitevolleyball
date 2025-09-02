@@ -57,6 +57,78 @@ const testimonials: Testimonial[] = [
     },
     text: "My daughter learned more in one season here than two years anywhere else. She finally believes in herself and can't wait for the next camp. The coaching is consistent, clear, and focused. My son's confidence skyrocketed.",
     rating: 5
+  },
+  {
+    author: {
+      name: "Karen D.",
+      role: "Parent",
+      initials: "KD"
+    },
+    text: "My daughter went from shy and unsure to confident and excited to play. The coaches gave her the tools and encouragement she needed, and now she can't wait for every session.",
+    rating: 5
+  },
+  {
+    author: {
+      name: "Michael S.",
+      role: "Parent",
+      initials: "MS"
+    },
+    text: "We've tried other programs, but this one stands out for its structure and energy. The coaches don't just keep the kids busy—they actually teach them skills that stick.",
+    rating: 5
+  },
+  {
+    author: {
+      name: "Sandra L.",
+      role: "Parent",
+      initials: "SL"
+    },
+    text: "What impressed me most was how welcoming the environment was. My son is new to volleyball, but the coaches made him feel like he belonged right away.",
+    rating: 5
+  },
+  {
+    author: {
+      name: "Alyssa P., Age 13",
+      role: "Athlete",
+      initials: "AP"
+    },
+    text: "The drills are fast and fun, and I've learned more here in a few weeks than I did all last season at school. I feel way more confident on the court now.",
+    rating: 5
+  },
+  {
+    author: {
+      name: "Jordan M., Age 15",
+      role: "Athlete",
+      initials: "JM"
+    },
+    text: "At first I joined just to stay active, but I've found a real love for volleyball. The coaches challenge us, but they also make it a blast.",
+    rating: 5
+  },
+  {
+    author: {
+      name: "Ethan R., Age 14",
+      role: "Athlete",
+      initials: "ER"
+    },
+    text: "I used to get nervous about serving in games. After working with the coaches here, I finally feel confident stepping to the line. That's been huge for me.",
+    rating: 5
+  },
+  {
+    author: {
+      name: "Coach Melissa",
+      role: "Coach",
+      initials: "CM"
+    },
+    text: "The best part is seeing athletes grow in confidence week by week. They start unsure, but with the right training and encouragement, they surprise even themselves.",
+    rating: 5
+  },
+  {
+    author: {
+      name: "Coach Daniel",
+      role: "Coach",
+      initials: "CD"
+    },
+    text: "This program doesn't just build athletes—it builds teammates and leaders. The community here is something special.",
+    rating: 5
   }
 ]
 
