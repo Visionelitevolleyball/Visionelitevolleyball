@@ -139,15 +139,15 @@ export function NewsletterPopup() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Star className="h-4 w-4 text-primary" />
-                  <span>Get exclusive discounts</span>
+                  <span>Enjoy Member-Only Savings</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Trophy className="h-4 w-4 text-primary" />
-                  <span>Special offers and promotions</span>
+                  <span>Be the First to Know About New Events</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Users className="h-4 w-4 text-primary" />
-                  <span>Helpful content on training, nutrition and health</span>
+                  <span>Get Expert Tips on Training, Health, and Nutrition</span>
                 </div>
               </div>
 
