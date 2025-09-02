@@ -35,7 +35,7 @@ export function Footer() {
                   alt="Volleyball Fraser Valley"
                   width={240}
                   height={78}
-                  className="w-full h-auto sm:w-[240px] sm:h-[78px]"
+                  className="w-full h-auto sm:w-[240px] sm:h-[78px] object-contain"
                   priority
                 />
               </div>
