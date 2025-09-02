@@ -139,15 +139,15 @@ export function NewsletterPopup() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Star className="h-4 w-4 text-primary" />
-                  <span>Exclusive discounts & special offers</span>
+                  <span>Get exclusive discounts</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Trophy className="h-4 w-4 text-primary" />
-                  <span>Notifications on upcoming special events</span>
+                  <span>Special offers and promotions</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Users className="h-4 w-4 text-primary" />
-                  <span>Pro training videos & drills</span>
+                  <span>Notifications on upcoming special events</span>
                 </div>
               </div>
 
@@ -201,7 +201,7 @@ export function NewsletterPopup() {
                     required
                   >
                     <SelectTrigger className={cn(
-                      "w-full px-4 py-3 rounded-lg",
+                      "w-full px-4 py-3 rounded-lg h-auto",
                       "bg-card border border-border",
                       "text-foreground",
                       "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
