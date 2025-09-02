@@ -2,19 +2,19 @@
 
 import { cn } from "@/lib/utils"
 import { motion } from "motion/react"
-import { MapPin, Globe, TrendingUp, Users, Sparkles, ArrowRight, CheckCircle } from "lucide-react"
+import { Globe, TrendingUp, Users, Sparkles, ArrowRight, CheckCircle } from "lucide-react"
 import { SpotlightCard } from "@/components/ui/spotlight-card"
 import { Badge } from "@/components/ui/badge"
 
 const availableTerritories = [
-  { id: 1, name: "Vancouver", status: "available", growth: "45%", teams: 12 },
-  { id: 2, name: "Surrey", status: "available", growth: "38%", teams: 8 },
-  { id: 3, name: "Burnaby", status: "limited", growth: "52%", teams: 15 },
-  { id: 4, name: "Richmond", status: "available", growth: "41%", teams: 10 },
-  { id: 5, name: "Coquitlam", status: "available", growth: "33%", teams: 7 },
-  { id: 6, name: "Langley", status: "available", growth: "48%", teams: 9 },
-  { id: 7, name: "Abbotsford", status: "available", growth: "36%", teams: 6 },
-  { id: 8, name: "Chilliwack", status: "available", growth: "42%", teams: 5 },
+  { id: 1, name: "Calgary", status: "available", growth: "45%", teams: 12 },
+  { id: 2, name: "Winnipeg", status: "available", growth: "38%", teams: 8 },
+  { id: 3, name: "Fraser Valley", status: "limited", growth: "52%", teams: 15 },
+  { id: 4, name: "Edmonton", status: "available", growth: "41%", teams: 10 },
+  { id: 5, name: "Saskatoon", status: "available", growth: "33%", teams: 7 },
+  { id: 6, name: "Regina", status: "available", growth: "48%", teams: 9 },
+  { id: 7, name: "Kelowna", status: "available", growth: "36%", teams: 6 },
+  { id: 8, name: "Toronto", status: "available", growth: "42%", teams: 5 },
 ]
 
 const benefits = [
@@ -89,7 +89,7 @@ export function TerritoriesSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 dark:text-gray-400"
           >
-            Join Canada's premier volleyball training network. 
+            Join Canada&apos;s premier volleyball training network. 
             Exclusive territories available nationwide with proven success models.
           </motion.p>
         </div>
@@ -119,104 +119,81 @@ export function TerritoriesSection() {
                   </Badge>
                 </div>
                 
-                {/* Interactive Map Placeholder */}
-                <div className="relative h-[300px] sm:h-[400px] rounded-xl bg-gradient-to-br from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-900 overflow-hidden">
-                  {/* Map Background Pattern */}
-                  <div className="absolute inset-0 opacity-30">
-                    <svg className="w-full h-full" xmlns="http://www.w3.org/2000/svg">
-                      <defs>
-                        <pattern id="map-pattern" x="0" y="0" width="50" height="50" patternUnits="userSpaceOnUse">
-                          <circle cx="1" cy="1" r="1" fill="currentColor" className="text-gray-400" />
-                        </pattern>
-                      </defs>
-                      <rect width="100%" height="100%" fill="url(#map-pattern)" />
-                    </svg>
+                {/* Territory Table */}
+                <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
+                  {/* Table Header - Hidden on mobile */}
+                  <div className="hidden sm:block bg-gray-50 dark:bg-gray-800/50 px-6 py-3 border-b border-gray-200 dark:border-gray-700">
+                    <div className="grid grid-cols-12 gap-4 text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">
+                      <div className="col-span-4">Territory</div>
+                      <div className="col-span-2 text-center">Status</div>
+                      <div className="col-span-3 text-center">Growth Rate</div>
+                      <div className="col-span-3 text-center">Active Teams</div>
+                    </div>
                   </div>
                   
-                  {/* Map Pins */}
-                  {availableTerritories.map((territory, index) => (
-                    <motion.div
-                      key={territory.id}
-                      initial={{ scale: 0, opacity: 0 }}
-                      whileInView={{ scale: 1, opacity: 1 }}
-                      viewport={{ once: true }}
-                      transition={{ duration: 0.5, delay: 0.5 + index * 0.05 }}
-                      className="absolute"
-                      style={{
-                        top: `${20 + (index % 3) * 30}%`,
-                        left: `${15 + (index % 4) * 20}%`,
-                      }}
-                    >
-                      <div className="relative group">
-                        <div className={cn(
-                          "absolute -inset-2 rounded-full blur-lg opacity-60 group-hover:opacity-100 transition-opacity",
-                          territory.status === "available" 
-                            ? "bg-primary" 
-                            : "bg-yellow-500"
-                        )} />
-                        <MapPin className={cn(
-                          "h-6 w-6 relative transition-transform group-hover:scale-125",
-                          territory.status === "available" 
-                            ? "text-primary fill-primary/20" 
-                            : "text-yellow-500 fill-yellow-500/20"
-                        )} />
-                        
-                        {/* Tooltip */}
-                        <div className="absolute bottom-full left-1/2 -translate-x-1/2 mb-2 opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none">
-                          <div className="bg-black/90 text-white text-xs px-3 py-2 rounded-lg whitespace-nowrap">
-                            <div className="font-semibold">{territory.name}</div>
-                            <div className="text-[10px] text-gray-300">
-                              {territory.teams} teams • {territory.growth} growth
+                  {/* Table Body */}
+                  <div className="divide-y divide-gray-200 dark:divide-gray-700">
+                    {availableTerritories.map((territory, index) => (
+                      <motion.div
+                        key={territory.id}
+                        initial={{ opacity: 0, x: -20 }}
+                        whileInView={{ opacity: 1, x: 0 }}
+                        viewport={{ once: true }}
+                        transition={{ duration: 0.4, delay: index * 0.05 }}
+                        className="px-6 py-4 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors"
+                      >
+                        <div className="grid grid-cols-12 gap-4 items-center">
+                          {/* Territory Name */}
+                          <div className="col-span-4">
+                            <span className="font-semibold text-gray-900 dark:text-gray-100">
+                              {territory.name}
+                            </span>
+                          </div>
+                          
+                          {/* Status */}
+                          <div className="col-span-2 flex justify-center">
+                            <span className={cn(
+                              "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
+                              territory.status === "available"
+                                ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
+                                : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
+                            )}>
+                              <span className={cn(
+                                "w-1.5 h-1.5 rounded-full mr-1.5",
+                                territory.status === "available"
+                                  ? "bg-green-500"
+                                  : "bg-yellow-500"
+                              )} />
+                              {territory.status.charAt(0).toUpperCase() + territory.status.slice(1)}
+                            </span>
+                          </div>
+                          
+                          {/* Growth */}
+                          <div className="col-span-3 flex items-center justify-center gap-2">
+                            <div className="flex items-center gap-1">
+                              <TrendingUp className="h-4 w-4 text-primary" />
+                              <span className="font-medium text-gray-900 dark:text-gray-100">
+                                {territory.growth}
+                              </span>
+                            </div>
+                            <div className="hidden sm:block w-16 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
+                              <div 
+                                className="h-full bg-primary rounded-full"
+                                style={{ width: territory.growth }}
+                              />
                             </div>
                           </div>
+                          
+                          {/* Teams */}
+                          <div className="col-span-3 text-center">
+                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-sm font-semibold text-gray-900 dark:text-gray-100">
+                              {territory.teams}
+                            </span>
+                          </div>
                         </div>
-                      </div>
-                    </motion.div>
-                  ))}
-                  
-                  {/* Map Legend */}
-                  <div className="absolute bottom-4 left-4 bg-white/90 dark:bg-black/80 backdrop-blur-sm rounded-lg px-3 py-2">
-                    <div className="flex items-center gap-4 text-xs">
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-primary" />
-                        <span className="text-gray-700 dark:text-gray-300">Available</span>
-                      </div>
-                      <div className="flex items-center gap-1.5">
-                        <div className="w-3 h-3 rounded-full bg-yellow-500" />
-                        <span className="text-gray-700 dark:text-gray-300">Limited</span>
-                      </div>
-                    </div>
+                      </motion.div>
+                    ))}
                   </div>
-                </div>
-              </div>
-
-              {/* Territory List */}
-              <div className="space-y-2">
-                <h4 className="text-sm font-semibold text-gray-600 dark:text-gray-400 mb-3">
-                  Quick Overview
-                </h4>
-                <div className="grid grid-cols-2 gap-2">
-                  {availableTerritories.slice(0, 6).map((territory) => (
-                    <div
-                      key={territory.id}
-                      className={cn(
-                        "flex items-center justify-between px-3 py-2 rounded-lg",
-                        "border transition-all duration-300",
-                        "hover:scale-[1.02] hover:shadow-md",
-                        territory.status === "available"
-                          ? "bg-primary/5 border-primary/20 hover:bg-primary/10"
-                          : "bg-yellow-500/5 border-yellow-500/20 hover:bg-yellow-500/10"
-                      )}
-                    >
-                      <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
-                        {territory.name}
-                      </span>
-                      <div className="flex items-center gap-1 text-xs text-gray-500 dark:text-gray-400">
-                        <TrendingUp className="h-3 w-3" />
-                        <span>{territory.growth}</span>
-                      </div>
-                    </div>
-                  ))}
                 </div>
               </div>
             </SpotlightCard>
@@ -241,8 +218,8 @@ export function TerritoriesSection() {
                     Join Our Growing Network
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    Become part of Canada's fastest-growing volleyball training franchise 
-                    with over 10,000 athletes trained annually.
+                    Become part of Canada&apos;s fastest-growing volleyball training franchise 
+                    with over 10,000 athletes trained.
                   </p>
                   
                   {/* Stats Grid */}
@@ -286,7 +263,7 @@ export function TerritoriesSection() {
             {/* Investment Info Card */}
             <SpotlightCard className="p-6 sm:p-8" spotlightColor="rgba(45, 52, 142, 0.1)">
               <div className="text-center">
-                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 text-secondary text-xs font-semibold mb-4">
+                <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 dark:bg-blue-500/20 text-secondary dark:text-blue-400 text-xs font-semibold mb-4">
                   <Sparkles className="h-3 w-3" />
                   Limited Time Offer
                 </div>
