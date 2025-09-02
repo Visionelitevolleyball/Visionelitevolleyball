@@ -201,7 +201,7 @@ export function NewsletterPopup() {
                     required
                   >
                     <SelectTrigger className={cn(
-                      "w-full px-4 py-3 rounded-lg h-auto",
+                      "w-full !px-4 !py-3 rounded-lg !h-auto",
                       "bg-card border border-border",
                       "text-foreground",
                       "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
