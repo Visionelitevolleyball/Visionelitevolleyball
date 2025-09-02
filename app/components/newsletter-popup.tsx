@@ -1,8 +1,15 @@
 "use client"
 
 import React, { useState, useEffect } from "react"
-import { X, Trophy, Star, Users, CheckCircle } from "lucide-react"
+import { X, Trophy, Star, Users, CheckCircle, MapPin } from "lucide-react"
 import { cn } from "@/lib/utils"
+import {
+  Select,
+  SelectContent,
+  SelectItem,
+  SelectTrigger,
+  SelectValue,
+} from "@/components/ui/select"
 
 export function NewsletterPopup() {
   const [isVisible, setIsVisible] = useState(false)
@@ -10,7 +17,8 @@ export function NewsletterPopup() {
   const [emailError, setEmailError] = useState("")
   const [formData, setFormData] = useState({
     name: "",
-    email: ""
+    email: "",
+    location: ""
   })
 
   useEffect(() => {
@@ -123,7 +131,7 @@ export function NewsletterPopup() {
                 
                 {/* Subheadline */}
                 <p className="text-muted-foreground">
-                  Get exclusive training tips, camp updates, and volleyball insights delivered weekly
+                  Get discounts, special offers, and notifications on upcoming special events!
                 </p>
               </div>
 
@@ -131,15 +139,15 @@ export function NewsletterPopup() {
               <div className="space-y-2 mb-6">
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Star className="h-4 w-4 text-primary" />
-                  <span>Early access to camp registration</span>
+                  <span>Exclusive discounts & special offers</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Trophy className="h-4 w-4 text-primary" />
-                  <span>Pro training videos & drills</span>
+                  <span>Notifications on upcoming special events</span>
                 </div>
                 <div className="flex items-center gap-2 text-sm text-muted-foreground">
                   <Users className="h-4 w-4 text-primary" />
-                  <span>Success stories from our athletes</span>
+                  <span>Pro training videos & drills</span>
                 </div>
               </div>
 
@@ -183,6 +191,36 @@ export function NewsletterPopup() {
                   {emailError && (
                     <p className="text-xs text-red-500 mt-1">{emailError}</p>
                   )}
+                </div>
+
+                {/* Location Dropdown */}
+                <div>
+                  <Select
+                    value={formData.location}
+                    onValueChange={(value) => setFormData({ ...formData, location: value })}
+                    required
+                  >
+                    <SelectTrigger className={cn(
+                      "w-full px-4 py-3 rounded-lg",
+                      "bg-card border border-border",
+                      "text-foreground",
+                      "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
+                      "transition-all duration-200",
+                      "flex items-center justify-between gap-2"
+                    )}>
+                      <div className="flex items-center gap-2">
+                        <MapPin className="h-4 w-4 text-muted-foreground" />
+                        <SelectValue placeholder="Select your location" />
+                      </div>
+                    </SelectTrigger>
+                    <SelectContent className="bg-background border-border">
+                      <SelectItem value="alberta">Alberta</SelectItem>
+                      <SelectItem value="british-columbia">British Columbia</SelectItem>
+                      <SelectItem value="manitoba">Manitoba</SelectItem>
+                      <SelectItem value="other">Other</SelectItem>
+                      <SelectItem value="outside-canada">Outside Canada</SelectItem>
+                    </SelectContent>
+                  </Select>
                 </div>
 
                 {/* Submit Button with shine effect */}
