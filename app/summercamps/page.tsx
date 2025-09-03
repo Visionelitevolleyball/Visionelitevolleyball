@@ -64,7 +64,7 @@ export default function SummerCampsPage() {
               >
                 <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800">
                   <Sun className="h-4 w-4 mr-2" />
-                  2026 Summer Registration Now Open!
+                  August 2026 Camp Registration Open!
                 </Badge>
               </motion.div>
 
@@ -169,10 +169,10 @@ export default function SummerCampsPage() {
                 className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mt-12"
               >
                 {[
-                  { number: "July-Aug", label: "Camp Season" },
+                  { number: "Aug 17-21", label: "2026 Camp" },
                   { number: "9am-4pm", label: "Full Day" },
-                  { number: "Grades 4-12", label: "All Levels" },
-                  { number: "$20-$400", label: "Options" }
+                  { number: "Grades 6-9+", label: "All Levels" },
+                  { number: "$400", label: "Full Week" }
                 ].map((stat, index) => (
                   <div key={index} className="text-center">
                     <div className="text-2xl font-bold text-gray-900 dark:text-white">
@@ -205,16 +205,16 @@ export default function SummerCampsPage() {
               FULL DAY CAMPS
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
-              2026 Summer Day Camps!
+              2026 Summer Day Camp
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Weekly camps throughout July - Full day training & team experience
+              Full day training & team experience at Pacific Academy
             </p>
           </motion.div>
 
           {/* Camp Sessions Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* July 13-17 Session */}
+            {/* August 17-21 Session */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -225,8 +225,8 @@ export default function SummerCampsPage() {
               <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 border-2 border-yellow-200 dark:border-yellow-800 hover:border-primary dark:hover:border-primary hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-300">
                 <div className="flex items-start justify-between mb-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-2">JULY 13-17, 2026</h3>
-                    <p className="text-gray-600 dark:text-gray-400">Week 1 - All Day Camp</p>
+                    <h3 className="text-2xl font-bold mb-2">AUGUST 17-21, 2026</h3>
+                    <p className="text-gray-600 dark:text-gray-400">Monday - Friday</p>
                   </div>
                   <Calendar className="h-10 w-10 text-yellow-600" />
                 </div>
@@ -234,18 +234,18 @@ export default function SummerCampsPage() {
                 <div className="space-y-4 mb-6">
                   <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50 border border-yellow-200 dark:border-yellow-700">
                     <h4 className="font-semibold mb-2 flex items-center gap-2">
-                      <Badge className="bg-primary/10 text-primary border-primary/20">Session 1</Badge>
+                      <Badge className="bg-primary/10 text-primary border-primary/20">Session One</Badge>
                       Grades 6-8
                     </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Girls & Boys going into grades 6-8</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Boys & Girls in Grade 6-8</p>
                   </div>
                   
                   <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50 border border-yellow-200 dark:border-yellow-700">
                     <h4 className="font-semibold mb-2 flex items-center gap-2">
-                      <Badge className="bg-secondary/10 text-secondary border-secondary/20">Session 2</Badge>
+                      <Badge className="bg-secondary/10 text-secondary border-secondary/20">Session Two</Badge>
                       Grades 9+
                     </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Girls & Boys going into grades 9+</p>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Boys & Girls in Grade 9+</p>
                   </div>
                 </div>
 
@@ -256,13 +256,13 @@ export default function SummerCampsPage() {
                   </div>
                   <div className="flex items-center gap-2">
                     <MapPin className="h-4 w-4 text-primary" />
-                    <span>West Island College, 7410 Blackfoot Trail SE</span>
+                    <span>Pacific Academy, 10238 168th St., Surrey</span>
                   </div>
                 </div>
               </div>
             </motion.div>
 
-            {/* July 20-24 Session */}
+            {/* Additional Camp Sessions - Coming Soon */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -271,40 +271,12 @@ export default function SummerCampsPage() {
               className="group"
             >
               <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-gray-900 dark:to-gray-800 border-2 border-orange-200 dark:border-orange-800 hover:border-primary dark:hover:border-primary hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300">
-                <div className="flex items-start justify-between mb-6">
-                  <div>
-                    <h3 className="text-2xl font-bold mb-2">JULY 20-24, 2026</h3>
-                    <p className="text-gray-600 dark:text-gray-400">Week 2 - All Day Camp</p>
-                  </div>
-                  <Calendar className="h-10 w-10 text-orange-600" />
-                </div>
-                
-                <div className="space-y-4 mb-6">
-                  <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50 border border-orange-200 dark:border-orange-700">
-                    <h4 className="font-semibold mb-2 flex items-center gap-2">
-                      <Badge className="bg-primary/10 text-primary border-primary/20">Session 3</Badge>
-                      Grades 6-8
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Girls & Boys going into grades 6-8</p>
-                  </div>
-                  
-                  <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50 border border-orange-200 dark:border-orange-700">
-                    <h4 className="font-semibold mb-2 flex items-center gap-2">
-                      <Badge className="bg-secondary/10 text-secondary border-secondary/20">Session 4</Badge>
-                      Grades 9+
-                    </h4>
-                    <p className="text-sm text-gray-600 dark:text-gray-400">Girls & Boys going into grades 9+</p>
-                  </div>
-                </div>
-
-                <div className="space-y-3 text-sm">
-                  <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-primary" />
-                    <span className="font-medium">9:00am - 4:00pm Daily</span>
-                  </div>
-                  <div className="flex items-center gap-2">
-                    <MapPin className="h-4 w-4 text-primary" />
-                    <span>West Island College, 7410 Blackfoot Trail SE</span>
+                <div className="flex items-center justify-center h-full min-h-[200px]">
+                  <div className="text-center">
+                    <Calendar className="h-12 w-12 text-orange-600 mx-auto mb-4" />
+                    <h3 className="text-xl font-bold mb-2 text-gray-900 dark:text-gray-100">More Sessions Coming Soon!</h3>
+                    <p className="text-gray-600 dark:text-gray-400">Additional summer camp dates will be announced</p>
+                    <p className="text-sm text-gray-500 dark:text-gray-500 mt-2">Stay tuned for more camp opportunities</p>
                   </div>
                 </div>
               </div>
@@ -390,7 +362,7 @@ export default function SummerCampsPage() {
               Summer Evening Camps
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Sunday Evening Sessions - July 06 - August 17, 2025
+              Evening Sessions - Registration Open
             </p>
           </motion.div>
 
@@ -436,9 +408,9 @@ export default function SummerCampsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.1 }}
             >
-              <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-900/50 border-2 border-gray-200 dark:border-gray-700 opacity-75">
+              <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-900/50 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-400 dark:hover:border-blue-600 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
                 <div className="mb-4">
-                  <Badge className="bg-gray-500/10 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700">
+                  <Badge className="bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700">
                     Session 2
                   </Badge>
                 </div>
@@ -447,17 +419,17 @@ export default function SummerCampsPage() {
                 
                 <div className="space-y-3 text-sm mb-4">
                   <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-gray-600" />
+                    <Clock className="h-4 w-4 text-blue-600" />
                     <span>6:00pm - 8:00pm</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <DollarSign className="h-4 w-4 text-gray-600" />
+                    <DollarSign className="h-4 w-4 text-blue-600" />
                     <span className="font-semibold">$240</span>
                   </div>
                 </div>
                 
-                <Badge className="w-full justify-center py-2 bg-red-500/10 text-red-700 dark:text-red-300 border-red-200 dark:border-red-700">
-                  SOLD OUT
+                <Badge className="w-full justify-center py-2 bg-green-500/10 text-green-700 dark:text-green-300 border-green-200 dark:border-green-700">
+                  Available
                 </Badge>
               </div>
             </motion.div>
@@ -469,9 +441,9 @@ export default function SummerCampsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
-              <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-900/50 border-2 border-gray-200 dark:border-gray-700 opacity-75">
+              <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-900/50 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-400 dark:hover:border-blue-600 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
                 <div className="mb-4">
-                  <Badge className="bg-gray-500/10 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700">
+                  <Badge className="bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700">
                     Session 3
                   </Badge>
                 </div>
@@ -480,17 +452,17 @@ export default function SummerCampsPage() {
                 
                 <div className="space-y-3 text-sm mb-4">
                   <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-gray-600" />
+                    <Clock className="h-4 w-4 text-blue-600" />
                     <span>6:00pm - 8:00pm</span>
                   </div>
                   <div className="flex items-center gap-2">
-                    <DollarSign className="h-4 w-4 text-gray-600" />
+                    <DollarSign className="h-4 w-4 text-blue-600" />
                     <span className="font-semibold">$240</span>
                   </div>
                 </div>
                 
-                <Badge className="w-full justify-center py-2 bg-red-500/10 text-red-700 dark:text-red-300 border-red-200 dark:border-red-700">
-                  SOLD OUT
+                <Badge className="w-full justify-center py-2 bg-green-500/10 text-green-700 dark:text-green-300 border-green-200 dark:border-green-700">
+                  Available
                 </Badge>
               </div>
             </motion.div>
@@ -507,9 +479,8 @@ export default function SummerCampsPage() {
             <div className="flex items-start gap-4">
               <Info className="h-6 w-6 text-blue-600 mt-1" />
               <div className="space-y-2">
-                <p className="font-semibold">VENUE: MOVED - Webber Academy, 1515 93 st. SW</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Cancelled: August 03, 2025</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">NOTE: Cedarbrae Community Centre, 11024 Oakfield Dr. SW for August 24 and 31st ONLY</p>
+                <p className="font-semibold">VENUE: Fraser Valley Recreation Centre</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Location details will be provided upon registration</p>
                 <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
                   * Fee is pro-rated weekly and discounted accordingly<br />
                   * Fee includes awesome camp t-shirt
@@ -539,7 +510,7 @@ export default function SummerCampsPage() {
               Summer Drop-in Camp
             </h2>
             <p className="text-xl text-gray-600 dark:text-gray-400">
-              Saturday Morning Sessions - No Registration Required!
+              Weekend Sessions - No Registration Required!
             </p>
           </motion.div>
 
@@ -554,7 +525,7 @@ export default function SummerCampsPage() {
               <div className="grid md:grid-cols-2 gap-8">
                 <div className="space-y-6">
                   <div>
-                    <h3 className="text-2xl font-bold mb-4">Saturday Morning Sessions</h3>
+                    <h3 className="text-2xl font-bold mb-4">Weekend Drop-in Sessions</h3>
                     <div className="space-y-4">
                       <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50">
                         <h4 className="font-semibold mb-2">Session 1: Grades 5-7</h4>
@@ -586,15 +557,15 @@ export default function SummerCampsPage() {
                       <div className="flex items-start gap-2">
                         <MapPin className="h-4 w-4 text-green-600 mt-0.5" />
                         <div>
-                          <p className="font-medium">Smash City</p>
-                          <p className="text-gray-600 dark:text-gray-400">4839 - 47th Street SE</p>
+                          <p className="font-medium">Fraser Valley Sports Centre</p>
+                          <p className="text-gray-600 dark:text-gray-400">Location varies - Check schedule</p>
                         </div>
                       </div>
                       <div className="flex items-start gap-2">
                         <Calendar className="h-4 w-4 text-green-600 mt-0.5" />
                         <div>
-                          <p className="font-medium">July 05 - August 30, 2025</p>
-                          <p className="text-gray-600 dark:text-gray-400">Cancelled: August 02, 2025</p>
+                          <p className="font-medium">Summer 2026</p>
+                          <p className="text-gray-600 dark:text-gray-400">Schedule coming soon</p>
                         </div>
                       </div>
                     </div>

@@ -4,6 +4,7 @@ import React, { useState, useEffect } from "react"
 import { X, Trophy, Star, Users, CheckCircle, MapPin } from "lucide-react"
 import { cn } from "@/lib/utils"
 import { motion, AnimatePresence } from "motion/react"
+import { usePathname } from "next/navigation"
 import {
   Select,
   SelectContent,
@@ -21,15 +22,21 @@ export function NewsletterPopup() {
     email: "",
     location: ""
   })
+  const pathname = usePathname()
 
   useEffect(() => {
+    // Only show popup on home page
+    if (pathname !== '/') {
+      return
+    }
+
     // Show popup after 10 seconds
     const timer = setTimeout(() => {
       setIsVisible(true)
     }, 10000)
 
     return () => clearTimeout(timer)
-  }, [])
+  }, [pathname])
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
