@@ -1,12 +1,11 @@
 "use client"
 
 import { motion } from "motion/react"
-import Image from "next/image"
 import { cn } from "@/lib/utils"
 import { 
-  Trophy, Star, Users, Heart, CheckCircle, ArrowRight, 
-  Target, Zap, Award, MapPin, TrendingUp, Calendar, 
-  Sparkles, Shield, Rocket, ChevronRight, Sun, Snowflake, GraduationCap
+  Trophy, Star, Users, CheckCircle, ArrowRight, 
+  Target, Zap, Award, MapPin, 
+  Sparkles, Shield, ChevronRight, Sun, Snowflake, GraduationCap
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 
@@ -401,7 +400,7 @@ export default function ProgramsPage() {
                 <h3 className="font-bold text-xl mb-2">Holiday Camps</h3>
                 <p className="text-sm text-gray-500 mb-3">School Breaks</p>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  School's out—game on! Stay active during Christmas, Spring Break, and PD Days.
+                  School&apos;s out—game on! Stay active during Christmas, Spring Break, and PD Days.
                 </p>
                 <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   <li className="flex items-start gap-2">
@@ -613,7 +612,7 @@ export default function ProgramsPage() {
                 <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Men's, Women's, and Co-ed
+                    Men&apos;s, Women&apos;s, and Co-ed
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
