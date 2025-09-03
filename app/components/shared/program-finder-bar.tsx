@@ -20,7 +20,7 @@ export function ProgramFinderBar() {
 
   return (
     <section className={cn(
-      "fixed left-0 right-0 z-40 bg-background border-b border-border transition-all duration-300",
+      "fixed left-0 right-0 z-40 bg-gradient-to-r from-background via-gray-50/50 to-background dark:from-background dark:via-gray-900/50 dark:to-background backdrop-blur-sm border-b border-border transition-all duration-300",
       isScrolled ? "top-16 lg:top-[60px]" : "top-20 lg:top-[140px]"
     )}>
       {/* Desktop Layout */}
@@ -103,7 +103,7 @@ export function ProgramFinderBar() {
           <Button 
             size="lg"
             className={cn(
-              "w-full group relative bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary",
+              "w-full group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
               "text-black font-semibold text-[16px] h-[48px]",
               "hover:shadow-sm",
               "transition-all duration-300 hover:scale-[1.01]",

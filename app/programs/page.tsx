@@ -11,42 +11,34 @@ import { Button } from "@/components/ui/button"
 
 export default function ProgramsPage() {
   return (
-    <>
+    <div className="relative">
+      {/* Single Continuous Background for ENTIRE Page */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
+      </div>
+
+      {/* Single Grid Pattern for ENTIRE Page */}
+      <motion.div 
+        animate={{ 
+          backgroundPosition: ["0% 0%", "100% 100%"],
+        }}
+        transition={{ 
+          duration: 20,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "linear"
+        }}
+        className="absolute inset-0 opacity-[0.015]"
+        style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 1px)`,
+          backgroundSize: "40px 40px"
+        }}
+      />
+
       {/* Hero Section - Immersive Program Journey */}
-      <section className="relative min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] overflow-hidden">
-        {/* Diagonal Split Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
-          <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="diagonalGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgb(236, 186, 88)" stopOpacity="0.03" />
-                <stop offset="100%" stopColor="rgb(45, 52, 142)" stopOpacity="0.03" />
-              </linearGradient>
-            </defs>
-            <polygon points="0,0 100,0 100,100" fill="url(#diagonalGradient)" />
-          </svg>
-        </div>
+      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-8 sm:pt-0">
 
-        {/* Animated Background Pattern */}
-        <motion.div 
-          animate={{ 
-            backgroundPosition: ["0% 0%", "100% 100%"],
-          }}
-          transition={{ 
-            duration: 20,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "linear"
-          }}
-          className="absolute inset-0 opacity-[0.015]"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 1px)`,
-            backgroundSize: "40px 40px"
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
           <div className="w-full">
             
             {/* Main Content - Properly Aligned */}
@@ -283,26 +275,7 @@ export default function ProgramsPage() {
       </section>
 
       {/* Programs Overview - Clean Grid */}
-      <section className="relative py-16 lg:py-20 overflow-hidden">
-        {/* Background matching hero section */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
-          <svg className="absolute inset-0 w-full h-full opacity-[0.03]" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="diagonalGradient2" x1="0%" y1="100%" x2="100%" y2="0%">
-                <stop offset="0%" stopColor="rgb(45, 52, 142)" stopOpacity="0.05" />
-                <stop offset="100%" stopColor="rgb(236, 186, 88)" stopOpacity="0.05" />
-              </linearGradient>
-            </defs>
-            <polygon points="0,50 100,0 100,100 0,100" fill="url(#diagonalGradient2)" />
-          </svg>
-          <div className="absolute inset-0 opacity-[0.02]"
-            style={{
-              backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 1px)`,
-              backgroundSize: "40px 40px"
-            }}
-          />
-        </div>
+      <section className="relative py-16 lg:py-20">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -664,6 +637,6 @@ export default function ProgramsPage() {
           </div>
         </div>
       </section>
-    </>
+    </div>
   )
 }
