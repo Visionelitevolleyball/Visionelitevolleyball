@@ -3,59 +3,50 @@
 import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { 
-  Trophy, Star, Users, CheckCircle, ArrowRight, Calendar,
-  Target, Award, MapPin, Clock, Sun, ChevronRight,
-  Sparkles, Shield, DollarSign, Info, UserCheck, Gift,
-  GraduationCap, Zap, Heart, Volleyball
+  Trophy, Users, CheckCircle, ArrowRight, Calendar,
+  Target, MapPin, Clock, Sun,
+  Shield, DollarSign, Info, UserCheck, Gift,
+  GraduationCap, Zap, Heart
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
 export default function SummerCampsPage() {
   return (
-    <>
+    <div className="relative">
+      {/* Single Continuous Background for ENTIRE Page */}
+      <div className="absolute inset-0">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
+      </div>
+      
+      {/* Single Grid Pattern for ENTIRE Page */}
+      <motion.div 
+        animate={{ 
+          backgroundPosition: ["0% 0%", "100% 100%"],
+        }}
+        transition={{ 
+          duration: 20,
+          repeat: Infinity,
+          repeatType: "reverse",
+          ease: "linear"
+        }}
+        className="absolute inset-0 opacity-[0.015]"
+        style={{
+          backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 1px)`,
+          backgroundSize: "40px 40px"
+        }}
+      />
+
       {/* Hero Section - Dynamic Summer Camps Landing */}
-      <section className="relative min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] overflow-hidden">
-        {/* Animated Summer Background */}
-        <div className="absolute inset-0">
-          <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/50 via-white to-orange-50/50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
-          <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
-            <defs>
-              <linearGradient id="summerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="rgb(236, 186, 88)" stopOpacity="0.06" />
-                <stop offset="50%" stopColor="rgb(251, 146, 60)" stopOpacity="0.04" />
-                <stop offset="100%" stopColor="rgb(45, 52, 142)" stopOpacity="0.03" />
-              </linearGradient>
-            </defs>
-            <polygon points="0,0 100,0 100,100" fill="url(#summerGradient)" />
-          </svg>
-        </div>
+      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-8 sm:pt-0">
 
-        {/* Animated Pattern */}
-        <motion.div 
-          animate={{ 
-            backgroundPosition: ["0% 0%", "100% 100%"],
-          }}
-          transition={{ 
-            duration: 25,
-            repeat: Infinity,
-            repeatType: "reverse",
-            ease: "linear"
-          }}
-          className="absolute inset-0 opacity-[0.02]"
-          style={{
-            backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 1px)`,
-            backgroundSize: "50px 50px"
-          }}
-        />
-
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
           <div className="w-full">
             
-            {/* Main Hero Content */}
+          {/* Main Hero Content */}
             <div className="text-center space-y-8">
               
-              {/* Animated Badge */}
+            {/* Animated Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -68,7 +59,7 @@ export default function SummerCampsPage() {
                 </Badge>
               </motion.div>
 
-              {/* Main Title */}
+            {/* Main Title */}
               <motion.div
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -92,7 +83,8 @@ export default function SummerCampsPage() {
                 </h1>
                 
                 <p className="text-2xl md:text-3xl font-light text-gray-700 dark:text-gray-300">
-                  Train together, play hard, make friends!
+                  <span className="block sm:inline">Train together, play hard,</span>
+                  <span className="block sm:inline"> make friends!</span>
                 </p>
                 
                 <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">
@@ -100,7 +92,7 @@ export default function SummerCampsPage() {
                 </p>
               </motion.div>
 
-              {/* Feature Pills */}
+            {/* Feature Pills */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -123,7 +115,7 @@ export default function SummerCampsPage() {
                 ))}
               </motion.div>
 
-              {/* CTA Buttons */}
+            {/* CTA Buttons */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -161,7 +153,7 @@ export default function SummerCampsPage() {
                 </Button>
               </motion.div>
 
-              {/* Quick Stats */}
+            {/* Quick Stats */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
@@ -172,13 +164,23 @@ export default function SummerCampsPage() {
                   { number: "Aug 17-21", label: "2026 Camp" },
                   { number: "9am-4pm", label: "Full Day" },
                   { number: "Grades 6-9+", label: "All Levels" },
-                  { number: "$400", label: "Full Week" }
+                  { number: "400", label: "Full Week", prefix: "$" }
                 ].map((stat, index) => (
-                  <div key={index} className="text-center">
-                    <div className="text-2xl font-bold text-gray-900 dark:text-white">
-                      {stat.number}
+                  <div key={index} className={cn(
+                    "text-center",
+                    index === 3 && "min-w-[100px] sm:min-w-0" // Fix $400 alignment on mobile
+                  )}>
+                    <div className="text-xl sm:text-2xl font-bold text-gray-900 dark:text-white whitespace-nowrap">
+                      {stat.prefix ? (
+                        <span className="relative inline-block">
+                          <span className="absolute right-full pr-0.5 sm:pr-1">$</span>
+                          <span>{stat.number}</span>
+                        </span>
+                      ) : (
+                        stat.number
+                      )}
                     </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                    <div className="text-xs sm:text-sm text-gray-600 dark:text-gray-400 whitespace-nowrap">
                       {stat.label}
                     </div>
                   </div>
@@ -190,8 +192,7 @@ export default function SummerCampsPage() {
       </section>
 
       {/* 2026 Summer Day Camps Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-yellow-50/20 to-white dark:from-background dark:via-gray-900 dark:to-background" />
+      <section className="relative py-20">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -201,7 +202,7 @@ export default function SummerCampsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 px-4 py-2 text-lg font-bold bg-gradient-to-r from-primary/10 to-yellow-500/10">
+            <Badge className="mb-4 px-4 py-2 text-lg font-bold bg-gradient-to-r from-primary/20 to-yellow-500/20 dark:from-primary/30 dark:to-yellow-500/30 text-primary dark:text-yellow-400 border-primary/30 dark:border-yellow-500/30">
               FULL DAY CAMPS
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
@@ -212,9 +213,9 @@ export default function SummerCampsPage() {
             </p>
           </motion.div>
 
-          {/* Camp Sessions Grid */}
+        {/* Camp Sessions Grid */}
           <div className="grid md:grid-cols-2 gap-8 mb-12">
-            {/* August 17-21 Session */}
+          {/* August 17-21 Session */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -262,7 +263,7 @@ export default function SummerCampsPage() {
               </div>
             </motion.div>
 
-            {/* Additional Camp Sessions - Coming Soon */}
+          {/* Additional Camp Sessions - Coming Soon */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -283,7 +284,7 @@ export default function SummerCampsPage() {
             </motion.div>
           </div>
 
-          {/* Pricing Card */}
+        {/* Pricing Card */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -295,17 +296,14 @@ export default function SummerCampsPage() {
               
               <div className="relative flex flex-col lg:flex-row items-center justify-between gap-6">
                 <div className="space-y-4 text-center lg:text-left">
-                  <div className="flex items-center justify-center lg:justify-start gap-3">
-                    <DollarSign className="h-12 w-12 text-yellow-400" />
-                    <div className="flex items-baseline gap-3">
-                      <span className="text-5xl font-black">$400</span>
-                      <span className="text-xl text-gray-300 font-medium">Full Week</span>
-                    </div>
+                  <div className="flex flex-col sm:flex-row sm:items-baseline gap-1 sm:gap-3 justify-center lg:justify-start">
+                    <span className="text-4xl sm:text-5xl font-black">$400</span>
+                    <span className="text-lg sm:text-xl text-gray-300 font-medium">Full Week</span>
                   </div>
                   <div className="space-y-2 text-base">
                     <p className="flex items-center justify-center lg:justify-start gap-2">
                       <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0" />
-                      <span>Pro-rated weekly & discounted accordingly</span>
+                      <span>Pro-rated & discounted</span>
                     </p>
                     <p className="flex items-center justify-center lg:justify-start gap-2">
                       <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0" />
@@ -341,11 +339,10 @@ export default function SummerCampsPage() {
             </div>
           </motion.div>
         </div>
-      </section>
+        </section>
 
       {/* Summer Evening Camps Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-white dark:from-background dark:via-gray-900 dark:to-background" />
+      <section className="relative py-20">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -355,7 +352,7 @@ export default function SummerCampsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 px-4 py-2 text-lg font-bold bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
+            <Badge className="mb-4 px-4 py-2 text-lg font-bold bg-gradient-to-r from-blue-500/20 to-cyan-500/20 dark:from-blue-500/30 dark:to-cyan-500/30 text-blue-700 dark:text-blue-400 border-blue-500/30 dark:border-blue-400/30">
               EVENING CAMPS
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
@@ -366,9 +363,9 @@ export default function SummerCampsPage() {
             </p>
           </motion.div>
 
-          {/* Evening Sessions Grid */}
+        {/* Evening Sessions Grid */}
           <div className="grid md:grid-cols-3 gap-6 mb-8">
-            {/* Session 1 */}
+          {/* Session 1 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -401,7 +398,7 @@ export default function SummerCampsPage() {
               </div>
             </motion.div>
 
-            {/* Session 2 */}
+          {/* Session 2 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -434,7 +431,7 @@ export default function SummerCampsPage() {
               </div>
             </motion.div>
 
-            {/* Session 3 */}
+          {/* Session 3 */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
@@ -467,33 +464,11 @@ export default function SummerCampsPage() {
               </div>
             </motion.div>
           </div>
-
-          {/* Venue Info */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="bg-blue-50 dark:bg-gray-900 rounded-2xl p-6"
-          >
-            <div className="flex items-start gap-4">
-              <Info className="h-6 w-6 text-blue-600 mt-1" />
-              <div className="space-y-2">
-                <p className="font-semibold">VENUE: Fraser Valley Recreation Centre</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400">Location details will be provided upon registration</p>
-                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
-                  * Fee is pro-rated weekly and discounted accordingly<br />
-                  * Fee includes awesome camp t-shirt
-                </p>
-              </div>
-            </div>
-          </motion.div>
         </div>
-      </section>
+        </section>
 
       {/* Summer Drop-in Camp Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white via-green-50/20 to-white dark:from-background dark:via-gray-900 dark:to-background" />
+        <section className="relative py-20">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -503,7 +478,7 @@ export default function SummerCampsPage() {
             transition={{ duration: 0.6 }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 px-4 py-2 text-lg font-bold bg-gradient-to-r from-green-500/10 to-emerald-500/10">
+            <Badge className="mb-4 px-4 py-2 text-lg font-bold bg-gradient-to-r from-green-500/20 to-emerald-500/20 dark:from-green-500/30 dark:to-emerald-500/30 text-green-700 dark:text-green-400 border-green-500/30 dark:border-green-400/30">
               DROP-IN CAMPS
             </Badge>
             <h2 className="text-4xl lg:text-5xl font-bold mb-4">
@@ -575,11 +550,10 @@ export default function SummerCampsPage() {
             </motion.div>
           </div>
         </div>
-      </section>
+        </section>
 
       {/* Program Philosophy & Details Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
+        <section className="relative py-20">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -598,7 +572,7 @@ export default function SummerCampsPage() {
             </p>
           </motion.div>
 
-          {/* Features Grid */}
+        {/* Features Grid */}
           <div className="grid md:grid-cols-3 gap-8 mb-16">
             {[
               {
@@ -641,9 +615,9 @@ export default function SummerCampsPage() {
             ))}
           </div>
 
-          {/* Program Format Cards */}
+        {/* Program Format Cards */}
           <div className="grid md:grid-cols-2 gap-8 mb-16">
-            {/* Weekly Day Camps Format */}
+          {/* Weekly Day Camps Format */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -676,7 +650,7 @@ export default function SummerCampsPage() {
               </div>
             </motion.div>
 
-            {/* Daily Schedule */}
+          {/* Daily Schedule */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
@@ -714,7 +688,7 @@ export default function SummerCampsPage() {
             </motion.div>
           </div>
 
-          {/* Camp Philosophy */}
+        {/* Camp Philosophy */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
@@ -722,35 +696,39 @@ export default function SummerCampsPage() {
             transition={{ duration: 0.6 }}
             className="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-10 text-white"
           >
-            <h3 className="text-3xl font-bold mb-6 flex items-center gap-3">
-              <Sparkles className="h-8 w-8 text-yellow-400" />
+            <h3 className="text-3xl font-bold mb-6">
               VISION Summer Day Camp Philosophy
             </h3>
             
-            <div className="grid md:grid-cols-2 gap-6">
+            <div className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
               {[
-                "Attendance Matters – Roll call at the start of each session",
-                "Arrive Ready – Come 5-10 minutes early in proper volleyball attire",
-                "Every Athlete Counts – Skill development for all experience levels",
-                "Positive Coaching – Motivate, encourage, and support every athlete",
-                "High-Repetition Training – Structured, fast-paced drills for consistency",
-                "Stay Hydrated & Energized – Water and snack breaks as needed",
-                "Open Communication – Athletes encouraged to speak with coaches",
-                "Prizes & Giveaways – Win prizes and awesome door gifts!"
+                { title: "Attendance Matters", desc: "Roll call at the start of each session" },
+                { title: "Arrive Ready", desc: "Come 5-10 minutes early in proper volleyball attire" },
+                { title: "Every Athlete Counts", desc: "Skill development for all experience levels" },
+                { title: "Positive Coaching", desc: "Motivate, encourage, and support every athlete" },
+                { title: "High-Repetition Training", desc: "Structured, fast-paced drills for consistency" },
+                { title: "Stay Hydrated & Energized", desc: "Water and snack breaks as needed" },
+                { title: "Open Communication", desc: "Athletes encouraged to speak with coaches" },
+                { title: "Prizes & Giveaways", desc: "Win prizes and awesome door gifts!" }
               ].map((item, index) => (
                 <div key={index} className="flex items-start gap-3">
                   <CheckCircle className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
-                  <span className="text-gray-200">{item}</span>
+                  <div className="flex-1 min-w-0">
+                    <span className="text-gray-200 block">
+                      <span className="font-semibold">{item.title}</span>
+                      <span className="hidden sm:inline"> – </span>
+                      <span className="block sm:inline text-sm sm:text-base text-gray-300">{item.desc}</span>
+                    </span>
+                  </div>
                 </div>
               ))}
             </div>
           </motion.div>
         </div>
-      </section>
+        </section>
 
       {/* Training Components Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-gray-900" />
+        <section className="relative py-20">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -815,11 +793,10 @@ export default function SummerCampsPage() {
             ))}
           </div>
         </div>
-      </section>
+        </section>
 
       {/* How to Register Section */}
-      <section className="relative py-20 overflow-hidden">
-        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-yellow-50/50 to-orange-50/50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
+        <section className="relative py-20">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
@@ -876,18 +853,18 @@ export default function SummerCampsPage() {
             ))}
           </div>
 
-          {/* Final CTA Section */}
+        {/* Final CTA Section */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.6 }}
-            className="text-center p-12 rounded-3xl bg-gradient-to-r from-primary/10 via-yellow-500/10 to-orange-500/10 dark:from-primary/20 dark:via-yellow-500/20 dark:to-orange-500/20 border-2 border-primary/20"
+            className="text-center p-12 rounded-3xl bg-gradient-to-r from-primary/10 via-yellow-500/10 to-orange-500/10 dark:from-gray-900 dark:to-gray-800 border-2 border-primary/20 dark:border-primary/30"
           >
-            <h3 className="text-3xl font-bold mb-4">
+            <h3 className="text-3xl font-bold mb-4 text-gray-900 dark:text-white">
               Maximize your Potential this Summer!
             </h3>
-            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+            <p className="text-lg text-gray-600 dark:text-gray-300 mb-8 max-w-2xl mx-auto">
               Whether preparing for the next school season or just playing for fun, 
               our summer camps help athletes refine their game and take it to the next level!
             </p>
@@ -899,13 +876,14 @@ export default function SummerCampsPage() {
                   "group relative",
                   "bg-gradient-to-r from-primary to-yellow-500",
                   "hover:from-primary/90 hover:to-yellow-500/90",
-                  "text-black font-bold text-lg px-10 h-14",
+                  "text-black font-bold text-base sm:text-lg px-6 sm:px-10 h-12 sm:h-14",
                   "shadow-lg hover:shadow-2xl hover:scale-105",
                   "transition-all duration-300",
                   "cursor-pointer overflow-hidden",
                   "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
                   "hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg]",
-                  "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  "before:transition-all before:bg-white before:blur-[10px] before:opacity-60",
+                  "whitespace-nowrap"
                 )}
               >
                 <span className="relative flex items-center gap-2">
@@ -926,6 +904,6 @@ export default function SummerCampsPage() {
           </motion.div>
         </div>
       </section>
-    </>
+    </div>
   )
 }
