@@ -1,0 +1,960 @@
+"use client"
+
+import { motion } from "motion/react"
+import { cn } from "@/lib/utils"
+import { 
+  Trophy, Star, Users, CheckCircle, ArrowRight, Calendar,
+  Target, Award, MapPin, Clock, Sun, ChevronRight,
+  Sparkles, Shield, DollarSign, Info, UserCheck, Gift,
+  GraduationCap, Zap, Heart, Volleyball
+} from "lucide-react"
+import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
+
+export default function SummerCampsPage() {
+  return (
+    <>
+      {/* Hero Section - Dynamic Summer Camps Landing */}
+      <section className="relative min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] overflow-hidden">
+        {/* Animated Summer Background */}
+        <div className="absolute inset-0">
+          <div className="absolute inset-0 bg-gradient-to-br from-yellow-50/50 via-white to-orange-50/50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
+          <svg className="absolute inset-0 w-full h-full" preserveAspectRatio="none">
+            <defs>
+              <linearGradient id="summerGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+                <stop offset="0%" stopColor="rgb(236, 186, 88)" stopOpacity="0.06" />
+                <stop offset="50%" stopColor="rgb(251, 146, 60)" stopOpacity="0.04" />
+                <stop offset="100%" stopColor="rgb(45, 52, 142)" stopOpacity="0.03" />
+              </linearGradient>
+            </defs>
+            <polygon points="0,0 100,0 100,100" fill="url(#summerGradient)" />
+          </svg>
+        </div>
+
+        {/* Animated Pattern */}
+        <motion.div 
+          animate={{ 
+            backgroundPosition: ["0% 0%", "100% 100%"],
+          }}
+          transition={{ 
+            duration: 25,
+            repeat: Infinity,
+            repeatType: "reverse",
+            ease: "linear"
+          }}
+          className="absolute inset-0 opacity-[0.02]"
+          style={{
+            backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 1px)`,
+            backgroundSize: "50px 50px"
+          }}
+        />
+
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
+          <div className="w-full">
+            
+            {/* Main Hero Content */}
+            <div className="text-center space-y-8">
+              
+              {/* Animated Badge */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6 }}
+                className="inline-flex"
+              >
+                <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800">
+                  <Sun className="h-4 w-4 mr-2" />
+                  2026 Summer Registration Now Open!
+                </Badge>
+              </motion.div>
+
+              {/* Main Title */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="space-y-4"
+              >
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black">
+                  <span className="block text-gray-900 dark:text-gray-100">
+                    VISION
+                  </span>
+                  <span className={cn(
+                    "block mt-2",
+                    "bg-gradient-to-r from-yellow-500 via-orange-500 to-primary",
+                    "bg-clip-text text-transparent",
+                    "bg-[length:200%_100%]",
+                    "animate-gradient",
+                    "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(251,146,60,0.3)]"
+                  )}>
+                    SUMMER CAMPS
+                  </span>
+                </h1>
+                
+                <p className="text-2xl md:text-3xl font-light text-gray-700 dark:text-gray-300">
+                  Train together, play hard, make friends!
+                </p>
+                
+                <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">
+                  Each camp ends with a Championship Tournament
+                </p>
+              </motion.div>
+
+              {/* Feature Pills */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-wrap justify-center gap-4"
+              >
+                {[
+                  { icon: Trophy, text: "Championship Friday" },
+                  { icon: Shield, text: "Certified Coaches" },
+                  { icon: Users, text: "Team Training" },
+                  { icon: Gift, text: "Prizes & T-Shirts" }
+                ].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700"
+                  >
+                    <feature.icon className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium">{feature.text}</span>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Button 
+                  size="lg"
+                  className={cn(
+                    "group relative",
+                    "bg-gradient-to-r from-primary to-yellow-500",
+                    "hover:from-primary/90 hover:to-yellow-500/90",
+                    "text-black font-bold text-lg px-10 h-14",
+                    "shadow-lg hover:shadow-2xl hover:scale-105",
+                    "transition-all duration-300",
+                    "cursor-pointer overflow-hidden",
+                    "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
+                    "hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+                    "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  )}
+                >
+                  <span className="relative flex items-center gap-2">
+                    Register Today
+                    <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+                  </span>
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="group font-medium text-lg px-10 h-14 border-2 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-300"
+                >
+                  <Calendar className="h-5 w-5 mr-2" />
+                  View Schedule
+                </Button>
+              </motion.div>
+
+              {/* Quick Stats */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.5 }}
+                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-3xl mx-auto mt-12"
+              >
+                {[
+                  { number: "July-Aug", label: "Camp Season" },
+                  { number: "9am-4pm", label: "Full Day" },
+                  { number: "Grades 4-12", label: "All Levels" },
+                  { number: "$20-$400", label: "Options" }
+                ].map((stat, index) => (
+                  <div key={index} className="text-center">
+                    <div className="text-2xl font-bold text-gray-900 dark:text-white">
+                      {stat.number}
+                    </div>
+                    <div className="text-sm text-gray-600 dark:text-gray-400">
+                      {stat.label}
+                    </div>
+                  </div>
+                ))}
+              </motion.div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* 2026 Summer Day Camps Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-yellow-50/20 to-white dark:from-background dark:via-gray-900 dark:to-background" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <Badge className="mb-4 px-4 py-2 text-lg font-bold bg-gradient-to-r from-primary/10 to-yellow-500/10">
+              FULL DAY CAMPS
+            </Badge>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              2026 Summer Day Camps!
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Weekly camps throughout July - Full day training & team experience
+            </p>
+          </motion.div>
+
+          {/* Camp Sessions Grid */}
+          <div className="grid md:grid-cols-2 gap-8 mb-12">
+            {/* July 13-17 Session */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="group"
+            >
+              <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-yellow-50 to-orange-50 dark:from-gray-900 dark:to-gray-800 border-2 border-yellow-200 dark:border-yellow-800 hover:border-primary dark:hover:border-primary hover:shadow-2xl hover:shadow-yellow-500/10 transition-all duration-300">
+                <div className="flex items-start justify-between mb-6">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">JULY 13-17, 2026</h3>
+                    <p className="text-gray-600 dark:text-gray-400">Week 1 - All Day Camp</p>
+                  </div>
+                  <Calendar className="h-10 w-10 text-yellow-600" />
+                </div>
+                
+                <div className="space-y-4 mb-6">
+                  <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50 border border-yellow-200 dark:border-yellow-700">
+                    <h4 className="font-semibold mb-2 flex items-center gap-2">
+                      <Badge className="bg-primary/10 text-primary border-primary/20">Session 1</Badge>
+                      Grades 6-8
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Girls & Boys going into grades 6-8</p>
+                  </div>
+                  
+                  <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50 border border-yellow-200 dark:border-yellow-700">
+                    <h4 className="font-semibold mb-2 flex items-center gap-2">
+                      <Badge className="bg-secondary/10 text-secondary border-secondary/20">Session 2</Badge>
+                      Grades 9+
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Girls & Boys going into grades 9+</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-primary" />
+                    <span className="font-medium">9:00am - 4:00pm Daily</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-primary" />
+                    <span>West Island College, 7410 Blackfoot Trail SE</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* July 20-24 Session */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+              className="group"
+            >
+              <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-orange-50 to-yellow-50 dark:from-gray-900 dark:to-gray-800 border-2 border-orange-200 dark:border-orange-800 hover:border-primary dark:hover:border-primary hover:shadow-2xl hover:shadow-orange-500/10 transition-all duration-300">
+                <div className="flex items-start justify-between mb-6">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-2">JULY 20-24, 2026</h3>
+                    <p className="text-gray-600 dark:text-gray-400">Week 2 - All Day Camp</p>
+                  </div>
+                  <Calendar className="h-10 w-10 text-orange-600" />
+                </div>
+                
+                <div className="space-y-4 mb-6">
+                  <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50 border border-orange-200 dark:border-orange-700">
+                    <h4 className="font-semibold mb-2 flex items-center gap-2">
+                      <Badge className="bg-primary/10 text-primary border-primary/20">Session 3</Badge>
+                      Grades 6-8
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Girls & Boys going into grades 6-8</p>
+                  </div>
+                  
+                  <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50 border border-orange-200 dark:border-orange-700">
+                    <h4 className="font-semibold mb-2 flex items-center gap-2">
+                      <Badge className="bg-secondary/10 text-secondary border-secondary/20">Session 4</Badge>
+                      Grades 9+
+                    </h4>
+                    <p className="text-sm text-gray-600 dark:text-gray-400">Girls & Boys going into grades 9+</p>
+                  </div>
+                </div>
+
+                <div className="space-y-3 text-sm">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-primary" />
+                    <span className="font-medium">9:00am - 4:00pm Daily</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <MapPin className="h-4 w-4 text-primary" />
+                    <span>West Island College, 7410 Blackfoot Trail SE</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Pricing Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+          >
+            <div className="p-10 rounded-3xl bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 text-white relative overflow-hidden">
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 translate-x-[-200%] animate-shimmer" />
+              
+              <div className="relative flex flex-col lg:flex-row items-center justify-between gap-6">
+                <div className="space-y-4 text-center lg:text-left">
+                  <div className="flex items-center justify-center lg:justify-start gap-3">
+                    <DollarSign className="h-12 w-12 text-yellow-400" />
+                    <div className="flex items-baseline gap-3">
+                      <span className="text-5xl font-black">$400</span>
+                      <span className="text-xl text-gray-300 font-medium">Full Week</span>
+                    </div>
+                  </div>
+                  <div className="space-y-2 text-base">
+                    <p className="flex items-center justify-center lg:justify-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0" />
+                      <span>Pro-rated weekly & discounted accordingly</span>
+                    </p>
+                    <p className="flex items-center justify-center lg:justify-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0" />
+                      <span>Includes awesome camp t-shirt</span>
+                    </p>
+                    <p className="flex items-center justify-center lg:justify-start gap-2">
+                      <CheckCircle className="h-5 w-5 text-green-400 flex-shrink-0" />
+                      <span>Family discounts available</span>
+                    </p>
+                  </div>
+                </div>
+                <Button 
+                  size="lg"
+                  className={cn(
+                    "group relative",
+                    "bg-gradient-to-r from-primary to-yellow-500",
+                    "hover:from-primary/90 hover:to-yellow-500/90",
+                    "text-black font-bold text-lg px-10 h-14",
+                    "shadow-lg hover:shadow-2xl hover:scale-105",
+                    "transition-all duration-300",
+                    "cursor-pointer overflow-hidden",
+                    "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
+                    "hover:before:translate-x-[20rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+                    "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  )}
+                >
+                  <span className="relative flex items-center gap-2">
+                    Register Now
+                    <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+                  </span>
+                </Button>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Summer Evening Camps Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-blue-50/20 to-white dark:from-background dark:via-gray-900 dark:to-background" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <Badge className="mb-4 px-4 py-2 text-lg font-bold bg-gradient-to-r from-blue-500/10 to-cyan-500/10">
+              EVENING CAMPS
+            </Badge>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              Summer Evening Camps
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Sunday Evening Sessions - July 06 - August 17, 2025
+            </p>
+          </motion.div>
+
+          {/* Evening Sessions Grid */}
+          <div className="grid md:grid-cols-3 gap-6 mb-8">
+            {/* Session 1 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-900/50 border-2 border-blue-200 dark:border-blue-800 hover:border-blue-400 dark:hover:border-blue-600 hover:shadow-xl hover:shadow-blue-500/10 transition-all duration-300">
+                <div className="mb-4">
+                  <Badge className="bg-blue-500/10 text-blue-700 dark:text-blue-300 border-blue-200 dark:border-blue-700">
+                    Session 1
+                  </Badge>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Grades 4-7</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">Athletes going into grades 4-7</p>
+                
+                <div className="space-y-3 text-sm mb-4">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-blue-600" />
+                    <span>4:00pm - 5:30pm</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-4 w-4 text-blue-600" />
+                    <span className="font-semibold">$192</span>
+                  </div>
+                </div>
+                
+                <Badge className="w-full justify-center py-2 bg-green-500/10 text-green-700 dark:text-green-300 border-green-200 dark:border-green-700">
+                  Available
+                </Badge>
+              </div>
+            </motion.div>
+
+            {/* Session 2 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.1 }}
+            >
+              <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-900/50 border-2 border-gray-200 dark:border-gray-700 opacity-75">
+                <div className="mb-4">
+                  <Badge className="bg-gray-500/10 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700">
+                    Session 2
+                  </Badge>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Grades 7-8</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">Athletes going into grades 7-8</p>
+                
+                <div className="space-y-3 text-sm mb-4">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-gray-600" />
+                    <span>6:00pm - 8:00pm</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-4 w-4 text-gray-600" />
+                    <span className="font-semibold">$240</span>
+                  </div>
+                </div>
+                
+                <Badge className="w-full justify-center py-2 bg-red-500/10 text-red-700 dark:text-red-300 border-red-200 dark:border-red-700">
+                  SOLD OUT
+                </Badge>
+              </div>
+            </motion.div>
+
+            {/* Session 3 */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-900/50 border-2 border-gray-200 dark:border-gray-700 opacity-75">
+                <div className="mb-4">
+                  <Badge className="bg-gray-500/10 text-gray-700 dark:text-gray-300 border-gray-200 dark:border-gray-700">
+                    Session 3
+                  </Badge>
+                </div>
+                <h3 className="text-xl font-bold mb-2">Grades 9+</h3>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">Athletes going into grades 9+</p>
+                
+                <div className="space-y-3 text-sm mb-4">
+                  <div className="flex items-center gap-2">
+                    <Clock className="h-4 w-4 text-gray-600" />
+                    <span>6:00pm - 8:00pm</span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <DollarSign className="h-4 w-4 text-gray-600" />
+                    <span className="font-semibold">$240</span>
+                  </div>
+                </div>
+                
+                <Badge className="w-full justify-center py-2 bg-red-500/10 text-red-700 dark:text-red-300 border-red-200 dark:border-red-700">
+                  SOLD OUT
+                </Badge>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Venue Info */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-blue-50 dark:bg-gray-900 rounded-2xl p-6"
+          >
+            <div className="flex items-start gap-4">
+              <Info className="h-6 w-6 text-blue-600 mt-1" />
+              <div className="space-y-2">
+                <p className="font-semibold">VENUE: MOVED - Webber Academy, 1515 93 st. SW</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">Cancelled: August 03, 2025</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400">NOTE: Cedarbrae Community Centre, 11024 Oakfield Dr. SW for August 24 and 31st ONLY</p>
+                <p className="text-sm text-gray-600 dark:text-gray-400 mt-2">
+                  * Fee is pro-rated weekly and discounted accordingly<br />
+                  * Fee includes awesome camp t-shirt
+                </p>
+              </div>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Summer Drop-in Camp Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white via-green-50/20 to-white dark:from-background dark:via-gray-900 dark:to-background" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <Badge className="mb-4 px-4 py-2 text-lg font-bold bg-gradient-to-r from-green-500/10 to-emerald-500/10">
+              DROP-IN CAMPS
+            </Badge>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              Summer Drop-in Camp
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Saturday Morning Sessions - No Registration Required!
+            </p>
+          </motion.div>
+
+          <div className="max-w-4xl mx-auto">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.95 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+              className="bg-gradient-to-br from-green-50 to-emerald-50 dark:from-gray-900 dark:to-gray-800 rounded-3xl p-8 border-2 border-green-200 dark:border-green-800"
+            >
+              <div className="grid md:grid-cols-2 gap-8">
+                <div className="space-y-6">
+                  <div>
+                    <h3 className="text-2xl font-bold mb-4">Saturday Morning Sessions</h3>
+                    <div className="space-y-4">
+                      <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50">
+                        <h4 className="font-semibold mb-2">Session 1: Grades 5-7</h4>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Clock className="h-4 w-4 text-green-600" />
+                          <span>9:00am - 10:30am</span>
+                        </div>
+                      </div>
+                      <div className="p-4 rounded-xl bg-white/80 dark:bg-gray-900/50">
+                        <h4 className="font-semibold mb-2">Session 2: Grades 8+</h4>
+                        <div className="flex items-center gap-2 text-sm">
+                          <Clock className="h-4 w-4 text-green-600" />
+                          <span>10:30am - 12:00pm</span>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="space-y-6">
+                  <div className="p-6 rounded-xl bg-white/90 dark:bg-gray-900/70">
+                    <div className="flex items-center justify-between mb-4">
+                      <span className="text-3xl font-bold">$20</span>
+                      <Badge className="bg-green-500/10 text-green-700 dark:text-green-300">
+                        AT DOOR
+                      </Badge>
+                    </div>
+                    <div className="space-y-3 text-sm">
+                      <div className="flex items-start gap-2">
+                        <MapPin className="h-4 w-4 text-green-600 mt-0.5" />
+                        <div>
+                          <p className="font-medium">Smash City</p>
+                          <p className="text-gray-600 dark:text-gray-400">4839 - 47th Street SE</p>
+                        </div>
+                      </div>
+                      <div className="flex items-start gap-2">
+                        <Calendar className="h-4 w-4 text-green-600 mt-0.5" />
+                        <div>
+                          <p className="font-medium">July 05 - August 30, 2025</p>
+                          <p className="text-gray-600 dark:text-gray-400">Cancelled: August 02, 2025</p>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Program Philosophy & Details Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              More Than a Game—Growth, Friendship, and Fun!
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              Building Skills, Confidence, and Team Spirit! Athletes learn from experienced coaches, 
+              improve their game, and develop teamwork and leadership skills that last a lifetime.
+            </p>
+          </motion.div>
+
+          {/* Features Grid */}
+          <div className="grid md:grid-cols-3 gap-8 mb-16">
+            {[
+              {
+                icon: Users,
+                title: "Team Experience",
+                description: "Play on a team - Teams formed on Monday mornings. Train with your assigned coach all week.",
+                color: "from-blue-500/10 to-cyan-500/10"
+              },
+              {
+                icon: Trophy,
+                title: "Championship Friday",
+                description: "Friday afternoon Championship Tournament with awards and prizes. Parents welcome to watch!",
+                color: "from-yellow-500/10 to-orange-500/10"
+              },
+              {
+                icon: Target,
+                title: "Skills Development",
+                description: "Some of the best technical development in the province. Learn team tactics & systems of play.",
+                color: "from-green-500/10 to-emerald-500/10"
+              }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                  <div className={cn(
+                    "w-12 h-12 rounded-xl bg-gradient-to-br flex items-center justify-center mb-4",
+                    feature.color
+                  )}>
+                    <feature.icon className="h-6 w-6 text-gray-700 dark:text-gray-300" />
+                  </div>
+                  <h3 className="text-xl font-bold mb-3">{feature.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">{feature.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Program Format Cards */}
+          <div className="grid md:grid-cols-2 gap-8 mb-16">
+            {/* Weekly Day Camps Format */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-yellow-500/5 dark:from-primary/10 dark:to-yellow-500/10 border border-primary/20">
+                <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                  <GraduationCap className="h-8 w-8 text-primary" />
+                  PROGRAM FORMAT
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Available weekly during July-August</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Beginners to Intermediate level</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Ages 12-14 & 15+</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Open to boys & girls</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            {/* Daily Schedule */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-secondary/5 to-purple-500/5 dark:from-secondary/10 dark:to-purple-500/10 border border-secondary/20">
+                <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                  <Clock className="h-8 w-8 text-secondary" />
+                  DAILY SCHEDULE
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>9:00am - 4:00pm Daily</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>12-1:00pm Lunch break</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>10:30am & 2:30pm: 15 min breaks</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>Venues open at 8:30am</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>Coaches stay until all athletes picked up</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Camp Philosophy */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-10 text-white"
+          >
+            <h3 className="text-3xl font-bold mb-6 flex items-center gap-3">
+              <Sparkles className="h-8 w-8 text-yellow-400" />
+              VISION Summer Day Camp Philosophy
+            </h3>
+            
+            <div className="grid md:grid-cols-2 gap-6">
+              {[
+                "Attendance Matters – Roll call at the start of each session",
+                "Arrive Ready – Come 5-10 minutes early in proper volleyball attire",
+                "Every Athlete Counts – Skill development for all experience levels",
+                "Positive Coaching – Motivate, encourage, and support every athlete",
+                "High-Repetition Training – Structured, fast-paced drills for consistency",
+                "Stay Hydrated & Energized – Water and snack breaks as needed",
+                "Open Communication – Athletes encouraged to speak with coaches",
+                "Prizes & Giveaways – Win prizes and awesome door gifts!"
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <span className="text-gray-200">{item}</span>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+        </div>
+      </section>
+
+      {/* Training Components Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-b from-white to-gray-50 dark:from-background dark:to-gray-900" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              What You Can Expect
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Every training session consists of the following components
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              {
+                number: "01",
+                title: "Warm-up Games",
+                description: "Designed to ensure athletes get to meet each other in an inviting and competitive environment",
+                icon: Heart,
+                gradient: "from-pink-500 to-red-500"
+              },
+              {
+                number: "02",
+                title: "Skill Development",
+                description: "Drills with a focus on high-repetition and technical correction",
+                icon: Zap,
+                gradient: "from-blue-500 to-cyan-500"
+              },
+              {
+                number: "03",
+                title: "Team Play",
+                description: "Every session concludes with team drills designed to teach systems of play",
+                icon: Users,
+                gradient: "from-green-500 to-emerald-500"
+              }
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+                className="relative"
+              >
+                <div className="h-full p-8 rounded-2xl bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 hover:shadow-xl transition-all duration-300">
+                  <div className={cn(
+                    "absolute -top-4 -right-4 w-12 h-12 rounded-full bg-gradient-to-br flex items-center justify-center text-white font-bold text-lg",
+                    step.gradient
+                  )}>
+                    {step.number}
+                  </div>
+                  <step.icon className="h-10 w-10 text-gray-400 mb-4" />
+                  <h3 className="text-xl font-bold mb-3">{step.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-400">{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      {/* How to Register Section */}
+      <section className="relative py-20 overflow-hidden">
+        <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-yellow-50/50 to-orange-50/50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
+        
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              How to Register
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400">
+              Simple online registration process
+            </p>
+          </motion.div>
+
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6 mb-12">
+            {[
+              {
+                icon: UserCheck,
+                title: "Online Registration",
+                description: "All registrations are online - Simply click our Registration button"
+              },
+              {
+                icon: Calendar,
+                title: "No Deadline",
+                description: "Space is limited - registration closes once camp is filled"
+              },
+              {
+                icon: Users,
+                title: "Family Discount",
+                description: "25% discount on additional children when registered together"
+              },
+              {
+                icon: Shield,
+                title: "Refund Policy",
+                description: "Complete refund policy available on our website"
+              }
+            ].map((item, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                whileInView={{ opacity: 1, y: 0 }}
+                viewport={{ once: true }}
+                transition={{ duration: 0.6, delay: index * 0.1 }}
+              >
+                <div className="h-full p-6 rounded-2xl bg-white dark:bg-gray-900/50 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all duration-300">
+                  <item.icon className="h-8 w-8 text-primary mb-4" />
+                  <h3 className="font-bold mb-2">{item.title}</h3>
+                  <p className="text-sm text-gray-600 dark:text-gray-400">{item.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+
+          {/* Final CTA Section */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center p-12 rounded-3xl bg-gradient-to-r from-primary/10 via-yellow-500/10 to-orange-500/10 dark:from-primary/20 dark:via-yellow-500/20 dark:to-orange-500/20 border-2 border-primary/20"
+          >
+            <h3 className="text-3xl font-bold mb-4">
+              Maximize your Potential this Summer!
+            </h3>
+            <p className="text-lg text-gray-600 dark:text-gray-400 mb-8 max-w-2xl mx-auto">
+              Whether preparing for the next school season or just playing for fun, 
+              our summer camps help athletes refine their game and take it to the next level!
+            </p>
+            
+            <div className="flex flex-col sm:flex-row gap-4 justify-center">
+              <Button 
+                size="lg"
+                className={cn(
+                  "group relative",
+                  "bg-gradient-to-r from-primary to-yellow-500",
+                  "hover:from-primary/90 hover:to-yellow-500/90",
+                  "text-black font-bold text-lg px-10 h-14",
+                  "shadow-lg hover:shadow-2xl hover:scale-105",
+                  "transition-all duration-300",
+                  "cursor-pointer overflow-hidden",
+                  "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
+                  "hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+                  "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                )}
+              >
+                <span className="relative flex items-center gap-2">
+                  Register for Summer Camps
+                  <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+                </span>
+              </Button>
+
+              <Button
+                size="lg"
+                variant="outline"
+                className="font-medium text-lg px-10 h-14 border-2 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-300"
+              >
+                <Info className="h-5 w-5 mr-2" />
+                Contact Us
+              </Button>
+            </div>
+          </motion.div>
+        </div>
+      </section>
+    </>
+  )
+}
