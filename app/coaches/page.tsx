@@ -181,15 +181,17 @@ export default function CoachesPage() {
               {/* Animated shimmer overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 translate-x-[-200%] animate-shimmer" />
               
-              {/* Static volleyball with glow */}
-              <div className="absolute top-6 right-6">
-                <Image
-                  src="/volleyball.webp"
-                  alt="Volleyball"
-                  width={80}
-                  height={80}
-                  className="h-20 w-20 opacity-60 dark:opacity-40 drop-shadow-[0_0_15px_rgba(236,186,88,0.4)]"
-                />
+              {/* Static volleyball watermark */}
+              <div className="absolute top-1/2 right-10 -translate-y-1/2 pointer-events-none">
+                <div className="relative">
+                  <Image
+                    src="/volleyball.webp"
+                    alt="Volleyball"
+                    width={200}
+                    height={200}
+                    className="h-48 w-48 lg:h-56 lg:w-56 opacity-[0.06] dark:opacity-[0.04] grayscale contrast-200 sepia-[0.3] hue-rotate-180 saturate-[3]"
+                  />
+                </div>
               </div>
               
               <div className="relative p-10 lg:p-14">
@@ -235,7 +237,7 @@ export default function CoachesPage() {
                       <h2 className="text-4xl lg:text-5xl font-black mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-100 dark:via-white dark:to-gray-100 bg-clip-text text-transparent">
                         {coaches[0].name}
                       </h2>
-                      <p className="text-2xl text-gray-700 dark:text-gray-300 font-bold mb-6">{coaches[0].role}</p>
+                      <p className="text-2xl lg:text-3xl bg-gradient-to-r from-secondary to-blue-600 dark:from-blue-400 dark:to-cyan-400 bg-clip-text text-transparent font-black mb-6 tracking-tight">{coaches[0].role}</p>
                     </motion.div>
                     
                     {/* Enhanced floating achievements with stagger animation */}
@@ -264,9 +266,9 @@ export default function CoachesPage() {
                           >
                             <Badge 
                               variant="outline" 
-                              className="border-primary/80 text-gray-800 bg-primary/20 hover:bg-primary/25 transition-colors duration-300 px-3 py-1.5 font-semibold shadow-sm hover:shadow-md dark:border-primary/60 dark:bg-primary/25 dark:hover:bg-primary/30 dark:text-gray-100"
+                              className="border-2 border-primary/90 text-gray-900 bg-gradient-to-br from-primary/30 to-yellow-500/20 hover:from-primary/40 hover:to-yellow-500/30 transition-all duration-300 px-4 py-2 font-bold shadow-md hover:shadow-xl hover:scale-105 hover:-translate-y-0.5 dark:border-primary/70 dark:bg-gradient-to-br dark:from-primary/35 dark:to-yellow-500/25 dark:hover:from-primary/45 dark:hover:to-yellow-500/35 dark:text-gray-100"
                             >
-                              <Icon className="h-4 w-4 mr-1.5 text-primary" />
+                              <Icon className="h-5 w-5 mr-2 text-secondary dark:text-primary drop-shadow-sm" />
                               {achievement}
                             </Badge>
                           </motion.div>
@@ -295,9 +297,9 @@ export default function CoachesPage() {
                     </motion.div>
 
                     <Button
-                      variant="ghost"
+                      variant="outline"
                       onClick={() => toggleBio(coaches[0].id)}
-                      className="group relative text-gray-700 hover:text-white font-semibold hover:bg-gradient-to-r hover:from-primary hover:to-yellow-500 dark:text-gray-300 dark:hover:text-black transition-all duration-300 hover:shadow-lg hover:scale-105 overflow-hidden"
+                      className="group relative border-2 border-primary/40 dark:border-primary/50 text-gray-800 dark:text-gray-200 font-bold hover:text-black dark:hover:text-black hover:bg-gradient-to-r hover:from-primary hover:to-yellow-500 hover:border-primary/60 transition-all duration-300 hover:shadow-xl hover:shadow-primary/20 hover:scale-105 overflow-hidden px-6"
                     >
                       <span className="relative z-10 flex items-center">
                         {expandedBios.has(coaches[0].id) ? (
@@ -386,7 +388,7 @@ export default function CoachesPage() {
                         <p className="text-xs font-semibold text-gray-700 dark:text-gray-300 mb-2">Achievements:</p>
                         <div className="flex flex-wrap gap-1">
                           {coach.achievements.map((achievement, achIndex) => (
-                            <Badge key={achIndex} variant="secondary" className="text-xs">
+                            <Badge key={achIndex} variant="outline" className="text-xs font-semibold shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200 border-primary/60 text-gray-900 bg-gradient-to-br from-primary/20 to-yellow-500/15 hover:from-primary/25 hover:to-yellow-500/20 dark:border-primary/50 dark:text-gray-100 dark:bg-gradient-to-br dark:from-primary/25 dark:to-yellow-500/15 dark:hover:from-primary/30 dark:hover:to-yellow-500/20">
                               {achievement}
                             </Badge>
                           ))}
