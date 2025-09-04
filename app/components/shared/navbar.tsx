@@ -34,7 +34,7 @@ const navItems = [
     subItems: [
       { name: "Program Overview", href: "/programs", icon: Home },
       { name: "Summer Camps", href: "/summercamps", icon: Calendar },
-      { name: "Coach Bios", href: "/programs/coaches", icon: Users },
+      { name: "Coach Bios", href: "/coaches", icon: Users },
       { name: "Reviews", href: "/programs/reviews", icon: Star },
     ]
   },
