@@ -35,7 +35,7 @@ const navItems = [
       { name: "Program Overview", href: "/programs", icon: Home },
       { name: "Summer Camps", href: "/summercamps", icon: Calendar },
       { name: "Coach Bios", href: "/coaches", icon: Users },
-      { name: "Reviews", href: "/programs/reviews", icon: Star },
+      { name: "Reviews", href: "/reviews", icon: Star },
     ]
   },
   { name: "Club", href: "/club" },
