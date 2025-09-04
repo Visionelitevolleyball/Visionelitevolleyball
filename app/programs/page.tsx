@@ -149,127 +149,120 @@ export default function ProgramsPage() {
                 </motion.div>
               </motion.div>
 
-              {/* Right Content - Interactive Program Journey */}
+              {/* Right Content - Modern Program Showcase */}
               <motion.div
-                initial={{ opacity: 0, scale: 0.9 }}
-                animate={{ opacity: 1, scale: 1 }}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.4 }}
                 className="relative"
               >
-                {/* Program Path Visualization */}
-                <div className="relative">
-                  {/* Program Cards */}
-                  <div className="grid grid-cols-2 gap-4 relative">
-                    {[
-                      { 
-                        name: "Youth Academy",
-                        age: "Grades 3-7",
-                        icon: Sparkles,
-                        color: "from-primary/20 to-yellow-500/10",
-                        borderColor: "border-primary/30",
-                        delay: 0.8
-                      },
-                      { 
-                        name: "WARRIORS",
-                        age: "Grades 8-12",
-                        icon: Zap,
-                        color: "from-blue-500/20 to-cyan-500/10",
-                        borderColor: "border-blue-500/30",
-                        delay: 0.9
-                      },
-                      { 
-                        name: "STORM",
-                        age: "Advanced",
-                        icon: Award,
-                        color: "from-red-500/20 to-orange-500/10",
-                        borderColor: "border-red-500/30",
-                        delay: 1.0
-                      },
-                      { 
-                        name: "VISION ELITE",
-                        age: "University Prep",
-                        icon: Trophy,
-                        color: "from-secondary/20 to-purple-500/10",
-                        borderColor: "border-secondary/30",
-                        delay: 1.1
-                      }
-                    ].map((program, index) => (
-                      <div
-                        key={index}
-                        className="group cursor-pointer"
-                      >
-                        <div className={cn(
-                          "relative p-6 rounded-2xl",
-                          "bg-white dark:bg-gray-900",
-                          "border-2 transition-all duration-300",
-                          program.borderColor,
-                          "hover:shadow-xl hover:border-opacity-60",
-                          "overflow-hidden"
-                        )}>
-                          {/* Background Gradient */}
-                          <div className={cn(
-                            "absolute inset-0 bg-gradient-to-br opacity-50",
-                            program.color,
-                            "group-hover:opacity-100 transition-opacity duration-300"
-                          )} />
-                          
-                          {/* Content */}
-                          <div className="relative">
-                            <program.icon className={cn(
-                              "h-8 w-8 mb-3",
-                              index === 0 ? "text-primary" : 
-                              index === 1 ? "text-blue-500" :
-                              index === 2 ? "text-red-500" : "text-secondary"
-                            )} />
-                            <h3 className="font-bold text-lg mb-1">{program.name}</h3>
-                            <p className="text-sm text-gray-600 dark:text-gray-400">{program.age}</p>
+                {/* Athletic Excellence Path */}
+                <div className="space-y-6">
+                  {/* Top Feature Card */}
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ delay: 0.6 }}
+                    className="relative group"
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-500/10 dark:from-blue-600/20 dark:to-cyan-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
+                    <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-all duration-300">
+                      <div className="flex items-start justify-between mb-4">
+                        <div>
+                          <span className="inline-block px-3 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/50 rounded-full mb-3">
+                            FLAGSHIP PROGRAM
+                          </span>
+                          <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
+                            Summer Camps
+                          </h3>
+                          <p className="text-gray-600 dark:text-gray-400 mt-2">
+                            Elite training for grades 3-9 with professional coaches
+                          </p>
+                        </div>
+                        <Trophy className="h-10 w-10 text-blue-500 opacity-50" />
+                      </div>
+                      <div className="flex items-center justify-between">
+                        <div className="flex gap-4">
+                          <div>
+                            <p className="text-3xl font-bold text-gray-900 dark:text-white">500+</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">Athletes Trained</p>
+                          </div>
+                          <div className="border-l border-gray-200 dark:border-gray-700 pl-4">
+                            <p className="text-3xl font-bold text-gray-900 dark:text-white">15+</p>
+                            <p className="text-xs text-gray-500 dark:text-gray-400">Years Excellence</p>
                           </div>
                         </div>
+                        <ChevronRight className="h-6 w-6 text-blue-500 group-hover:translate-x-1 transition-transform" />
                       </div>
+                    </div>
+                  </motion.div>
+
+                  {/* Program Grid */}
+                  <div className="grid grid-cols-3 gap-4">
+                    {[
+                      { 
+                        name: "Day Camps",
+                        icon: Calendar,
+                        highlight: "Flexible Schedule",
+                        color: "text-primary"
+                      },
+                      { 
+                        name: "Premier League",
+                        icon: Award,
+                        highlight: "Competitive Play",
+                        color: "text-red-500"
+                      },
+                      { 
+                        name: "Club Teams",
+                        icon: Users,
+                        highlight: "Year-Round",
+                        color: "text-green-500"
+                      }
+                    ].map((program, index) => (
+                      <motion.div
+                        key={program.name}
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 + index * 0.1 }}
+                        className="group cursor-pointer"
+                      >
+                        <div className="relative h-full bg-white dark:bg-gray-900 rounded-xl p-4 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 hover:shadow-lg">
+                          <program.icon className={cn("h-8 w-8 mb-2", program.color)} />
+                          <h4 className="font-semibold text-sm mb-1">{program.name}</h4>
+                          <p className="text-xs text-gray-500 dark:text-gray-400">{program.highlight}</p>
+                        </div>
+                      </motion.div>
                     ))}
                   </div>
 
-                  {/* Center Badge */}
-                  <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2">
-                    <div className={cn(
-                      "w-20 h-20 rounded-full",
-                      "bg-gradient-to-br from-gray-50/90 to-white/90 dark:from-gray-900 dark:to-gray-800",
-                      "backdrop-blur-sm",
-                      "border-4 border-primary",
-                      "flex items-center justify-center",
-                      "shadow-2xl shadow-primary/20"
-                    )}>
-                      <span className="text-2xl font-black text-primary">4</span>
+                  {/* Bottom CTA Section */}
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    transition={{ delay: 1.2 }}
+                    className="relative"
+                  >
+                    <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 text-center">
+                      <div className="flex items-center justify-center gap-2 mb-3">
+                        <Sparkles className="h-5 w-5 text-primary" />
+                        <span className="text-sm font-bold text-gray-900 dark:text-white">
+                          READY TO START YOUR JOURNEY?
+                        </span>
+                      </div>
+                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
+                        Join hundreds of athletes developing their skills with us
+                      </p>
+                      <div className="flex gap-3 justify-center">
+                        <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
+                          Explore Programs
+                        </button>
+                        <button className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
+                          Contact Us
+                        </button>
+                      </div>
                     </div>
-                    <span className="absolute -bottom-6 left-1/2 -translate-x-1/2 text-xs font-semibold text-gray-700 dark:text-white whitespace-nowrap">
-                      Programs
-                    </span>
-                  </div>
+                  </motion.div>
                 </div>
-
-                {/* Bottom CTA Card */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 1.5 }}
-                  className={cn(
-                    "mt-6 p-5 rounded-2xl",
-                    "bg-gradient-to-r from-gray-900 to-gray-800",
-                    "dark:from-gray-800 dark:to-gray-900",
-                    "text-white relative overflow-hidden"
-                  )}
-                >
-                  {/* Shimmer Effect */}
-                  <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 to-transparent -skew-x-12 translate-x-[-200%] animate-shimmer" />
-                  
-                  <div className="relative flex items-center justify-between">
-                    <div>
-                      <p className="text-sm font-medium text-gray-300 mb-1">Starting at any age</p>
-                      <p className="text-lg font-bold">Find Your Perfect Program</p>
-                    </div>
-                    <ChevronRight className="h-6 w-6 text-gray-400" />
-                  </div>
-                </motion.div>
               </motion.div>
             </div>
           </div>
