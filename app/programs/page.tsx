@@ -4,8 +4,8 @@ import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { 
   Trophy, Star, Users, CheckCircle, ArrowRight, 
-  Target, Zap, Award, MapPin, Calendar,
-  Sparkles, Shield, ChevronRight, Sun, Snowflake, GraduationCap,
+  Target, Zap, Award,
+  Sparkles, Sun, Snowflake, GraduationCap,
   Heart, DollarSign, UserCheck, Eye, Handshake
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -95,119 +95,287 @@ export default function ProgramsPage() {
             </div>
           </motion.div>
 
-          {/* Vision and Values Grid */}
-          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+          {/* Vision and Values - Modern Bento Grid */}
+          <div className="grid lg:grid-cols-3 gap-4 mb-12">
             
-            {/* Our Vision Card */}
+            {/* Our Vision - Large Card */}
             <motion.div
-              initial={{ opacity: 0, x: -20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.2 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, type: "spring" }}
+              className="lg:col-span-2 group"
             >
-              <div className="h-full rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 p-8 hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center gap-3 flex-grow">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-yellow-500/10 dark:from-primary/20 dark:to-yellow-500/20">
-                    <Eye className="h-6 w-6 text-primary dark:text-yellow-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Our Vision</h3>
+              <div className="relative h-full rounded-3xl bg-gradient-to-br from-primary/5 to-yellow-500/5 dark:from-primary/10 dark:to-yellow-500/10 border border-primary/10 dark:border-primary/20 hover:border-primary/20 dark:hover:border-primary/30 transition-all duration-300">
+                {/* Gradient mesh background */}
+                <div className="absolute inset-0 rounded-3xl opacity-30">
+                  <div className="absolute inset-0 bg-gradient-to-tr from-primary/10 via-transparent to-transparent" />
                 </div>
-                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
-                  Volleyball Fraser Valley is a volunteer-driven, non-profit organization dedicated to creating sustainable, high-quality youth volleyball programs. Our focus is on fostering a positive, inclusive, and low-pressure environment where athletes can develop their skills, grow their confidence, and fall in love with the game. By emphasizing fun, personal development, and teamwork over intense competition, we aim to make volleyball accessible to everyone—regardless of experience or skill level.
-                </p>
+                
+                <div className="relative p-8 lg:p-10">
+                  {/* Header with modern icon treatment */}
+                  <div className="mb-8">
+                    <div className="inline-flex items-center gap-3 mb-4">
+                      <div className="relative">
+                        <div className="absolute inset-0 bg-gradient-to-br from-primary to-yellow-500 rounded-2xl blur-lg opacity-20" />
+                        <div className="relative flex items-center justify-center w-12 h-12 rounded-2xl bg-gradient-to-br from-primary to-yellow-500">
+                          <Eye className="h-6 w-6 text-white" strokeWidth={2} />
+                        </div>
+                      </div>
+                      <Badge className="bg-primary/10 text-gray-900 dark:bg-primary/20 dark:text-primary border-0 font-semibold">
+                        Vision</Badge>
+                    </div>
+                    <h3 className="text-3xl lg:text-4xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                      Building Futures Through
+                      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-primary to-yellow-500">
+                        Volleyball Excellence
+                      </span>
+                    </h3>
+                    <p className="text-lg text-gray-600 dark:text-gray-400">Our commitment to developing young athletes</p>
+                  </div>
+                  
+                  {/* Vision points with better design */}
+                  <div className="grid sm:grid-cols-2 gap-4">
+                    {[
+                      { icon: Users, text: "Volunteer-driven, non-profit organization", metric: "100%" },
+                      { icon: Trophy, text: "High-quality youth volleyball programs", metric: "3200+" },
+                      { icon: Heart, text: "Positive, inclusive environment", metric: "25 Years" },
+                      { icon: Sparkles, text: "Accessible to all skill levels", metric: "All Ages" }
+                    ].map((item, index) => (
+                      <motion.div
+                        key={index}
+                        initial={{ opacity: 0, scale: 0.95 }}
+                        animate={{ opacity: 1, scale: 1 }}
+                        transition={{ delay: 0.1 * index }}
+                        className="group/item relative p-4 rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:border-primary/30 dark:hover:border-primary/30 hover:shadow-sm transition-all duration-200"
+                      >
+                        <div className="flex items-start gap-3">
+                          <div className="p-2 rounded-xl bg-gradient-to-br from-primary/10 to-yellow-500/10 group-hover/item:from-primary/20 group-hover/item:to-yellow-500/20 transition-colors">
+                            <item.icon className="h-4 w-4 text-gray-700 dark:text-primary" strokeWidth={2} />
+                          </div>
+                          <div className="flex-1">
+                            <div className="flex items-baseline justify-between mb-1">
+                              <p className="text-lg font-bold tabular-nums text-gray-900 dark:text-gray-100">
+                                {item.metric}
+                              </p>
+                            </div>
+                            <p className="text-xs font-medium text-gray-600 dark:text-gray-400 leading-relaxed">
+                              {item.text}
+                            </p>
+                          </div>
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                </div>
               </div>
             </motion.div>
 
-            {/* What Sets Us Apart Card */}
+            {/* What Sets Us Apart - Vertical Stack */}
             <motion.div
-              initial={{ opacity: 0, x: 20 }}
-              animate={{ opacity: 1, x: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5, delay: 0.1, type: "spring" }}
+              className="flex flex-col gap-4"
             >
-              <div className="h-full rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 p-8 hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center gap-3 flex-grow">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-secondary/10 to-blue-500/10 dark:from-secondary/20 dark:to-blue-500/20">
-                    <Star className="h-6 w-6 text-secondary dark:text-blue-400" />
+              {/* Header Card */}
+              <div className="rounded-3xl bg-gradient-to-br from-secondary/5 to-blue-500/5 dark:from-secondary/10 dark:to-blue-500/10 border border-secondary/10 dark:border-secondary/20 p-6">
+                <div className="inline-flex items-center gap-3 mb-3">
+                  <div className="relative">
+                    <div className="absolute inset-0 bg-gradient-to-br from-secondary to-blue-500 rounded-xl blur-lg opacity-20" />
+                    <div className="relative flex items-center justify-center w-10 h-10 rounded-xl bg-gradient-to-br from-secondary to-blue-500">
+                      <Star className="h-5 w-5 text-white" strokeWidth={2} />
+                    </div>
                   </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">What Sets Us Apart?</h3>
+                  <Badge className="bg-secondary/10 text-gray-900 dark:bg-secondary/20 dark:text-blue-400 border-0 font-semibold">
+                    Unique
+                  </Badge>
                 </div>
-                
-                <div className="space-y-4">
-                  {/* Affordability */}
-                  <div className="flex gap-3">
-                    <DollarSign className="h-5 w-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
-                        Affordability Without Compromise
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        Our programs deliver top-notch training at a fraction of the cost of traditional club volleyball, ensuring more families can participate.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Community */}
-                  <div className="flex gap-3">
-                    <Heart className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
-                        Community First
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        We believe in the power of volleyball to bring people together. By nurturing local talent and fostering strong connections, we aim to build a vibrant volleyball community in Fraser Valley.
-                      </p>
-                    </div>
-                  </div>
-
-                  {/* Volunteer-Driven */}
-                  <div className="flex gap-3">
-                    <UserCheck className="h-5 w-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-1" />
-                    <div>
-                      <p className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
-                        Volunteer-Driven Excellence
-                      </p>
-                      <p className="text-sm text-gray-600 dark:text-gray-400">
-                        The dedication of our volunteers makes our programs special. Their passion and commitment create an environment where athletes can thrive both on and off the court.
-                      </p>
-                    </div>
-                  </div>
-                </div>
+                <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-1">
+                  What Sets Us Apart
+                </h3>
+                <p className="text-sm text-gray-600 dark:text-gray-400">
+                  Three pillars of excellence
+                </p>
               </div>
+
+              {/* Feature Cards - Compact */}
+              {[
+                { 
+                  icon: DollarSign, 
+                  title: "Affordable", 
+                  text: "Premium training at fraction of the cost",
+                  gradient: "from-emerald-500 to-teal-500",
+                  bg: "from-emerald-500/5 to-teal-500/5",
+                  border: "border-emerald-500/10"
+                },
+                { 
+                  icon: Heart, 
+                  title: "Community", 
+                  text: "Local talent building strong connections",
+                  gradient: "from-rose-500 to-pink-500",
+                  bg: "from-rose-500/5 to-pink-500/5",
+                  border: "border-rose-500/10"
+                },
+                { 
+                  icon: UserCheck, 
+                  title: "Excellence", 
+                  text: "Passionate volunteers, thriving athletes",
+                  gradient: "from-violet-500 to-purple-500",
+                  bg: "from-violet-500/5 to-purple-500/5",
+                  border: "border-violet-500/10"
+                }
+              ].map((item, index) => (
+                <motion.div
+                  key={index}
+                  initial={{ opacity: 0, x: 20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.2 + index * 0.05 }}
+                  whileHover={{ scale: 1.02 }}
+                  className={cn(
+                    "relative rounded-2xl p-5 transition-all duration-200",
+                    "bg-gradient-to-br", item.bg,
+                    "dark:from-gray-900/50 dark:to-gray-800/50",
+                    "border", item.border, "dark:border-gray-700/50",
+                    "hover:shadow-lg hover:shadow-black/5 dark:hover:shadow-black/20",
+                    "group/card cursor-pointer"
+                  )}
+                >
+                  <div className="flex items-start gap-3">
+                    <div className={cn(
+                      "flex items-center justify-center w-9 h-9 rounded-xl",
+                      "bg-gradient-to-br", item.gradient,
+                      "shadow-sm"
+                    )}>
+                      <item.icon className="h-4 w-4 text-white" strokeWidth={2.5} />
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-semibold text-gray-900 dark:text-gray-100 mb-0.5">
+                        {item.title}
+                      </p>
+                      <p className="text-xs text-gray-600 dark:text-gray-400 leading-relaxed">
+                        {item.text}
+                      </p>
+                    </div>
+                  </div>
+                  
+                  {/* Hover accent */}
+                  <div className={cn(
+                    "absolute inset-0 rounded-2xl bg-gradient-to-br", 
+                    item.gradient,
+                    "opacity-0 group-hover/card:opacity-5 transition-opacity duration-300"
+                  )} />
+                </motion.div>
+              ))}
             </motion.div>
           </div>
 
-          {/* Our Commitment Card */}
+          {/* Our Commitment Card - Premium 10/10 Design */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
             animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
+            transition={{ duration: 0.8, delay: 0.4, type: "spring", stiffness: 80 }}
             className="mb-12"
           >
-            <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300">
-              {/* Subtle gradient accent */}
-              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-cyan-500/5 to-transparent" />
+            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-500/[0.08] via-cyan-500/[0.06] to-indigo-500/[0.04] dark:from-blue-500/15 dark:via-cyan-500/10 dark:to-indigo-500/5 border-2 border-blue-500/20 dark:border-blue-500/30 hover:border-blue-500/30 dark:hover:border-blue-500/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 hover:scale-[1.01]">
               
-              {/* Blue accent bar at top */}
-              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600" />
-              
-              {/* Content */}
-              <div className="relative p-8 lg:p-12">
-                <div className="flex items-center gap-3 flex-grow">
-                  <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/20">
-                    <Handshake className="h-6 w-6 text-blue-600 dark:text-blue-400" />
-                  </div>
-                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Our Commitment to Fraser Valley</h3>
-                </div>
-                
-                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
-                  As we embark on this new chapter, Volleyball Fraser Valley is committed to delivering the same level of program excellence and community engagement that has made Volleyball Winnipeg a cornerstone of Manitoba&apos;s volleyball scene. Whether you&apos;re looking for your first introduction to the sport or a place to develop skills in a supportive environment, Volleyball Fraser Valley is here to help every athlete reach their full potential.
-                </p>
-                
-                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
-                  <p className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
-                    Join us as we build a brighter future for youth volleyball in Fraser Valley, one athlete, one program, and one game at a time.
-                  </p>
-                </div>
+              {/* Premium gradient mesh background */}
+              <div className="absolute inset-0 opacity-40">
+                <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-transparent to-transparent" />
+                <div className="absolute inset-0 bg-gradient-to-bl from-cyan-500/10 via-transparent to-transparent" />
+                <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-blue-400/10 to-transparent blur-3xl" />
               </div>
+              
+              
+              {/* Content with enhanced design */}
+              <div className="relative p-10 lg:p-14">
+                <motion.div 
+                  className="flex items-center gap-4 mb-8"
+                  initial={{ opacity: 0, x: -20 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ delay: 0.6 }}
+                >
+                  {/* Premium animated icon */}
+                  <motion.div 
+                    className="relative"
+                    whileHover={{ scale: 1.1, rotate: 5 }}
+                    transition={{ type: "spring", stiffness: 300 }}
+                  >
+                    <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
+                    <div className="relative flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/20">
+                      <Handshake className="h-7 w-7 text-white" strokeWidth={2} />
+                    </div>
+                  </motion.div>
+                  
+                  <div className="flex-1">
+                    <h3 className="text-3xl lg:text-4xl font-black text-gray-900 dark:text-gray-100 mb-1">
+                      Our Commitment to
+                      <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 animate-gradient bg-[length:200%_100%]">
+                        Fraser Valley
+                      </span>
+                    </h3>
+                  </div>
+                  
+                  <Badge className="hidden lg:flex px-5 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 text-blue-900 dark:text-blue-300 border-0 font-bold text-sm shadow-lg">
+                    <Heart className="h-4 w-4 mr-2 text-red-500" />
+                    Since 2025
+                  </Badge>
+                </motion.div>
+                
+                <motion.div
+                  initial={{ opacity: 0 }}
+                  animate={{ opacity: 1 }}
+                  transition={{ delay: 0.7 }}
+                  className="space-y-6"
+                >
+                  <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                    As we embark on this new chapter, <span className="font-semibold text-gray-900 dark:text-gray-100">Volleyball Fraser Valley</span> is committed to delivering the same level of program excellence and community engagement that has made <span className="font-semibold text-gray-900 dark:text-gray-100">Volleyball Winnipeg</span> a cornerstone of Manitoba&apos;s volleyball scene. Whether you&apos;re looking for your first introduction to the sport or a place to develop skills in a supportive environment, Volleyball Fraser Valley is here to help <span className="text-primary font-semibold">every athlete reach their full potential</span>.
+                  </p>
+                  
+                  {/* Stats row for credibility */}
+                  <div className="grid grid-cols-3 gap-6 py-6">
+                    {[
+                      { number: "10,000+", label: "Athletes Trained", icon: Users },
+                      { number: "25+", label: "Years Experience", icon: Trophy },
+                      { number: "100%", label: "Commitment", icon: Heart }
+                    ].map((stat, index) => (
+                      <motion.div 
+                        key={index}
+                        className="text-center"
+                        initial={{ opacity: 0, y: 20 }}
+                        animate={{ opacity: 1, y: 0 }}
+                        transition={{ delay: 0.8 + index * 0.1 }}
+                      >
+                        <stat.icon className="h-5 w-5 mx-auto mb-2 text-blue-500" />
+                        <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                          {stat.number}
+                        </div>
+                        <div className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-medium">
+                          {stat.label}
+                        </div>
+                      </motion.div>
+                    ))}
+                  </div>
+                  
+                  <motion.div 
+                    className="pt-6 border-t-2 border-gradient-to-r from-transparent via-blue-200 to-transparent dark:via-blue-800"
+                    initial={{ opacity: 0, y: 10 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ delay: 1 }}
+                  >
+                    <p className="text-xl lg:text-2xl font-black leading-tight">
+                      <span className="text-gray-900 dark:text-gray-100">Join us as we build a</span>
+                      <span className="block mt-2 text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-indigo-600 animate-gradient bg-[length:200%_100%]">
+                        brighter future for youth volleyball
+                      </span>
+                      <span className="text-gray-900 dark:text-gray-100">in Fraser Valley, one athlete, one </span>
+                      <span className="text-gray-900 dark:text-gray-100">program, and one game at a time.</span>
+                    </p>
+                  </motion.div>
+                </motion.div>
+              </div>
+              
+              {/* Subtle animated shimmer overlay */}
+              <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 translate-x-[-200%] group-hover:animate-shimmer pointer-events-none" />
             </div>
           </motion.div>
 
@@ -681,7 +849,7 @@ export default function ProgramsPage() {
 
           {/* CTA Section */}
           <div className="mt-12 text-center">
-            <p className="text-gray-600 dark:text-gray-400 flex-grow">
+            <p className="text-gray-600 dark:text-gray-400 mb-6">
               Ready to join the VISION family? Find your perfect program today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
