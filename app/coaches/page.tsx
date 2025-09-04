@@ -126,8 +126,9 @@ export default function CoachesPage() {
       />
 
       {/* Hero Section */}
-      <section className="relative py-20 lg:py-24">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-8 lg:pt-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
+          <div className="w-full">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -140,8 +141,8 @@ export default function CoachesPage() {
               transition={{ duration: 0.5 }}
               className="inline-flex mb-6"
             >
-              <Badge className="px-6 py-3 text-lg font-semibold bg-gradient-to-r from-blue-500/10 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/20 text-blue-700 dark:text-blue-400 border-blue-500/20 dark:border-blue-400/30">
-                <Trophy className="h-5 w-5 mr-2" />
+              <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-900 dark:text-blue-200 border-blue-200 dark:border-blue-800">
+                <Trophy className="h-4 w-4 mr-2" />
                 Meet Our Coaching Team
               </Badge>
             </motion.div>
@@ -508,6 +509,7 @@ export default function CoachesPage() {
               </div>
             </div>
           </motion.div>
+          </div>
         </div>
       </section>
     </div>
