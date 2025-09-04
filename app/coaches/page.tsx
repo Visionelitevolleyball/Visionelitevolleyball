@@ -199,7 +199,7 @@ export default function CoachesPage() {
                 <div className="flex flex-col lg:flex-row gap-10 items-center">
                   <div className="relative group">
                     {/* Enhanced photo placeholder with professional frame */}
-                    <div className="relative w-52 h-52 lg:w-60 lg:h-60">
+                    <div className="relative w-52 h-64 lg:w-60 lg:h-80">
                       {/* Outer glow ring */}
                       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary via-yellow-500 to-orange-500 p-1">
                         <div className="w-full h-full rounded-2xl overflow-hidden">
@@ -207,7 +207,7 @@ export default function CoachesPage() {
                             src="/coaches/luc_tremblay.webp"
                             alt="Luc Tremblay - Head Coach & Founder"
                             width={240}
-                            height={240}
+                            height={320}
                             className="w-full h-full object-cover object-top"
                             priority
                           />
