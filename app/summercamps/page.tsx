@@ -269,7 +269,7 @@ export default function SummerCampsPage() {
               <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-yellow-500/5 dark:from-primary/10 dark:to-yellow-500/10 border border-primary/20 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-lg hover:shadow-yellow-500/5 dark:hover:shadow-yellow-500/10 hover:-translate-y-1 transition-all duration-300">
                 <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                   <GraduationCap className="h-8 w-8 text-primary" />
-                  PROGRAM FORMAT
+                  Program Format
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
@@ -302,7 +302,7 @@ export default function SummerCampsPage() {
               <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-secondary/5 to-purple-500/5 dark:from-secondary/10 dark:to-purple-500/10 border border-secondary/20 hover:border-secondary/40 dark:hover:border-secondary/40 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:-translate-y-1 transition-all duration-300">
                 <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
                   <Clock className="h-8 w-8 text-secondary" />
-                  DAILY SCHEDULE
+                  Daily Schedule
                 </h3>
                 <div className="space-y-3">
                   <div className="flex items-center gap-3">
@@ -339,7 +339,7 @@ export default function SummerCampsPage() {
             className="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-10 text-white"
           >
             <h3 className="text-3xl font-bold mb-6">
-              VISION Summer Day Camp Philosophy
+              Vision Summer Day Camp Philosophy
             </h3>
             
             <div className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">

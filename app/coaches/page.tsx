@@ -6,8 +6,9 @@ import { cn } from "@/lib/utils"
 import { 
   Trophy, Users, Star, 
   ChevronDown, ChevronUp, Shield, 
-  Zap, Heart, Medal, Crown
+  Zap, Heart, Medal, Crown, Award
 } from "lucide-react"
+import Image from "next/image"
 import { Button } from "@/components/ui/button"
 import { Badge } from "@/components/ui/badge"
 
@@ -146,7 +147,7 @@ export default function CoachesPage() {
 
             <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
               <span className="block text-gray-900 dark:text-gray-100">
-                Better Coaches,
+                BETTER COACHES,
               </span>
               <span className={cn(
                 "block mt-2",
@@ -154,9 +155,10 @@ export default function CoachesPage() {
                 "bg-clip-text text-transparent",
                 "bg-[length:200%_100%]",
                 "animate-gradient",
-                "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.3)]"
+                "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(236,186,88,0.5)]",
+                "[text-shadow:_0_2px_12px_rgba(236,186,88,0.25)]"
               )}>
-                Better Athletes, Better Results
+                BETTER ATHLETES, BETTER RESULTS
               </span>
             </h1>
             
@@ -179,14 +181,16 @@ export default function CoachesPage() {
               {/* Animated shimmer overlay */}
               <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/5 to-transparent -skew-x-12 translate-x-[-200%] animate-shimmer" />
               
-              {/* Floating crown with glow */}
-              <motion.div 
-                className="absolute top-6 right-6"
-                animate={{ y: [0, -5, 0] }}
-                transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
-              >
-                <Crown className="h-20 w-20 text-primary/30 dark:text-primary/20 drop-shadow-[0_0_10px_rgba(236,186,88,0.3)]" />
-              </motion.div>
+              {/* Static volleyball with glow */}
+              <div className="absolute top-6 right-6">
+                <Image
+                  src="/volleyball.webp"
+                  alt="Volleyball"
+                  width={80}
+                  height={80}
+                  className="h-20 w-20 opacity-60 dark:opacity-40 drop-shadow-[0_0_15px_rgba(236,186,88,0.4)]"
+                />
+              </div>
               
               <div className="relative p-10 lg:p-14">
                 <div className="flex flex-col lg:flex-row gap-10 items-center">
@@ -195,17 +199,15 @@ export default function CoachesPage() {
                     <div className="relative w-52 h-52 lg:w-60 lg:h-60">
                       {/* Outer glow ring */}
                       <div className="absolute inset-0 rounded-2xl bg-gradient-to-br from-primary via-yellow-500 to-orange-500 p-1">
-                        <div className="w-full h-full rounded-2xl bg-gradient-to-br from-primary/15 to-yellow-500/15 dark:from-primary/25 dark:to-yellow-500/25 flex items-center justify-center overflow-hidden">
-                          <div className="text-center">
-                            <motion.div
-                              animate={{ scale: [1, 1.05, 1] }}
-                              transition={{ duration: 2, repeat: Infinity }}
-                            >
-                              <Trophy className="h-24 w-24 text-primary mx-auto mb-3 drop-shadow-lg" />
-                            </motion.div>
-                            <span className="text-4xl font-black text-primary drop-shadow-sm">30+</span>
-                            <p className="text-base font-bold text-gray-800 dark:text-gray-200 mt-1">Years</p>
-                          </div>
+                        <div className="w-full h-full rounded-2xl overflow-hidden">
+                          <Image
+                            src="/coaches/luc_tremblay.webp"
+                            alt="Luc Tremblay - Head Coach & Founder"
+                            width={240}
+                            height={240}
+                            className="w-full h-full object-cover object-top"
+                            priority
+                          />
                         </div>
                       </div>
                       
@@ -233,7 +235,7 @@ export default function CoachesPage() {
                       <h2 className="text-4xl lg:text-5xl font-black mb-3 bg-gradient-to-r from-gray-900 via-gray-800 to-gray-900 dark:from-gray-100 dark:via-white dark:to-gray-100 bg-clip-text text-transparent">
                         {coaches[0].name}
                       </h2>
-                      <p className="text-2xl text-primary font-bold mb-6 drop-shadow-sm">{coaches[0].role}</p>
+                      <p className="text-2xl text-gray-700 dark:text-gray-300 font-bold mb-6">{coaches[0].role}</p>
                     </motion.div>
                     
                     {/* Enhanced floating achievements with stagger animation */}
@@ -250,23 +252,26 @@ export default function CoachesPage() {
                         }
                       }}
                     >
-                      {coaches[0].achievements?.map((achievement, index) => (
-                        <motion.div
-                          key={index}
-                          variants={{
-                            hidden: { opacity: 0, y: 20 },
-                            visible: { opacity: 1, y: 0 }
-                          }}
-                        >
-                          <Badge 
-                            variant="outline" 
-                            className="border-primary/40 text-primary bg-primary/5 hover:bg-primary/10 transition-colors duration-300 px-3 py-1.5 font-semibold shadow-sm hover:shadow-md"
+                      {coaches[0].achievements?.map((achievement, index) => {
+                        const Icon = index === 0 ? Trophy : index === 1 ? Crown : Star;
+                        return (
+                          <motion.div
+                            key={index}
+                            variants={{
+                              hidden: { opacity: 0, y: 20 },
+                              visible: { opacity: 1, y: 0 }
+                            }}
                           >
-                            <Medal className="h-4 w-4 mr-1.5" />
-                            {achievement}
-                          </Badge>
-                        </motion.div>
-                      ))}
+                            <Badge 
+                              variant="outline" 
+                              className="border-primary/80 text-gray-800 bg-primary/20 hover:bg-primary/25 transition-colors duration-300 px-3 py-1.5 font-semibold shadow-sm hover:shadow-md dark:border-primary/60 dark:bg-primary/25 dark:hover:bg-primary/30 dark:text-gray-100"
+                            >
+                              <Icon className="h-4 w-4 mr-1.5 text-primary" />
+                              {achievement}
+                            </Badge>
+                          </motion.div>
+                        );
+                      })}
                     </motion.div>
 
                     <motion.p 
@@ -292,19 +297,21 @@ export default function CoachesPage() {
                     <Button
                       variant="ghost"
                       onClick={() => toggleBio(coaches[0].id)}
-                      className="group text-primary hover:text-primary/80 font-semibold hover:bg-primary/5 transition-all duration-300"
+                      className="group relative text-gray-700 hover:text-white font-semibold hover:bg-gradient-to-r hover:from-primary hover:to-yellow-500 dark:text-gray-300 dark:hover:text-black transition-all duration-300 hover:shadow-lg hover:scale-105 overflow-hidden"
                     >
-                      {expandedBios.has(coaches[0].id) ? (
-                        <>
-                          Show Less
-                          <ChevronUp className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-1" />
-                        </>
-                      ) : (
-                        <>
-                          Read Full Bio
-                          <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
-                        </>
-                      )}
+                      <span className="relative z-10 flex items-center">
+                        {expandedBios.has(coaches[0].id) ? (
+                          <>
+                            Show Less
+                            <ChevronUp className="ml-2 h-4 w-4 transition-transform group-hover:-translate-y-1" />
+                          </>
+                        ) : (
+                          <>
+                            Read Full Bio
+                            <ChevronDown className="ml-2 h-4 w-4 transition-transform group-hover:translate-y-1" />
+                          </>
+                        )}
+                      </span>
                     </Button>
                   </div>
                 </div>
@@ -401,17 +408,17 @@ export default function CoachesPage() {
                       variant="ghost"
                       size="sm"
                       onClick={() => toggleBio(coach.id)}
-                      className="text-primary hover:text-primary/80"
+                      className="group text-gray-700 hover:text-primary font-medium hover:bg-primary/15 dark:text-gray-300 dark:hover:text-primary dark:hover:bg-primary/20 transition-all duration-300 hover:scale-105"
                     >
                       {expandedBios.has(coach.id) ? (
                         <>
                           Less
-                          <ChevronUp className="ml-1 h-3 w-3" />
+                          <ChevronUp className="ml-1 h-3 w-3 transition-transform group-hover:-translate-y-0.5" />
                         </>
                       ) : (
                         <>
                           More
-                          <ChevronDown className="ml-1 h-3 w-3" />
+                          <ChevronDown className="ml-1 h-3 w-3 transition-transform group-hover:translate-y-0.5" />
                         </>
                       )}
                     </Button>
