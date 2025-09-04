@@ -38,8 +38,8 @@ export default function ProgramsPage() {
       />
 
       {/* Hero Section - BUILD CHAMPIONS */}
-      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)]">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
+      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-8 lg:pt-12">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="w-full">
             {/* Centered Hero Content */}
             <div className="text-center space-y-6">
@@ -691,6 +691,7 @@ export default function ProgramsPage() {
                   "hover:before:translate-x-[20rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                   "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
                 )}
+                onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
               >
                 <span className="relative flex items-center gap-2">
                   Register Today
