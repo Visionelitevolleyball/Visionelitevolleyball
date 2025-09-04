@@ -6,7 +6,7 @@ import { cn } from "@/lib/utils"
 import { 
   Trophy, Users, Star, 
   ChevronDown, ChevronUp, Shield, 
-  Zap, Heart, Medal, Crown, Award
+  Zap, Heart, Crown
 } from "lucide-react"
 import Image from "next/image"
 import { Button } from "@/components/ui/button"
