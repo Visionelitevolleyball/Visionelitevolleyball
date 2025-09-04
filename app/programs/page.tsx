@@ -37,140 +37,21 @@ export default function ProgramsPage() {
         }}
       />
 
-      {/* Hero Section - BUILD CHAMPIONS */}
-      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-8 lg:pt-12">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="w-full">
-            {/* Centered Hero Content */}
-            <div className="text-center space-y-6">
-              {/* Badge */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex"
-              >
-                <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-900 dark:text-blue-200 border-blue-200 dark:border-blue-800">
-                  <Target className="h-4 w-4 mr-2" />
-                  BUILD CHAMPIONS
-                </Badge>
-              </motion.div>
-
-              {/* Title */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="space-y-4"
-              >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black">
-                  <span className="block text-gray-900 dark:text-gray-100">
-                    ELEVATE YOUR
-                  </span>
-                  <span className={cn(
-                    "block mt-2",
-                    "bg-gradient-to-r from-primary via-yellow-500 to-primary",
-                    "bg-clip-text text-transparent",
-                    "bg-[length:200%_100%]",
-                    "animate-gradient",
-                    "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(236,186,88,0.3)]"
-                  )}>
-                    GAME
-                  </span>
-                </h1>
-
-                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
-                  From first serve to championship match. Expert coaching for every 
-                  level of play.
-                </p>
-              </motion.div>
-
-              {/* Feature Pills */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="flex flex-wrap justify-center gap-4"
-              >
-                {[
-                  { icon: Trophy, text: "Championship Training" },
-                  { icon: Shield, text: "Certified Coaches" },
-                  { icon: Users, text: "Small Group Sizes" },
-                  { icon: CheckCircle, text: "All Skill Levels" }
-                ].map((feature, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700"
-                  >
-                    <feature.icon className="h-4 w-4 text-primary" />
-                    <span className="text-sm font-medium">{feature.text}</span>
-                  </div>
-                ))}
-              </motion.div>
-
-              {/* CTA Buttons */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
-              >
-                <Button 
-                  size="lg"
-                  className={cn(
-                    "group relative",
-                    "bg-gradient-to-r from-primary to-yellow-500",
-                    "hover:from-primary/90 hover:to-yellow-500/90",
-                    "text-black font-bold text-lg px-10 h-14",
-                    "shadow-lg hover:shadow-2xl hover:scale-105",
-                    "transition-all duration-300",
-                    "cursor-pointer overflow-hidden",
-                    "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
-                    "hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg]",
-                    "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
-                  )}
-                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
-                >
-                  <span className="relative flex items-center gap-2">
-                    View All Programs
-                    <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
-                  </span>
-                </Button>
-
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="group font-medium text-lg px-10 h-14 border-2 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-300"
-                >
-                  <span className="flex items-center gap-2">
-                    Learn More
-                    <MapPin className="h-5 w-5" />
-                  </span>
-                </Button>
-              </motion.div>
-
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Welcome to Volleyball Fraser Valley Section */}
-      <section className="relative py-20 lg:py-24">
+      {/* Welcome to Volleyball Fraser Valley Section - NOW AT TOP */}
+      <section className="relative py-16 lg:py-20">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
           {/* Section Header */}
           <motion.div
             initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             className="text-center mb-16"
           >
             {/* Welcome Badge */}
             <motion.div
               initial={{ opacity: 0, scale: 0.9 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.5 }}
               className="inline-flex mb-8"
             >
@@ -180,7 +61,7 @@ export default function ProgramsPage() {
               </Badge>
             </motion.div>
 
-            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
               <span className="block text-gray-900 dark:text-gray-100">
                 WELCOME TO
               </span>
@@ -194,14 +75,13 @@ export default function ProgramsPage() {
               )}>
                 VOLLEYBALL FRASER VALLEY
               </span>
-            </h2>
+            </h1>
           </motion.div>
 
           {/* Introduction Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.1 }}
             className="mb-12"
           >
@@ -221,8 +101,7 @@ export default function ProgramsPage() {
             {/* Our Vision Card */}
             <motion.div
               initial={{ opacity: 0, x: -20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="h-full rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 p-8 hover:shadow-xl transition-all duration-300">
@@ -241,8 +120,7 @@ export default function ProgramsPage() {
             {/* What Sets Us Apart Card */}
             <motion.div
               initial={{ opacity: 0, x: 20 }}
-              whileInView={{ opacity: 1, x: 0 }}
-              viewport={{ once: true }}
+              animate={{ opacity: 1, x: 0 }}
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <div className="h-full rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 p-8 hover:shadow-xl transition-all duration-300">
@@ -300,8 +178,7 @@ export default function ProgramsPage() {
           {/* Our Commitment Card */}
           <motion.div
             initial={{ opacity: 0, y: 30 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            viewport={{ once: true }}
+            animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, delay: 0.4 }}
             className="mb-12"
           >
@@ -337,8 +214,8 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Programs Overview - Clean Grid */}
-      <section className="relative py-16 lg:py-20">
+      {/* Programs Overview - 2 Column Grid */}
+      <section className="relative py-12 lg:py-16">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Section Header */}
@@ -351,288 +228,372 @@ export default function ProgramsPage() {
             </p>
           </div>
 
-          {/* Programs Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
-            {/* Youth Academy */}
+          {/* Programs Grid - 2 Columns */}
+          <div className="grid md:grid-cols-2 lg:grid-cols-2 gap-8">
+            {/* VISION Volleyball Academy */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-primary/5 dark:hover:shadow-primary/10 hover:border-primary/40 dark:hover:border-primary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-primary/5 dark:hover:shadow-primary/10 hover:border-primary/40 dark:hover:border-primary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-yellow-500/10 flex items-center justify-center mb-4">
                   <Sparkles className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">VISION Youth Academy</h3>
-                <p className="text-sm text-gray-500 mb-3">Grades 2-10</p>
+                <h3 className="font-bold text-2xl mb-3">VISION Volleyball Academy</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Fun, fast-paced training where young athletes build their game from the ground up.
+                  Where young athletes build their game from the ground up. Fun, fast-paced training for Grades 2–10, with every season ending in a high-energy Championship Tournament.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    9-week programs (Fall, Winter, Spring)
+                    10-week Seasonal Programs available in Fall, Winter & Spring
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    90-120 minute weekly sessions
+                    Weekly Training Sessions: 90–120 minute
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Championship Tournament finale
+                    Week-end Training: Most sessions run on weekends
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Each Season ends with a Championship Tournament
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    City-Wide Program: offered in every quadrant of the city
                   </li>
                 </ul>
+                <Button 
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  FIND A PROGRAM
+                </Button>
               </div>
             </motion.div>
 
-            {/* Summer Day Camps */}
+            {/* VISION Summer Day Camps */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-yellow-500/5 dark:hover:shadow-yellow-500/10 hover:border-yellow-500/40 dark:hover:border-yellow-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-yellow-500/5 dark:hover:shadow-yellow-500/10 hover:border-yellow-500/40 dark:hover:border-yellow-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-500/10 to-orange-500/10 flex items-center justify-center mb-4">
                   <Sun className="h-6 w-6 text-yellow-600" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Summer Day Camps</h3>
-                <p className="text-sm text-gray-500 mb-3">All Summer Long</p>
+                <h3 className="font-bold text-2xl mb-3">VISION Summer Day Camps</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Train together, win together. Athletes train with their team all week.
+                  Train together. Win together. All week long. Athletes are placed on a team Monday morning and train with their coach all week—building skills, strategy, and team chemistry before Friday&apos;s Championship Tournament.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Full-week camps all summer
+                    Full-Week Programs: Camps run Monday–Friday throughout July & August
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Daily training & team strategy
+                    Daily Training & Team Play: Skill development and scrimmages every day
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Championship Friday with prizes
+                    Championship Friday: End the week with tournament play, prizes, and awards
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    All Skill Levels Welcome: Beginners to advanced athletes
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Fun + Development: High-energy drills keep athletes engaged
                   </li>
                 </ul>
+                <Button 
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  FIND A PROGRAM
+                </Button>
               </div>
             </motion.div>
 
-            {/* Holiday Camps */}
+            {/* Holiday Camps & Tournaments */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-blue-500/10 hover:border-blue-500/40 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-blue-500/10 hover:border-blue-500/40 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/10 to-cyan-500/10 flex items-center justify-center mb-4">
                   <Snowflake className="h-6 w-6 text-blue-500" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Holiday Camps</h3>
-                <p className="text-sm text-gray-500 mb-3">School Breaks</p>
+                <h3 className="font-bold text-2xl mb-3">Holiday Camps & Tournaments</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  School&apos;s out—game on! Stay active during Christmas, Spring Break, and PD Days.
+                  School&apos;s out—game on! Stay active over Christmas, Spring Break, and PD Days with fast-paced volleyball, fun team play, and friendly competition.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Single or multi-day options
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Grades 3-10, all skill levels
-                  </li>
-                  <li className="flex items-start gap-2">
-                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Prizes & team-building activities
-                  </li>
-                </ul>
+                <div className="mb-4">
+                  <p className="font-semibold mb-2">Holiday Camps:</p>
+                  <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      2-Day Programs during Christmas Break and Spring Break
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Daily training sessions with team play and scrimmages
+                    </li>
+                  </ul>
+                </div>
+                <div className="mb-6">
+                  <p className="font-semibold mb-2">Tournaments:</p>
+                  <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Single-day and PD Day tournaments
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Prizes & Awards: Recognition for effort and achievement
+                    </li>
+                  </ul>
+                </div>
+                <Button 
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  FIND A PROGRAM
+                </Button>
               </div>
             </motion.div>
 
-            {/* Premier League */}
+            {/* VISION Premier League */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-secondary/5 dark:hover:shadow-secondary/10 hover:border-secondary/40 dark:hover:border-secondary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-secondary/5 dark:hover:shadow-secondary/10 hover:border-secondary/40 dark:hover:border-secondary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-secondary/10 to-purple-500/10 flex items-center justify-center mb-4">
                   <Trophy className="h-6 w-6 text-secondary" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">VISION Premier League</h3>
-                <p className="text-sm text-gray-500 mb-3">Intermediate to Advanced</p>
+                <h3 className="font-bold text-2xl mb-3">VISION Premier League</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Where training meets competition. Join a team for a full season of competitive volleyball.
+                  Where training meets competition—the perfect program for intermediate to advanced athletes ready to take their game to the next level.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    8-week seasons (Fall, Winter, Spring)
+                    8-Week Seasons: Offered in Fall, Winter & Spring
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Weekly practices + matches
+                    Team Experience: Weekly practices combined with competitive league matches
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Championship in final week
+                    Game-Day Atmosphere: Play with referees and real match flow
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Season Finale: Mini Tournament and Championship Event
                   </li>
                 </ul>
+                <Button 
+                  variant="outline"
+                  className="w-full font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  LEARN MORE
+                </Button>
               </div>
             </motion.div>
 
-            {/* Club Volleyball */}
+            {/* VISION Volleyball Club */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-red-500/5 dark:hover:shadow-red-500/10 hover:border-red-500/40 dark:hover:border-red-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-red-500/5 dark:hover:shadow-red-500/10 hover:border-red-500/40 dark:hover:border-red-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-500/10 to-orange-500/10 flex items-center justify-center mb-4">
                   <Award className="h-6 w-6 text-red-500" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">VISION Volleyball Club</h3>
-                <p className="text-sm text-gray-500 mb-3">February - April</p>
+                <h3 className="font-bold text-2xl mb-3">VISION Volleyball Club (VBC)</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Affordable club volleyball that delivers. All benefits of club—without the high cost.
+                  Club volleyball made simple — and affordable. Athletes get the full team experience with quality coaching, regular practices, and local tournaments, all without the heavy costs or demanding travel.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Tryouts in January
+                    Accessible Club Option: Benefits of club play without overwhelming commitment
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Two practices weekly
+                    Balanced Season: Runs February–April, with practices twice a week
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Local tournaments included
+                    Tryouts in January: After traditional club season for maximum opportunity
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Competitive & Supportive: Experienced coaches foster skill development
                   </li>
                 </ul>
+                <Button 
+                  variant="outline"
+                  className="w-full font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  LEARN MORE
+                </Button>
               </div>
             </motion.div>
 
-            {/* Elite Training */}
+            {/* Sky High Volleyball Club */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center mb-4">
-                  <GraduationCap className="h-6 w-6 text-purple-600" />
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/10 to-indigo-500/10 flex items-center justify-center mb-4">
+                  <Zap className="h-6 w-6 text-purple-600" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Elite Training</h3>
-                <p className="text-sm text-gray-500 mb-3">Grades 7-12</p>
+                <h3 className="font-bold text-2xl mb-3">SKY HIGH Volleyball CLUB</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Summer Elite & Fall Club Prep for athletes ready to raise their game.
+                  Take your game higher with Fraser Valley&apos;s newest competitive volleyball experience. Sky High offers players the chance to develop their skills in a supportive yet competitive environment.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Advanced techniques & tactics
+                    Age Groups: 13U–15U divisions (expanding to 16U in the future)
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Skill refinement & strategy
+                    High-Level Competition: Train toward Provincials and Nationals
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Club volleyball preparation
+                    Expert Coaching through our Skyline Coaching Academy
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Player Development Pathway from skills camps to club-level competition
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Open Gyms: Tryouts begin with open gym sessions
                   </li>
                 </ul>
+                <Button 
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  REGISTER TODAY
+                </Button>
               </div>
             </motion.div>
-          </div>
 
-          {/* Additional Programs */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 mt-6">
-            {/* Skills Camps */}
+            {/* Volleyball Skills Camps */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-green-500/5 dark:hover:shadow-green-500/10 hover:border-green-500/40 dark:hover:border-green-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-green-500/5 dark:hover:shadow-green-500/10 hover:border-green-500/40 dark:hover:border-green-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500/10 to-emerald-500/10 flex items-center justify-center mb-4">
                   <Target className="h-6 w-6 text-green-600" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Skills Camps</h3>
-                <p className="text-sm text-gray-500 mb-3">Year-round, Grades 6-12</p>
+                <h3 className="font-bold text-2xl mb-3">Volleyball Skills Camps</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Targeted training for faster progress. Sharpen specific positions or skills.
+                  Focused training. Faster results. For athletes who want to go beyond general practice, our Skills Camps provide targeted training to strengthen specific skills or positions.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Position-specific training
+                    Year-Round Training: Offered throughout the season for Grades 6–12
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Serving, hitting, passing camps
+                    Flexible Options: One-time specialty sessions or multi-session blocks
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    One-time or multi-session blocks
+                    Skill-Specific Clinics: Serving, hitting, blocking, passing, and defence
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Positional Camps: Setter, middle, outside hitter, or libero-focused
                   </li>
                 </ul>
+                <Button 
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  FIND A PROGRAM
+                </Button>
               </div>
             </motion.div>
 
-            {/* Private Lessons */}
+            {/* Elite Volleyball Training */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.7 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-indigo-500/5 dark:hover:shadow-indigo-500/10 hover:border-indigo-500/40 dark:hover:border-indigo-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500/10 to-blue-500/10 flex items-center justify-center mb-4">
-                  <Star className="h-6 w-6 text-indigo-600" />
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center mb-4">
+                  <GraduationCap className="h-6 w-6 text-purple-600" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Private Lessons</h3>
-                <p className="text-sm text-gray-500 mb-3">All Ages & Levels</p>
+                <h3 className="font-bold text-2xl mb-3">Elite Volleyball Training: Grades 7–12</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Customized coaching for faster progress. 1-on-1 or small group options.
+                  Summer Elite Camps and Fall Club Prep Camps for intermediate to advanced athletes ready to raise their game. Fast-paced training, advanced techniques, and team tactics—led by certified club coaches.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Personalized skill focus
+                    Ideal for athletes with strong volleyball experience
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Position-specific coaching
+                    Focus on skill refinement and game strategy
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Flexible scheduling
+                    Great preparation for club volleyball
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Available in the Summer & Fall
                   </li>
                 </ul>
+                <Button 
+                  variant="outline"
+                  className="w-full font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  LEARN MORE
+                </Button>
               </div>
             </motion.div>
 
@@ -642,22 +603,20 @@ export default function ProgramsPage() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.8 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-gray-500/5 dark:hover:shadow-gray-500/10 hover:border-gray-500/40 dark:hover:border-gray-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-gray-500/5 dark:hover:shadow-gray-500/10 hover:border-gray-500/40 dark:hover:border-gray-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-gray-500/10 to-slate-500/10 flex items-center justify-center mb-4">
                   <Users className="h-6 w-6 text-gray-600" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Adult Programs</h3>
-                <p className="text-sm text-gray-500 mb-3">Drop-in Available</p>
+                <h3 className="font-bold text-2xl mb-3">Adult Programs</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Drop in, play hard, build community. Competitive yet friendly games.
+                  Drop in, play hard, and build community. Competitive yet friendly games for men, women, and co-ed players—no team or commitment required.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Men&apos;s, Women&apos;s, and Co-ed
+                    Drop-ins offered year-round
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
@@ -665,44 +624,63 @@ export default function ProgramsPage() {
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    No team commitment required
+                    Future goal: full adult leagues in each category
                   </li>
                 </ul>
+                <Button 
+                  variant="outline"
+                  className="w-full font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  LEARN MORE
+                </Button>
               </div>
             </motion.div>
 
-            {/* Sky High Volleyball Club */}
+            {/* Private Lessons */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.9 }}
-              className="group cursor-pointer"
-              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+              className="group"
             >
-              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/10 to-indigo-500/10 flex items-center justify-center mb-4">
-                  <Zap className="h-6 w-6 text-purple-600" />
+              <div className="h-full p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-indigo-500/5 dark:hover:shadow-indigo-500/10 hover:border-indigo-500/40 dark:hover:border-indigo-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500/10 to-blue-500/10 flex items-center justify-center mb-4">
+                  <Star className="h-6 w-6 text-indigo-600" />
                 </div>
-                <h3 className="font-bold text-xl mb-2">Sky High Volleyball Club</h3>
-                <p className="text-sm text-gray-500 mb-3">Competitive Excellence</p>
+                <h3 className="font-bold text-2xl mb-3">Private Lessons</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4">
-                  Take your game higher with Fraser Valley&apos;s newest competitive volleyball experience.
+                  Customized Coaching. Faster Progress. Real Results. Our Private Lessons are ideal for athletes who want focused, individualized training to sharpen specific skills, build confidence, and accelerate their development.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    13U-15U divisions (expanding to 16U)
+                    1-on-1 or Small Group Options
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Train toward Provincials & Nationals
+                    Custom Skill Focus (Serving, Passing, Setting, etc.)
                   </li>
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                    Expert coaching through Skyline Academy
+                    Position-Specific Coaching
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Flexible Scheduling
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Ideal for All Ages & Levels
                   </li>
                 </ul>
+                <Button 
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold"
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  FIND A PROGRAM
+                </Button>
               </div>
             </motion.div>
           </div>
