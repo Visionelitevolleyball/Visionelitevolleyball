@@ -4,7 +4,7 @@ import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { 
   Trophy, Star, Users, CheckCircle, ArrowRight, 
-  Target, Zap, Award, MapPin, 
+  Target, Zap, Award, MapPin, Calendar,
   Sparkles, Shield, ChevronRight, Sun, Snowflake, GraduationCap,
   Heart, DollarSign, UserCheck, Eye, Handshake
 } from "lucide-react"
