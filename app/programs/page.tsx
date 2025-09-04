@@ -670,6 +670,41 @@ export default function ProgramsPage() {
                 </ul>
               </div>
             </motion.div>
+
+            {/* Sky High Volleyball Club */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5, delay: 0.9 }}
+              className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+            >
+              <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/10 to-indigo-500/10 flex items-center justify-center mb-4">
+                  <Zap className="h-6 w-6 text-purple-600" />
+                </div>
+                <h3 className="font-bold text-xl mb-2">Sky High Volleyball Club</h3>
+                <p className="text-sm text-gray-500 mb-3">Competitive Excellence</p>
+                <p className="text-gray-600 dark:text-gray-400 mb-4">
+                  Take your game higher with Fraser Valley&apos;s newest competitive volleyball experience.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    13U-15U divisions (expanding to 16U)
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Train toward Provincials & Nationals
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Expert coaching through Skyline Academy
+                  </li>
+                </ul>
+              </div>
+            </motion.div>
           </div>
 
           {/* CTA Section */}
