@@ -37,233 +37,118 @@ export default function ProgramsPage() {
         }}
       />
 
-      {/* Hero Section - Immersive Program Journey */}
-      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-8 sm:pt-0">
-
+      {/* Hero Section - BUILD CHAMPIONS */}
+      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)]">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
           <div className="w-full">
-            
-            {/* Main Content - Properly Aligned */}
-            <div className="grid lg:grid-cols-[1fr_1.2fr] gap-8 lg:gap-16 items-center lg:items-start">
-              
-              {/* Left Content - Bold Typography */}
-              <motion.div 
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, ease: "easeOut" }}
-                className="space-y-5"
-              >
-                {/* Main Title */}
-                <div className="space-y-0">
-                  <motion.h1
-                    initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
-                    animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
-                    transition={{ duration: 0.8, ease: "easeOut", delay: 0.3 }}
-                    className="text-5xl lg:text-6xl xl:text-7xl font-black leading-[0.85] tracking-tight"
-                  >
-                    <span className="block text-gray-900 dark:text-gray-100">
-                      BUILD
-                    </span>
-                    <span className={cn(
-                      "block",
-                      "bg-gradient-to-r from-primary via-yellow-500 to-primary",
-                      "bg-clip-text text-transparent",
-                      "bg-[length:200%_100%]",
-                      "animate-gradient",
-                      "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.3)]"
-                    )}>
-                      CHAMPIONS
-                    </span>
-                    <span className="block text-gray-900 dark:text-gray-100">
-                      FROM DAY ONE
-                    </span>
-                  </motion.h1>
-                </div>
-
-                {/* Subtitle */}
-                <div className="space-y-2">
-                  <motion.p
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.5 }}
-                    className="text-lg lg:text-xl text-gray-600 dark:text-gray-400 font-light leading-relaxed"
-                  >
-                    Where passion meets excellence. Transform raw talent into refined skill 
-                    through our proven development pathway.
-                  </motion.p>
-                  
-                  {/* Trust Indicators */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ duration: 0.6, delay: 0.6 }}
-                    className="flex items-center gap-4"
-                  >
-                    <div className="flex items-center gap-1.5">
-                      <Shield className="h-4 w-4 text-primary/60" />
-                      <span className="text-xs font-medium text-gray-600 dark:text-gray-400">Certified Coaches</span>
-                    </div>
-                    <div className="flex items-center gap-1.5">
-                      <Users className="h-4 w-4 text-primary/60" />
-                      <span className="text-xs font-medium text-gray-600 dark:text-gray-400">Small Groups</span>
-                    </div>
-                  </motion.div>
-                </div>
-
-                {/* CTA Buttons */}
-                <motion.div
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: 0.7 }}
-                  className="flex flex-col sm:flex-row gap-4"
-                >
-                  <Button 
-                    size="lg"
-                    className={cn(
-                      "group relative",
-                      "bg-gradient-to-r from-primary to-yellow-500",
-                      "hover:from-primary/90 hover:to-yellow-500/90",
-                      "text-black font-bold text-lg px-8 h-14",
-                      "shadow-lg hover:shadow-xl hover:scale-105",
-                      "transition-all duration-300",
-                      "cursor-pointer overflow-hidden",
-                      "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
-                      "hover:before:translate-x-[20rem] before:duration-[0.8s] before:-skew-x-[10deg]",
-                      "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
-                    )}
-                  >
-                    <span className="relative flex items-center gap-2">
-                      Explore Programs
-                      <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
-                    </span>
-                  </Button>
-
-                  <Button
-                    size="lg"
-                    variant="outline"
-                    className="group font-medium text-lg px-8 h-14 border-2 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-300"
-                  >
-                    <MapPin className="h-5 w-5 mr-2" />
-                    Find a Location
-                  </Button>
-                </motion.div>
-              </motion.div>
-
-              {/* Right Content - Modern Program Showcase */}
+            {/* Centered Hero Content */}
+            <div className="text-center space-y-6">
+              {/* Badge */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.4 }}
-                className="relative"
+                transition={{ duration: 0.6 }}
+                className="inline-flex"
               >
-                {/* Athletic Excellence Path */}
-                <div className="space-y-6">
-                  {/* Top Feature Card */}
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    transition={{ delay: 0.6 }}
-                    className="relative group"
-                  >
-                    <div className="absolute inset-0 bg-gradient-to-br from-blue-600/10 to-cyan-500/10 dark:from-blue-600/20 dark:to-cyan-500/20 rounded-2xl blur-xl group-hover:blur-2xl transition-all duration-500" />
-                    <div className="relative bg-white/80 dark:bg-gray-900/80 backdrop-blur-sm rounded-2xl p-8 border border-gray-200 dark:border-gray-700 hover:border-blue-500/50 transition-all duration-300">
-                      <div className="flex items-start justify-between mb-4">
-                        <div>
-                          <span className="inline-block px-3 py-1 text-xs font-bold text-blue-700 dark:text-blue-300 bg-blue-100 dark:bg-blue-900/50 rounded-full mb-3">
-                            FLAGSHIP PROGRAM
-                          </span>
-                          <h3 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-cyan-500 bg-clip-text text-transparent">
-                            Summer Camps
-                          </h3>
-                          <p className="text-gray-600 dark:text-gray-400 mt-2">
-                            Elite training for grades 3-9 with professional coaches
-                          </p>
-                        </div>
-                        <Trophy className="h-10 w-10 text-blue-500 opacity-50" />
-                      </div>
-                      <div className="flex items-center justify-between">
-                        <div className="flex gap-4">
-                          <div>
-                            <p className="text-3xl font-bold text-gray-900 dark:text-white">500+</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Athletes Trained</p>
-                          </div>
-                          <div className="border-l border-gray-200 dark:border-gray-700 pl-4">
-                            <p className="text-3xl font-bold text-gray-900 dark:text-white">15+</p>
-                            <p className="text-xs text-gray-500 dark:text-gray-400">Years Excellence</p>
-                          </div>
-                        </div>
-                        <ChevronRight className="h-6 w-6 text-blue-500 group-hover:translate-x-1 transition-transform" />
-                      </div>
-                    </div>
-                  </motion.div>
-
-                  {/* Program Grid */}
-                  <div className="grid grid-cols-3 gap-4">
-                    {[
-                      { 
-                        name: "Day Camps",
-                        icon: Calendar,
-                        highlight: "Flexible Schedule",
-                        color: "text-primary"
-                      },
-                      { 
-                        name: "Premier League",
-                        icon: Award,
-                        highlight: "Competitive Play",
-                        color: "text-red-500"
-                      },
-                      { 
-                        name: "Club Teams",
-                        icon: Users,
-                        highlight: "Year-Round",
-                        color: "text-green-500"
-                      }
-                    ].map((program, index) => (
-                      <motion.div
-                        key={program.name}
-                        initial={{ opacity: 0, y: 20 }}
-                        animate={{ opacity: 1, y: 0 }}
-                        transition={{ delay: 0.8 + index * 0.1 }}
-                        className="group cursor-pointer"
-                      >
-                        <div className="relative h-full bg-white dark:bg-gray-900 rounded-xl p-4 border border-gray-200 dark:border-gray-700 hover:border-gray-300 dark:hover:border-gray-600 transition-all duration-300 hover:shadow-lg">
-                          <program.icon className={cn("h-8 w-8 mb-2", program.color)} />
-                          <h4 className="font-semibold text-sm mb-1">{program.name}</h4>
-                          <p className="text-xs text-gray-500 dark:text-gray-400">{program.highlight}</p>
-                        </div>
-                      </motion.div>
-                    ))}
-                  </div>
-
-                  {/* Bottom CTA Section */}
-                  <motion.div
-                    initial={{ opacity: 0 }}
-                    animate={{ opacity: 1 }}
-                    transition={{ delay: 1.2 }}
-                    className="relative"
-                  >
-                    <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-800 dark:to-gray-900 rounded-2xl p-6 text-center">
-                      <div className="flex items-center justify-center gap-2 mb-3">
-                        <Sparkles className="h-5 w-5 text-primary" />
-                        <span className="text-sm font-bold text-gray-900 dark:text-white">
-                          READY TO START YOUR JOURNEY?
-                        </span>
-                      </div>
-                      <p className="text-sm text-gray-600 dark:text-gray-400 mb-4">
-                        Join hundreds of athletes developing their skills with us
-                      </p>
-                      <div className="flex gap-3 justify-center">
-                        <button className="px-4 py-2 bg-gradient-to-r from-blue-600 to-cyan-500 text-white font-semibold rounded-lg hover:shadow-lg transition-all duration-300 hover:scale-105">
-                          Explore Programs
-                        </button>
-                        <button className="px-4 py-2 border border-gray-300 dark:border-gray-600 rounded-lg font-semibold hover:bg-gray-100 dark:hover:bg-gray-800 transition-colors">
-                          Contact Us
-                        </button>
-                      </div>
-                    </div>
-                  </motion.div>
-                </div>
+                <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-900 dark:text-blue-200 border-blue-200 dark:border-blue-800">
+                  <Target className="h-4 w-4 mr-2" />
+                  BUILD CHAMPIONS
+                </Badge>
               </motion.div>
+
+              {/* Title */}
+              <motion.div
+                initial={{ opacity: 0, y: 30 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.8, delay: 0.1 }}
+                className="space-y-4"
+              >
+                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black">
+                  <span className="block text-gray-900 dark:text-gray-100">
+                    ELEVATE YOUR
+                  </span>
+                  <span className={cn(
+                    "block mt-2",
+                    "bg-gradient-to-r from-primary via-yellow-500 to-primary",
+                    "bg-clip-text text-transparent",
+                    "bg-[length:200%_100%]",
+                    "animate-gradient",
+                    "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(236,186,88,0.3)]"
+                  )}>
+                    GAME
+                  </span>
+                </h1>
+
+                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                  From first serve to championship match. Expert coaching for every 
+                  level of play.
+                </p>
+              </motion.div>
+
+              {/* Feature Pills */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.3 }}
+                className="flex flex-wrap justify-center gap-4"
+              >
+                {[
+                  { icon: Trophy, text: "Championship Training" },
+                  { icon: Shield, text: "Certified Coaches" },
+                  { icon: Users, text: "Small Group Sizes" },
+                  { icon: CheckCircle, text: "All Skill Levels" }
+                ].map((feature, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center gap-2 px-4 py-2 rounded-full bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700"
+                  >
+                    <feature.icon className="h-4 w-4 text-primary" />
+                    <span className="text-sm font-medium">{feature.text}</span>
+                  </div>
+                ))}
+              </motion.div>
+
+              {/* CTA Buttons */}
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.6, delay: 0.4 }}
+                className="flex flex-col sm:flex-row gap-4 justify-center"
+              >
+                <Button 
+                  size="lg"
+                  className={cn(
+                    "group relative",
+                    "bg-gradient-to-r from-primary to-yellow-500",
+                    "hover:from-primary/90 hover:to-yellow-500/90",
+                    "text-black font-bold text-lg px-10 h-14",
+                    "shadow-lg hover:shadow-2xl hover:scale-105",
+                    "transition-all duration-300",
+                    "cursor-pointer overflow-hidden",
+                    "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
+                    "hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+                    "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  )}
+                  onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
+                >
+                  <span className="relative flex items-center gap-2">
+                    View All Programs
+                    <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+                  </span>
+                </Button>
+
+                <Button
+                  size="lg"
+                  variant="outline"
+                  className="group font-medium text-lg px-10 h-14 border-2 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-300"
+                >
+                  <span className="flex items-center gap-2">
+                    Learn More
+                    <MapPin className="h-5 w-5" />
+                  </span>
+                </Button>
+              </motion.div>
+
             </div>
           </div>
         </div>
@@ -475,6 +360,7 @@ export default function ProgramsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
               className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
             >
               <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-primary/5 dark:hover:shadow-primary/10 hover:border-primary/40 dark:hover:border-primary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-yellow-500/10 flex items-center justify-center mb-4">
@@ -509,6 +395,7 @@ export default function ProgramsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.1 }}
               className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
             >
               <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-yellow-500/5 dark:hover:shadow-yellow-500/10 hover:border-yellow-500/40 dark:hover:border-yellow-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-500/10 to-orange-500/10 flex items-center justify-center mb-4">
@@ -543,6 +430,7 @@ export default function ProgramsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.2 }}
               className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
             >
               <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-blue-500/10 hover:border-blue-500/40 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/10 to-cyan-500/10 flex items-center justify-center mb-4">
@@ -577,6 +465,7 @@ export default function ProgramsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.3 }}
               className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
             >
               <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-secondary/5 dark:hover:shadow-secondary/10 hover:border-secondary/40 dark:hover:border-secondary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-secondary/10 to-purple-500/10 flex items-center justify-center mb-4">
@@ -611,6 +500,7 @@ export default function ProgramsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.4 }}
               className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
             >
               <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-red-500/5 dark:hover:shadow-red-500/10 hover:border-red-500/40 dark:hover:border-red-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-500/10 to-orange-500/10 flex items-center justify-center mb-4">
@@ -645,6 +535,7 @@ export default function ProgramsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.5 }}
               className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
             >
               <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center mb-4">
@@ -682,6 +573,7 @@ export default function ProgramsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.6 }}
               className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
             >
               <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-green-500/5 dark:hover:shadow-green-500/10 hover:border-green-500/40 dark:hover:border-green-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500/10 to-emerald-500/10 flex items-center justify-center mb-4">
@@ -716,6 +608,7 @@ export default function ProgramsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.7 }}
               className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
             >
               <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-indigo-500/5 dark:hover:shadow-indigo-500/10 hover:border-indigo-500/40 dark:hover:border-indigo-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500/10 to-blue-500/10 flex items-center justify-center mb-4">
@@ -750,6 +643,7 @@ export default function ProgramsPage() {
               viewport={{ once: true }}
               transition={{ duration: 0.5, delay: 0.8 }}
               className="group cursor-pointer"
+              onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
             >
               <div className="h-full p-6 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-gray-500/5 dark:hover:shadow-gray-500/10 hover:border-gray-500/40 dark:hover:border-gray-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
                 <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-gray-500/10 to-slate-500/10 flex items-center justify-center mb-4">
