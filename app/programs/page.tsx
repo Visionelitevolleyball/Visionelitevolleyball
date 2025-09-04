@@ -79,7 +79,7 @@ export default function ProgramsPage() {
                   </span>
                 </h1>
 
-                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                <p className="text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed">
                   From first serve to championship match. Expert coaching for every 
                   level of play.
                 </p>
