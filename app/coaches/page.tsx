@@ -60,6 +60,7 @@ const coaches: Coach[] = [
     id: "drew-webber",
     name: "Drew Webber",
     role: "Head Assistant Coach & Mentor",
+    image: "/coaches/drew_webber.webp",
     credentials: ["BC Summer Games Competitor", "Provincial Team Training", "NCCP Certified"],
     bioShort: "From Coquitlam, BC, Drew fell in love with volleyball during grade 10 and competed at BC Summer Games, bringing deep relationship-focused coaching philosophy.",
     bioFull: "I fell in love with the game of volleyball during the summer after grade 10, before grade 11. I spent the summer competing in the BC Summer Games in Victoria, and training with the Provincial Team in Kelowna. Since that time, I&apos;ve ridden the highs, and the lows, of competitive sport. Over the years, I&apos;ve learned to embody the principles that both success and failure can yield to any competitor. For competition, sometimes the old ways were best: I believe that excellence is predicated on hard work, discipline, teamwork, resilience, and performing under pressure. But at my core, there is one very clear insight that governs any principle that I embody: I believe that any outcome, whether win/loss/make the team/cut from the team, all of these events are held within the crucible of our coach-player relationships. My hero, former NBA coach Greg Popovich, would often say: &apos;Ya, I love winning...but really what this is all about is the relationships we make along the way.&apos; This, in essence, is my coaching philosophy: that there&apos;s no success or failure that&apos;s worth more to me than the value of my relationships with kids and coaches. On a personal note, I&apos;m a husband and father of three. We&apos;re a resilient family who has been through much. I like to think we&apos;re a quietly confident family of 5 who take care of their own, embody kindness, and love hitting the pool, lake, or any kind of swimmable water whenever we can.",
@@ -322,7 +323,7 @@ export default function CoachesPage() {
           </motion.div>
 
           {/* Other Coaches Grid */}
-          <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 gap-6 lg:gap-8">
             {coaches.slice(1).map((coach, index) => (
               <motion.div
                 key={coach.id}
@@ -332,26 +333,50 @@ export default function CoachesPage() {
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 className="group"
               >
-                <div className="h-full p-6 rounded-2xl bg-white/90 dark:bg-gray-900/60 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-lg hover:shadow-primary/5 dark:hover:shadow-primary/10 hover:-translate-y-1 hover:bg-white dark:hover:bg-gray-900/70 transition-all duration-300 group">
+                <div className="h-full p-8 rounded-2xl bg-white/90 dark:bg-gray-900/60 backdrop-blur-sm border-2 border-gray-200 dark:border-gray-700/50 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-xl hover:shadow-primary/10 dark:hover:shadow-primary/15 hover:-translate-y-1.5 hover:bg-white dark:hover:bg-gray-900/70 transition-all duration-300 group">
                   {/* Coach Header */}
-                  <div className="flex items-start gap-4 mb-4">
-                    <motion.div 
-                      className={cn(
-                        "w-16 h-16 rounded-xl bg-gradient-to-br flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-sm hover:shadow-md",
-                        coach.gradient
-                      )}
-                      whileHover={{ rotate: [0, -5, 5, 0] }}
-                      transition={{ duration: 0.4 }}
-                    >
-                      <Users className={cn("h-8 w-8 transition-transform duration-300 group-hover:scale-110", coach.iconColor)} />
-                    </motion.div>
+                  <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 mb-6">
+                    {coach.image ? (
+                      <div className="relative w-24 h-24 sm:w-20 sm:h-20 lg:w-24 lg:h-24 flex-shrink-0">
+                        <div className={cn(
+                          "absolute inset-0 rounded-xl p-[2px]",
+                          coach.id === "drew-webber" 
+                            ? "bg-gradient-to-br from-blue-500 via-blue-600 to-cyan-500" 
+                            : coach.id === "nancy-xu"
+                            ? "bg-gradient-to-br from-purple-500 via-purple-600 to-pink-500"
+                            : "bg-gradient-to-br from-green-500 via-emerald-600 to-teal-500"
+                        )}>
+                          <div className="w-full h-full rounded-xl overflow-hidden bg-white dark:bg-gray-900">
+                            <Image
+                              src={coach.image}
+                              alt={coach.name}
+                              width={96}
+                              height={96}
+                              className="w-full h-full object-cover object-top"
+                              priority
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    ) : (
+                      <motion.div 
+                        className={cn(
+                          "w-24 h-24 sm:w-20 sm:h-20 lg:w-24 lg:h-24 rounded-xl bg-gradient-to-br flex items-center justify-center flex-shrink-0 group-hover:scale-105 transition-transform duration-300 shadow-md hover:shadow-lg",
+                          coach.gradient
+                        )}
+                        whileHover={{ rotate: [0, -5, 5, 0] }}
+                        transition={{ duration: 0.4 }}
+                      >
+                        <Users className={cn("h-10 w-10 sm:h-9 sm:w-9 lg:h-10 lg:w-10 transition-transform duration-300 group-hover:scale-110", coach.iconColor)} />
+                      </motion.div>
+                    )}
                     
-                    <div className="flex-1">
-                      <h3 className="text-xl font-bold mb-1">{coach.name}</h3>
-                      <p className="text-sm font-medium text-primary">{coach.role}</p>
+                    <div className="flex-1 text-center sm:text-left">
+                      <h3 className="text-xl lg:text-2xl font-bold mb-2">{coach.name}</h3>
+                      <p className="text-sm lg:text-base font-semibold bg-gradient-to-r from-gray-700 to-gray-900 dark:from-gray-300 dark:to-gray-100 bg-clip-text text-transparent">{coach.role}</p>
                       {coach.specialRole && (
-                        <Badge className="mt-2 text-xs" variant="outline">
-                          <Star className="h-3 w-3 mr-1" />
+                        <Badge className="mt-3 text-xs lg:text-sm px-3 py-1 bg-gradient-to-r from-secondary/10 to-blue-600/10 dark:from-secondary/20 dark:to-blue-600/20 border-secondary/30 dark:border-secondary/40" variant="outline">
+                          <Star className="h-3 w-3 lg:h-4 lg:w-4 mr-1.5 text-secondary" />
                           {coach.specialRole}
                         </Badge>
                       )}
@@ -359,17 +384,17 @@ export default function CoachesPage() {
                   </div>
 
                   {/* Credentials */}
-                  <div className="space-y-2 mb-4">
+                  <div className="space-y-2.5 mb-5">
                     {coach.credentials.map((credential, credIndex) => (
-                      <div key={credIndex} className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400">
-                        <Shield className="h-3 w-3 text-primary/60 flex-shrink-0" />
-                        <span>{credential}</span>
+                      <div key={credIndex} className="flex items-center gap-2.5 text-sm lg:text-base text-gray-700 dark:text-gray-300">
+                        <Shield className="h-4 w-4 lg:h-5 lg:w-5 text-primary/70 dark:text-primary/60 flex-shrink-0" />
+                        <span className="font-medium">{credential}</span>
                       </div>
                     ))}
                   </div>
 
                   {/* Bio */}
-                  <p className="text-gray-600 dark:text-gray-400 text-sm leading-relaxed mb-4">
+                  <p className="text-gray-700 dark:text-gray-300 text-sm lg:text-base leading-relaxed mb-5 font-normal">
                     {coach.bioShort}
                   </p>
 
@@ -398,10 +423,10 @@ export default function CoachesPage() {
                   </motion.div>
 
                   {/* Experience & Focus */}
-                  <div className="flex items-center justify-between pt-4 border-t border-gray-200 dark:border-gray-700/50">
-                    <div className="flex items-center gap-2 text-sm">
-                      <Zap className="h-4 w-4 text-yellow-500" />
-                      <span className="font-medium text-gray-700 dark:text-gray-300">
+                  <div className="flex items-center justify-between pt-5 border-t-2 border-gray-200 dark:border-gray-700/50">
+                    <div className="flex items-center gap-2.5 text-sm lg:text-base">
+                      <Zap className="h-5 w-5 lg:h-6 lg:w-6 text-yellow-500 drop-shadow-sm" />
+                      <span className="font-bold text-gray-800 dark:text-gray-200">
                         {coach.experience}
                       </span>
                     </div>
@@ -427,11 +452,11 @@ export default function CoachesPage() {
                   </div>
 
                   {/* Focus Areas */}
-                  <div className="mt-4 flex flex-wrap gap-1">
+                  <div className="mt-5 flex flex-wrap gap-2">
                     {coach.focus.map((area, areaIndex) => (
                       <span 
                         key={areaIndex} 
-                        className="text-xs px-2 py-1 rounded-full bg-gray-100 dark:bg-gray-800 text-gray-600 dark:text-gray-400"
+                        className="text-xs lg:text-sm px-3 py-1.5 rounded-full bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 text-gray-700 dark:text-gray-300 font-medium shadow-sm hover:shadow-md hover:scale-105 transition-all duration-200 cursor-default"
                       >
                         {area}
                       </span>
