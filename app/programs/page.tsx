@@ -5,9 +5,11 @@ import { cn } from "@/lib/utils"
 import { 
   Trophy, Star, Users, CheckCircle, ArrowRight, 
   Target, Zap, Award, MapPin, 
-  Sparkles, Shield, ChevronRight, Sun, Snowflake, GraduationCap
+  Sparkles, Shield, ChevronRight, Sun, Snowflake, GraduationCap,
+  Heart, DollarSign, UserCheck, Eye, Handshake
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
+import { Badge } from "@/components/ui/badge"
 
 export default function ProgramsPage() {
   return (
@@ -271,6 +273,189 @@ export default function ProgramsPage() {
               </motion.div>
             </div>
           </div>
+        </div>
+      </section>
+
+      {/* Welcome to Volleyball Calgary Section */}
+      <section className="relative py-20 lg:py-24">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          
+          {/* Section Header */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-16"
+          >
+            {/* Welcome Badge */}
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="inline-flex mb-8"
+            >
+              <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-900 dark:text-blue-200 border-blue-200 dark:border-blue-800">
+                <Sparkles className="h-4 w-4 mr-2" />
+                Established 2025
+              </Badge>
+            </motion.div>
+
+            <h2 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+              <span className="block text-gray-900 dark:text-gray-100">
+                WELCOME TO
+              </span>
+              <span className={cn(
+                "block mt-2",
+                "bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600",
+                "bg-clip-text text-transparent",
+                "bg-[length:200%_100%]",
+                "animate-gradient",
+                "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(59,130,246,0.5)]"
+              )}>
+                VOLLEYBALL FRASER VALLEY
+              </span>
+            </h2>
+          </motion.div>
+
+          {/* Introduction Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.1 }}
+            className="mb-12"
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 lg:p-12 border border-gray-200 dark:border-gray-700">
+              <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
+              <div className="relative">
+                <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
+                  Volleyball Fraser Valley was established in 2025 to provide an accessible and community-focused alternative to the high-cost, high-stress environment often associated with traditional club volleyball. Founded by <span className="font-semibold text-gray-900 dark:text-gray-100">Luc Tremblay</span>, a seasoned leader in grassroots volleyball development, Volleyball Fraser Valley builds on the success of the Winnipeg Minor Volleyball Association (WMVA), which he launched in 1999 and later rebranded as Volleyball Winnipeg in 2018. With over <span className="font-semibold text-primary">3,200 athletes</span> participating in the 2023-2024 season in Winnipeg, Luc is eager to bring his proven approach to the Fraser Valley volleyball community.
+                </p>
+              </div>
+            </div>
+          </motion.div>
+
+          {/* Vision and Values Grid */}
+          <div className="grid lg:grid-cols-2 gap-8 mb-12">
+            
+            {/* Our Vision Card */}
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.2 }}
+            >
+              <div className="h-full rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 p-8 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-yellow-500/10 dark:from-primary/20 dark:to-yellow-500/20">
+                    <Eye className="h-6 w-6 text-primary dark:text-yellow-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Our Vision</h3>
+                </div>
+                <p className="text-gray-600 dark:text-gray-400 leading-relaxed">
+                  Volleyball Fraser Valley is a volunteer-driven, non-profit organization dedicated to creating sustainable, high-quality youth volleyball programs. Our focus is on fostering a positive, inclusive, and low-pressure environment where athletes can develop their skills, grow their confidence, and fall in love with the game. By emphasizing fun, personal development, and teamwork over intense competition, we aim to make volleyball accessible to everyone—regardless of experience or skill level.
+                </p>
+              </div>
+            </motion.div>
+
+            {/* What Sets Us Apart Card */}
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+            >
+              <div className="h-full rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 p-8 hover:shadow-xl transition-all duration-300">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-secondary/10 to-blue-500/10 dark:from-secondary/20 dark:to-blue-500/20">
+                    <Star className="h-6 w-6 text-secondary dark:text-blue-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">What Sets Us Apart?</h3>
+                </div>
+                
+                <div className="space-y-4">
+                  {/* Affordability */}
+                  <div className="flex gap-3">
+                    <DollarSign className="h-5 w-5 text-green-600 dark:text-green-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                        Affordability Without Compromise
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        Our programs deliver top-notch training at a fraction of the cost of traditional club volleyball, ensuring more families can participate.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Community */}
+                  <div className="flex gap-3">
+                    <Heart className="h-5 w-5 text-red-600 dark:text-red-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                        Community First
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        We believe in the power of volleyball to bring people together. By nurturing local talent and fostering strong connections, we aim to build a vibrant volleyball community in Fraser Valley.
+                      </p>
+                    </div>
+                  </div>
+
+                  {/* Volunteer-Driven */}
+                  <div className="flex gap-3">
+                    <UserCheck className="h-5 w-5 text-purple-600 dark:text-purple-400 flex-shrink-0 mt-1" />
+                    <div>
+                      <p className="font-semibold text-gray-900 dark:text-gray-100 mb-1">
+                        Volunteer-Driven Excellence
+                      </p>
+                      <p className="text-sm text-gray-600 dark:text-gray-400">
+                        The dedication of our volunteers makes our programs special. Their passion and commitment create an environment where athletes can thrive both on and off the court.
+                      </p>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+          </div>
+
+          {/* Our Commitment Card */}
+          <motion.div
+            initial={{ opacity: 0, y: 30 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6, delay: 0.4 }}
+            className="mb-12"
+          >
+            <div className="relative rounded-3xl overflow-hidden bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 hover:shadow-2xl transition-all duration-300">
+              {/* Subtle gradient accent */}
+              <div className="absolute inset-0 bg-gradient-to-br from-blue-500/5 via-cyan-500/5 to-transparent" />
+              
+              {/* Blue accent bar at top */}
+              <div className="absolute top-0 left-0 right-0 h-1 bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600" />
+              
+              {/* Content */}
+              <div className="relative p-8 lg:p-12">
+                <div className="flex items-center gap-3 mb-6">
+                  <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/20">
+                    <Handshake className="h-6 w-6 text-blue-600 dark:text-blue-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100">Our Commitment to Fraser Valley</h3>
+                </div>
+                
+                <p className="text-lg text-gray-700 dark:text-gray-300 leading-relaxed mb-8">
+                  As we embark on this new chapter, Volleyball Fraser Valley is committed to delivering the same level of program excellence and community engagement that has made Volleyball Winnipeg a cornerstone of Manitoba&apos;s volleyball scene. Whether you&apos;re looking for your first introduction to the sport or a place to develop skills in a supportive environment, Volleyball Fraser Valley is here to help every athlete reach their full potential.
+                </p>
+                
+                <div className="pt-4 border-t border-gray-200 dark:border-gray-700">
+                  <p className="text-xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                    Join us as we build a brighter future for youth volleyball in Fraser Valley, one athlete, one program, and one game at a time.
+                  </p>
+                </div>
+              </div>
+            </div>
+          </motion.div>
+
         </div>
       </section>
 
