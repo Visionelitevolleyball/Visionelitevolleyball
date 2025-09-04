@@ -5,7 +5,7 @@ import { motion } from "motion/react"
 import { cn } from "@/lib/utils"
 import { 
   Star, Play, Quote, Trophy, Heart, Users, 
-  Sparkles, TrendingUp, 
+  TrendingUp, 
   MessageSquare, ThumbsUp, Video, Youtube
 } from "lucide-react"
 import { Button } from "@/components/ui/button"
@@ -326,70 +326,6 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      {/* Featured Videos Section */}
-      {filteredVideos.filter(v => v.featured).length > 0 && (
-        <section className="relative py-16">
-          <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6 }}
-              className="text-center mb-12"
-            >
-              <Badge className="px-4 py-2 mb-4 bg-gradient-to-r from-orange-100 to-yellow-100 dark:from-orange-900/20 dark:to-yellow-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800">
-                <Sparkles className="h-4 w-4 mr-2" />
-                Featured Reviews
-              </Badge>
-              <h2 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-gray-100">
-                Most Inspiring Stories
-              </h2>
-            </motion.div>
-
-            <div className="grid md:grid-cols-2 gap-8">
-              {filteredVideos.filter(v => v.featured).map((video, index) => (
-                <motion.div
-                  key={video.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.6, delay: index * 0.1 }}
-                  viewport={{ once: true }}
-                  className="group"
-                >
-                  <div className="relative rounded-2xl overflow-hidden bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:border-primary/40 transition-all duration-300 hover:shadow-2xl">
-                    <VideoPlayer
-                      thumbnailUrl={video.thumbnailUrl}
-                      videoUrl={video.videoUrl}
-                      title={video.title}
-                      description={video.description}
-                      aspectRatio="16/9"
-                      className="w-full"
-                    />
-                    <div className="p-6">
-                      <div className="flex items-center justify-between mb-3">
-                        <Badge className="bg-gradient-to-r from-primary/10 to-yellow-500/10 text-primary dark:text-yellow-400 border-primary/30">
-                          {video.category}
-                        </Badge>
-                        <div className="flex items-center gap-1">
-                          {[...Array(video.rating)].map((_, i) => (
-                            <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
-                          ))}
-                        </div>
-                      </div>
-                      <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2 group-hover:text-primary transition-colors">
-                        {video.title}
-                      </h3>
-                      <p className="text-gray-600 dark:text-gray-400">
-                        {video.description}
-                      </p>
-                    </div>
-                  </div>
-                </motion.div>
-              ))}
-            </div>
-          </div>
-        </section>
-      )}
-
       {/* All Videos Grid Section */}
       <section className="relative py-16">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -408,7 +344,7 @@ export default function ReviewsPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {filteredVideos.filter(v => !v.featured).map((video, index) => (
+            {filteredVideos.map((video, index) => (
               <motion.div
                 key={video.id}
                 initial={{ opacity: 0, y: 30 }}
@@ -492,21 +428,25 @@ export default function ReviewsPage() {
               </p>
 
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                <Button
-                  size="lg"
-                  className="bg-white text-primary hover:bg-gray-100 font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
-                >
-                  <Youtube className="mr-2 h-5 w-5" />
-                  Subscribe Now
-                </Button>
-                <Button
-                  size="lg"
-                  variant="outline"
-                  className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 font-bold"
-                >
-                  <Play className="mr-2 h-5 w-5" />
-                  Watch All Videos
-                </Button>
+                <a href="https://www.youtube.com/@VisionEliteInternational" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    className="bg-white text-primary hover:bg-gray-100 font-bold shadow-xl hover:shadow-2xl hover:scale-105 transition-all duration-300"
+                  >
+                    <Youtube className="mr-2 h-5 w-5" />
+                    Subscribe Now
+                  </Button>
+                </a>
+                <a href="https://www.youtube.com/@VisionEliteInternational/videos" target="_blank" rel="noopener noreferrer">
+                  <Button
+                    size="lg"
+                    variant="outline"
+                    className="bg-white/10 backdrop-blur-sm text-white border-white/30 hover:bg-white/20 font-bold"
+                  >
+                    <Play className="mr-2 h-5 w-5" />
+                    Watch All Videos
+                  </Button>
+                </a>
               </div>
 
               <div className="mt-8 flex items-center justify-center gap-8 text-white/90">
