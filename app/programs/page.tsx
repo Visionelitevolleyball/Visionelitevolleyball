@@ -61,7 +61,7 @@ export default function ProgramsPage() {
               </Badge>
             </motion.div>
 
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+            <h1 className="text-4xl md:text-5xl lg:text-6xl font-black flex-grow">
               <span className="block text-gray-900 dark:text-gray-100">
                 WELCOME TO
               </span>
@@ -105,7 +105,7 @@ export default function ProgramsPage() {
               transition={{ duration: 0.6, delay: 0.2 }}
             >
               <div className="h-full rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 p-8 hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 flex-grow">
                   <div className="p-3 rounded-xl bg-gradient-to-br from-primary/10 to-yellow-500/10 dark:from-primary/20 dark:to-yellow-500/20">
                     <Eye className="h-6 w-6 text-primary dark:text-yellow-400" />
                   </div>
@@ -124,7 +124,7 @@ export default function ProgramsPage() {
               transition={{ duration: 0.6, delay: 0.3 }}
             >
               <div className="h-full rounded-2xl bg-white dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700 p-8 hover:shadow-xl transition-all duration-300">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 flex-grow">
                   <div className="p-3 rounded-xl bg-gradient-to-br from-secondary/10 to-blue-500/10 dark:from-secondary/20 dark:to-blue-500/20">
                     <Star className="h-6 w-6 text-secondary dark:text-blue-400" />
                   </div>
@@ -191,7 +191,7 @@ export default function ProgramsPage() {
               
               {/* Content */}
               <div className="relative p-8 lg:p-12">
-                <div className="flex items-center gap-3 mb-6">
+                <div className="flex items-center gap-3 flex-grow">
                   <div className="p-3 rounded-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 dark:from-blue-500/20 dark:to-cyan-500/20">
                     <Handshake className="h-6 w-6 text-blue-600 dark:text-blue-400" />
                   </div>
@@ -238,15 +238,15 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-primary/5 dark:hover:shadow-primary/10 hover:border-primary/40 dark:hover:border-primary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-primary/10 to-yellow-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-primary/5 dark:hover:shadow-primary/10 hover:border-primary/40 dark:hover:border-primary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-primary/10 to-yellow-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <Sparkles className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">VISION Volleyball Academy</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   Where young athletes build their game from the ground up. Fun, fast-paced training for Grades 2–10, with every season ending in a high-energy Championship Tournament.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     10-week Seasonal Programs available in Fall, Winter & Spring
@@ -269,7 +269,7 @@ export default function ProgramsPage() {
                   </li>
                 </ul>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">FIND A PROGRAM</span>
@@ -285,15 +285,15 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5, delay: 0.1 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-yellow-500/5 dark:hover:shadow-yellow-500/10 hover:border-yellow-500/40 dark:hover:border-yellow-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-yellow-500/10 to-orange-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-yellow-500/5 dark:hover:shadow-yellow-500/10 hover:border-yellow-500/40 dark:hover:border-yellow-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-yellow-500/10 to-orange-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <Sun className="h-6 w-6 text-yellow-600" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">VISION Summer Day Camps</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   Train together. Win together. All week long. Athletes are placed on a team Monday morning and train with their coach all week—building skills, strategy, and team chemistry before Friday&apos;s Championship Tournament.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     Full-Week Programs: Camps run Monday–Friday throughout July & August
@@ -316,7 +316,7 @@ export default function ProgramsPage() {
                   </li>
                 </ul>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">FIND A PROGRAM</span>
@@ -332,42 +332,40 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5, delay: 0.2 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-blue-500/10 hover:border-blue-500/40 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-blue-500/10 to-cyan-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-blue-500/5 dark:hover:shadow-blue-500/10 hover:border-blue-500/40 dark:hover:border-blue-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500/10 to-cyan-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <Snowflake className="h-6 w-6 text-blue-500" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">Holiday Camps & Tournaments</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   School&apos;s out—game on! Stay active over Christmas, Spring Break, and PD Days with fast-paced volleyball, fun team play, and friendly competition.
                 </p>
-                <div className="mb-4">
-                  <p className="font-semibold mb-2">Holiday Camps:</p>
+                <div className="flex-grow space-y-3">
                   <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      2-Day Programs during Christmas Break and Spring Break
+                      2-Day Holiday Camps during Christmas & Spring Break
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                       Daily training sessions with team play and scrimmages
                     </li>
-                  </ul>
-                </div>
-                <div className="mb-6">
-                  <p className="font-semibold mb-2">Tournaments:</p>
-                  <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                       Single-day and PD Day tournaments
                     </li>
                     <li className="flex items-start gap-2">
                       <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
-                      Prizes & Awards: Recognition for effort and achievement
+                      Prizes & Awards for effort and achievement
+                    </li>
+                    <li className="flex items-start gap-2">
+                      <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                      Grades 3-10, all skill levels welcome
                     </li>
                   </ul>
                 </div>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">FIND A PROGRAM</span>
@@ -383,15 +381,15 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5, delay: 0.3 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-secondary/5 dark:hover:shadow-secondary/10 hover:border-secondary/40 dark:hover:border-secondary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-secondary/10 to-purple-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-secondary/5 dark:hover:shadow-secondary/10 hover:border-secondary/40 dark:hover:border-secondary/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-secondary/10 to-purple-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <Trophy className="h-6 w-6 text-secondary" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">VISION Premier League</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   Where training meets competition—the perfect program for intermediate to advanced athletes ready to take their game to the next level.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     8-Week Seasons: Offered in Fall, Winter & Spring
@@ -410,7 +408,7 @@ export default function ProgramsPage() {
                   </li>
                 </ul>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">FIND A PROGRAM</span>
@@ -426,15 +424,15 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5, delay: 0.4 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-red-500/5 dark:hover:shadow-red-500/10 hover:border-red-500/40 dark:hover:border-red-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-red-500/10 to-orange-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-red-500/5 dark:hover:shadow-red-500/10 hover:border-red-500/40 dark:hover:border-red-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-red-500/10 to-orange-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <Award className="h-6 w-6 text-red-500" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">VISION Volleyball Club (VBC)</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   Club volleyball made simple — and affordable. Athletes get the full team experience with quality coaching, regular practices, and local tournaments, all without the heavy costs or demanding travel.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     Accessible Club Option: Benefits of club play without overwhelming commitment
@@ -453,7 +451,7 @@ export default function ProgramsPage() {
                   </li>
                 </ul>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">FIND A PROGRAM</span>
@@ -469,15 +467,15 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5, delay: 0.5 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/10 to-indigo-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/10 to-indigo-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <Zap className="h-6 w-6 text-purple-600" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">SKY HIGH Volleyball CLUB</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   Take your game higher with Fraser Valley&apos;s newest competitive volleyball experience. Sky High offers players the chance to develop their skills in a supportive yet competitive environment.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     Age Groups: 13U–15U divisions (expanding to 16U in the future)
@@ -500,7 +498,7 @@ export default function ProgramsPage() {
                   </li>
                 </ul>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">REGISTER TODAY</span>
@@ -516,15 +514,15 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5, delay: 0.6 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-green-500/5 dark:hover:shadow-green-500/10 hover:border-green-500/40 dark:hover:border-green-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-green-500/10 to-emerald-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-green-500/5 dark:hover:shadow-green-500/10 hover:border-green-500/40 dark:hover:border-green-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-green-500/10 to-emerald-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <Target className="h-6 w-6 text-green-600" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">Volleyball Skills Camps</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   Focused training. Faster results. For athletes who want to go beyond general practice, our Skills Camps provide targeted training to strengthen specific skills or positions.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     Year-Round Training: Offered throughout the season for Grades 6–12
@@ -543,7 +541,7 @@ export default function ProgramsPage() {
                   </li>
                 </ul>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">FIND A PROGRAM</span>
@@ -559,15 +557,15 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5, delay: 0.7 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:border-purple-500/40 dark:hover:border-purple-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-purple-500/10 to-pink-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <GraduationCap className="h-6 w-6 text-purple-600" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">Elite Volleyball Training: Grades 7–12</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   Summer Elite Camps and Fall Club Prep Camps for intermediate to advanced athletes ready to raise their game. Fast-paced training, advanced techniques, and team tactics—led by certified club coaches.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     Ideal for athletes with strong volleyball experience
@@ -586,7 +584,7 @@ export default function ProgramsPage() {
                   </li>
                 </ul>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">FIND A PROGRAM</span>
@@ -602,15 +600,15 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5, delay: 0.8 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-gray-500/5 dark:hover:shadow-gray-500/10 hover:border-gray-500/40 dark:hover:border-gray-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-gray-500/10 to-slate-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-gray-500/5 dark:hover:shadow-gray-500/10 hover:border-gray-500/40 dark:hover:border-gray-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-gray-500/10 to-slate-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <Users className="h-6 w-6 text-gray-600" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">Adult Programs</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   Drop in, play hard, and build community. Competitive yet friendly games for men, women, and co-ed players—no team or commitment required.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     Drop-ins offered year-round
@@ -625,7 +623,7 @@ export default function ProgramsPage() {
                   </li>
                 </ul>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">FIND A PROGRAM</span>
@@ -641,15 +639,15 @@ export default function ProgramsPage() {
               transition={{ duration: 0.5, delay: 0.9 }}
               className="group"
             >
-              <div className="h-full flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-indigo-500/5 dark:hover:shadow-indigo-500/10 hover:border-indigo-500/40 dark:hover:border-indigo-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
-                <div className="w-12 h-12 rounded-lg bg-gradient-to-br from-indigo-500/10 to-blue-500/10 flex items-center justify-center mb-4">
+              <div className="h-full min-h-[520px] flex flex-col p-8 rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 hover:shadow-lg hover:shadow-indigo-500/5 dark:hover:shadow-indigo-500/10 hover:border-indigo-500/40 dark:hover:border-indigo-500/40 hover:bg-white dark:hover:bg-gray-800/60 hover:-translate-y-1 transition-all duration-300">
+                <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-indigo-500/10 to-blue-500/10 flex items-center justify-center mb-4 flex-shrink-0">
                   <Star className="h-6 w-6 text-indigo-600" />
                 </div>
                 <h3 className="font-bold text-2xl mb-3">Private Lessons</h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-4 flex-grow">
                   Customized Coaching. Faster Progress. Real Results. Our Private Lessons are ideal for athletes who want focused, individualized training to sharpen specific skills, build confidence, and accelerate their development.
                 </p>
-                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 mb-6">
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400 flex-grow">
                   <li className="flex items-start gap-2">
                     <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
                     1-on-1 or Small Group Options
@@ -672,7 +670,7 @@ export default function ProgramsPage() {
                   </li>
                 </ul>
                 <Button 
-                  className="w-full mt-auto bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                  className="w-full bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold cursor-pointer overflow-hidden relative before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[22rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-60 mt-6"
                   onClick={() => window.open('https://visioneliteacademy.com/program-search/', '_blank')}
                 >
                   <span className="relative">FIND A PROGRAM</span>
@@ -683,7 +681,7 @@ export default function ProgramsPage() {
 
           {/* CTA Section */}
           <div className="mt-12 text-center">
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
+            <p className="text-gray-600 dark:text-gray-400 flex-grow">
               Ready to join the VISION family? Find your perfect program today.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
