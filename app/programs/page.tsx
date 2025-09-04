@@ -154,7 +154,7 @@ export default function ProgramsPage() {
         </div>
       </section>
 
-      {/* Welcome to Volleyball Calgary Section */}
+      {/* Welcome to Volleyball Fraser Valley Section */}
       <section className="relative py-20 lg:py-24">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           
