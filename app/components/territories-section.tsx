@@ -14,15 +14,15 @@ import { SpotlightCard } from "@/components/ui/spotlight-card";
 import { Badge } from "@/components/ui/badge";
 
 const availableTerritories = [
-  { id: 1, name: "Edmonton", status: "limited", growth: "41%", teams: 10 },
-  { id: 2, name: "Vancouver", status: "available", growth: "47%", teams: 12 },
-  { id: 3, name: "Saskatoon", status: "available", growth: "33%", teams: 7 },
-  { id: 4, name: "Regina", status: "available", growth: "48%", teams: 9 },
-  { id: 5, name: "Kelowna", status: "available", growth: "36%", teams: 6 },
-  { id: 6, name: "Toronto", status: "available", growth: "42%", teams: 5 },
-  { id: 7, name: "Mississauga", status: "available", growth: "39%", teams: 8 },
-  { id: 8, name: "Montreal", status: "available", growth: "44%", teams: 7 },
-  { id: 9, name: "Halifax", status: "available", growth: "35%", teams: 6 },
+  { id: 1, name: "Edmonton", status: "limited" },
+  { id: 2, name: "Vancouver", status: "available" },
+  { id: 3, name: "Saskatoon", status: "available" },
+  { id: 4, name: "Regina", status: "available" },
+  { id: 5, name: "Kelowna", status: "available" },
+  { id: 6, name: "Toronto", status: "available" },
+  { id: 7, name: "Mississauga", status: "available" },
+  { id: 8, name: "Montreal", status: "available" },
+  { id: 9, name: "Halifax", status: "available" },
 ];
 
 const benefits = [
@@ -119,51 +119,36 @@ export function TerritoriesSection() {
             className="order-2 lg:order-1"
           >
             <SpotlightCard
-              className="h-full p-6 sm:p-8"
+              className="h-full p-6 sm:p-8 flex flex-col"
               spotlightColor="rgba(45, 52, 142, 0.1)"
             >
-              <div className="mb-6">
+              <div className="flex flex-col h-full">
                 <div className="flex items-center justify-between mb-4">
                   <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100">
                     Available Territories
                   </h3>
                   <Badge variant="secondary" className="gap-1">
                     <Sparkles className="h-3 w-3" />
-                    {
-                      availableTerritories.filter(
-                        (t) => t.status === "available"
-                      ).length
-                    }{" "}
-                    Open
+                    {availableTerritories.length} Open
                   </Badge>
                 </div>
 
                 {/* Territory Table */}
-                <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
+                <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700 flex-1 flex flex-col">
                   {/* Table Header - Visible on all devices */}
                   <div className="bg-gray-50 dark:bg-gray-800/50 px-3 sm:px-6 py-2 sm:py-3 border-b border-gray-200 dark:border-gray-700">
                     <div className="grid grid-cols-12 gap-2 sm:gap-4 text-xs font-semibold uppercase tracking-wider text-gray-600 dark:text-gray-400">
-                      <div className="col-span-4">
-                        <span className="hidden sm:inline">Territory</span>
-                        <span className="sm:hidden">Territory</span>
+                      <div className="col-span-8">
+                        <span>Territory</span>
                       </div>
-                      <div className="col-span-2 text-center">
-                        <span className="hidden sm:inline">Status</span>
-                        <span className="sm:hidden">Status</span>
-                      </div>
-                      <div className="col-span-3 text-center">
-                        <span className="hidden sm:inline">Growth Rate</span>
-                        <span className="sm:hidden">Growth</span>
-                      </div>
-                      <div className="col-span-3 text-center">
-                        <span className="hidden sm:inline">Active Teams</span>
-                        <span className="sm:hidden">Teams</span>
+                      <div className="col-span-4 text-center">
+                        <span>Status</span>
                       </div>
                     </div>
                   </div>
 
                   {/* Table Body */}
-                  <div className="divide-y divide-gray-200 dark:divide-gray-700">
+                  <div className="divide-y divide-gray-200 dark:divide-gray-700 flex-1 flex flex-col">
                     {availableTerritories.map((territory, index) => (
                       <motion.div
                         key={territory.id}
@@ -171,18 +156,18 @@ export function TerritoriesSection() {
                         whileInView={{ opacity: 1, x: 0 }}
                         viewport={{ once: true }}
                         transition={{ duration: 0.4, delay: index * 0.05 }}
-                        className="px-3 sm:px-6 py-3 sm:py-4 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors"
+                        className="px-3 sm:px-6 py-3 sm:py-4 lg:flex-1 hover:bg-gray-50 dark:hover:bg-gray-800/30 transition-colors"
                       >
                         <div className="grid grid-cols-12 gap-2 sm:gap-4 items-center">
                           {/* Territory Name */}
-                          <div className="col-span-4">
+                          <div className="col-span-8">
                             <span className="font-semibold text-gray-900 dark:text-gray-100">
                               {territory.name}
                             </span>
                           </div>
 
                           {/* Status */}
-                          <div className="col-span-2 flex justify-center">
+                          <div className="col-span-4 flex justify-center">
                             <span
                               className={cn(
                                 "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
@@ -201,29 +186,6 @@ export function TerritoriesSection() {
                               />
                               {territory.status.charAt(0).toUpperCase() +
                                 territory.status.slice(1)}
-                            </span>
-                          </div>
-
-                          {/* Growth */}
-                          <div className="col-span-3 flex items-center justify-center gap-2">
-                            <div className="flex items-center gap-1">
-                              <TrendingUp className="h-4 w-4 text-primary" />
-                              <span className="font-medium text-gray-900 dark:text-gray-100">
-                                {territory.growth}
-                              </span>
-                            </div>
-                            <div className="hidden sm:block w-16 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                              <div
-                                className="h-full bg-primary rounded-full"
-                                style={{ width: territory.growth }}
-                              />
-                            </div>
-                          </div>
-
-                          {/* Teams */}
-                          <div className="col-span-3 text-center">
-                            <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-sm font-semibold text-gray-900 dark:text-gray-100">
-                              {territory.teams}
                             </span>
                           </div>
                         </div>
