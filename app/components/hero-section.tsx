@@ -64,10 +64,10 @@ export function HeroSection() {
           <span
             className={cn(
               "inline-block",
-              "bg-gradient-to-br from-primary via-primary/80 to-yellow-600",
-              "dark:from-primary dark:via-primary/90 dark:to-yellow-500",
+              "bg-gradient-to-br from-amber-300 via-yellow-500 to-amber-600",
+              "dark:from-amber-200 dark:via-yellow-400 dark:to-amber-600",
               "bg-clip-text text-transparent",
-              "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.3)]"
+              "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.35)]"
             )}
           >
             FRASER VALLEY
