@@ -178,20 +178,23 @@ export default function ReviewsPage() {
       />
 
       {/* Hero Section - Reviews & Testimonials */}
-      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-4 lg:pt-6">
+      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-8 lg:pt-12">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
           <div className="w-full">
-            
-            {/* Main Hero Content */}
-            <div className="text-center space-y-4">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
               
               {/* Animated Badge */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex mb-6"
               >
                 <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800">
                   <Star className="h-4 w-4 mr-2 fill-current" />
@@ -201,13 +204,7 @@ export default function ReviewsPage() {
               </motion.div>
 
               {/* Main Title */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="space-y-3"
-              >
-                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black">
+              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
                   <span className="block text-gray-900 dark:text-gray-100">
                     REAL STORIES,
                   </span>
@@ -221,14 +218,14 @@ export default function ReviewsPage() {
                   )}>
                     REAL SUCCESS
                   </span>
-                </h1>
-                
-                <p className="text-lg md:text-xl font-light text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
-                  Hear from our athletes, parents, and coaches about their 
-                  transformative volleyball journey with Fraser Valley
-                </p>
-              </motion.div>
-
+              </h1>
+              
+              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+                Hear from our athletes, parents, and coaches about their 
+                transformative volleyball journey with Fraser Valley
+              </p>
+            </motion.div>
+            
               {/* Stats Row */}
               <motion.div
                 initial={{ opacity: 0, y: 20 }}
@@ -288,7 +285,6 @@ export default function ReviewsPage() {
                   Share Your Story
                 </Button>
               </motion.div>
-            </div>
           </div>
         </div>
       </section>
