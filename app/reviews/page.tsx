@@ -195,7 +195,7 @@ export default function ReviewsPage() {
               >
                 <Badge className="px-6 py-3 text-sm font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800">
                   <Star className="h-4 w-4 mr-2 fill-current" />
-                  500+ Happy Athletes & Parents
+                  50,000+ Happy Athletes & Parents
                   <Star className="h-4 w-4 ml-2 fill-current" />
                 </Badge>
               </motion.div>
@@ -239,7 +239,7 @@ export default function ReviewsPage() {
                 {[
                   { label: "Video Reviews", value: "14+", icon: Video },
                   { label: "5-Star Ratings", value: "98%", icon: Star },
-                  { label: "Happy Families", value: "500+", icon: Heart },
+                  { label: "Happy Families", value: "50,000+", icon: Heart },
                   { label: "Championships", value: "50+", icon: Trophy }
                 ].map((stat, index) => (
                   <motion.div
