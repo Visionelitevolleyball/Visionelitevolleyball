@@ -334,7 +334,7 @@ export default function ProgramsPage() {
                   {/* Stats row for credibility */}
                   <div className="grid grid-cols-3 gap-6 py-6">
                     {[
-                      { number: "50,000+", label: "Families Served", icon: Users },
+                      { number: "10,000+", label: "Happy Athletes", icon: Users },
                       { number: "Since 1999", label: "Established", icon: Trophy },
                       { number: "100%", label: "Commitment", icon: Heart }
                     ].map((stat, index) => (

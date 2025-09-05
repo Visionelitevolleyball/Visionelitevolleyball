@@ -7,14 +7,15 @@ import { SpotlightCard } from "@/components/ui/spotlight-card"
 import { Badge } from "@/components/ui/badge"
 
 const availableTerritories = [
-  { id: 1, name: "Calgary", status: "available", growth: "45%", teams: 12 },
-  { id: 2, name: "Winnipeg", status: "available", growth: "38%", teams: 8 },
-  { id: 3, name: "Fraser Valley", status: "limited", growth: "52%", teams: 15 },
-  { id: 4, name: "Edmonton", status: "available", growth: "41%", teams: 10 },
-  { id: 5, name: "Saskatoon", status: "available", growth: "33%", teams: 7 },
-  { id: 6, name: "Regina", status: "available", growth: "48%", teams: 9 },
-  { id: 7, name: "Kelowna", status: "available", growth: "36%", teams: 6 },
-  { id: 8, name: "Toronto", status: "available", growth: "42%", teams: 5 },
+  { id: 1, name: "Edmonton", status: "limited", growth: "41%", teams: 10 },
+  { id: 2, name: "Vancouver", status: "available", growth: "47%", teams: 12 },
+  { id: 3, name: "Saskatoon", status: "available", growth: "33%", teams: 7 },
+  { id: 4, name: "Regina", status: "available", growth: "48%", teams: 9 },
+  { id: 5, name: "Kelowna", status: "available", growth: "36%", teams: 6 },
+  { id: 6, name: "Toronto", status: "available", growth: "42%", teams: 5 },
+  { id: 7, name: "Mississauga", status: "available", growth: "39%", teams: 8 },
+  { id: 8, name: "Montreal", status: "available", growth: "44%", teams: 7 },
+  { id: 9, name: "Halifax", status: "available", growth: "35%", teams: 6 },
 ]
 
 const benefits = [
