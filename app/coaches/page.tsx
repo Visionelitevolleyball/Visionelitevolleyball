@@ -197,7 +197,12 @@ export default function CoachesPage() {
                 </Badge>
               </motion.div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+              <motion.h1
+                initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 1.0, ease: "easeOut", delay: 0.3 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
+              >
                 <span className="block text-gray-900 dark:text-gray-100">
                   BETTER COACHES,
                 </span>
@@ -214,14 +219,19 @@ export default function CoachesPage() {
                 >
                   BETTER ATHLETES, BETTER RESULTS
                 </span>
-              </h1>
+              </motion.h1>
 
-              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              <motion.p
+                initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+                className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
+              >
                 Our system develops players and coaches. We invest in our
                 coaches through a unique Coaching Academy guided by our Head
                 Coach, delivering consistent, quality instruction that compounds
                 year after year.
-              </p>
+              </motion.p>
             </motion.div>
 
             {/* Head Coach Feature - Enhanced 10/10 Version */}

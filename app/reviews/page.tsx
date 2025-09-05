@@ -202,7 +202,12 @@ export default function ReviewsPage() {
               </motion.div>
 
               {/* Main Title */}
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+              <motion.h1
+                initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 1.0, ease: "easeOut", delay: 0.3 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
+              >
                 <span className="block text-gray-900 dark:text-gray-100">
                   REAL STORIES,
                 </span>
@@ -218,19 +223,24 @@ export default function ReviewsPage() {
                 >
                   REAL SUCCESS
                 </span>
-              </h1>
+              </motion.h1>
 
-              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              <motion.p
+                initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+                className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
+              >
                 Hear from our athletes, parents, and coaches about their
                 transformative volleyball journey with Fraser Valley
-              </p>
+              </motion.p>
             </motion.div>
 
             {/* Stats Row */}
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.3 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
               className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-6"
             >
               {[
@@ -263,7 +273,7 @@ export default function ReviewsPage() {
             <motion.div
               initial={{ opacity: 0, y: 20 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.5 }}
+              transition={{ duration: 0.6, delay: 0.9 }}
               className="pt-8 flex justify-center"
             >
               <Button
