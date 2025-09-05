@@ -86,11 +86,12 @@ export default function ProgramsPage() {
                 <span
                   className={cn(
                     "block mt-2",
-                    "bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600",
+                    "bg-gradient-to-br from-amber-300 via-yellow-500 to-amber-600",
+                    "dark:from-amber-200 dark:via-yellow-400 dark:to-amber-600",
                     "bg-clip-text text-transparent",
                     "bg-[length:200%_100%]",
                     "animate-gradient",
-                    "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(59,130,246,0.5)]"
+                    "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(236,186,88,0.5)]"
                   )}
                 >
                   VOLLEYBALL FRASER VALLEY
