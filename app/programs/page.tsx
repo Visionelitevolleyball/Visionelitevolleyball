@@ -74,7 +74,12 @@ export default function ProgramsPage() {
                 </Badge>
               </motion.div>
 
-              <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
+              <motion.h1
+                initial={{ opacity: 0, filter: "blur(10px)", y: 20 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 1.0, ease: "easeOut", delay: 0.3 }}
+                className="text-4xl md:text-5xl lg:text-6xl font-black mb-6"
+              >
                 <span className="block text-gray-900 dark:text-gray-100">
                   WELCOME TO
                 </span>
@@ -90,19 +95,24 @@ export default function ProgramsPage() {
                 >
                   VOLLEYBALL FRASER VALLEY
                 </span>
-              </h1>
+              </motion.h1>
 
-              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
+              <motion.p
+                initial={{ opacity: 0, filter: "blur(5px)", y: 20 }}
+                animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
+                transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
+                className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed"
+              >
                 Your destination for inclusive, community-focused volleyball
                 programs designed for players of all levels
-              </p>
+              </motion.p>
             </motion.div>
 
             {/* Introduction Card */}
             <motion.div
               initial={{ opacity: 0, y: 30 }}
               animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.6, delay: 0.1 }}
+              transition={{ duration: 0.6, delay: 0.8 }}
               className="mb-12"
             >
               <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-gray-50 to-white dark:from-gray-900 dark:to-gray-800 p-8 lg:p-12 border border-gray-200 dark:border-gray-700">
