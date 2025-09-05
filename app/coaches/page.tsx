@@ -209,7 +209,8 @@ export default function CoachesPage() {
                 <span
                   className={cn(
                     "block mt-2",
-                    "bg-gradient-to-r from-primary via-yellow-500 to-primary",
+                    "bg-gradient-to-br from-amber-300 via-yellow-500 to-amber-600",
+                    "dark:from-amber-200 dark:via-yellow-400 dark:to-amber-600",
                     "bg-clip-text text-transparent",
                     "bg-[length:200%_100%]",
                     "animate-gradient",

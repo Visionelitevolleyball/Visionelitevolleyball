@@ -103,11 +103,11 @@ export function FeatureCarousel() {
             className="text-3xl sm:text-4xl lg:text-5xl font-bold"
           >
             <span className="bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400 bg-clip-text text-transparent">
-              Excellence in Every
+              EXCELLENCE IN EVERY
             </span>
             <br />
-            <span className="bg-gradient-to-r from-primary via-primary to-yellow-600 dark:from-primary dark:via-primary dark:to-yellow-500 bg-clip-text text-transparent">
-              Training Session
+            <span className="bg-gradient-to-br from-amber-300 via-yellow-500 to-amber-600 dark:from-amber-200 dark:via-yellow-400 dark:to-amber-600 bg-clip-text text-transparent">
+              TRAINING SESSION
             </span>
           </motion.h2>
         </div>
