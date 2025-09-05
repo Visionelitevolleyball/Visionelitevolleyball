@@ -89,7 +89,7 @@ export default function ProgramsPage() {
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5" />
               <div className="relative">
                 <p className="text-lg lg:text-xl text-gray-700 dark:text-gray-300 leading-relaxed">
-                  Volleyball Fraser Valley was established in 2025 to provide an accessible and community-focused alternative to the high-cost, high-stress environment often associated with traditional club volleyball. Founded by <span className="font-semibold text-gray-900 dark:text-gray-100">Luc Tremblay</span>, a seasoned leader in grassroots volleyball development, Volleyball Fraser Valley builds on the success of the Winnipeg Minor Volleyball Association (WMVA), which he launched in 1999 and later rebranded as Volleyball Winnipeg in 2018. With over <span className="font-semibold text-primary">3,200 athletes</span> participating in the 2023-2024 season in Winnipeg, Luc is eager to bring his proven approach to the Fraser Valley volleyball community.
+                  Volleyball Fraser Valley was established in 2025 to provide an accessible and community-focused alternative to the high-cost, high-stress environment often associated with traditional club volleyball. Founded by <span className="font-semibold text-gray-900 dark:text-gray-100">Luc Tremblay</span>, a seasoned leader in grassroots volleyball development, Volleyball Fraser Valley builds on the success of the Winnipeg Minor Volleyball Association (WMVA), which he launched in 1999 and later rebranded as Volleyball Winnipeg in 2018. With over <span className="font-semibold text-primary">3,200 participants</span> in our programs last year alone, and more than <span className="font-semibold text-primary">50,000 families</span> served since 1999, Luc is eager to bring his proven approach to the Fraser Valley volleyball community.
                 </p>
               </div>
             </div>
@@ -138,7 +138,7 @@ export default function ProgramsPage() {
                     {[
                       { icon: Users, text: "Volunteer-driven, non-profit organization", metric: "100%" },
                       { icon: Trophy, text: "High-quality youth volleyball programs", metric: "3200+" },
-                      { icon: Heart, text: "Positive, inclusive environment", metric: "25 Years" },
+                      { icon: Heart, text: "Positive, inclusive environment", metric: "Since 1999" },
                       { icon: Sparkles, text: "Accessible to all skill levels", metric: "All Ages" }
                     ].map((item, index) => (
                       <motion.div
@@ -334,8 +334,8 @@ export default function ProgramsPage() {
                   {/* Stats row for credibility */}
                   <div className="grid grid-cols-3 gap-6 py-6">
                     {[
-                      { number: "10,000+", label: "Athletes Trained", icon: Users },
-                      { number: "25+", label: "Years Experience", icon: Trophy },
+                      { number: "50,000+", label: "Families Served", icon: Users },
+                      { number: "Since 1999", label: "Established", icon: Trophy },
                       { number: "100%", label: "Commitment", icon: Heart }
                     ].map((stat, index) => (
                       <motion.div 

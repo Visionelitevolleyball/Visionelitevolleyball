@@ -231,7 +231,7 @@ export function TerritoriesSection() {
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-4">
                     Become part of Canada&apos;s fastest-growing volleyball training franchise 
-                    with over 10,000 athletes trained.
+                    with over 50,000 families served since 1999.
                   </p>
                   
                   {/* Stats Grid */}

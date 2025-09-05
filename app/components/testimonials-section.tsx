@@ -209,7 +209,7 @@ export function TestimonialsSection() {
         >
           {[
             { icon: Trophy, number: "98%", label: "Satisfaction Rate" },
-            { icon: Users, number: "10,000+", label: "Happy Athletes" },
+            { icon: Users, number: "50,000+", label: "Families Served" },
             { icon: Heart, number: "4.9/5", label: "Average Rating" }
           ].map((stat, index) => (
             <div key={index} className="text-center">

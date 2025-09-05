@@ -125,7 +125,7 @@ export function HeroSection() {
           className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-16"
         >
           {[
-            { number: "10,000+", label: "Athletes Trained" },
+            { number: "50,000+", label: "Families Served" },
             { number: "45+", label: "Expert Coaches" },
             { number: "26+", label: "Years Experience" },
           ].map((stat, index) => (
