@@ -21,7 +21,7 @@ export function ProgramFinderBar() {
   return (
     <section
       className={cn(
-        "fixed left-0 right-0 z-40 bg-gradient-to-r from-background via-gray-50/50 to-background dark:from-background dark:via-gray-900/50 dark:to-background backdrop-blur-sm border-b border-border transition-all duration-300",
+        "fixed left-0 right-0 z-40 bg-gradient-to-r from-background via-gray-100/70 to-background dark:from-background dark:via-gray-900/60 dark:to-background backdrop-blur-md border-b border-border transition-all duration-300",
         isScrolled ? "top-16 lg:top-[60px]" : "top-20 lg:top-[140px]"
       )}
     >
