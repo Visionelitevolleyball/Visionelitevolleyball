@@ -178,13 +178,13 @@ export default function ReviewsPage() {
       />
 
       {/* Hero Section - Reviews & Testimonials */}
-      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-8 lg:pt-12">
+      <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-4 lg:pt-6">
         
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center">
           <div className="w-full">
             
             {/* Main Hero Content */}
-            <div className="text-center space-y-8">
+            <div className="text-center space-y-4">
               
               {/* Animated Badge */}
               <motion.div
@@ -193,7 +193,7 @@ export default function ReviewsPage() {
                 transition={{ duration: 0.6 }}
                 className="inline-flex"
               >
-                <Badge className="px-6 py-3 text-sm font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800">
+                <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800">
                   <Star className="h-4 w-4 mr-2 fill-current" />
                   50,000+ Happy Athletes & Parents
                   <Star className="h-4 w-4 ml-2 fill-current" />
@@ -205,9 +205,9 @@ export default function ReviewsPage() {
                 initial={{ opacity: 0, y: 30 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.8, delay: 0.1 }}
-                className="space-y-6"
+                className="space-y-3"
               >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black">
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-black">
                   <span className="block text-gray-900 dark:text-gray-100">
                     REAL STORIES,
                   </span>
@@ -223,7 +223,7 @@ export default function ReviewsPage() {
                   </span>
                 </h1>
                 
-                <p className="text-xl md:text-2xl font-light text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
+                <p className="text-lg md:text-xl font-light text-gray-700 dark:text-gray-300 max-w-3xl mx-auto">
                   Hear from our athletes, parents, and coaches about their 
                   transformative volleyball journey with Fraser Valley
                 </p>
@@ -234,7 +234,7 @@ export default function ReviewsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.3 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-12"
+                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-6"
               >
                 {[
                   { label: "Video Reviews", value: "14+", icon: Video },
@@ -249,10 +249,10 @@ export default function ReviewsPage() {
                     transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
                     className="text-center group"
                   >
-                    <div className="inline-flex items-center justify-center w-14 h-14 mb-3 rounded-2xl bg-gradient-to-br from-primary/10 to-yellow-500/10 dark:from-primary/20 dark:to-yellow-500/20 group-hover:scale-110 transition-transform">
-                      <stat.icon className="h-7 w-7 text-primary dark:text-yellow-400" />
+                    <div className="inline-flex items-center justify-center w-12 h-12 mb-2 rounded-2xl bg-gradient-to-br from-primary/10 to-yellow-500/10 dark:from-primary/20 dark:to-yellow-500/20 group-hover:scale-110 transition-transform">
+                      <stat.icon className="h-6 w-6 text-primary dark:text-yellow-400" />
                     </div>
-                    <div className="text-3xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
+                    <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
                       {stat.value}
                     </div>
                     <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
@@ -267,13 +267,13 @@ export default function ReviewsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.5 }}
-                className="pt-6"
+                className="pt-4"
               >
                 <Button 
                   size="lg"
                   className={cn(
                     "relative overflow-hidden",
-                    "px-8 py-6 text-lg font-bold",
+                    "px-6 py-4 text-lg font-bold",
                     "bg-gradient-to-r from-primary to-yellow-500",
                     "hover:shadow-2xl hover:scale-105",
                     "transition-all duration-300",
