@@ -44,14 +44,19 @@ export default function SummerCampsPage() {
           <div className="w-full">
             
           {/* Main Hero Content */}
-            <div className="text-center space-y-8">
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6 }}
+              className="text-center mb-16"
+            >
               
             {/* Animated Badge */}
               <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6 }}
-                className="inline-flex"
+                initial={{ opacity: 0, scale: 0.9 }}
+                animate={{ opacity: 1, scale: 1 }}
+                transition={{ duration: 0.5 }}
+                className="inline-flex mb-6"
               >
                 <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800">
                   <Sun className="h-4 w-4 mr-2" />
@@ -60,13 +65,7 @@ export default function SummerCampsPage() {
               </motion.div>
 
             {/* Main Title */}
-              <motion.div
-                initial={{ opacity: 0, y: 30 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.8, delay: 0.1 }}
-                className="space-y-4"
-              >
-                <h1 className="text-5xl md:text-6xl lg:text-7xl font-black">
+              <h1 className="text-5xl md:text-6xl lg:text-7xl font-black mb-6">
                   <span className="block text-gray-900 dark:text-gray-100">
                     VISION
                   </span>
@@ -80,17 +79,11 @@ export default function SummerCampsPage() {
                   )}>
                     SUMMER CAMPS
                   </span>
-                </h1>
-                
-                <p className="text-2xl md:text-3xl font-light text-gray-700 dark:text-gray-300">
-                  <span className="block sm:inline">Train together, play hard,</span>
-                  <span className="block sm:inline"> make friends!</span>
-                </p>
-                
-                <p className="text-lg text-gray-600 dark:text-gray-400 font-medium">
-                  Each camp ends with a Championship Tournament
-                </p>
-              </motion.div>
+              </h1>
+              
+              <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed mb-4">
+                Train together, play hard, make friends! Each camp ends with a Championship Tournament
+              </p>
 
             {/* Feature Pills */}
               <motion.div
@@ -120,7 +113,7 @@ export default function SummerCampsPage() {
                 initial={{ opacity: 0, y: 20 }}
                 animate={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: 0.4 }}
-                className="flex flex-col sm:flex-row gap-4 justify-center"
+                className="flex flex-col sm:flex-row gap-4 justify-center mt-8"
               >
                 <Button 
                   size="lg"
@@ -186,7 +179,7 @@ export default function SummerCampsPage() {
                   </div>
                 ))}
               </motion.div>
-            </div>
+            </motion.div>
           </div>
         </div>
       </section>
