@@ -86,11 +86,12 @@ export default function ProgramsPage() {
                 <span
                   className={cn(
                     "block mt-2",
-                    "bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600",
+                    "bg-gradient-to-br from-amber-300 via-yellow-500 to-amber-600",
+                    "dark:from-amber-200 dark:via-yellow-400 dark:to-amber-600",
                     "bg-clip-text text-transparent",
                     "bg-[length:200%_100%]",
                     "animate-gradient",
-                    "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(59,130,246,0.5)]"
+                    "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(236,186,88,0.5)]"
                   )}
                 >
                   VOLLEYBALL FRASER VALLEY
@@ -366,12 +367,12 @@ export default function ProgramsPage() {
               }}
               className="mb-12"
             >
-              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-blue-500/[0.08] via-cyan-500/[0.06] to-indigo-500/[0.04] dark:from-blue-500/15 dark:via-cyan-500/10 dark:to-indigo-500/5 border-2 border-blue-500/20 dark:border-blue-500/30 hover:border-blue-500/30 dark:hover:border-blue-500/40 transition-all duration-500 hover:shadow-2xl hover:shadow-blue-500/10 dark:hover:shadow-blue-500/20 hover:scale-[1.01]">
+              <div className="relative rounded-3xl overflow-hidden bg-gradient-to-br from-amber-400/[0.10] via-yellow-500/[0.06] to-amber-600/[0.05] dark:from-amber-400/15 dark:via-yellow-500/10 dark:to-amber-600/5 border-2 border-amber-400/30 dark:border-amber-400/40 hover:border-amber-400/40 dark:hover:border-amber-400/50 transition-all duration-500 hover:shadow-2xl hover:shadow-amber-500/10 dark:hover:shadow-amber-500/20 hover:scale-[1.01]">
                 {/* Premium gradient mesh background */}
                 <div className="absolute inset-0 opacity-40">
-                  <div className="absolute inset-0 bg-gradient-to-tr from-blue-600/10 via-transparent to-transparent" />
-                  <div className="absolute inset-0 bg-gradient-to-bl from-cyan-500/10 via-transparent to-transparent" />
-                  <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-blue-400/10 to-transparent blur-3xl" />
+                  <div className="absolute inset-0 bg-gradient-to-tr from-amber-500/15 via-transparent to-transparent" />
+                  <div className="absolute inset-0 bg-gradient-to-bl from-yellow-500/10 via-transparent to-transparent" />
+                  <div className="absolute top-0 right-0 w-96 h-96 bg-gradient-radial from-amber-400/15 to-transparent blur-3xl" />
                 </div>
 
                 {/* Content with enhanced design */}
@@ -388,8 +389,8 @@ export default function ProgramsPage() {
                       whileHover={{ scale: 1.1, rotate: 5 }}
                       transition={{ type: "spring", stiffness: 300 }}
                     >
-                      <div className="absolute inset-0 bg-gradient-to-br from-blue-500 to-cyan-500 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
-                      <div className="relative flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-blue-500 to-cyan-500 shadow-lg shadow-blue-500/20">
+                      <div className="absolute inset-0 bg-gradient-to-br from-amber-400 to-yellow-500 rounded-2xl blur-xl opacity-30 group-hover:opacity-50 transition-opacity" />
+                      <div className="relative flex items-center justify-center w-14 h-14 rounded-2xl bg-gradient-to-br from-amber-400 to-yellow-500 shadow-lg shadow-amber-500/20">
                         <Handshake
                           className="h-7 w-7 text-white"
                           strokeWidth={2}
@@ -400,13 +401,13 @@ export default function ProgramsPage() {
                     <div className="flex-1">
                       <h3 className="text-3xl lg:text-4xl font-black text-gray-900 dark:text-gray-100 mb-1">
                         Our Commitment to
-                        <span className="block text-transparent bg-clip-text bg-gradient-to-r from-blue-600 via-cyan-500 to-blue-600 animate-gradient bg-[length:200%_100%]">
+                        <span className="block text-transparent bg-clip-text bg-gradient-to-br from-amber-300 via-yellow-500 to-amber-600 animate-gradient bg-[length:200%_100%]">
                           Fraser Valley
                         </span>
                       </h3>
                     </div>
 
-                    <Badge className="hidden lg:flex px-5 py-2 bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30 text-blue-900 dark:text-blue-300 border-0 font-bold text-sm shadow-lg">
+                    <Badge className="hidden lg:flex px-5 py-2 bg-gradient-to-r from-amber-100 to-yellow-100 dark:from-amber-900/30 dark:to-yellow-900/30 text-amber-900 dark:text-yellow-300 border-0 font-bold text-sm shadow-lg">
                       <Heart className="h-4 w-4 mr-2 text-red-500" />
                       Since 2025
                     </Badge>
@@ -460,8 +461,8 @@ export default function ProgramsPage() {
                           animate={{ opacity: 1, y: 0 }}
                           transition={{ delay: 0.8 + index * 0.1 }}
                         >
-                          <stat.icon className="h-5 w-5 mx-auto mb-2 text-blue-500" />
-                          <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-blue-600 to-cyan-600 bg-clip-text text-transparent">
+                          <stat.icon className="h-5 w-5 mx-auto mb-2 text-amber-500" />
+                          <div className="text-2xl lg:text-3xl font-bold bg-gradient-to-r from-amber-500 to-yellow-600 bg-clip-text text-transparent">
                             {stat.number}
                           </div>
                           <div className="text-xs lg:text-sm text-gray-600 dark:text-gray-400 font-medium">
@@ -472,7 +473,7 @@ export default function ProgramsPage() {
                     </div>
 
                     <motion.div
-                      className="pt-6 border-t-2 border-gradient-to-r from-transparent via-blue-200 to-transparent dark:via-blue-800"
+                      className="pt-6 border-t-2 border-gradient-to-r from-transparent via-amber-200 to-transparent dark:via-yellow-800"
                       initial={{ opacity: 0, y: 10 }}
                       animate={{ opacity: 1, y: 0 }}
                       transition={{ delay: 1 }}
