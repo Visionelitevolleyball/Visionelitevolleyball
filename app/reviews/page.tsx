@@ -239,7 +239,7 @@ export default function ReviewsPage() {
                 {[
                   { label: "Video Reviews", value: "14+", icon: Video },
                   { label: "5-Star Ratings", value: "98%", icon: Star },
-                  { label: "Happy Families", value: "50,000+", icon: Heart },
+                  { label: "Years Experience", value: "26+", icon: Heart },
                   { label: "Championships", value: "50+", icon: Trophy }
                 ].map((stat, index) => (
                   <motion.div
