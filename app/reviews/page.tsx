@@ -1,16 +1,24 @@
-"use client"
+"use client";
 
-import * as React from "react"
-import { motion } from "motion/react"
-import { cn } from "@/lib/utils"
-import { 
-  Star, Play, Quote, Trophy, Heart, Users, 
-  TrendingUp, 
-  MessageSquare, ThumbsUp, Video, Youtube
-} from "lucide-react"
-import { Button } from "@/components/ui/button"
-import { Badge } from "@/components/ui/badge"
-import { VideoPlayer } from "@/components/ui/video-thumbnail-player"
+import * as React from "react";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import {
+  Star,
+  Play,
+  Quote,
+  Trophy,
+  Heart,
+  Users,
+  TrendingUp,
+  MessageSquare,
+  ThumbsUp,
+  Video,
+  Youtube,
+} from "lucide-react";
+import { Button } from "@/components/ui/button";
+import { Badge } from "@/components/ui/badge";
+import { VideoPlayer } from "@/components/ui/video-thumbnail-player";
 
 const videoReviews = [
   {
@@ -21,7 +29,7 @@ const videoReviews = [
     thumbnailUrl: "https://img.youtube.com/vi/-jPGDhG3Vxk/maxresdefault.jpg",
     category: "Parent",
     rating: 5,
-    featured: true
+    featured: true,
   },
   {
     id: 2,
@@ -31,7 +39,7 @@ const videoReviews = [
     thumbnailUrl: "https://img.youtube.com/vi/yMzWSsFHz3U/maxresdefault.jpg",
     category: "Athlete",
     rating: 5,
-    featured: true
+    featured: true,
   },
   {
     id: 3,
@@ -40,7 +48,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/amNne9b4A5s",
     thumbnailUrl: "https://img.youtube.com/vi/amNne9b4A5s/maxresdefault.jpg",
     category: "Coach",
-    rating: 5
+    rating: 5,
   },
   {
     id: 4,
@@ -49,7 +57,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/dGSVfKCfS_A",
     thumbnailUrl: "https://img.youtube.com/vi/dGSVfKCfS_A/maxresdefault.jpg",
     category: "Camp",
-    rating: 5
+    rating: 5,
   },
   {
     id: 5,
@@ -58,7 +66,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/ZkdRZpJ_H2s",
     thumbnailUrl: "https://img.youtube.com/vi/ZkdRZpJ_H2s/maxresdefault.jpg",
     category: "League",
-    rating: 5
+    rating: 5,
   },
   {
     id: 6,
@@ -67,7 +75,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/itZHeNbBmrs",
     thumbnailUrl: "https://img.youtube.com/vi/itZHeNbBmrs/maxresdefault.jpg",
     category: "Parent",
-    rating: 5
+    rating: 5,
   },
   {
     id: 7,
@@ -76,7 +84,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/2kNKJIizEDc",
     thumbnailUrl: "https://img.youtube.com/vi/2kNKJIizEDc/maxresdefault.jpg",
     category: "Athlete",
-    rating: 5
+    rating: 5,
   },
   {
     id: 8,
@@ -85,7 +93,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/g1KgTjYkNuU",
     thumbnailUrl: "https://img.youtube.com/vi/g1KgTjYkNuU/maxresdefault.jpg",
     category: "Coach",
-    rating: 5
+    rating: 5,
   },
   {
     id: 9,
@@ -94,7 +102,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/SxipdudtzJs",
     thumbnailUrl: "https://img.youtube.com/vi/SxipdudtzJs/maxresdefault.jpg",
     category: "Tournament",
-    rating: 5
+    rating: 5,
   },
   {
     id: 10,
@@ -103,7 +111,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/aq7Ocyl-VCM",
     thumbnailUrl: "https://img.youtube.com/vi/aq7Ocyl-VCM/maxresdefault.jpg",
     category: "Camp",
-    rating: 5
+    rating: 5,
   },
   {
     id: 11,
@@ -112,7 +120,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/VV3g2nH8JU4",
     thumbnailUrl: "https://img.youtube.com/vi/VV3g2nH8JU4/maxresdefault.jpg",
     category: "Parent",
-    rating: 5
+    rating: 5,
   },
   {
     id: 12,
@@ -121,7 +129,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/aVf8eOhGk2s",
     thumbnailUrl: "https://img.youtube.com/vi/aVf8eOhGk2s/maxresdefault.jpg",
     category: "Athlete",
-    rating: 5
+    rating: 5,
   },
   {
     id: 13,
@@ -130,7 +138,7 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/1C0ePzcMD9k",
     thumbnailUrl: "https://img.youtube.com/vi/1C0ePzcMD9k/maxresdefault.jpg",
     category: "Club",
-    rating: 5
+    rating: 5,
   },
   {
     id: 14,
@@ -139,18 +147,28 @@ const videoReviews = [
     videoUrl: "https://www.youtube.com/embed/7-a003ceRLc",
     thumbnailUrl: "https://img.youtube.com/vi/7-a003ceRLc/maxresdefault.jpg",
     category: "Coach",
-    rating: 5
-  }
-]
+    rating: 5,
+  },
+];
 
-const categories = ["All", "Parent", "Athlete", "Coach", "Camp", "League", "Tournament", "Club"]
+const categories = [
+  "All",
+  "Parent",
+  "Athlete",
+  "Coach",
+  "Camp",
+  "League",
+  "Tournament",
+  "Club",
+];
 
 export default function ReviewsPage() {
-  const [selectedCategory, setSelectedCategory] = React.useState("All")
-  
-  const filteredVideos = selectedCategory === "All" 
-    ? videoReviews 
-    : videoReviews.filter(video => video.category === selectedCategory)
+  const [selectedCategory, setSelectedCategory] = React.useState("All");
+
+  const filteredVideos =
+    selectedCategory === "All"
+      ? videoReviews
+      : videoReviews.filter((video) => video.category === selectedCategory);
 
   return (
     <div className="relative">
@@ -158,28 +176,27 @@ export default function ReviewsPage() {
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
       </div>
-      
+
       {/* Single Grid Pattern for ENTIRE Page */}
-      <motion.div 
-        animate={{ 
+      <motion.div
+        animate={{
           backgroundPosition: ["0% 0%", "100% 100%"],
         }}
-        transition={{ 
+        transition={{
           duration: 20,
           repeat: Infinity,
           repeatType: "reverse",
-          ease: "linear"
+          ease: "linear",
         }}
         className="absolute inset-0 opacity-[0.015]"
         style={{
           backgroundImage: `radial-gradient(circle at 2px 2px, currentColor 1px, transparent 1px)`,
-          backgroundSize: "40px 40px"
+          backgroundSize: "40px 40px",
         }}
       />
 
       {/* Hero Section - Reviews & Testimonials */}
       <section className="relative min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] pt-8 lg:pt-12">
-        
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-full min-h-[calc(100vh-4rem)] sm:min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-start">
           <div className="w-full">
             <motion.div
@@ -188,7 +205,6 @@ export default function ReviewsPage() {
               transition={{ duration: 0.6 }}
               className="text-center mb-8"
             >
-              
               {/* Animated Badge */}
               <motion.div
                 initial={{ opacity: 0, scale: 0.9 }}
@@ -205,94 +221,96 @@ export default function ReviewsPage() {
 
               {/* Main Title */}
               <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-6">
-                  <span className="block text-gray-900 dark:text-gray-100">
-                    REAL STORIES,
-                  </span>
-                  <span className={cn(
+                <span className="block text-gray-900 dark:text-gray-100">
+                  REAL STORIES,
+                </span>
+                <span
+                  className={cn(
                     "block mt-2",
                     "bg-gradient-to-r from-primary via-yellow-500 to-primary",
                     "bg-clip-text text-transparent",
                     "bg-[length:200%_100%]",
                     "animate-gradient",
                     "drop-shadow-sm dark:drop-shadow-[0_0_35px_rgba(236,186,88,0.3)]"
-                  )}>
-                    REAL SUCCESS
-                  </span>
+                  )}
+                >
+                  REAL SUCCESS
+                </span>
               </h1>
-              
+
               <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto leading-relaxed">
-                Hear from our athletes, parents, and coaches about their 
+                Hear from our athletes, parents, and coaches about their
                 transformative volleyball journey with Fraser Valley
               </p>
             </motion.div>
-            
-              {/* Stats Row */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.3 }}
-                className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-6"
-              >
-                {[
-                  { label: "Video Reviews", value: "14+", icon: Video },
-                  { label: "5-Star Ratings", value: "98%", icon: Star },
-                  { label: "Years Experience", value: "26+", icon: Heart },
-                  { label: "Championships", value: "50+", icon: Trophy }
-                ].map((stat, index) => (
-                  <motion.div
-                    key={stat.label}
-                    initial={{ opacity: 0, y: 20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
-                    className="text-center group"
-                  >
-                    <div className="inline-flex items-center justify-center w-12 h-12 mb-2 rounded-2xl bg-gradient-to-br from-primary/10 to-yellow-500/10 dark:from-primary/20 dark:to-yellow-500/20 group-hover:scale-110 transition-transform">
-                      <stat.icon className="h-6 w-6 text-primary dark:text-yellow-400" />
-                    </div>
-                    <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
-                      {stat.value}
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
-                      {stat.label}
-                    </div>
-                  </motion.div>
-                ))}
-              </motion.div>
 
-              {/* CTA Button */}
-              <motion.div
-                initial={{ opacity: 0, y: 20 }}
-                animate={{ opacity: 1, y: 0 }}
-                transition={{ duration: 0.6, delay: 0.5 }}
-                className="pt-8 flex justify-center"
-              >
-                <Button 
-                  size="lg"
-                  className={cn(
-                    "relative overflow-hidden",
-                    "px-6 py-4 text-lg font-bold",
-                    "bg-gradient-to-r from-primary to-yellow-500",
-                    "hover:shadow-2xl hover:scale-105",
-                    "transition-all duration-300",
-                    "text-black",
-                    "before:absolute before:inset-0",
-                    "before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent",
-                    "before:translate-x-[-200%] hover:before:translate-x-[200%]",
-                    "before:transition-transform before:duration-700"
-                  )}
+            {/* Stats Row */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.3 }}
+              className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto mt-6"
+            >
+              {[
+                { label: "Video Reviews", value: "14+", icon: Video },
+                { label: "5-Star Ratings", value: "98%", icon: Star },
+                { label: "Years Experience", value: "26+", icon: Heart },
+                { label: "Championships", value: "50+", icon: Trophy },
+              ].map((stat, index) => (
+                <motion.div
+                  key={stat.label}
+                  initial={{ opacity: 0, y: 20 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: 0.4 + index * 0.1 }}
+                  className="text-center group"
                 >
-                  <MessageSquare className="mr-2 h-5 w-5" />
-                  Share Your Story
-                </Button>
-              </motion.div>
+                  <div className="inline-flex items-center justify-center w-12 h-12 mb-2 rounded-2xl bg-gradient-to-br from-primary/10 to-yellow-500/10 dark:from-primary/20 dark:to-yellow-500/20 group-hover:scale-110 transition-transform">
+                    <stat.icon className="h-6 w-6 text-primary dark:text-yellow-400" />
+                  </div>
+                  <div className="text-2xl font-bold bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    {stat.label}
+                  </div>
+                </motion.div>
+              ))}
+            </motion.div>
+
+            {/* CTA Button */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.5 }}
+              className="pt-8 flex justify-center"
+            >
+              <Button
+                size="lg"
+                className={cn(
+                  "relative overflow-hidden",
+                  "px-10 h-14 text-lg font-bold",
+                  "bg-gradient-to-r from-primary to-yellow-500",
+                  "hover:shadow-2xl hover:scale-105",
+                  "transition-all duration-300",
+                  "text-black",
+                  "before:absolute before:inset-0",
+                  "before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent",
+                  "before:translate-x-[-200%] hover:before:translate-x-[200%]",
+                  "before:transition-transform before:duration-700"
+                )}
+              >
+                <MessageSquare className="mr-2 h-5 w-5" />
+                Share Your Story
+              </Button>
+            </motion.div>
           </div>
         </div>
       </section>
 
       {/* Category Filter Section */}
-      <section className="relative py-12">
+      <section className="relative py-16">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div 
+          <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
@@ -313,7 +331,13 @@ export default function ReviewsPage() {
                 {category}
                 {category !== "All" && (
                   <span className="ml-2 text-xs opacity-70">
-                    ({videoReviews.filter(v => category === "All" || v.category === category).length})
+                    (
+                    {
+                      videoReviews.filter(
+                        (v) => category === "All" || v.category === category
+                      ).length
+                    }
+                    )
                   </span>
                 )}
               </button>
@@ -365,7 +389,10 @@ export default function ReviewsPage() {
                       </Badge>
                       <div className="flex items-center gap-0.5">
                         {[...Array(video.rating)].map((_, i) => (
-                          <Star key={i} className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400" />
+                          <Star
+                            key={i}
+                            className="h-3.5 w-3.5 fill-yellow-400 text-yellow-400"
+                          />
                         ))}
                       </div>
                     </div>
@@ -397,7 +424,7 @@ export default function ReviewsPage() {
             <div className="relative rounded-2xl bg-gradient-to-r from-gray-50 to-gray-100 dark:from-gray-900/50 dark:to-gray-800/50 border border-gray-200 dark:border-gray-700 p-6 lg:p-8 overflow-hidden">
               {/* Subtle accent gradient */}
               <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-yellow-500/5" />
-              
+
               {/* Content Grid */}
               <div className="relative z-10 flex flex-col lg:flex-row items-center justify-between gap-6">
                 {/* Left: Text Content */}
@@ -408,7 +435,7 @@ export default function ReviewsPage() {
                       <Youtube className="h-6 w-6 text-white" />
                     </div>
                   </div>
-                  
+
                   {/* Text */}
                   <div className="text-left">
                     <h3 className="text-lg font-semibold text-gray-900 dark:text-gray-100 leading-tight">
@@ -423,24 +450,34 @@ export default function ReviewsPage() {
                 {/* Center: Stats */}
                 <div className="hidden lg:flex items-center gap-6 text-sm">
                   <div className="text-center">
-                    <div className="text-lg font-bold text-gray-900 dark:text-gray-100">2.5K</div>
+                    <div className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                      2.5K
+                    </div>
                     <div className="text-xs text-gray-500">likes</div>
                   </div>
                   <div className="w-px h-8 bg-gray-300 dark:bg-gray-600" />
                   <div className="text-center">
-                    <div className="text-lg font-bold text-gray-900 dark:text-gray-100">1.2K</div>
+                    <div className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                      1.2K
+                    </div>
                     <div className="text-xs text-gray-500">subscribers</div>
                   </div>
                   <div className="w-px h-8 bg-gray-300 dark:bg-gray-600" />
                   <div className="text-center">
-                    <div className="text-lg font-bold text-gray-900 dark:text-gray-100">150+</div>
+                    <div className="text-lg font-bold text-gray-900 dark:text-gray-100">
+                      150+
+                    </div>
                     <div className="text-xs text-gray-500">videos</div>
                   </div>
                 </div>
 
                 {/* Right: CTA Button */}
                 <div className="flex gap-2">
-                  <a href="https://www.youtube.com/@VisionEliteInternational" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.youtube.com/@VisionEliteInternational"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button
                       size="sm"
                       className="bg-red-600 hover:bg-red-700 text-white font-medium px-4 py-2 h-auto shadow-sm hover:shadow-md transition-all"
@@ -449,7 +486,11 @@ export default function ReviewsPage() {
                       Subscribe
                     </Button>
                   </a>
-                  <a href="https://www.youtube.com/@VisionEliteInternational/videos" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://www.youtube.com/@VisionEliteInternational/videos"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     <Button
                       size="sm"
                       variant="ghost"
@@ -465,15 +506,21 @@ export default function ReviewsPage() {
               <div className="flex lg:hidden items-center justify-center gap-6 mt-4 pt-4 border-t border-gray-200 dark:border-gray-700">
                 <div className="flex items-center gap-1.5 text-sm">
                   <ThumbsUp className="h-3.5 w-3.5 text-gray-500" />
-                  <span className="font-medium text-gray-700 dark:text-gray-300">2.5K</span>
+                  <span className="font-medium text-gray-700 dark:text-gray-300">
+                    2.5K
+                  </span>
                 </div>
                 <div className="flex items-center gap-1.5 text-sm">
                   <Users className="h-3.5 w-3.5 text-gray-500" />
-                  <span className="font-medium text-gray-700 dark:text-gray-300">1.2K</span>
+                  <span className="font-medium text-gray-700 dark:text-gray-300">
+                    1.2K
+                  </span>
                 </div>
                 <div className="flex items-center gap-1.5 text-sm">
                   <Video className="h-3.5 w-3.5 text-gray-500" />
-                  <span className="font-medium text-gray-700 dark:text-gray-300">150+</span>
+                  <span className="font-medium text-gray-700 dark:text-gray-300">
+                    150+
+                  </span>
                 </div>
               </div>
             </div>
@@ -503,21 +550,24 @@ export default function ReviewsPage() {
               {
                 name: "Jennifer M.",
                 role: "Parent",
-                content: "My daughter has grown so much, not just as a player but as a person. The coaches truly care about each athlete's development.",
-                rating: 5
+                content:
+                  "My daughter has grown so much, not just as a player but as a person. The coaches truly care about each athlete's development.",
+                rating: 5,
               },
               {
                 name: "Alex T.",
                 role: "U16 Athlete",
-                content: "Best decision I ever made was joining Fraser Valley. The training is intense but fun, and I've made friends for life!",
-                rating: 5
+                content:
+                  "Best decision I ever made was joining Fraser Valley. The training is intense but fun, and I've made friends for life!",
+                rating: 5,
               },
               {
                 name: "Coach David",
                 role: "Assistant Coach",
-                content: "The VEA coaching methodology is revolutionary. I've learned so much that has made me a better coach and mentor.",
-                rating: 5
-              }
+                content:
+                  "The VEA coaching methodology is revolutionary. I've learned so much that has made me a better coach and mentor.",
+                rating: 5,
+              },
             ].map((testimonial, index) => (
               <motion.div
                 key={index}
@@ -542,7 +592,10 @@ export default function ReviewsPage() {
                   </div>
                   <div className="flex items-center gap-0.5">
                     {[...Array(testimonial.rating)].map((_, i) => (
-                      <Star key={i} className="h-4 w-4 fill-yellow-400 text-yellow-400" />
+                      <Star
+                        key={i}
+                        className="h-4 w-4 fill-yellow-400 text-yellow-400"
+                      />
                     ))}
                   </div>
                 </div>
@@ -570,23 +623,26 @@ export default function ReviewsPage() {
               <span className="block text-gray-900 dark:text-gray-100">
                 Start Your
               </span>
-              <span className={cn(
-                "block mt-2",
-                "bg-gradient-to-r from-primary via-yellow-500 to-primary",
-                "bg-clip-text text-transparent",
-                "bg-[length:200%_100%]",
-                "animate-gradient"
-              )}>
+              <span
+                className={cn(
+                  "block mt-2",
+                  "bg-gradient-to-r from-primary via-yellow-500 to-primary",
+                  "bg-clip-text text-transparent",
+                  "bg-[length:200%_100%]",
+                  "animate-gradient"
+                )}
+              >
                 TRANSFORMATION TODAY
               </span>
             </h2>
 
             <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Start your volleyball journey today and become part of our growing community of champions
+              Start your volleyball journey today and become part of our growing
+              community of champions
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button 
+              <Button
                 size="lg"
                 className={cn(
                   "relative overflow-hidden",
@@ -617,5 +673,5 @@ export default function ReviewsPage() {
         </div>
       </section>
     </div>
-  )
+  );
 }
