@@ -134,11 +134,11 @@ export function VideosSection() {
           <span
             className={cn(
               "block text-4xl sm:text-5xl lg:text-6xl",
-              "bg-gradient-to-r from-secondary via-secondary/80 to-blue-600",
-              "dark:from-secondary dark:via-blue-500 dark:to-blue-400",
+              "bg-gradient-to-br from-amber-300 via-yellow-500 to-amber-600",
+              "dark:from-amber-200 dark:via-yellow-400 dark:to-amber-600",
               "bg-clip-text text-transparent",
               "leading-tight",
-              "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(45,52,142,0.3)]"
+              "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.3)]"
             )}
           >
             LATEST VIDEOS
@@ -258,11 +258,15 @@ export function VideosSection() {
           <button
             className={cn(
               "group relative inline-flex items-center gap-2 px-8 py-4",
-              "bg-gradient-to-r from-secondary to-blue-600 text-white",
-              "rounded-full font-semibold text-lg",
+              "bg-gradient-to-r from-primary to-yellow-500",
+              "text-black rounded-full font-semibold text-lg",
               "transform transition-all duration-300",
               "hover:scale-105 hover:shadow-xl",
-              "dark:from-secondary dark:to-blue-500"
+              "hover:from-primary/90 hover:to-yellow-500/90",
+              "cursor-pointer overflow-hidden",
+              "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
+              "hover:before:translate-x-[20rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+              "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
             )}
           >
             <span>View All Videos</span>

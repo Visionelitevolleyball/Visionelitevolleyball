@@ -52,8 +52,8 @@ export function HeroSection() {
           <span
             className={cn(
               "inline-block",
-              "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-600",
-              "dark:from-gray-100 dark:via-gray-300 dark:to-gray-500",
+              "bg-gradient-to-br from-[#0f172a] via-[#1e293b] to-[#334155]",
+              "dark:from-[#e2e8f0] dark:via-[#cbd5e1] dark:to-[#94a3b8]",
               "bg-clip-text text-transparent",
               "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(255,255,255,0.15)]"
             )}
