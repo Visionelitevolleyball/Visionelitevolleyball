@@ -1,35 +1,37 @@
-"use client"
+"use client";
 
-import { useState, useEffect } from "react"
-import { MapPin, UserCircle, Award, ChevronRight } from "lucide-react"
-import Link from "next/link"
-import { Button } from "@/components/ui/button"
-import { cn } from "@/lib/utils"
+import { useState, useEffect } from "react";
+import { MapPin, UserCircle, Award, ChevronRight } from "lucide-react";
+import Link from "next/link";
+import { Button } from "@/components/ui/button";
+import { cn } from "@/lib/utils";
 
 export function ProgramFinderBar() {
-  const [isScrolled, setIsScrolled] = useState(false)
+  const [isScrolled, setIsScrolled] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setIsScrolled(window.scrollY > 50)
-    }
+      setIsScrolled(window.scrollY > 50);
+    };
 
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   return (
-    <section className={cn(
-      "fixed left-0 right-0 z-40 bg-gradient-to-r from-background via-gray-50/50 to-background dark:from-background dark:via-gray-900/50 dark:to-background backdrop-blur-sm border-b border-border transition-all duration-300",
-      isScrolled ? "top-16 lg:top-[60px]" : "top-20 lg:top-[140px]"
-    )}>
+    <section
+      className={cn(
+        "fixed left-0 right-0 z-40 bg-gradient-to-r from-background via-gray-50/50 to-background dark:from-background dark:via-gray-900/50 dark:to-background backdrop-blur-sm border-b border-border transition-all duration-300",
+        isScrolled ? "top-16 lg:top-[60px]" : "top-20 lg:top-[140px]"
+      )}
+    >
       {/* Desktop Layout */}
       <div className="hidden lg:block">
         <div className="max-w-[1600px] mx-auto px-5">
           <div className="flex items-center justify-between min-h-[48px] py-2">
             {/* Left Side - Find a Program */}
             <div className="flex items-center">
-              <Button 
+              <Button
                 size="lg"
                 className={cn(
                   "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
@@ -51,15 +53,18 @@ export function ProgramFinderBar() {
 
               {/* Affiliation text */}
               <span className="ml-4 text-gray-500 text-[12.5px] leading-[1.3] max-w-[500px] hidden xl:block">
-                Volleyball Fraser Valley is an Affiliate of VISION Elite Academy,<br />
-                and coaches must complete the VEA Coaching Academy to instruct athletes.
+                Volleyball Fraser Valley is an Affiliate of VISION Elite
+                Academy,
+                <br />
+                and coaches must complete the VEA Coaching Academy to instruct
+                athletes.
               </span>
             </div>
 
             {/* Right Side - Login & Affiliate */}
             <div className="flex items-center gap-4 flex-shrink-0">
               {/* Login/Sign up */}
-              <Link 
+              <Link
                 href="/login"
                 className={cn(
                   "group flex items-center gap-2.5 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
@@ -77,7 +82,7 @@ export function ProgramFinderBar() {
               <div className="h-5 w-px bg-gray-300" />
 
               {/* Affiliate Program */}
-              <Link 
+              <Link
                 href="/affiliate"
                 className={cn(
                   "group flex items-center gap-2.5 text-gray-700 dark:text-gray-400 hover:text-secondary dark:hover:text-primary",
@@ -100,7 +105,7 @@ export function ProgramFinderBar() {
       <div className="lg:hidden">
         <div className="px-4 py-3">
           {/* Find a Program - Full Width */}
-          <Button 
+          <Button
             size="lg"
             className={cn(
               "w-full group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
@@ -122,5 +127,5 @@ export function ProgramFinderBar() {
         </div>
       </div>
     </section>
-  )
+  );
 }

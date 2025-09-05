@@ -151,25 +151,7 @@ const videoReviews = [
   },
 ];
 
-const categories = [
-  "All",
-  "Parent",
-  "Athlete",
-  "Coach",
-  "Camp",
-  "League",
-  "Tournament",
-  "Club",
-];
-
 export default function ReviewsPage() {
-  const [selectedCategory, setSelectedCategory] = React.useState("All");
-
-  const filteredVideos =
-    selectedCategory === "All"
-      ? videoReviews
-      : videoReviews.filter((video) => video.category === selectedCategory);
-
   return (
     <div className="relative">
       {/* Single Continuous Background for ENTIRE Page */}
@@ -307,45 +289,6 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      {/* Category Filter Section */}
-      <section className="relative py-16">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            className="flex flex-wrap justify-center gap-3"
-          >
-            {categories.map((category) => (
-              <button
-                key={category}
-                onClick={() => setSelectedCategory(category)}
-                className={cn(
-                  "px-6 py-2.5 rounded-full font-medium transition-all duration-300",
-                  "border-2",
-                  selectedCategory === category
-                    ? "bg-gradient-to-r from-primary to-yellow-500 text-black border-transparent shadow-lg scale-105"
-                    : "bg-white/80 dark:bg-gray-900/50 border-gray-200 dark:border-gray-700 hover:border-primary/40 hover:shadow-md"
-                )}
-              >
-                {category}
-                {category !== "All" && (
-                  <span className="ml-2 text-xs opacity-70">
-                    (
-                    {
-                      videoReviews.filter(
-                        (v) => category === "All" || v.category === category
-                      ).length
-                    }
-                    )
-                  </span>
-                )}
-              </button>
-            ))}
-          </motion.div>
-        </div>
-      </section>
-
       {/* All Videos Grid Section */}
       <section className="relative py-16">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -364,7 +307,7 @@ export default function ReviewsPage() {
           </motion.div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-            {filteredVideos.map((video, index) => (
+            {videoReviews.map((video, index) => (
               <motion.div
                 key={video.id}
                 initial={{ opacity: 0, y: 30 }}

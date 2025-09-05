@@ -38,13 +38,12 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
     }, []);
 
     React.useEffect(() => {
-        if (isModalOpen) {
-            document.body.style.overflow = 'hidden';
-        } else {
-            document.body.style.overflow = 'auto';
-        }
+      if (isModalOpen) {
+        document.body.style.overflow = "hidden";
+      } else {
+        document.body.style.overflow = "auto";
+      }
     }, [isModalOpen]);
-
 
     return (
       <>
@@ -105,14 +104,14 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
 
             {/* Video Iframe */}
             <div className="w-full max-w-4xl aspect-video p-4">
-               <iframe
-                    src={videoUrl}
-                    title={title}
-                    frameBorder="0"
-                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                    allowFullScreen
-                    className="h-full w-full rounded-lg"
-                ></iframe>
+              <iframe
+                src={videoUrl}
+                title={title}
+                frameBorder="0"
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+                allowFullScreen
+                className="h-full w-full rounded-lg"
+              ></iframe>
             </div>
           </div>
         )}

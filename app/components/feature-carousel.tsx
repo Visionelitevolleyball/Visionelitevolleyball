@@ -1,77 +1,80 @@
-"use client"
+"use client";
 
-import React, { useState, useEffect } from "react"
-import { motion, AnimatePresence } from "motion/react"
-import Image from "next/image"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-import { ChevronRight, Play, Users } from "lucide-react"
+import React, { useState, useEffect } from "react";
+import { motion, AnimatePresence } from "motion/react";
+import Image from "next/image";
+import { cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
+import { ChevronRight, Play, Users } from "lucide-react";
 
 const features = [
   {
     title: "Don't Just Play –",
     highlight: "Train like a Hero",
-    description: "Transform your game with elite training methods and personalized coaching that brings out the champion in you.",
+    description:
+      "Transform your game with elite training methods and personalized coaching that brings out the champion in you.",
     image: "/image1-1.jpeg",
     buttonText: "Start Your Transformation",
     buttonIcon: <Play className="h-5 w-5" />,
-    href: "/programs"
+    href: "/programs",
   },
   {
     title: "Beware of the",
     highlight: "Daycare Program",
-    description: "Our programs go beyond basic supervision. We focus on skill development, strategy, and building confident athletes.",
+    description:
+      "Our programs go beyond basic supervision. We focus on skill development, strategy, and building confident athletes.",
     image: "/image1-2.png",
     buttonText: "Explore Programs",
     buttonIcon: <ChevronRight className="h-5 w-5" />,
-    href: "/programs"
+    href: "/programs",
   },
   {
     title: "Train with",
     highlight: "Experienced Coaches",
-    description: "Learn from VEA certified coaches who have years of competitive experience and a passion for developing young talent.",
+    description:
+      "Learn from VEA certified coaches who have years of competitive experience and a passion for developing young talent.",
     image: "/image1-3.jpg",
     buttonText: "Meet Our Coaches",
     buttonIcon: <Users className="h-5 w-5" />,
-    href: "/programs/coaches"
-  }
-]
+    href: "/programs/coaches",
+  },
+];
 
 export function FeatureCarousel() {
-  const [currentFeature, setCurrentFeature] = useState(0)
-  const [progress, setProgress] = useState(0)
-  const [isPaused, setIsPaused] = useState(false)
-  const autoPlayInterval = 5000
+  const [currentFeature, setCurrentFeature] = useState(0);
+  const [progress, setProgress] = useState(0);
+  const [isPaused, setIsPaused] = useState(false);
+  const autoPlayInterval = 5000;
 
   useEffect(() => {
-    if (isPaused) return
-    
+    if (isPaused) return;
+
     const timer = setInterval(() => {
       if (progress < 100) {
-        setProgress((prev) => prev + 100 / (autoPlayInterval / 100))
+        setProgress((prev) => prev + 100 / (autoPlayInterval / 100));
       } else {
-        setCurrentFeature((prev) => (prev + 1) % features.length)
-        setProgress(0)
+        setCurrentFeature((prev) => (prev + 1) % features.length);
+        setProgress(0);
       }
-    }, 100)
+    }, 100);
 
-    return () => clearInterval(timer)
-  }, [progress, isPaused])
+    return () => clearInterval(timer);
+  }, [progress, isPaused]);
 
   const handleFeatureClick = (index: number) => {
-    setCurrentFeature(index)
-    setProgress(0)
-  }
+    setCurrentFeature(index);
+    setProgress(0);
+  };
 
   return (
-    <section 
+    <section
       className="relative py-16 lg:py-18 overflow-hidden"
       onMouseEnter={() => setIsPaused(true)}
       onMouseLeave={() => setIsPaused(false)}
     >
       {/* Background Gradient */}
       <div className="absolute inset-0 bg-gradient-to-b from-background via-background/95 to-background" />
-      
+
       {/* Subtle Grid Pattern */}
       <div className="absolute inset-0 bg-[linear-gradient(to_right,#80808008_1px,transparent_1px),linear-gradient(to_bottom,#80808008_1px,transparent_1px)] bg-[size:32px_32px]" />
 
@@ -92,7 +95,7 @@ export function FeatureCarousel() {
               Our Training Philosophy
             </span>
           </motion.div>
-          
+
           <motion.h2
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -118,8 +121,8 @@ export function FeatureCarousel() {
                 key={index}
                 className={cn(
                   "group relative flex gap-5 p-5 rounded-2xl cursor-pointer transition-all duration-300",
-                  index === currentFeature 
-                    ? "bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary/40 shadow-xl shadow-primary/10 dark:from-primary/15 dark:via-primary/5 dark:to-transparent dark:border-primary/30 dark:shadow-primary/5" 
+                  index === currentFeature
+                    ? "bg-gradient-to-br from-primary/20 via-primary/10 to-transparent border-2 border-primary/40 shadow-xl shadow-primary/10 dark:from-primary/15 dark:via-primary/5 dark:to-transparent dark:border-primary/30 dark:shadow-primary/5"
                     : "hover:bg-gradient-to-br hover:from-gray-50 hover:to-gray-100/50 dark:hover:from-gray-800/30 dark:hover:to-gray-800/10 border border-transparent hover:border-gray-200 dark:hover:border-gray-700"
                 )}
                 onClick={() => handleFeatureClick(index)}
@@ -136,15 +139,15 @@ export function FeatureCarousel() {
                         ? "bg-gradient-to-br from-primary via-yellow-500 to-primary border-primary text-black scale-110 shadow-xl shadow-primary/40"
                         : "bg-gradient-to-br from-gray-50 to-white dark:from-gray-800 dark:to-gray-900 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400"
                     )}
-                    animate={{ 
+                    animate={{
                       scale: index === currentFeature ? [1, 1.1, 1] : 1,
-                      rotate: index === currentFeature ? [0, 5, -5, 0] : 0
+                      rotate: index === currentFeature ? [0, 5, -5, 0] : 0,
                     }}
                     transition={{ duration: 3, repeat: Infinity }}
                   >
                     <span className="text-lg font-bold">{index + 1}</span>
                   </motion.div>
-                  
+
                   {/* Progress Ring for Active */}
                   {index === currentFeature && (
                     <svg className="absolute inset-0 w-11 h-11 -rotate-90">
@@ -175,30 +178,38 @@ export function FeatureCarousel() {
                 {/* Content */}
                 <div className="flex-1">
                   <h3 className="text-lg lg:text-xl font-semibold mb-2">
-                    <span className={cn(
-                      "transition-colors duration-300",
-                      index === currentFeature ? "text-gray-900 dark:text-gray-100" : "text-gray-500 dark:text-gray-500"
-                    )}>
+                    <span
+                      className={cn(
+                        "transition-colors duration-300",
+                        index === currentFeature
+                          ? "text-gray-900 dark:text-gray-100"
+                          : "text-gray-500 dark:text-gray-500"
+                      )}
+                    >
                       {feature.title}
                     </span>{" "}
-                    <span className={cn(
-                      "transition-colors duration-300",
-                      index === currentFeature 
-                        ? "text-primary font-bold" 
-                        : "text-gray-500 dark:text-gray-500"
-                    )}>
+                    <span
+                      className={cn(
+                        "transition-colors duration-300",
+                        index === currentFeature
+                          ? "text-primary font-bold"
+                          : "text-gray-500 dark:text-gray-500"
+                      )}
+                    >
                       {feature.highlight}
                     </span>
                   </h3>
-                  <p className={cn(
-                    "text-sm transition-all duration-300",
-                    index === currentFeature 
-                      ? "text-gray-700 dark:text-gray-300" 
-                      : "text-gray-400 dark:text-gray-600"
-                  )}>
+                  <p
+                    className={cn(
+                      "text-sm transition-all duration-300",
+                      index === currentFeature
+                        ? "text-gray-700 dark:text-gray-300"
+                        : "text-gray-400 dark:text-gray-600"
+                    )}
+                  >
                     {feature.description}
                   </p>
-                  
+
                   {/* Button for Active Feature */}
                   <AnimatePresence>
                     {index === currentFeature && (
@@ -281,8 +292,8 @@ export function FeatureCarousel() {
                   onClick={() => handleFeatureClick(index)}
                   className={cn(
                     "rounded-full transition-all duration-500 relative",
-                    index === currentFeature 
-                      ? "w-10 h-3 bg-gradient-to-r from-primary via-yellow-500 to-primary shadow-lg shadow-primary/50" 
+                    index === currentFeature
+                      ? "w-10 h-3 bg-gradient-to-r from-primary via-yellow-500 to-primary shadow-lg shadow-primary/50"
                       : "w-3 h-3 bg-white/60 hover:bg-white/80 hover:scale-125"
                   )}
                   aria-label={`Go to slide ${index + 1}`}
@@ -309,11 +320,14 @@ export function FeatureCarousel() {
                 dragConstraints={{ left: 0, right: 0 }}
                 dragElastic={0.2}
                 onDragEnd={(e, { offset }) => {
-                  const swipeThreshold = 50
+                  const swipeThreshold = 50;
                   if (offset.x > swipeThreshold && currentFeature > 0) {
-                    handleFeatureClick(currentFeature - 1)
-                  } else if (offset.x < -swipeThreshold && currentFeature < features.length - 1) {
-                    handleFeatureClick(currentFeature + 1)
+                    handleFeatureClick(currentFeature - 1);
+                  } else if (
+                    offset.x < -swipeThreshold &&
+                    currentFeature < features.length - 1
+                  ) {
+                    handleFeatureClick(currentFeature + 1);
                   }
                 }}
               >
@@ -327,7 +341,7 @@ export function FeatureCarousel() {
                     priority
                   />
                   <div className="absolute inset-0 bg-gradient-to-b from-black/20 via-transparent to-black/40" />
-                  
+
                   {/* Step Badge */}
                   <div className="absolute top-4 left-4 w-10 h-10 bg-primary text-black rounded-full flex items-center justify-center font-bold text-lg shadow-lg">
                     {currentFeature + 1}
@@ -344,7 +358,7 @@ export function FeatureCarousel() {
                       {features[currentFeature].highlight}
                     </span>
                   </h3>
-                  
+
                   <p className="text-gray-600 dark:text-gray-300 mb-6">
                     {features[currentFeature].description}
                   </p>
@@ -379,15 +393,17 @@ export function FeatureCarousel() {
                   className="relative"
                   aria-label={`Go to feature ${index + 1}`}
                 >
-                  <div className={cn(
-                    "w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300",
-                    index === currentFeature
-                      ? "bg-primary border-primary text-black scale-110"
-                      : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400"
-                  )}>
+                  <div
+                    className={cn(
+                      "w-12 h-12 rounded-full flex items-center justify-center border-2 transition-all duration-300",
+                      index === currentFeature
+                        ? "bg-primary border-primary text-black scale-110"
+                        : "bg-white dark:bg-gray-800 border-gray-300 dark:border-gray-600 text-gray-600 dark:text-gray-400"
+                    )}
+                  >
                     {index + 1}
                   </div>
-                  
+
                   {/* Progress Ring for Active */}
                   {index === currentFeature && (
                     <svg className="absolute inset-0 w-11 h-11 -rotate-90">
@@ -418,7 +434,7 @@ export function FeatureCarousel() {
             </div>
 
             {/* Swipe Hint */}
-            <motion.p 
+            <motion.p
               className="text-center text-sm text-gray-500 dark:text-gray-400 mt-4"
               initial={{ opacity: 0 }}
               animate={{ opacity: 1 }}
@@ -430,5 +446,5 @@ export function FeatureCarousel() {
         </div>
       </div>
     </section>
-  )
+  );
 }
