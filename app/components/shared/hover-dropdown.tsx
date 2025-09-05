@@ -1,20 +1,20 @@
-"use client"
+"use client";
 
-import * as React from "react"
+import * as React from "react";
 import {
   DropdownMenu,
   DropdownMenuContent,
   DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu"
+} from "@/components/ui/dropdown-menu";
 
 interface HoverDropdownProps {
-  trigger: React.ReactNode
-  content: React.ReactNode
-  align?: "start" | "center" | "end"
-  side?: "top" | "right" | "bottom" | "left"
-  sideOffset?: number
-  className?: string
-  contentClassName?: string
+  trigger: React.ReactNode;
+  content: React.ReactNode;
+  align?: "start" | "center" | "end";
+  side?: "top" | "right" | "bottom" | "left";
+  sideOffset?: number;
+  className?: string;
+  contentClassName?: string;
 }
 
 export function HoverDropdown({
@@ -26,21 +26,15 @@ export function HoverDropdown({
   className,
   contentClassName,
 }: HoverDropdownProps) {
-  const [open, setOpen] = React.useState(false)
+  const [open, setOpen] = React.useState(false);
 
   return (
     <div className={className}>
-      <DropdownMenu 
-        modal={false}
-        open={open} 
-        onOpenChange={setOpen}
-      >
+      <DropdownMenu modal={false} open={open} onOpenChange={setOpen}>
         <DropdownMenuTrigger asChild>
-          <div>
-            {trigger}
-          </div>
+          <div>{trigger}</div>
         </DropdownMenuTrigger>
-        <DropdownMenuContent 
+        <DropdownMenuContent
           align={align}
           side={side}
           sideOffset={sideOffset}
@@ -51,5 +45,5 @@ export function HoverDropdown({
         </DropdownMenuContent>
       </DropdownMenu>
     </div>
-  )
+  );
 }

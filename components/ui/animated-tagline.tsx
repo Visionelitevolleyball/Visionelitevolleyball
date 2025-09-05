@@ -1,18 +1,18 @@
-"use client"
+"use client";
 
-import { motion } from "motion/react"
-import { WordRotate } from "./word-rotate"
-import { cn } from "@/lib/utils"
+import { motion } from "motion/react";
+import { WordRotate } from "./word-rotate";
+import { cn } from "@/lib/utils";
 
 interface AnimatedTaglineProps {
-  className?: string
+  className?: string;
 }
 
 export function AnimatedTagline({ className }: AnimatedTaglineProps) {
-  const rotatingWords = ["Champions", "Leaders", "Winners", "Elite"]
-  
+  const rotatingWords = ["Champions", "Leaders", "Winners", "Elite"];
+
   return (
-    <motion.div 
+    <motion.div
       className={cn("flex items-baseline gap-1", className)}
       initial={{ opacity: 0, filter: "blur(10px)", y: -10 }}
       animate={{ opacity: 1, filter: "blur(0px)", y: 0 }}
@@ -33,5 +33,5 @@ export function AnimatedTagline({ className }: AnimatedTaglineProps) {
         }}
       />
     </motion.div>
-  )
+  );
 }

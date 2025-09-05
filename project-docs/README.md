@@ -5,22 +5,28 @@ This directory contains all documentation for the Volleyball Fraser Valley websi
 ## Documentation Files
 
 ### 📋 [Project Overview](./project-overview.md)
+
 Main project overview including vision, objectives, target audiences, and key features.
 
 ### 🏗️ [Site Structure](./site-structure.md)
+
 Complete site architecture including navigation, page hierarchy, and content organization.
 
 ### 🏐 [Programs](./programs.md)
+
 Detailed descriptions of all volleyball programs:
+
 - VISION Elite Camps
 - VISION Elite Day Camps
 - VISION Elite Premier League
 - VISION VBC Club Program
 
 ### 💬 [Testimonials](./testimonials.md)
+
 All testimonials from parents, athletes, and coaches.
 
 ### 📝 [Content & Messaging](./content-messaging.md)
+
 Key messaging, hero taglines, value propositions, and content strategy.
 
 ## Quick Links

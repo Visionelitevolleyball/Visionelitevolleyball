@@ -1,26 +1,28 @@
-"use client"
+"use client";
 
-import React from "react"
-import Image from "next/image"
-import { 
-  Facebook, 
-  Instagram, 
-  Youtube, 
-  Twitter, 
-  Phone, 
-  Mail, 
+import React from "react";
+import Image from "next/image";
+import {
+  Facebook,
+  Instagram,
+  Youtube,
+  Twitter,
+  Phone,
+  Mail,
   MapPin,
-  ArrowRight
-} from "lucide-react"
-import { cn } from "@/lib/utils"
+  ArrowRight,
+} from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function Footer() {
   return (
-    <footer className={cn(
-      "w-full bg-background",
-      "border-t border-border",
-      "overflow-x-hidden"
-    )}>
+    <footer
+      className={cn(
+        "w-full bg-background",
+        "border-t border-border",
+        "overflow-x-hidden"
+      )}
+    >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-12 pb-6">
         {/* Main Footer Content */}
         <div className="grid grid-cols-1 lg:grid-cols-6 gap-8 lg:gap-12 mb-8">
@@ -39,22 +41,22 @@ export function Footer() {
                   priority
                 />
               </div>
-              
+
               {/* Contact Info */}
               <div className="flex-1 space-y-1 sm:space-y-2 sm:mt-3">
                 <div className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground">
                   <MapPin className="h-3 sm:h-3.5 w-3 sm:w-3.5 flex-shrink-0" />
                   <span>Fraser Valley, BC</span>
                 </div>
-                <a 
-                  href="tel:403-510-1784" 
+                <a
+                  href="tel:403-510-1784"
                   className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors"
                 >
                   <Phone className="h-3 sm:h-3.5 w-3 sm:w-3.5 flex-shrink-0" />
                   <span>403-510-1784</span>
                 </a>
-                <a 
-                  href="mailto:info@volleyballfraser.ca" 
+                <a
+                  href="mailto:info@volleyballfraser.ca"
                   className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors break-all"
                 >
                   <Mail className="h-3 sm:h-3.5 w-3 sm:w-3.5 flex-shrink-0" />
@@ -62,7 +64,7 @@ export function Footer() {
                 </a>
               </div>
             </div>
-            
+
             {/* Social Icons */}
             <div className="flex items-center gap-3">
               <a
@@ -211,7 +213,8 @@ export function Footer() {
               Stay Updated
             </h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Get the latest news, insights and product updates directly in your inbox.
+              Get the latest news, insights and product updates directly in your
+              inbox.
             </p>
             <div className="flex flex-col sm:flex-row gap-2">
               <input
@@ -228,22 +231,24 @@ export function Footer() {
                   "text-sm"
                 )}
               />
-              <button className={cn(
-                "px-4 sm:px-6 py-2.5 rounded-lg",
-                "bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
-                "text-black font-semibold text-sm",
-                "transition-all duration-300",
-                "hover:scale-105 hover:shadow-lg",
-                "flex items-center gap-2 justify-center",
-                "w-full sm:w-auto",
-                "relative cursor-pointer overflow-hidden",
-                "before:absolute before:w-[0.4rem] before:h-[20rem]",
-                "before:top-0 before:translate-x-[-10rem]",
-                "hover:before:translate-x-[15rem]",
-                "before:duration-[0.8s] before:-skew-x-[10deg]",
-                "before:transition-all before:bg-white",
-                "before:blur-[10px] before:opacity-70"
-              )}>
+              <button
+                className={cn(
+                  "px-4 sm:px-6 py-2.5 rounded-lg",
+                  "bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
+                  "text-black font-semibold text-sm",
+                  "transition-all duration-300",
+                  "hover:scale-105 hover:shadow-lg",
+                  "flex items-center gap-2 justify-center",
+                  "w-full sm:w-auto",
+                  "relative cursor-pointer overflow-hidden",
+                  "before:absolute before:w-[0.4rem] before:h-[20rem]",
+                  "before:top-0 before:translate-x-[-10rem]",
+                  "hover:before:translate-x-[15rem]",
+                  "before:duration-[0.8s] before:-skew-x-[10deg]",
+                  "before:transition-all before:bg-white",
+                  "before:blur-[10px] before:opacity-70"
+                )}
+              >
                 Subscribe
                 <ArrowRight className="h-4 w-4" />
               </button>
@@ -255,7 +260,8 @@ export function Footer() {
         <div className="pt-6 border-t border-border">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Volleyball Fraser Valley. All rights reserved.
+              © {new Date().getFullYear()} Volleyball Fraser Valley. All rights
+              reserved.
             </p>
             <div className="flex items-center gap-6">
               <a
@@ -275,5 +281,5 @@ export function Footer() {
         </div>
       </div>
     </footer>
-  )
+  );
 }

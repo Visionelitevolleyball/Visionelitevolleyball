@@ -1,10 +1,17 @@
-"use client"
+"use client";
 
-import { cn } from "@/lib/utils"
-import { motion } from "motion/react"
-import { Globe, TrendingUp, Users, Sparkles, ArrowRight, CheckCircle } from "lucide-react"
-import { SpotlightCard } from "@/components/ui/spotlight-card"
-import { Badge } from "@/components/ui/badge"
+import { cn } from "@/lib/utils";
+import { motion } from "motion/react";
+import {
+  Globe,
+  TrendingUp,
+  Users,
+  Sparkles,
+  ArrowRight,
+  CheckCircle,
+} from "lucide-react";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
+import { Badge } from "@/components/ui/badge";
 
 const availableTerritories = [
   { id: 1, name: "Edmonton", status: "limited", growth: "41%", teams: 10 },
@@ -16,22 +23,24 @@ const availableTerritories = [
   { id: 7, name: "Mississauga", status: "available", growth: "39%", teams: 8 },
   { id: 8, name: "Montreal", status: "available", growth: "44%", teams: 7 },
   { id: 9, name: "Halifax", status: "available", growth: "35%", teams: 6 },
-]
+];
 
 const benefits = [
   "Proven business model with 26+ years of success",
   "Comprehensive training and ongoing support",
   "Exclusive territory rights",
   "Marketing and brand recognition",
-]
+];
 
 export function TerritoriesSection() {
   return (
-    <section className={cn(
-      "relative pt-16 pb-20 sm:pt-20 sm:pb-28 md:pt-24 md:pb-32 overflow-hidden",
-      "bg-gradient-to-b from-background via-gray-50/40 to-background",
-      "dark:from-background dark:via-gray-900/30 dark:to-background"
-    )}>
+    <section
+      className={cn(
+        "relative pt-16 pb-20 sm:pt-20 sm:pb-28 md:pt-24 md:pb-32 overflow-hidden",
+        "bg-gradient-to-b from-background via-gray-50/40 to-background",
+        "dark:from-background dark:via-gray-900/30 dark:to-background"
+      )}
+    >
       {/* Background Decoration */}
       <div className="absolute inset-0">
         <div className="absolute top-1/4 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-3xl" />
@@ -62,23 +71,27 @@ export function TerritoriesSection() {
             transition={{ duration: 0.8, delay: 0.1 }}
             className="font-bold mb-6"
           >
-            <span className={cn(
-              "block text-xl sm:text-3xl lg:text-4xl font-medium mb-1",
-              "bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600",
-              "dark:from-gray-100 dark:via-gray-200 dark:to-gray-400",
-              "bg-clip-text text-transparent",
-              "leading-tight"
-            )}>
+            <span
+              className={cn(
+                "block text-xl sm:text-3xl lg:text-4xl font-medium mb-1",
+                "bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600",
+                "dark:from-gray-100 dark:via-gray-200 dark:to-gray-400",
+                "bg-clip-text text-transparent",
+                "leading-tight"
+              )}
+            >
               START AN AFFILIATE NEAR YOU
             </span>
-            <span className={cn(
-              "block text-4xl sm:text-5xl lg:text-6xl",
-              "bg-gradient-to-r from-secondary via-blue-600 to-secondary",
-              "dark:from-secondary dark:via-blue-500 dark:to-secondary",
-              "bg-clip-text text-transparent",
-              "leading-tight",
-              "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(45,52,142,0.25)]"
-            )}>
+            <span
+              className={cn(
+                "block text-4xl sm:text-5xl lg:text-6xl",
+                "bg-gradient-to-r from-secondary via-blue-600 to-secondary",
+                "dark:from-secondary dark:via-blue-500 dark:to-secondary",
+                "bg-clip-text text-transparent",
+                "leading-tight",
+                "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(45,52,142,0.25)]"
+              )}
+            >
               TERRITORIES AVAILABLE
             </span>
           </motion.h2>
@@ -90,8 +103,8 @@ export function TerritoriesSection() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="max-w-2xl mx-auto text-lg sm:text-xl text-gray-600 dark:text-gray-400"
           >
-            Join Canada&apos;s premier volleyball training network. 
-            Exclusive territories available nationwide with proven success models.
+            Join Canada&apos;s premier volleyball training network. Exclusive
+            territories available nationwide with proven success models.
           </motion.p>
         </div>
 
@@ -105,7 +118,7 @@ export function TerritoriesSection() {
             transition={{ duration: 0.6, delay: 0.3 }}
             className="order-2 lg:order-1"
           >
-            <SpotlightCard 
+            <SpotlightCard
               className="h-full p-6 sm:p-8"
               spotlightColor="rgba(45, 52, 142, 0.1)"
             >
@@ -116,10 +129,15 @@ export function TerritoriesSection() {
                   </h3>
                   <Badge variant="secondary" className="gap-1">
                     <Sparkles className="h-3 w-3" />
-                    {availableTerritories.filter(t => t.status === "available").length} Open
+                    {
+                      availableTerritories.filter(
+                        (t) => t.status === "available"
+                      ).length
+                    }{" "}
+                    Open
                   </Badge>
                 </div>
-                
+
                 {/* Territory Table */}
                 <div className="overflow-hidden rounded-xl border border-gray-200 dark:border-gray-700">
                   {/* Table Header - Visible on all devices */}
@@ -143,7 +161,7 @@ export function TerritoriesSection() {
                       </div>
                     </div>
                   </div>
-                  
+
                   {/* Table Body */}
                   <div className="divide-y divide-gray-200 dark:divide-gray-700">
                     {availableTerritories.map((territory, index) => (
@@ -162,25 +180,30 @@ export function TerritoriesSection() {
                               {territory.name}
                             </span>
                           </div>
-                          
+
                           {/* Status */}
                           <div className="col-span-2 flex justify-center">
-                            <span className={cn(
-                              "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
-                              territory.status === "available"
-                                ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
-                                : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
-                            )}>
-                              <span className={cn(
-                                "w-1.5 h-1.5 rounded-full mr-1.5",
+                            <span
+                              className={cn(
+                                "inline-flex items-center px-2.5 py-0.5 rounded-full text-xs font-medium",
                                 territory.status === "available"
-                                  ? "bg-green-500"
-                                  : "bg-yellow-500"
-                              )} />
-                              {territory.status.charAt(0).toUpperCase() + territory.status.slice(1)}
+                                  ? "bg-green-100 text-green-800 dark:bg-green-900/30 dark:text-green-400"
+                                  : "bg-yellow-100 text-yellow-800 dark:bg-yellow-900/30 dark:text-yellow-400"
+                              )}
+                            >
+                              <span
+                                className={cn(
+                                  "w-1.5 h-1.5 rounded-full mr-1.5",
+                                  territory.status === "available"
+                                    ? "bg-green-500"
+                                    : "bg-yellow-500"
+                                )}
+                              />
+                              {territory.status.charAt(0).toUpperCase() +
+                                territory.status.slice(1)}
                             </span>
                           </div>
-                          
+
                           {/* Growth */}
                           <div className="col-span-3 flex items-center justify-center gap-2">
                             <div className="flex items-center gap-1">
@@ -190,13 +213,13 @@ export function TerritoriesSection() {
                               </span>
                             </div>
                             <div className="hidden sm:block w-16 h-1.5 bg-gray-200 dark:bg-gray-700 rounded-full overflow-hidden">
-                              <div 
+                              <div
                                 className="h-full bg-primary rounded-full"
                                 style={{ width: territory.growth }}
                               />
                             </div>
                           </div>
-                          
+
                           {/* Teams */}
                           <div className="col-span-3 text-center">
                             <span className="inline-flex items-center justify-center w-8 h-8 rounded-full bg-primary/10 text-sm font-semibold text-gray-900 dark:text-gray-100">
@@ -221,7 +244,10 @@ export function TerritoriesSection() {
             className="order-1 lg:order-2 space-y-6"
           >
             {/* Opportunity Card */}
-            <SpotlightCard className="p-6 sm:p-8" spotlightColor="rgba(236, 186, 88, 0.15)">
+            <SpotlightCard
+              className="p-6 sm:p-8"
+              spotlightColor="rgba(236, 186, 88, 0.15)"
+            >
               <div className="flex items-start gap-4">
                 <div className="p-3 rounded-xl bg-gradient-to-br from-primary/20 to-yellow-500/10">
                   <Users className="h-6 w-6 text-primary" />
@@ -231,23 +257,30 @@ export function TerritoriesSection() {
                     Join Our Growing Network
                   </h3>
                   <p className="text-gray-600 dark:text-gray-400 mb-4">
-                    Become part of Canada&apos;s fastest-growing volleyball training franchise 
-                    with over 50,000 families served since 1999.
+                    Become part of Canada&apos;s fastest-growing volleyball
+                    training franchise with over 50,000 families served since
+                    1999.
                   </p>
-                  
+
                   {/* Stats Grid */}
                   <div className="grid grid-cols-3 gap-4 mb-6">
                     <div className="text-center">
                       <div className="text-2xl font-bold text-primary">26+</div>
-                      <div className="text-xs text-gray-500 dark:text-gray-500">Years Experience</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-500">
+                        Years Experience
+                      </div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-primary">45+</div>
-                      <div className="text-xs text-gray-500 dark:text-gray-500">Locations</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-500">
+                        Locations
+                      </div>
                     </div>
                     <div className="text-center">
                       <div className="text-2xl font-bold text-primary">98%</div>
-                      <div className="text-xs text-gray-500 dark:text-gray-500">Success Rate</div>
+                      <div className="text-xs text-gray-500 dark:text-gray-500">
+                        Success Rate
+                      </div>
                     </div>
                   </div>
 
@@ -274,7 +307,10 @@ export function TerritoriesSection() {
             </SpotlightCard>
 
             {/* Investment Info Card */}
-            <SpotlightCard className="p-6 sm:p-8" spotlightColor="rgba(45, 52, 142, 0.1)">
+            <SpotlightCard
+              className="p-6 sm:p-8"
+              spotlightColor="rgba(45, 52, 142, 0.1)"
+            >
               <div className="text-center">
                 <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-secondary/10 dark:bg-blue-500/20 text-secondary dark:text-blue-400 text-xs font-semibold mb-4">
                   <Sparkles className="h-3 w-3" />
@@ -284,9 +320,10 @@ export function TerritoriesSection() {
                   Ready to Start Your Journey?
                 </h3>
                 <p className="text-gray-600 dark:text-gray-400 mb-6">
-                  Territories are being claimed quickly. Secure your exclusive area today.
+                  Territories are being claimed quickly. Secure your exclusive
+                  area today.
                 </p>
-                
+
                 {/* CTA Button */}
                 <a
                   href="/affiliate"
@@ -301,7 +338,7 @@ export function TerritoriesSection() {
                 >
                   <span>View Territories</span>
                   <ArrowRight className="h-5 w-5 transition-transform group-hover:translate-x-1" />
-                  
+
                   {/* Animated shine effect */}
                   <div className="absolute inset-0 rounded-full overflow-hidden">
                     <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
@@ -312,7 +349,10 @@ export function TerritoriesSection() {
                 <div className="mt-6 pt-6 border-t border-gray-200 dark:border-gray-700">
                   <p className="text-sm text-gray-500 dark:text-gray-400">
                     Questions? Call us at{" "}
-                    <a href="tel:403-510-1784" className="text-primary font-semibold hover:underline">
+                    <a
+                      href="tel:403-510-1784"
+                      className="text-primary font-semibold hover:underline"
+                    >
                       403-510-1784
                     </a>
                   </p>
@@ -323,5 +363,5 @@ export function TerritoriesSection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

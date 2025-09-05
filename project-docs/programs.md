@@ -1,6 +1,7 @@
 # VOLLEYBALL FRASER VALLEY - Programs
 
 ## CAMPS
+
 ### VISION Elite Camps – Building the Foundation to Success
 
 The VISION Elite Academy is the perfect starting point for boys and girls in grades 3-9 looking to develop their skills in a fun, supportive, and engaging environment. This weekly program introduces fundamental skills in a modified format, ensuring young athletes gain confidence, experience success, and develop a love for the game. Camps are offered year-round.
@@ -20,6 +21,7 @@ Whether your child is brand new to the sport or eager to take their skills to th
 Join a VISION Elite Academy Camp and elevate your game - while having a blast along the way!
 
 ## DAY CAMPS
+
 ### VISION Elite Day Camps – Where Fun Meets Quality Training!
 
 Looking for the ultimate day camp experience? VISION Elite Day Camps are designed to provide high-energy, fast-paced training sessions that keep athletes engaged, challenged, and motivated to improve. Whether your child is just starting out or has big dreams of playing at a higher level, our camps offer the perfect blend of skill development and competitive play.
@@ -41,6 +43,7 @@ Camps are offered seasonally during the summer, in late December and during spri
 Give your child the best day camp experience & Register today to be a part of the VISION Elite Day Camp legacy!
 
 ## PREMIER LEAGUE
+
 ### VISION Elite Youth Leagues – Ignite Your Potential
 
 The VISION Elite Premier League is designed for intermediate-level athletes looking to refine their skills and train in a team environment. Through experienced coaching, high-intensity drills, and strategic gameplay, our Academy provides a positive introduction to team play.
@@ -58,6 +61,7 @@ The VISION Elite Premier League is designed for intermediate-level athletes look
 Join the VISION Elite Academy and experience a new level of volleyball excellence!
 
 ## CLUB PROGRAM
+
 ### VISION VBC Club Program – Get your Game to the next Level
 
 Where passion meets performance! When athletes are prepared to challenge themselves by joining a club volleyball program, VISION VBC is a great introduction to the club system. Teams train twice a week and participate in organized tournaments. Tryouts are held in January and the season runs from early February to late May.

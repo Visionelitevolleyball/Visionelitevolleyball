@@ -1,46 +1,59 @@
-"use client"
+"use client";
 
-import React from "react"
-import { motion } from "motion/react"
-import { cn } from "@/lib/utils"
-import { Award, Star, Trophy, Sun, Users, Medal, ArrowRight, Calendar } from "lucide-react"
-import { SpotlightCard } from "@/components/ui/spotlight-card"
+import React from "react";
+import { motion } from "motion/react";
+import { cn } from "@/lib/utils";
+import {
+  Award,
+  Star,
+  Trophy,
+  Sun,
+  Users,
+  Medal,
+  ArrowRight,
+  Calendar,
+} from "lucide-react";
+import { SpotlightCard } from "@/components/ui/spotlight-card";
 
 export function PathwaySection() {
   const programs = [
     {
       icon: Calendar,
       title: "Year-Round Camps",
-      description: "Weekly skill development for grades 3-9 with certified VISION Elite coaches",
+      description:
+        "Weekly skill development for grades 3-9 with certified VISION Elite coaches",
       highlight: "Foundation Building",
       spotlightColor: "rgba(236, 186, 88, 0.18)",
-      delay: 0.1
+      delay: 0.1,
     },
     {
       icon: Sun,
       title: "Holiday Day Camps",
-      description: "High-energy intensive training during summer, winter, and spring breaks",
+      description:
+        "High-energy intensive training during summer, winter, and spring breaks",
       highlight: "Fast-Paced Learning",
       spotlightColor: "rgba(236, 186, 88, 0.18)",
-      delay: 0.2
+      delay: 0.2,
     },
     {
       icon: Users,
       title: "Premier League",
-      description: "Team environment for intermediate players with tournament competition",
+      description:
+        "Team environment for intermediate players with tournament competition",
       highlight: "Competitive Edge",
       spotlightColor: "rgba(236, 186, 88, 0.18)",
-      delay: 0.3
+      delay: 0.3,
     },
     {
       icon: Medal,
       title: "Club Program",
-      description: "Elite training for tournament-ready athletes pursuing university volleyball",
+      description:
+        "Elite training for tournament-ready athletes pursuing university volleyball",
       highlight: "Elite Performance",
       spotlightColor: "rgba(236, 186, 88, 0.18)",
-      delay: 0.4
-    }
-  ]
+      delay: 0.4,
+    },
+  ];
 
   return (
     <section className="relative py-20 lg:py-24 overflow-hidden bg-gradient-to-b from-background via-background/98 to-background">
@@ -65,7 +78,11 @@ export function PathwaySection() {
             {[
               { icon: Award, label: "VEA Certified", color: "text-yellow-600" },
               { icon: Star, label: "Elite Training", color: "text-primary" },
-              { icon: Trophy, label: "Championship Ready", color: "text-blue-600" },
+              {
+                icon: Trophy,
+                label: "Championship Ready",
+                color: "text-blue-600",
+              },
             ].map((badge, index) => (
               <div
                 key={index}
@@ -90,21 +107,27 @@ export function PathwaySection() {
               YOUR PATHWAY FROM
             </span>
             <span className="flex flex-col items-center gap-2 sm:flex-row sm:gap-3 sm:justify-center">
-              <span className={cn(
-                "text-3xl sm:text-5xl lg:text-6xl",
-                "bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600",
-                "dark:from-gray-100 dark:via-gray-200 dark:to-gray-400",
-                "bg-clip-text text-transparent"
-              )}>
+              <span
+                className={cn(
+                  "text-3xl sm:text-5xl lg:text-6xl",
+                  "bg-gradient-to-r from-gray-900 via-gray-700 to-gray-600",
+                  "dark:from-gray-100 dark:via-gray-200 dark:to-gray-400",
+                  "bg-clip-text text-transparent"
+                )}
+              >
                 BEGINNER
               </span>
-              <span className="text-gray-600 dark:text-gray-400 text-xl sm:text-4xl lg:text-6xl">TO</span>
-              <span className={cn(
-                "text-3xl sm:text-5xl lg:text-6xl whitespace-nowrap",
-                "bg-gradient-to-r from-primary via-primary/80 to-yellow-600",
-                "dark:from-primary dark:via-primary dark:to-yellow-500",
-                "bg-clip-text text-transparent"
-              )}>
+              <span className="text-gray-600 dark:text-gray-400 text-xl sm:text-4xl lg:text-6xl">
+                TO
+              </span>
+              <span
+                className={cn(
+                  "text-3xl sm:text-5xl lg:text-6xl whitespace-nowrap",
+                  "bg-gradient-to-r from-primary via-primary/80 to-yellow-600",
+                  "dark:from-primary dark:via-primary dark:to-yellow-500",
+                  "bg-clip-text text-transparent"
+                )}
+              >
                 UNIVERSITY ATHLETE
               </span>
             </span>
@@ -117,10 +140,12 @@ export function PathwaySection() {
             transition={{ duration: 0.8, delay: 0.3, ease: "easeOut" }}
             className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-4xl mx-auto leading-relaxed"
           >
-            At Volleyball Fraser Valley, we provide a clear pathway for every player — from learning 
-            the fundamentals to competing at the highest level. Whether you&apos;re just stepping onto 
-            the court for the first time or training with dreams of university recruitment, our 
-            programs are designed to guide and support athletes at every stage of their journey.
+            At Volleyball Fraser Valley, we provide a clear pathway for every
+            player — from learning the fundamentals to competing at the highest
+            level. Whether you&apos;re just stepping onto the court for the
+            first time or training with dreams of university recruitment, our
+            programs are designed to guide and support athletes at every stage
+            of their journey.
           </motion.p>
         </div>
 
@@ -132,22 +157,28 @@ export function PathwaySection() {
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ duration: 0.6, delay: program.delay, ease: "easeOut" }}
+              transition={{
+                duration: 0.6,
+                delay: program.delay,
+                ease: "easeOut",
+              }}
             >
-              <SpotlightCard 
+              <SpotlightCard
                 className="h-full p-6 lg:p-8 group cursor-pointer"
                 spotlightColor={program.spotlightColor}
               >
                 <div className="relative z-10 flex flex-col h-full">
                   {/* Icon Container */}
                   <div className="mb-6">
-                    <div className={cn(
-                      "w-14 h-14 rounded-xl flex items-center justify-center",
-                      "bg-gradient-to-br from-primary/10 to-yellow-500/5",
-                      "border border-primary/20 dark:border-primary/30",
-                      "group-hover:scale-110 group-hover:border-primary/40",
-                      "transition-all duration-300"
-                    )}>
+                    <div
+                      className={cn(
+                        "w-14 h-14 rounded-xl flex items-center justify-center",
+                        "bg-gradient-to-br from-primary/10 to-yellow-500/5",
+                        "border border-primary/20 dark:border-primary/30",
+                        "group-hover:scale-110 group-hover:border-primary/40",
+                        "transition-all duration-300"
+                      )}
+                    >
                       <program.icon className="h-7 w-7 text-primary" />
                     </div>
                   </div>
@@ -160,15 +191,17 @@ export function PathwaySection() {
                     <p className="text-sm text-gray-600 dark:text-gray-400 mb-4 leading-relaxed">
                       {program.description}
                     </p>
-                    
+
                     {/* Highlight Badge */}
                     <div className="mb-6">
-                      <span className={cn(
-                        "inline-flex items-center px-3 py-1 rounded-full",
-                        "bg-primary/10 dark:bg-gradient-to-r dark:from-primary/10 dark:to-secondary/10",
-                        "border border-primary/20",
-                        "text-xs font-semibold text-primary"
-                      )}>
+                      <span
+                        className={cn(
+                          "inline-flex items-center px-3 py-1 rounded-full",
+                          "bg-primary/10 dark:bg-gradient-to-r dark:from-primary/10 dark:to-secondary/10",
+                          "border border-primary/20",
+                          "text-xs font-semibold text-primary"
+                        )}
+                      >
                         {program.highlight}
                       </span>
                     </div>
@@ -176,11 +209,13 @@ export function PathwaySection() {
 
                   {/* Learn More Link */}
                   <div className="mt-auto">
-                    <span className={cn(
-                      "inline-flex items-center gap-2 text-sm font-medium",
-                      "text-gray-500 dark:text-gray-500 group-hover:text-primary",
-                      "transition-colors duration-300"
-                    )}>
+                    <span
+                      className={cn(
+                        "inline-flex items-center gap-2 text-sm font-medium",
+                        "text-gray-500 dark:text-gray-500 group-hover:text-primary",
+                        "transition-colors duration-300"
+                      )}
+                    >
                       Learn More
                       <ArrowRight className="h-4 w-4 group-hover:translate-x-1 transition-transform duration-300" />
                     </span>
@@ -192,5 +227,5 @@ export function PathwaySection() {
         </div>
       </div>
     </section>
-  )
+  );
 }

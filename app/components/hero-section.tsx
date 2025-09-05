@@ -1,9 +1,9 @@
-"use client"
+"use client";
 
-import { motion } from "motion/react"
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
-import { cn } from "@/lib/utils"
+import { motion } from "motion/react";
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import { cn } from "@/lib/utils";
 
 export function HeroSection() {
   return (
@@ -11,7 +11,10 @@ export function HeroSection() {
       {/* Background Gradient Orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
-        <div className="absolute bottom-20 -right-32 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse" style={{ animationDelay: "1s" }} />
+        <div
+          className="absolute bottom-20 -right-32 w-96 h-96 bg-secondary/20 rounded-full blur-3xl animate-pulse"
+          style={{ animationDelay: "1s" }}
+        />
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-gradient-to-r from-primary/10 to-secondary/10 rounded-full blur-3xl" />
       </div>
 
@@ -46,23 +49,27 @@ export function HeroSection() {
           <span className="block text-3xl sm:text-4xl md:text-5xl font-medium text-gray-600 dark:text-gray-400 mb-2">
             WELCOME TO
           </span>
-          <span className={cn(
-            "inline-block",
-            "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-600",
-            "dark:from-gray-100 dark:via-gray-300 dark:to-gray-500",
-            "bg-clip-text text-transparent",
-            "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(255,255,255,0.15)]"
-          )}>
+          <span
+            className={cn(
+              "inline-block",
+              "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-600",
+              "dark:from-gray-100 dark:via-gray-300 dark:to-gray-500",
+              "bg-clip-text text-transparent",
+              "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(255,255,255,0.15)]"
+            )}
+          >
             VOLLEYBALL
           </span>
           <br />
-          <span className={cn(
-            "inline-block",
-            "bg-gradient-to-br from-primary via-primary/80 to-yellow-600",
-            "dark:from-primary dark:via-primary/90 dark:to-yellow-500",
-            "bg-clip-text text-transparent",
-            "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.3)]"
-          )}>
+          <span
+            className={cn(
+              "inline-block",
+              "bg-gradient-to-br from-primary via-primary/80 to-yellow-600",
+              "dark:from-primary dark:via-primary/90 dark:to-yellow-500",
+              "bg-clip-text text-transparent",
+              "drop-shadow-sm dark:drop-shadow-[0_0_25px_rgba(236,186,88,0.3)]"
+            )}
+          >
             FRASER VALLEY
           </span>
         </motion.h1>
@@ -74,8 +81,8 @@ export function HeroSection() {
           transition={{ duration: 0.8, ease: "easeOut", delay: 0.6 }}
           className="text-lg sm:text-xl md:text-2xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto mb-10"
         >
-          Where passion meets excellence. Transform your game with elite coaching 
-          and world-class training for athletes of all ages.
+          Where passion meets excellence. Transform your game with elite
+          coaching and world-class training for athletes of all ages.
         </motion.p>
 
         {/* CTA Buttons */}
@@ -85,7 +92,7 @@ export function HeroSection() {
           transition={{ duration: 0.6, ease: "easeOut", delay: 0.9 }}
           className="flex flex-col sm:flex-row gap-4 justify-center items-center"
         >
-          <Button 
+          <Button
             size="lg"
             className={cn(
               "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
@@ -144,5 +151,5 @@ export function HeroSection() {
       {/* Bottom Gradient Fade */}
       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-background to-transparent pointer-events-none" />
     </section>
-  )
+  );
 }
