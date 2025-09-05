@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Image from "next/image"
+import Link from "next/link"
 import { Menu, Phone, UserCircle, Award, ChevronDownIcon, Home, Calendar, Users, Star, Video, BookOpen, HelpCircle, Info, MapPin, Mail, Briefcase } from "lucide-react"
 
 import { Button } from "@/components/ui/button"
@@ -88,14 +89,16 @@ export function Navbar() {
               "flex items-center pr-10 transition-all duration-300",
               isScrolled ? "opacity-0 -translate-x-10 pointer-events-none" : "opacity-100 translate-x-0"
             )}>
-              <Image 
-                src="/Volleyball-Fraser Valley.png" 
-                alt="Volleyball Fraser Valley" 
-                width={325} 
-                height={106}
-                className="object-contain"
-                priority
-              />
+              <Link href="/" className="flex items-center">
+                <Image 
+                  src="/Volleyball-Fraser Valley.png" 
+                  alt="Volleyball Fraser Valley" 
+                  width={325} 
+                  height={106}
+                  className="object-contain"
+                  priority
+                />
+              </Link>
             </div>
             
             {/* Small Logo for scrolled state */}
@@ -103,14 +106,16 @@ export function Navbar() {
               "absolute left-0 flex items-center h-[60px] transition-all duration-300",
               isScrolled ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-10 pointer-events-none"
             )}>
-              <Image 
-                src="/Volleyball-Fraser Valley.png" 
-                alt="Volleyball Fraser Valley" 
-                width={180} 
-                height={60}
-                className="object-contain"
-                priority
-              />
+              <Link href="/" className="flex items-center">
+                <Image 
+                  src="/Volleyball-Fraser Valley.png" 
+                  alt="Volleyball Fraser Valley" 
+                  width={180} 
+                  height={60}
+                  className="object-contain"
+                  priority
+                />
+              </Link>
             </div>
             
             {/* Right side containing both bars */}
@@ -219,14 +224,16 @@ export function Navbar() {
           isScrolled ? "h-16" : "h-20"
         )}>
           {/* Logo */}
-          <Image 
-            src="/Volleyball-Fraser Valley.png" 
-            alt="Volleyball Fraser Valley" 
-            width={isScrolled ? 180 : 225} 
-            height={isScrolled ? 50 : 63}
-            className="object-contain transition-all duration-300"
-            priority
-          />
+          <Link href="/" className="flex items-center">
+            <Image 
+              src="/Volleyball-Fraser Valley.png" 
+              alt="Volleyball Fraser Valley" 
+              width={isScrolled ? 180 : 225} 
+              height={isScrolled ? 50 : 63}
+              className="object-contain transition-all duration-300"
+              priority
+            />
+          </Link>
 
           {/* Right side with phone and menu */}
           <div className="flex items-center gap-3">
