@@ -111,7 +111,7 @@ export default function SkyHighPage() {
             </div>
             <Badge
               variant="secondary"
-              className="gap-1 text-gray-900 dark:text-gray-100"
+              className="gap-1 text-white dark:text-gray-100"
             >
               <Users className="h-3.5 w-3.5" /> All sessions are co-ed unless
               noted
