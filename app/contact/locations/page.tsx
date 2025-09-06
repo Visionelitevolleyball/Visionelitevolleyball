@@ -18,22 +18,13 @@ interface Location {
 
 const locations: Location[] = [
   {
-    id: "abbotsford",
-    name: "Fraser Valley – Abbotsford",
-    address: "123 Volleyball Way",
-    city: "Abbotsford, BC",
+    id: "pacific-academy",
+    name: "Pacific Academy",
+    address: "Pacific Academy (IS GYM), 10238 168th St.",
+    city: "Surrey, BC",
     phone: "403-510-1784",
     email: "info@volleyballfraser.ca",
-    features: ["Multiple courts", "Ample parking", "Spectator seating"],
-  },
-  {
-    id: "langley",
-    name: "Fraser Valley – Langley",
-    address: "456 Rally Road",
-    city: "Langley, BC",
-    phone: "403-510-1784",
-    email: "info@volleyballfraser.ca",
-    features: ["New flooring", "Equipment provided", "Accessible entrance"],
+    features: ["IS GYM", "Multiple courts", "Ample parking", "Spectator seating"],
   },
 ];
 
@@ -91,11 +82,11 @@ export default function LocationsPage() {
 
       {/* Location Cards */}
       <section className="relative pb-12">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid md:grid-cols-2 gap-6 lg:gap-8">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex justify-center">
           {locations.map((loc) => (
             <div
               key={loc.id}
-              className="p-6 rounded-2xl bg-white dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all"
+              className="max-w-xl w-full p-6 rounded-2xl bg-white dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700 hover:shadow-lg transition-all"
             >
               <h3 className="text-xl font-bold mb-1">{loc.name}</h3>
               <div className="flex items-start gap-2 text-gray-700 dark:text-gray-300">
