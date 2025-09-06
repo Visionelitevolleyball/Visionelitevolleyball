@@ -300,7 +300,7 @@ export default function ClubOverviewPage() {
                 <p className="text-gray-700 dark:text-gray-300">
                   Tryouts begin in December. Tournament season runs March through
                   May, with events nearly every weekend. Every game matters. If
-                  you're preparing for club, understand the high-performance,
+                  you&apos;re preparing for club, understand the high-performance,
                   tournament-driven nature of the season.
                 </p>
               </div>
