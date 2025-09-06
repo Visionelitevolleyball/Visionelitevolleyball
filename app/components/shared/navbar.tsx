@@ -54,7 +54,16 @@ const navItems = [
       { name: "Reviews", href: "/reviews", icon: Star },
     ],
   },
-  { name: "Club", href: "/club" },
+  {
+    name: "Club",
+    href: "/club",
+    subItems: [
+      { name: "Club Overview", href: "/club/overview", icon: Home },
+      { name: "Sky High VBC", href: "/club/sky-high", icon: Award },
+      { name: "Vision VBC", href: "/club/vision", icon: Users },
+      { name: "Tryouts", href: "/club/tryouts", icon: Calendar },
+    ],
+  },
   { name: "Leagues", href: "/leagues" },
   {
     name: "Resources",
