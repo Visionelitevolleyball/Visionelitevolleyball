@@ -70,10 +70,14 @@ const navItems = [
     name: "Contact Us",
     href: "/contact",
     subItems: [
-      { name: "About Us", href: "/about", icon: Info },
-      { name: "Get in Touch", href: "/contact", icon: Mail },
-      { name: "Location", href: "/contact#location", icon: MapPin },
-      { name: "Join Our Team", href: "/careers", icon: Briefcase },
+      { name: "About Us", href: "/contact/about-us", icon: Info },
+      { name: "Get in Touch", href: "/contact/get-in-touch", icon: Mail },
+      { name: "Locations", href: "/contact/locations", icon: MapPin },
+      {
+        name: "Join Our Team",
+        href: "/contact/join-our-team",
+        icon: Briefcase,
+      },
     ],
   },
 ];
