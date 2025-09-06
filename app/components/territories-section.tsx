@@ -4,7 +4,6 @@ import { cn } from "@/lib/utils";
 import { motion } from "motion/react";
 import {
   Globe,
-  TrendingUp,
   Users,
   Sparkles,
   ArrowRight,

@@ -11,6 +11,7 @@ import {
   TrendingUp,
 } from "lucide-react";
 import Image from "next/image";
+import Link from "next/link";
 
 interface BlogPost {
   id: string;
@@ -394,7 +395,7 @@ export function BlogSection() {
           transition={{ duration: 0.6, delay: 0.5 }}
           className="flex justify-center mt-12"
         >
-          <a
+          <Link
             href="/blog"
             className={cn(
               "group relative inline-flex items-center gap-2 px-8 py-4",
@@ -412,7 +413,7 @@ export function BlogSection() {
             <div className="absolute inset-0 rounded-full overflow-hidden">
               <div className="absolute inset-0 -translate-x-full group-hover:translate-x-full transition-transform duration-1000 bg-gradient-to-r from-transparent via-white/20 to-transparent" />
             </div>
-          </a>
+          </Link>
         </motion.div>
       </div>
     </section>

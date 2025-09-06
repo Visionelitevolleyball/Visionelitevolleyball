@@ -1,4 +1,5 @@
 import * as React from "react";
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 import { Play, X } from "lucide-react";
 
@@ -62,10 +63,12 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
           {...props}
         >
           {/* Thumbnail Image */}
-          <img
+          <Image
             src={thumbnailUrl}
             alt={`Thumbnail for ${title}`}
-            className="h-full w-full object-cover transition-transform duration-300 group-hover:scale-105"
+            fill
+            sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+            className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
           {/* Overlay Gradient */}
           <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
