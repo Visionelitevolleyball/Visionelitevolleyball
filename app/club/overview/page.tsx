@@ -43,11 +43,6 @@ export default function ClubOverviewPage() {
       {/* Hero */}
       <section className="relative pt-10 sm:pt-12 pb-8">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="inline-flex mb-4">
-            <Badge className="px-4 py-2 text-sm font-semibold bg-gradient-to-r from-blue-100 to-cyan-100 dark:from-blue-900/20 dark:to-cyan-900/20 text-blue-900 dark:text-blue-200 border-blue-200 dark:border-blue-800">
-              Club Volleyball
-            </Badge>
-          </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-3">
             <span className="block text-gray-900 dark:text-gray-100">
               WELCOME TO
