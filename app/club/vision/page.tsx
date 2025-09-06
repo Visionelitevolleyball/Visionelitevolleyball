@@ -12,9 +12,6 @@ import {
   DollarSign,
   ArrowRight,
   Target,
-  Trophy,
-  Heart,
-  Sparkles,
 } from "lucide-react";
 
 export default function VisionVBCPage() {
