@@ -56,11 +56,11 @@ export function Footer() {
                   <span>403-510-1784</span>
                 </a>
                 <a
-                  href="mailto:info@volleyballfraser.ca"
+                  href="mailto:hello@volleyballfraservalley.ca"
                   className="flex items-center gap-2 text-xs sm:text-sm text-muted-foreground hover:text-primary transition-colors break-all"
                 >
                   <Mail className="h-3 sm:h-3.5 w-3 sm:w-3.5 flex-shrink-0" />
-                  <span>info@volleyballfraser.ca</span>
+                  <span>hello@volleyballfraservalley.ca</span>
                 </a>
               </div>
             </div>
@@ -213,8 +213,7 @@ export function Footer() {
               Stay Updated
             </h3>
             <p className="text-sm text-muted-foreground mb-4">
-              Get the latest news, insights and product updates directly in your
-              inbox.
+              Get discounts, special offers, and notifications of upcoming events!
             </p>
             <div className="flex flex-col sm:flex-row gap-2">
               <input
