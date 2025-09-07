@@ -4,10 +4,11 @@ import { motion } from "motion/react";
 import { Button } from "@/components/ui/button";
 import { ArrowRight } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { AnimatedCounter } from "@/app/components/ui/animated-counter";
 
 export function HeroSection() {
   return (
-    <section className="relative min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex items-center justify-center overflow-hidden">
+    <section className="relative min-h-[calc(100vh-7rem)] lg:min-h-[calc(100vh-8.5rem)] flex justify-center overflow-hidden pt-8 lg:pt-12">
       {/* Background Gradient Orbs */}
       <div className="absolute inset-0 overflow-hidden">
         <div className="absolute top-20 -left-32 w-96 h-96 bg-primary/20 rounded-full blur-3xl animate-pulse" />
@@ -19,7 +20,7 @@ export function HeroSection() {
       </div>
 
       {/* Content */}
-      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center lg:pt-8">
+      <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
         {/* Welcome Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -129,13 +130,18 @@ export function HeroSection() {
           className="grid grid-cols-3 gap-8 max-w-2xl mx-auto mt-8"
         >
           {[
-            { number: "10,000+", label: "Happy Athletes" },
-            { number: "45+", label: "Expert Coaches" },
-            { number: "26+", label: "Years Experience" },
+            { value: 10000, suffix: "+", label: "Happy Athletes" },
+            { value: 45, suffix: "+", label: "Expert Coaches" },
+            { value: 26, suffix: "+", label: "Years Experience" },
           ].map((stat, index) => (
             <div key={index} className="text-center">
               <div className="text-3xl sm:text-4xl font-bold bg-gradient-to-b from-gray-900 to-gray-600 dark:from-gray-100 dark:to-gray-400 bg-clip-text text-transparent">
-                {stat.number}
+                <AnimatedCounter
+                  value={stat.value}
+                  suffix={stat.suffix}
+                  delay={0.8 + index * 0.2}
+                  duration={2.5}
+                />
               </div>
               <div className="text-sm text-gray-500 dark:text-gray-500 mt-1">
                 {stat.label}
