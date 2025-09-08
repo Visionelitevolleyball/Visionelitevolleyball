@@ -10,7 +10,6 @@ import {
   Trophy,
   Heart,
   Users,
-  TrendingUp,
   MessageSquare,
   ThumbsUp,
   Video,
@@ -559,73 +558,6 @@ export default function ReviewsPage() {
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="relative py-20 lg:py-24">
-        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <motion.div
-            initial={{ opacity: 0, y: 30 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.8 }}
-            viewport={{ once: true }}
-            className="space-y-8"
-          >
-            <div className="inline-flex items-center justify-center w-16 h-16 mb-4 rounded-full bg-gradient-to-br from-primary/20 to-yellow-500/20">
-              <Heart className="h-8 w-8 text-primary" />
-            </div>
-
-            <h2 className="text-4xl md:text-5xl font-black">
-              <span className="block text-gray-900 dark:text-gray-100">
-                Start Your
-              </span>
-              <span
-                className={cn(
-                  "block mt-2",
-                  "bg-gradient-to-r from-primary via-yellow-500 to-primary",
-                  "bg-clip-text text-transparent",
-                  "bg-[length:200%_100%]",
-                  "animate-gradient"
-                )}
-              >
-                TRANSFORMATION TODAY
-              </span>
-            </h2>
-
-            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-2xl mx-auto">
-              Start your volleyball journey today and become part of our growing
-              community of champions
-            </p>
-
-            <div className="flex flex-col sm:flex-row gap-4 justify-center pt-4">
-              <Button
-                size="lg"
-                className={cn(
-                  "relative overflow-hidden",
-                  "px-8 py-6 text-lg font-bold",
-                  "bg-gradient-to-r from-primary to-yellow-500",
-                  "hover:shadow-2xl hover:scale-105",
-                  "transition-all duration-300",
-                  "text-black",
-                  "before:absolute before:inset-0",
-                  "before:bg-gradient-to-r before:from-transparent before:via-white/20 before:to-transparent",
-                  "before:translate-x-[-200%] hover:before:translate-x-[200%]",
-                  "before:transition-transform before:duration-700"
-                )}
-              >
-                Register Now
-                <TrendingUp className="ml-2 h-5 w-5" />
-              </Button>
-              <Button
-                size="lg"
-                variant="outline"
-                className="px-8 py-6 text-lg font-bold border-2 hover:bg-gray-50 dark:hover:bg-gray-900"
-              >
-                Contact Us
-                <MessageSquare className="ml-2 h-5 w-5" />
-              </Button>
-            </div>
-          </motion.div>
-        </div>
-      </section>
     </div>
   );
 }

@@ -402,25 +402,60 @@ export default function SkyHighPage() {
 
       {/* Program Information Redirect */}
       <section className="relative pb-16">
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl p-8 bg-white/80 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700 text-center">
-            <h3 className="text-2xl font-bold mb-4">Program Information</h3>
-            <p className="text-lg text-gray-700 dark:text-gray-300 mb-6">
-              For detailed program information, visit
-            </p>
-            <Button
-              size="lg"
-              onClick={() => window.open("https://visioneliteacademy.com/program-search", "_blank")}
-              className={cn(
-                "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
-                "text-black font-bold text-lg px-10 h-14 cursor-pointer overflow-hidden"
-              )}
-            >
-              <span className="relative flex items-center gap-2">
-                View Program Details <ArrowRight className="h-5 w-5" />
-              </span>
-            </Button>
-          </div>
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SpotlightCard
+            className="p-10 bg-gradient-to-br from-primary/5 via-yellow-500/5 to-orange-500/5 dark:from-primary/10 dark:via-yellow-500/10 dark:to-orange-500/10 border-2 border-primary/20"
+            spotlightColor="rgba(236, 186, 88, 0.15)"
+          >
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-br from-primary to-yellow-500 shadow-lg shadow-primary/25">
+                <GraduationCap className="h-8 w-8 text-black" />
+              </div>
+              
+              <h3 className="text-3xl lg:text-4xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
+                  Ready to Take the Next Step?
+                </span>
+              </h3>
+              
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+                Explore our comprehensive volleyball programs designed to develop athletes at every level. 
+                From beginners to elite competitors, find the perfect program for your journey.
+              </p>
+
+              <div className="grid sm:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+                <div className="flex flex-col items-center">
+                  <Trophy className="h-6 w-6 text-primary mb-2" />
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Elite Training</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Users className="h-6 w-6 text-primary mb-2" />
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Team Development</span>
+                </div>
+                <div className="flex flex-col items-center">
+                  <Target className="h-6 w-6 text-primary mb-2" />
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Skills Mastery</span>
+                </div>
+              </div>
+              
+              <Button
+                size="lg"
+                onClick={() => window.open("https://visioneliteacademy.com/program-search", "_blank")}
+                className={cn(
+                  "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
+                  "text-black font-bold text-lg px-12 h-14 shadow-lg hover:shadow-2xl hover:scale-105",
+                  "transition-all duration-300 cursor-pointer overflow-hidden",
+                  "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
+                  "hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+                  "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                )}
+              >
+                <span className="relative flex items-center gap-2">
+                  View All Programs <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+                </span>
+              </Button>
+            </div>
+          </SpotlightCard>
         </div>
       </section>
     </div>

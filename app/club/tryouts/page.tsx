@@ -267,7 +267,7 @@ export default function TryoutsPage() {
             <Button
               size="lg"
               className="bg-gradient-to-r from-primary to-yellow-500 text-black font-bold px-10 h-14 cursor-pointer"
-              onClick={() => (window.location.href = "/club/tryouts")}
+              onClick={() => window.open("https://visioneliteacademy.com/program-search", "_blank")}
             >
               View Tryout Dates
             </Button>

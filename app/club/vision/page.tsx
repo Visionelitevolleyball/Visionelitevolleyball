@@ -9,7 +9,6 @@ import {
   CheckCircle,
   Users,
   Calendar,
-  DollarSign,
   ArrowRight,
   Target,
 } from "lucide-react";
@@ -119,28 +118,32 @@ export default function VisionVBCPage() {
                 <Target className="h-6 w-6 text-white" />
               </div>
               <div className="flex-1">
-                <h4 className="text-xl font-bold mb-3 text-gray-900 dark:text-gray-100">
+                <h3 className="text-2xl font-bold mb-3 text-gray-900 dark:text-gray-100">
                   Why Choose VISION VBC?
-                </h4>
-                <ul className="space-y-3 text-sm text-gray-600 dark:text-gray-400">
+                </h3>
+                <p className="text-gray-700 dark:text-gray-300 mb-4">
+                  Our program is designed for athletes seeking competitive volleyball 
+                  without the intensity of year-round training. Perfect for those who 
+                  want to balance sports with academics and other activities.
+                </p>
+                <ul className="space-y-2 text-sm text-gray-600 dark:text-gray-400">
                   <li className="flex items-start gap-2">
-                    <DollarSign className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                    Accessible and budget-friendly
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Accessible and budget-friendly programming
                   </li>
                   <li className="flex items-start gap-2">
-                    <Users className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                    Great for multi-sport athletes
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Perfect for multi-sport athletes
                   </li>
                   <li className="flex items-start gap-2">
-                    <Target className="h-4 w-4 text-emerald-500 mt-0.5 flex-shrink-0" />
-                    Keeps athletes developing without burnout
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Prevents athlete burnout with balanced training
+                  </li>
+                  <li className="flex items-start gap-2">
+                    <CheckCircle className="h-4 w-4 text-primary mt-0.5 flex-shrink-0" />
+                    Focus on skill development and team building
                   </li>
                 </ul>
-                <div className="mt-4">
-                  <Button className="bg-gradient-to-r from-primary to-yellow-500 text-black cursor-pointer h-12">
-                    Learn More
-                  </Button>
-                </div>
               </div>
             </div>
           </SpotlightCard>

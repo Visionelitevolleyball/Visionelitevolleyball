@@ -7,7 +7,6 @@ import {
   Star,
   Users,
   CheckCircle,
-  ArrowRight,
   Target,
   Zap,
   Award,
@@ -1229,47 +1228,6 @@ export default function ProgramsPage() {
             </motion.div>
           </div>
 
-          {/* CTA Section */}
-          <div className="mt-12 text-center">
-            <p className="text-gray-600 dark:text-gray-400 mb-6">
-              Ready to join the VISION family? Find your perfect program today.
-            </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button
-                size="lg"
-                className={cn(
-                  "group relative bg-gradient-to-r from-primary to-yellow-500",
-                  "hover:from-primary/90 hover:to-yellow-500/90",
-                  "text-black font-bold text-lg px-10 h-14",
-                  "hover:shadow-lg hover:scale-105",
-                  "transition-all duration-300",
-                  "cursor-pointer overflow-hidden",
-                  "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
-                  "hover:before:translate-x-[20rem] before:duration-[0.8s] before:-skew-x-[10deg]",
-                  "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
-                )}
-                onClick={() =>
-                  window.open(
-                    "https://visioneliteacademy.com/program-search/",
-                    "_blank"
-                  )
-                }
-              >
-                <span className="relative flex items-center gap-2">
-                  Register Today
-                  <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
-                </span>
-              </Button>
-
-              <Button
-                size="lg"
-                variant="outline"
-                className="font-medium text-lg px-10 h-14 border-2 hover:bg-gray-50 dark:hover:bg-gray-900 transition-all duration-300"
-              >
-                Contact Us
-              </Button>
-            </div>
-          </div>
         </div>
       </section>
     </div>
