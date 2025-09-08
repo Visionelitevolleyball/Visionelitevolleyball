@@ -228,7 +228,6 @@ export function BlogSection() {
                 </Link>
               </motion.article>
             ))}
-
         </div>
 
         {/* View All Button */}

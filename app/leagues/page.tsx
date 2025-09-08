@@ -278,8 +278,7 @@ export default function LeaguesPage() {
                 This program will not be offered during the 2025 Fall Season.
               </p>
               <p className="text-lg font-semibold text-orange-700 dark:text-orange-300">
-                It will be launched during the 2026 Winter Season with
-                Evaluations in January.
+                It will be launched during the 2026 Winter Season.
               </p>
             </div>
           </motion.div>
@@ -805,19 +804,6 @@ export default function LeaguesPage() {
             </motion.div>
           </div>
 
-          {/* Important Note */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="max-w-3xl mx-auto mt-8 text-center"
-          >
-            <p className="text-sm text-gray-600 dark:text-gray-400">
-              <strong>IMPORTANT:</strong> Pre-season Evaluations will be
-              organized to assess the calibre of athletes and tier athletes.
-            </p>
-          </motion.div>
         </div>
       </section>
 

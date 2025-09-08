@@ -2,20 +2,10 @@
 
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
-import { useState } from "react";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
 import {
-  Select,
-  SelectTrigger,
-  SelectValue,
-  SelectContent,
-  SelectItem,
-} from "@/components/ui/select";
-import {
-  Calendar,
-  MapPin,
   Users,
   Trophy,
   Target,
@@ -25,25 +15,7 @@ import {
   GraduationCap,
 } from "lucide-react";
 
-interface NewsletterForm {
-  name: string;
-  email: string;
-  location: string;
-}
-
 export default function SkyHighPage() {
-  const [form, setForm] = useState<NewsletterForm>({
-    name: "",
-    email: "",
-    location: "British Columbia",
-  });
-  const [submitted, setSubmitted] = useState(false);
-
-  const onSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-    if (!form.name || !form.email) return;
-    setSubmitted(true);
-  };
 
   return (
     <div className="relative">
@@ -99,123 +71,6 @@ export default function SkyHighPage() {
         </div>
       </section>
 
-      {/* Free Open Gym Schedule */}
-      <section className="relative pb-8">
-        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="flex items-center justify-between flex-wrap gap-3 mb-4">
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/10 border border-secondary/20">
-              <Calendar className="h-4 w-4 text-secondary" />
-              <span className="text-sm font-medium text-gray-700 dark:text-gray-300">
-                Free Open Gyms
-              </span>
-            </div>
-            <Badge
-              variant="secondary"
-              className="gap-1 text-white dark:text-gray-100"
-            >
-              <Users className="h-3.5 w-3.5" /> All sessions are co-ed unless
-              noted
-            </Badge>
-          </div>
-
-          <div className="grid md:grid-cols-3 gap-6 lg:gap-8">
-            {/* Saturday Sep 06, 2025 */}
-            <div className="rounded-2xl p-6 bg-white/80 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700">
-              <div className="flex items-center gap-2 mb-1 text-sm font-semibold text-gray-700 dark:text-gray-300">
-                <Calendar className="h-4 w-4 text-primary" /> Saturday · Sep 06,
-                2025
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-                <MapPin className="h-4 w-4" /> Vivo Comm Center, 11950 Country
-                Village
-              </div>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li className="flex gap-2">
-                  <CheckCircle className="h-4 w-4 text-primary mt-0.5" />{" "}
-                  Session 3: Grades 3–4 (Co-ed) · 9:00–10:30 am
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="h-4 w-4 text-primary mt-0.5" />{" "}
-                  Session 4: Grades 5–6 (Co-ed) · 10:30–12:00 pm
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="h-4 w-4 text-primary mt-0.5" />{" "}
-                  Session 5: Grades 7–8 (Co-ed) · 12:00–2:00 pm
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="h-4 w-4 text-primary mt-0.5" />{" "}
-                  Session 6: Grades 9+ (Co-ed) · 2:00–4:00 pm
-                </li>
-              </ul>
-            </div>
-
-            {/* Tuesday Sep 09, 2025 */}
-            <div className="rounded-2xl p-6 bg-white/80 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700">
-              <div className="flex items-center gap-2 mb-1 text-sm font-semibold text-gray-700 dark:text-gray-300">
-                <Calendar className="h-4 w-4 text-primary" /> Tuesday · Sep 09,
-                2025
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-                <MapPin className="h-4 w-4" /> Alberta Bible College, 635
-                Northmount Drive N.W
-              </div>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li className="flex gap-2">
-                  <CheckCircle className="h-4 w-4 text-primary mt-0.5" />{" "}
-                  Session 7: Girls Grades 6–10 · 6:00–7:30 pm
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="h-4 w-4 text-primary mt-0.5" />{" "}
-                  Session 8: Boys Grades 6–10 · 7:30–9:00 pm
-                </li>
-              </ul>
-            </div>
-
-            {/* Tuesday Sep 16, 2025 */}
-            <div className="rounded-2xl p-6 bg-white/80 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700">
-              <div className="flex items-center gap-2 mb-1 text-sm font-semibold text-gray-700 dark:text-gray-300">
-                <Calendar className="h-4 w-4 text-primary" /> Tuesday · Sep 16,
-                2025
-              </div>
-              <div className="flex items-center gap-2 text-sm text-gray-600 dark:text-gray-400 mb-4">
-                <MapPin className="h-4 w-4" /> Alberta Bible College, 635
-                Northmount Drive N.W
-              </div>
-              <ul className="space-y-2 text-sm text-gray-700 dark:text-gray-300">
-                <li className="flex gap-2">
-                  <CheckCircle className="h-4 w-4 text-primary mt-0.5" />{" "}
-                  Session 9: Girls Grades 6–10 · 6:00–7:30 pm
-                </li>
-                <li className="flex gap-2">
-                  <CheckCircle className="h-4 w-4 text-primary mt-0.5" />{" "}
-                  Session 10: Boys Grades 6–10 · 7:30–9:00 pm
-                </li>
-              </ul>
-            </div>
-          </div>
-
-          <div className="flex flex-col sm:flex-row gap-4 justify-center mt-8">
-            <Button
-              size="lg"
-              className={cn(
-                "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
-                "text-black font-bold text-lg px-10 h-14 cursor-pointer overflow-hidden"
-              )}
-            >
-              <span className="relative flex items-center gap-2">
-                Register for Open Gyms <ArrowRight className="h-5 w-5" />
-              </span>
-            </Button>
-            <Button
-              size="lg"
-              variant="outline"
-              className="font-medium text-lg px-10 h-14 border-2"
-            >
-              Contact Us
-            </Button>
-          </div>
-        </div>
-      </section>
 
       {/* Program Introduction */}
       <section className="relative pb-8">
@@ -545,102 +400,62 @@ export default function SkyHighPage() {
         </div>
       </section>
 
-      {/* Newsletter / E-Blasts */}
+      {/* Program Information Redirect */}
       <section className="relative pb-16">
-        <div className="relative z-10 max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="rounded-2xl p-6 bg-white/80 dark:bg-gray-900/60 border border-gray-200 dark:border-gray-700">
-            <div className="flex items-center justify-between gap-2 mb-4 flex-wrap">
-              <h3 className="text-xl font-bold">
-                Get our weekly VISION e-blasts
-              </h3>
-              <Badge
-                variant="secondary"
-                className="bg-secondary/10 text-gray-900 dark:text-gray-100"
-              >
-                Discounts & Special Offers
-              </Badge>
-            </div>
-            {submitted ? (
-              <div className="text-green-600 dark:text-green-400 font-medium">
-                Thanks! You are subscribed.
+        <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+          <SpotlightCard
+            className="p-10 bg-gradient-to-br from-primary/5 via-yellow-500/5 to-orange-500/5 dark:from-primary/10 dark:via-yellow-500/10 dark:to-orange-500/10 border-2 border-primary/20"
+            spotlightColor="rgba(236, 186, 88, 0.15)"
+          >
+            <div className="text-center">
+              <div className="inline-flex items-center justify-center w-16 h-16 mb-6 rounded-full bg-gradient-to-br from-primary to-yellow-500 shadow-lg shadow-primary/25">
+                <GraduationCap className="h-8 w-8 text-black" />
               </div>
-            ) : (
-              <form onSubmit={onSubmit} className="grid sm:grid-cols-2 gap-4">
-                <div className="sm:col-span-1">
-                  <label className="block text-sm font-medium mb-1">Name</label>
-                  <input
-                    type="text"
-                    value={form.name}
-                    onChange={(e) => setForm({ ...form, name: e.target.value })}
-                    required
-                    className={cn(
-                      "w-full px-3 py-2 rounded-lg",
-                      "bg-card border border-border text-foreground",
-                      "focus:outline-none focus:ring-2 focus:ring-primary"
-                    )}
-                  />
+              
+              <h3 className="text-3xl lg:text-4xl font-bold mb-4">
+                <span className="bg-gradient-to-r from-gray-900 to-gray-700 dark:from-gray-100 dark:to-gray-300 bg-clip-text text-transparent">
+                  Ready to Take the Next Step?
+                </span>
+              </h3>
+              
+              <p className="text-lg text-gray-600 dark:text-gray-400 max-w-2xl mx-auto mb-8">
+                Explore our comprehensive volleyball programs designed to develop athletes at every level. 
+                From beginners to elite competitors, find the perfect program for your journey.
+              </p>
+
+              <div className="grid sm:grid-cols-3 gap-4 mb-8 max-w-2xl mx-auto">
+                <div className="flex flex-col items-center">
+                  <Trophy className="h-6 w-6 text-primary mb-2" />
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Elite Training</span>
                 </div>
-                <div className="sm:col-span-1">
-                  <label className="block text-sm font-medium mb-1">
-                    Email
-                  </label>
-                  <input
-                    type="email"
-                    value={form.email}
-                    onChange={(e) =>
-                      setForm({ ...form, email: e.target.value })
-                    }
-                    required
-                    className={cn(
-                      "w-full px-3 py-2 rounded-lg",
-                      "bg-card border border-border text-foreground",
-                      "focus:outline-none focus:ring-2 focus:ring-primary"
-                    )}
-                  />
+                <div className="flex flex-col items-center">
+                  <Users className="h-6 w-6 text-primary mb-2" />
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Team Development</span>
                 </div>
-                <div className="sm:col-span-2">
-                  <label className="block text-sm font-medium mb-1">
-                    Location
-                  </label>
-                  <Select
-                    value={form.location}
-                    onValueChange={(v) => setForm({ ...form, location: v })}
-                  >
-                    <SelectTrigger className="w-full">
-                      <SelectValue placeholder="Select location" />
-                    </SelectTrigger>
-                    <SelectContent>
-                      <SelectItem value="British Columbia">
-                        British Columbia
-                      </SelectItem>
-                      <SelectItem value="Alberta">Alberta</SelectItem>
-                      <SelectItem value="Manitoba">Manitoba</SelectItem>
-                      <SelectItem value="Other">Other</SelectItem>
-                      <SelectItem value="Outside Canada">
-                        Outside Canada
-                      </SelectItem>
-                    </SelectContent>
-                  </Select>
+                <div className="flex flex-col items-center">
+                  <Target className="h-6 w-6 text-primary mb-2" />
+                  <span className="text-sm font-semibold text-gray-700 dark:text-gray-300">Skills Mastery</span>
                 </div>
-                <div className="sm:col-span-2">
-                  <Button
-                    type="submit"
-                    className={cn(
-                      "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
-                      "text-black font-semibold h-12 px-6 cursor-pointer overflow-hidden"
-                    )}
-                  >
-                    <span className="relative flex items-center gap-2">
-                      Subscribe <ArrowRight className="h-5 w-5" />
-                    </span>
-                  </Button>
-                </div>
-              </form>
-            )}
-            <p className="text-xs text-gray-500 dark:text-gray-500 mt-3">
-              We respect your email privacy
-            </p>
-          </div>
+              </div>
+              
+              <Button
+                size="lg"
+                onClick={() => window.open("https://visioneliteacademy.com/program-search", "_blank")}
+                className={cn(
+                  "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
+                  "text-black font-bold text-lg px-12 h-14 shadow-lg hover:shadow-2xl hover:scale-105",
+                  "transition-all duration-300 cursor-pointer overflow-hidden",
+                  "before:absolute before:w-[0.5rem] before:h-[25rem] before:top-0 before:translate-x-[-15rem]",
+                  "hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg]",
+                  "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
+                )}
+              >
+                <span className="relative flex items-center gap-2">
+                  View All Programs <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
+                </span>
+              </Button>
+            </div>
+          </SpotlightCard>
         </div>
       </section>
     </div>

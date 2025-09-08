@@ -75,7 +75,7 @@ export function PathwaySection() {
             className="flex flex-wrap justify-center gap-4 mb-8"
           >
             {[
-              { icon: Award, label: "VEA Certified", color: "text-yellow-600" },
+              { icon: Award, label: "Professional Coaching Excellence", color: "text-yellow-600" },
               { icon: Star, label: "Elite Training", color: "text-primary" },
               {
                 icon: Trophy,
