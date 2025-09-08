@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -54,6 +55,8 @@ const leagueTestimonials = [
 ];
 
 export default function LeaguesPage() {
+  const router = useRouter();
+  
   return (
     <div className="relative">
       {/* Background Pattern - Consistent with reviews page */}
@@ -173,23 +176,17 @@ export default function LeaguesPage() {
                 "hover:before:translate-x-[20rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                 "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
               )}
+              onClick={() =>
+                window.open(
+                  "https://visioneliteacademy.com/program-search/",
+                  "_blank"
+                )
+              }
             >
               <span className="relative flex items-center gap-2">
                 Register Now
                 <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
               </span>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className={cn(
-                "group font-medium text-lg px-8 h-14",
-                "border-2 hover:bg-accent/50",
-                "transition-all duration-300"
-              )}
-            >
-              Find a Program
             </Button>
           </motion.div>
 
@@ -202,7 +199,11 @@ export default function LeaguesPage() {
           >
             {[
               { icon: Users, value: "13-18", label: "Age Groups" },
-              { icon: Trophy, value: "90+60", label: "Minutes Training + Games" },
+              {
+                icon: Trophy,
+                value: "90+60",
+                label: "Minutes Training + Games",
+              },
               { icon: Star, value: "100%", label: "Playing Time" },
             ].map((stat, index) => (
               <motion.div
@@ -228,16 +229,16 @@ export default function LeaguesPage() {
       </section>
 
       {/* Pathway Section */}
-      <section className="relative py-20 sm:py-28 md:py-32">
+      <section className="relative py-12 sm:py-16">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-center mb-12"
+            className="text-center mb-6"
           >
-            <Badge className="mb-4 px-4 py-2 text-sm font-semibold bg-gradient-to-r from-primary to-yellow-500 text-black">
+            <Badge className="mb-4 px-4 py-2 text-sm font-semibold bg-primary/10 text-gray-900 dark:text-primary border-0">
               <Sparkles className="h-4 w-4 mr-2" />
               Pathway to Excellence
             </Badge>
@@ -248,15 +249,15 @@ export default function LeaguesPage() {
             </h2>
             <p className="text-lg text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
               VISION Premier League is a stepping stone to club volleyball,
-              giving athletes the technical skills and game knowledge to
-              advance to higher levels of play.
+              giving athletes the technical skills and game knowledge to advance
+              to higher levels of play.
             </p>
           </motion.div>
         </div>
       </section>
 
       {/* Important Notice Section */}
-      <section className="relative py-12">
+      <section className="relative py-8">
         <div className="relative z-10 max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
           <motion.div
             initial={{ opacity: 0, scale: 0.95 }}
@@ -276,7 +277,7 @@ export default function LeaguesPage() {
               <p className="text-lg text-gray-700 dark:text-gray-300 mb-4">
                 This program will not be offered during the 2025 Fall Season.
               </p>
-              <p className="text-lg font-semibold text-primary dark:text-yellow-400">
+              <p className="text-lg font-semibold text-orange-700 dark:text-orange-300">
                 It will be launched during the 2026 Winter Season with
                 Evaluations in January.
               </p>
@@ -312,21 +313,33 @@ export default function LeaguesPage() {
                 title: "Once-a-week Training",
                 description: "Games on Saturdays",
                 highlight: "Weekly",
-                gradient: "from-blue-500 to-cyan-500",
+                iconGradient: "from-blue-500 to-cyan-500",
+                cardGradient: "from-blue-50/80 to-cyan-50/80 dark:from-blue-950/20 dark:to-cyan-950/20",
+                badgeGradient: "from-blue-100 to-cyan-100 dark:from-blue-900/30 dark:to-cyan-900/30",
+                badgeText: "text-blue-900 dark:text-blue-200",
+                glowColor: "from-blue-500/10 via-transparent to-cyan-500/10",
               },
               {
                 icon: Trophy,
                 title: "Season Championship",
                 description: "Season-ending tournament",
                 highlight: "Tournament",
-                gradient: "from-purple-500 to-pink-500",
+                iconGradient: "from-purple-500 to-pink-500",
+                cardGradient: "from-purple-50/80 to-pink-50/80 dark:from-purple-950/20 dark:to-pink-950/20",
+                badgeGradient: "from-purple-100 to-pink-100 dark:from-purple-900/30 dark:to-pink-900/30",
+                badgeText: "text-purple-900 dark:text-purple-200",
+                glowColor: "from-purple-500/10 via-transparent to-pink-500/10",
               },
               {
                 icon: Calendar,
                 title: "Seasonal Camps",
                 description: "8-9 weeks long",
                 highlight: "8-9 Weeks",
-                gradient: "from-green-500 to-emerald-500",
+                iconGradient: "from-green-500 to-emerald-500",
+                cardGradient: "from-green-50/80 to-emerald-50/80 dark:from-green-950/20 dark:to-emerald-950/20",
+                badgeGradient: "from-green-100 to-emerald-100 dark:from-green-900/30 dark:to-emerald-900/30",
+                badgeText: "text-green-900 dark:text-green-200",
+                glowColor: "from-green-500/10 via-transparent to-emerald-500/10",
               },
             ].map((item, index) => (
               <motion.div
@@ -337,29 +350,47 @@ export default function LeaguesPage() {
                 viewport={{ once: true }}
                 className="group"
               >
-                <div className="h-full rounded-2xl bg-white/80 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 p-8 hover:shadow-xl hover:-translate-y-1 transition-all duration-300">
-                  <div
-                    className={cn(
-                      "inline-flex items-center justify-center w-14 h-14 mb-4 rounded-2xl",
+                <div className={cn(
+                  "relative h-full rounded-2xl p-8",
+                  "bg-gradient-to-br",
+                  item.cardGradient,
+                  "backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/40",
+                  "hover:shadow-2xl hover:-translate-y-2 hover:border-gray-300 dark:hover:border-gray-600",
+                  "transition-all duration-300 overflow-hidden"
+                )}>
+                  {/* Decorative gradient overlay */}
+                  <div className={cn(
+                    "absolute inset-0 bg-gradient-to-tr opacity-40",
+                    item.glowColor
+                  )} />
+                  
+                  <div className="relative z-10">
+                    <div className={cn(
+                      "inline-flex items-center justify-center w-16 h-16 mb-5 rounded-2xl",
                       "bg-gradient-to-br",
-                      item.gradient,
-                      "shadow-lg group-hover:scale-110 transition-transform"
-                    )}
-                  >
-                    <item.icon className="h-7 w-7 text-white" />
+                      item.iconGradient,
+                      "shadow-xl group-hover:scale-110 group-hover:shadow-2xl",
+                      "transition-all duration-300",
+                      "ring-4 ring-white/50 dark:ring-gray-800/50"
+                    )}>
+                      <item.icon className="h-8 w-8 text-white" />
+                    </div>
+                    <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
+                      {item.title}
+                    </h3>
+                    <p className="text-gray-600 dark:text-gray-400 mb-4">
+                      {item.description}
+                    </p>
+                    <Badge className={cn(
+                      "px-3 py-1.5 text-sm font-semibold",
+                      "bg-gradient-to-r",
+                      item.badgeGradient,
+                      item.badgeText,
+                      "border-0 shadow-sm"
+                    )}>
+                      {item.highlight}
+                    </Badge>
                   </div>
-                  <h3 className="text-xl font-bold text-gray-900 dark:text-gray-100 mb-2">
-                    {item.title}
-                  </h3>
-                  <p className="text-gray-600 dark:text-gray-400 mb-3">
-                    {item.description}
-                  </p>
-                  <Badge
-                    variant="secondary"
-                    className="bg-gradient-to-r from-gray-100 to-gray-200 dark:from-gray-800 dark:to-gray-700 text-gray-800 dark:text-gray-200 font-semibold"
-                  >
-                    {item.highlight}
-                  </Badge>
                 </div>
               </motion.div>
             ))}
@@ -373,53 +404,82 @@ export default function LeaguesPage() {
             viewport={{ once: true }}
             className="max-w-4xl mx-auto"
           >
-            <div className="rounded-2xl backdrop-blur-sm border border-gray-200/60 dark:border-gray-700/40 p-8 lg:p-10">
-              <h3 className="text-2xl font-bold text-gray-900 dark:text-gray-100 mb-6 text-center">
-                Weekly Training & League Play
-              </h3>
-              <div className="grid md:grid-cols-3 gap-6">
-                {[
-                  {
-                    number: "90",
-                    unit: "minutes",
-                    label: "Training Session",
-                    icon: Target,
-                  },
-                  {
-                    number: "60",
-                    unit: "minutes",
-                    label: "League Play",
-                    icon: Users,
-                  },
-                  {
-                    number: "1",
-                    unit: "tournament",
-                    label: "Championship",
-                    icon: Trophy,
-                  },
-                ].map((item, index) => (
-                  <div
-                    key={index}
-                    className="text-center group cursor-pointer"
-                  >
-                    <div className="inline-flex items-center justify-center w-12 h-12 mb-3 rounded-full bg-gradient-to-br from-primary/20 to-yellow-500/20 group-hover:scale-110 transition-transform">
-                      <item.icon className="h-6 w-6 text-primary" />
-                    </div>
-                    <div className="text-3xl font-bold bg-gradient-to-r from-primary to-yellow-500 bg-clip-text text-transparent">
-                      {item.number}
-                    </div>
-                    <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">
-                      {item.unit}
-                    </div>
-                    <div className="text-base font-medium text-gray-700 dark:text-gray-300">
-                      {item.label}
-                    </div>
-                  </div>
-                ))}
+            <div className="relative rounded-3xl bg-gradient-to-br from-primary/5 via-yellow-50/50 to-orange-50/50 dark:from-primary/10 dark:via-yellow-950/20 dark:to-orange-950/20 backdrop-blur-md border border-primary/20 dark:border-yellow-800/30 p-8 lg:p-10 shadow-xl overflow-hidden">
+              {/* Decorative gradient orb */}
+              <div className="absolute -top-20 -right-20 w-40 h-40 bg-gradient-to-br from-primary/20 to-yellow-500/20 rounded-full blur-3xl" />
+              <div className="absolute -bottom-20 -left-20 w-40 h-40 bg-gradient-to-br from-orange-500/20 to-yellow-500/20 rounded-full blur-3xl" />
+              
+              <div className="relative z-10">
+                <h3 className="text-2xl font-bold bg-gradient-to-r from-gray-900 via-gray-700 to-gray-900 dark:from-gray-100 dark:via-gray-200 dark:to-gray-100 bg-clip-text text-transparent mb-8 text-center">
+                  Weekly Training & League Play
+                </h3>
+                <div className="grid md:grid-cols-3 gap-8">
+                  {[
+                    {
+                      number: "90",
+                      unit: "minutes",
+                      label: "Training Session",
+                      icon: Target,
+                      gradient: "from-orange-400 to-amber-500",
+                      bgGradient: "from-orange-100/50 to-amber-100/50 dark:from-orange-900/20 dark:to-amber-900/20",
+                    },
+                    {
+                      number: "60",
+                      unit: "minutes",
+                      label: "League Play",
+                      icon: Users,
+                      gradient: "from-yellow-400 to-amber-500",
+                      bgGradient: "from-yellow-100/50 to-amber-100/50 dark:from-yellow-900/20 dark:to-amber-900/20",
+                    },
+                    {
+                      number: "1",
+                      unit: "tournament",
+                      label: "Championship",
+                      icon: Trophy,
+                      gradient: "from-amber-400 to-yellow-500",
+                      bgGradient: "from-amber-100/50 to-yellow-100/50 dark:from-amber-900/20 dark:to-yellow-900/20",
+                    },
+                  ].map((item, index) => (
+                    <motion.div 
+                      key={index} 
+                      className="text-center group cursor-pointer relative p-4 rounded-2xl transition-all duration-300 hover:bg-white/40 dark:hover:bg-gray-800/40"
+                      whileHover={{ scale: 1.05 }}
+                      transition={{ type: "spring", stiffness: 300 }}
+                    >
+                      <div className={cn(
+                        "inline-flex items-center justify-center w-14 h-14 mb-4 rounded-2xl",
+                        "bg-gradient-to-br",
+                        item.gradient,
+                        "shadow-lg group-hover:shadow-xl group-hover:scale-110",
+                        "transition-all duration-300",
+                        "ring-2 ring-white/30 dark:ring-gray-800/30"
+                      )}>
+                        <item.icon className="h-7 w-7 text-white" />
+                      </div>
+                      <div className={cn(
+                        "text-4xl font-bold mb-1",
+                        "bg-gradient-to-r",
+                        item.gradient,
+                        "bg-clip-text text-transparent",
+                        "drop-shadow-sm"
+                      )}>
+                        {item.number}
+                      </div>
+                      <div className="text-sm text-gray-600 dark:text-gray-400 mb-1">
+                        {item.unit}
+                      </div>
+                      <div className="text-base font-semibold text-gray-800 dark:text-gray-200">
+                        {item.label}
+                      </div>
+                    </motion.div>
+                  ))}
+                </div>
+                <div className="mt-8 pt-6 border-t border-primary/10 dark:border-yellow-800/20">
+                  <p className="text-center text-sm text-gray-600 dark:text-gray-400 font-medium">
+                    Note: Team rankings used to create Tournament draw.
+                  </p>
+                </div>
               </div>
-              <p className="text-center text-sm text-gray-600 dark:text-gray-400 mt-6">
-                Note: Team rankings used to create Tournament draw.
-              </p>
             </div>
           </motion.div>
         </div>
@@ -435,7 +495,7 @@ export default function LeaguesPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 px-4 py-2 text-sm font-semibold bg-gradient-to-r from-primary to-yellow-500 text-black">
+            <Badge className="mb-4 px-4 py-2 text-sm font-semibold bg-primary/10 text-gray-900 dark:text-primary border-0">
               <Star className="h-4 w-4 mr-2" />
               Excellence in Every Session
             </Badge>
@@ -631,6 +691,12 @@ export default function LeaguesPage() {
                       "hover:before:translate-x-[15rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                       "before:transition-all before:bg-white before:blur-[10px] before:opacity-50"
                     )}
+                    onClick={() =>
+                      window.open(
+                        "https://visioneliteacademy.com/program-search/",
+                        "_blank"
+                      )
+                    }
                   >
                     Register for Winter 2026
                   </Button>
@@ -725,6 +791,12 @@ export default function LeaguesPage() {
                       "hover:before:translate-x-[15rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                       "before:transition-all before:bg-white before:blur-[10px] before:opacity-50"
                     )}
+                    onClick={() =>
+                      window.open(
+                        "https://visioneliteacademy.com/program-search/",
+                        "_blank"
+                      )
+                    }
                   >
                     Register for Spring 2026
                   </Button>
@@ -759,7 +831,7 @@ export default function LeaguesPage() {
             viewport={{ once: true }}
             className="text-center mb-12"
           >
-            <Badge className="mb-4 px-4 py-2 text-sm font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800">
+            <Badge className="mb-4 px-4 py-2 text-sm font-semibold bg-primary/10 text-gray-900 dark:text-primary border-0">
               <Star className="h-4 w-4 mr-2 fill-current" />
               Real Success Stories
               <Star className="h-4 w-4 ml-2 fill-current" />
@@ -855,6 +927,12 @@ export default function LeaguesPage() {
                     "hover:shadow-2xl hover:scale-105",
                     "transition-all duration-300"
                   )}
+                  onClick={() =>
+                    window.open(
+                      "https://visioneliteacademy.com/program-search/",
+                      "_blank"
+                    )
+                  }
                 >
                   <span className="flex items-center gap-2">
                     Register Now
@@ -870,6 +948,7 @@ export default function LeaguesPage() {
                     "hover:shadow-lg",
                     "transition-all duration-300"
                   )}
+                  onClick={() => router.push('/contact/get-in-touch')}
                 >
                   Contact Us
                 </Button>

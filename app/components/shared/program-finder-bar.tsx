@@ -33,6 +33,7 @@ export function ProgramFinderBar() {
             <div className="flex items-center">
               <Button
                 size="lg"
+                onClick={() => window.open("https://visioneliteacademy.com/program-search/", "_blank")}
                 className={cn(
                   "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
                   "text-black font-semibold text-[14px] px-5 h-[36px]",
@@ -107,6 +108,7 @@ export function ProgramFinderBar() {
           {/* Find a Program - Full Width */}
           <Button
             size="lg"
+            onClick={() => window.open("https://visioneliteacademy.com/program-search/", "_blank")}
             className={cn(
               "w-full group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
               "text-black font-semibold text-[16px] h-[48px]",
