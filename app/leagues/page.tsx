@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useRouter } from "next/navigation";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -54,6 +55,8 @@ const leagueTestimonials = [
 ];
 
 export default function LeaguesPage() {
+  const router = useRouter();
+  
   return (
     <div className="relative">
       {/* Background Pattern - Consistent with reviews page */}
@@ -173,23 +176,17 @@ export default function LeaguesPage() {
                 "hover:before:translate-x-[20rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                 "before:transition-all before:bg-white before:blur-[10px] before:opacity-60"
               )}
+              onClick={() =>
+                window.open(
+                  "https://visioneliteacademy.com/program-search/",
+                  "_blank"
+                )
+              }
             >
               <span className="relative flex items-center gap-2">
                 Register Now
                 <ArrowRight className="h-5 w-5 transition-transform duration-200 group-hover:translate-x-1" />
               </span>
-            </Button>
-
-            <Button
-              size="lg"
-              variant="outline"
-              className={cn(
-                "group font-medium text-lg px-8 h-14",
-                "border-2 hover:bg-accent/50",
-                "transition-all duration-300"
-              )}
-            >
-              Find a Program
             </Button>
           </motion.div>
 
@@ -694,6 +691,12 @@ export default function LeaguesPage() {
                       "hover:before:translate-x-[15rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                       "before:transition-all before:bg-white before:blur-[10px] before:opacity-50"
                     )}
+                    onClick={() =>
+                      window.open(
+                        "https://visioneliteacademy.com/program-search/",
+                        "_blank"
+                      )
+                    }
                   >
                     Register for Winter 2026
                   </Button>
@@ -788,6 +791,12 @@ export default function LeaguesPage() {
                       "hover:before:translate-x-[15rem] before:duration-[0.8s] before:-skew-x-[10deg]",
                       "before:transition-all before:bg-white before:blur-[10px] before:opacity-50"
                     )}
+                    onClick={() =>
+                      window.open(
+                        "https://visioneliteacademy.com/program-search/",
+                        "_blank"
+                      )
+                    }
                   >
                     Register for Spring 2026
                   </Button>
@@ -918,6 +927,12 @@ export default function LeaguesPage() {
                     "hover:shadow-2xl hover:scale-105",
                     "transition-all duration-300"
                   )}
+                  onClick={() =>
+                    window.open(
+                      "https://visioneliteacademy.com/program-search/",
+                      "_blank"
+                    )
+                  }
                 >
                   <span className="flex items-center gap-2">
                     Register Now
@@ -933,6 +948,7 @@ export default function LeaguesPage() {
                     "hover:shadow-lg",
                     "transition-all duration-300"
                   )}
+                  onClick={() => router.push('/contact/get-in-touch')}
                 >
                   Contact Us
                 </Button>
