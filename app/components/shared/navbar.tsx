@@ -183,7 +183,9 @@ export function Navbar() {
                       403-510-1784
                     </span>
                   </a>
-                  <Button className="relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black text-lg font-semibold px-8 h-12 transition-all duration-300 hover:scale-105 hover:shadow-sm cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[12rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
+                  <Button 
+                    onClick={() => window.open("https://visioneliteacademy.com/program-search/", "_blank")}
+                    className="relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black text-lg font-semibold px-8 h-12 transition-all duration-300 hover:scale-105 hover:shadow-sm cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[12rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
                     <span className="relative">Register Today</span>
                   </Button>
                 </div>
@@ -417,7 +419,9 @@ export function Navbar() {
                       <Phone className="h-6 w-6" />
                       <span className="text-lg font-medium">403-510-1784</span>
                     </a>
-                    <Button className="w-full relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold h-14 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-sm cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
+                    <Button 
+                      onClick={() => window.open("https://visioneliteacademy.com/program-search/", "_blank")}
+                      className="w-full relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90 text-black font-semibold h-14 text-lg transition-all duration-300 hover:scale-[1.02] hover:shadow-sm cursor-pointer overflow-hidden before:absolute before:w-[0.4rem] before:h-[20rem] before:top-0 before:translate-x-[-10rem] hover:before:translate-x-[25rem] before:duration-[0.8s] before:-skew-x-[10deg] before:transition-all before:bg-white before:blur-[10px] before:opacity-70">
                       <span className="relative">Register Today</span>
                     </Button>
                   </div>
