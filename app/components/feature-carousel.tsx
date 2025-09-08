@@ -19,8 +19,8 @@ const features = [
     href: "/programs",
   },
   {
-    title: "Beware of the",
-    highlight: "Daycare Program",
+    title: "More than childcare –",
+    highlight: "Training with a Purpose",
     description:
       "Our programs go beyond basic supervision. We focus on skill development, strategy, and building confident athletes.",
     image: "/image1-2.png",
@@ -32,7 +32,7 @@ const features = [
     title: "Train with",
     highlight: "Experienced Coaches",
     description:
-      "Learn from VEA certified coaches who have years of competitive experience and a passion for developing young talent.",
+      "Learn from coaches with Professional Coaching Excellence who have years of competitive experience and a passion for developing young talent.",
     image: "/image1-3.jpg",
     buttonText: "Meet Our Coaches",
     buttonIcon: <Users className="h-5 w-5" />,

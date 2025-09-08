@@ -20,6 +20,7 @@ import {
   UserCheck,
   Eye,
   Handshake,
+  Clock,
 } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -205,7 +206,7 @@ export default function ProgramsPage() {
                         {
                           icon: Heart,
                           text: "Positive, inclusive environment",
-                          metric: "Since 1999",
+                          metric: "1999 Established",
                         },
                         {
                           icon: Sparkles,
@@ -448,7 +449,7 @@ export default function ProgramsPage() {
                           icon: Users,
                         },
                         {
-                          number: "Since 1999",
+                          number: "1999 Established",
                           label: "Established",
                           icon: Trophy,
                         },
@@ -1071,6 +1072,159 @@ export default function ProgramsPage() {
                 >
                   <span className="relative">FIND A PROGRAM</span>
                 </Button>
+              </div>
+            </motion.div>
+          </div>
+        </div>
+      </section>
+
+      {/* Expanded Summer Camps Section */}
+      <section className="relative py-16 bg-gradient-to-br from-yellow-50/50 via-white to-orange-50/50 dark:from-gray-950 dark:via-background dark:to-gray-950">
+        <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="text-center mb-12"
+          >
+            <Badge className="inline-flex px-4 py-2 text-sm font-semibold bg-gradient-to-r from-yellow-100 to-orange-100 dark:from-yellow-900/20 dark:to-orange-900/20 text-orange-900 dark:text-orange-200 border-orange-200 dark:border-orange-800 mb-4">
+              <Sun className="h-4 w-4 mr-2" />
+              Summer Camps
+            </Badge>
+            <h2 className="text-4xl lg:text-5xl font-bold mb-4">
+              Summer Camp Details
+            </h2>
+            <p className="text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
+              More Than a Game: Growth, Friendship, and Fun! Building Skills, Confidence, and Team Spirit!
+            </p>
+          </motion.div>
+
+          {/* Camp Philosophy */}
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="bg-gradient-to-r from-gray-900 to-gray-800 dark:from-gray-800 dark:to-gray-900 rounded-3xl p-10 text-white mb-12"
+          >
+            <h3 className="text-3xl font-bold mb-6">
+              Vision Summer Day Camp Philosophy
+            </h3>
+            <div className="grid gap-4 sm:gap-5 md:grid-cols-2 md:gap-6">
+              {[
+                {
+                  title: "Team Experience",
+                  desc: "Teams formed Monday morning, train all week",
+                },
+                {
+                  title: "Championship Friday", 
+                  desc: "Tournament with awards and prizes",
+                },
+                {
+                  title: "High-Repetition Training",
+                  desc: "Fast-paced drills for consistency",
+                },
+                {
+                  title: "Positive Coaching",
+                  desc: "Motivate, encourage, and support every athlete",
+                },
+                {
+                  title: "Skill Development",
+                  desc: "For all experience levels",
+                },
+                {
+                  title: "Daily Schedule",
+                  desc: "9am-4pm with breaks and lunch",
+                },
+              ].map((item, index) => (
+                <div key={index} className="flex items-start gap-3">
+                  <CheckCircle className="h-5 w-5 text-yellow-400 flex-shrink-0 mt-0.5" />
+                  <div className="flex-1 min-w-0">
+                    <span className="text-gray-200 block">
+                      <span className="font-semibold">{item.title}</span>
+                      <span className="hidden sm:inline"> – </span>
+                      <span className="block sm:inline text-sm sm:text-base text-gray-300">
+                        {item.desc}
+                      </span>
+                    </span>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
+
+          {/* Camp Format Cards */}
+          <div className="grid md:grid-cols-2 gap-6 lg:gap-8 mb-12">
+            <motion.div
+              initial={{ opacity: 0, x: -20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-primary/5 to-yellow-500/5 dark:from-primary/10 dark:to-yellow-500/10 border border-primary/20 hover:border-primary/40 dark:hover:border-primary/40 hover:shadow-lg hover:shadow-yellow-500/5 dark:hover:shadow-yellow-500/10 hover:-translate-y-1 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                  <GraduationCap className="h-8 w-8 text-primary" />
+                  Program Format
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Available weekly during July-August</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Beginners to Intermediate level</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Ages 12-14 & 15+</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>Open to boys & girls</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-primary flex-shrink-0" />
+                    <span>$400 for full week</span>
+                  </div>
+                </div>
+              </div>
+            </motion.div>
+
+            <motion.div
+              initial={{ opacity: 0, x: 20 }}
+              whileInView={{ opacity: 1, x: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.6 }}
+            >
+              <div className="h-full p-8 rounded-3xl bg-gradient-to-br from-secondary/5 to-purple-500/5 dark:from-secondary/10 dark:to-purple-500/10 border border-secondary/20 hover:border-secondary/40 dark:hover:border-secondary/40 hover:shadow-lg hover:shadow-purple-500/5 dark:hover:shadow-purple-500/10 hover:-translate-y-1 transition-all duration-300">
+                <h3 className="text-2xl font-bold mb-4 flex items-center gap-3">
+                  <Clock className="h-8 w-8 text-secondary" />
+                  What to Expect
+                </h3>
+                <div className="space-y-3">
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>Warm-up games to meet teammates</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>High-repetition skill drills</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>Team tactics & systems of play</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>Daily scrimmages and competitions</span>
+                  </div>
+                  <div className="flex items-center gap-3">
+                    <CheckCircle className="h-5 w-5 text-secondary flex-shrink-0" />
+                    <span>Prizes, T-shirts & awards</span>
+                  </div>
+                </div>
               </div>
             </motion.div>
           </div>
