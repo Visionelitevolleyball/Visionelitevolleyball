@@ -8,6 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, Calendar, Clock, User, ArrowRight } from "lucide-react";
 import { posts as sharedPosts } from "./posts";
+import { openNewsletterPopup } from "@/app/components/newsletter-popup";
 
 interface BlogPost {
   id: string;
@@ -332,6 +333,7 @@ export default function BlogPage() {
               </p>
               <Button
                 size="lg"
+                onClick={openNewsletterPopup}
                 className={cn(
                   "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
                   "text-black font-semibold text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14",

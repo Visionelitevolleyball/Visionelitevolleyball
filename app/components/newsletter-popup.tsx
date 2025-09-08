@@ -13,6 +13,13 @@ import {
   SelectValue,
 } from "@/components/ui/select";
 
+// Create a global event emitter for newsletter popup
+export const openNewsletterPopup = () => {
+  if (typeof window !== 'undefined') {
+    window.dispatchEvent(new CustomEvent('open-newsletter-popup'));
+  }
+};
+
 export function NewsletterPopup() {
   const [isVisible, setIsVisible] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
@@ -25,17 +32,29 @@ export function NewsletterPopup() {
   const pathname = usePathname();
 
   useEffect(() => {
-    // Only show popup on home page
+    // Listen for manual trigger events
+    const handleOpenPopup = () => {
+      setIsVisible(true);
+    };
+    
+    window.addEventListener('open-newsletter-popup', handleOpenPopup);
+    
+    // Only show popup automatically on home page
     if (pathname !== "/") {
-      return;
+      return () => {
+        window.removeEventListener('open-newsletter-popup', handleOpenPopup);
+      };
     }
 
-    // Show popup after 10 seconds
+    // Show popup after 10 seconds on home page
     const timer = setTimeout(() => {
       setIsVisible(true);
     }, 10000);
 
-    return () => clearTimeout(timer);
+    return () => {
+      clearTimeout(timer);
+      window.removeEventListener('open-newsletter-popup', handleOpenPopup);
+    };
   }, [pathname]);
 
   const validateEmail = (email: string) => {
