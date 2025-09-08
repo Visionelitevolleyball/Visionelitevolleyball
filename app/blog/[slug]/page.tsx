@@ -67,7 +67,7 @@ export default function BlogDetailPage({
           <h1 className="text-3xl sm:text-4xl lg:text-5xl font-black mb-4">
             <span
               className={cn(
-                "block",
+                "block pb-2",
                 "bg-gradient-to-br from-gray-900 via-gray-700 to-gray-600 dark:from-gray-100 dark:via-gray-200 dark:to-gray-400",
                 "bg-clip-text text-transparent"
               )}
@@ -102,7 +102,7 @@ export default function BlogDetailPage({
                 priority
                 fetchPriority="high"
                 sizes="(max-width: 1024px) 100vw, 1024px"
-                className="object-cover"
+                className="object-cover object-top"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>

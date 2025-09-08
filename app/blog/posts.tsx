@@ -34,7 +34,7 @@ export const posts: BlogPost[] = [
     readTimeShort: "8 min",
     category: "International",
     image:
-      "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=2000&auto=format&fit=crop",
+      "https://usavolleyball.org/wp-content/uploads/2024/08/USA-vs.-BRA-Semi-scaled.jpg",
     featured: true,
     publishedAt: Date.parse("2025-08-21T21:00:00Z"),
     content: (
@@ -200,7 +200,7 @@ export const posts: BlogPost[] = [
     readTimeShort: "6 min",
     category: "VNL 2025",
     image:
-      "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?q=80&w=2000&auto=format&fit=crop",
+      "https://images.volleyballworld.com/image/upload/t_q-best/fivb-prd/supajedfzfw7kjymkpir.jpg",
     publishedAt: Date.parse("2025-08-07T19:45:00Z"),
     content: (
       <div className="space-y-6">
@@ -318,7 +318,7 @@ export const posts: BlogPost[] = [
     readTimeShort: "7 min",
     category: "Performance",
     image:
-      "https://images.unsplash.com/photo-1592656094267-764a45160876?q=80&w=2000&auto=format&fit=crop",
+      "https://mevza.org/live/wp-content/uploads/2021/06/slovenia2-1024x685.png",
     publishedAt: Date.parse("2025-07-31T19:15:00Z"),
     content: (
       <div className="space-y-6">
@@ -579,7 +579,7 @@ export const posts: BlogPost[] = [
     readTime: "5 min read",
     readTimeShort: "5 min",
     category: "Women's Sports",
-    image: "https://images.unsplash.com/photo-1571019613454-1cb2f99b2d8b?q=80&w=2000&auto=format&fit=crop",
+    image: "https://d1y8sb8igg2f8e.cloudfront.net/images/shutterstock_1717697875_1.width-800.jpg",
     publishedAt: Date.parse("2025-06-26T21:00:00Z"),
     content: (
       <div className="space-y-6">
@@ -735,7 +735,7 @@ export const posts: BlogPost[] = [
     readTime: "6 min read",
     readTimeShort: "6 min",
     category: "Tournament Tips",
-    image: "https://images.unsplash.com/photo-1551958219-acbc608c6377?q=80&w=2000&auto=format&fit=crop",
+    image: "https://edmontonexpocentre.com/wp-content/uploads/2020/10/Volleyball-0002-scaled.jpg",
     publishedAt: Date.parse("2025-05-20T21:00:00Z"),
     content: (
       <div className="space-y-6">
@@ -816,7 +816,7 @@ export const posts: BlogPost[] = [
     readTime: "7 min read",
     readTimeShort: "7 min",
     category: "Mental Training",
-    image: "https://images.unsplash.com/photo-1535131749006-b7f58c99034b?q=80&w=2000&auto=format&fit=crop",
+    image: "https://www.scripps.org/sparkle-assets/seo_thumbnails/news_items/7580/facebook-64276d63238fcdf4216152c99b7ebdb4.jpg",
     publishedAt: Date.parse("2025-05-15T21:00:00Z"),
     content: (
       <div className="space-y-6">
@@ -893,7 +893,7 @@ export const posts: BlogPost[] = [
     readTime: "6 min read",
     readTimeShort: "6 min",
     category: "Canadian Volleyball",
-    image: "https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=2000&auto=format&fit=crop",
+    image: "https://www.theglobeandmail.com/resizer/v2/5JTMGATKAJA33KCZGVHESQHTWQ.jpg?auth=2d46a4782f04dbe9355e41d1050da6667af7e26b0ac06a328e43b6b31c706450&width=600&quality=100",
     publishedAt: Date.parse("2025-05-13T20:15:00Z"),
     content: (
       <div className="space-y-6">
@@ -1053,7 +1053,7 @@ export const posts: BlogPost[] = [
     readTime: "5 min read",
     readTimeShort: "5 min",
     category: "Technology",
-    image: "https://images.unsplash.com/photo-1559028012-481c04fa702d?q=80&w=2000&auto=format&fit=crop",
+    image: "https://cinchhq.com/wp-content/uploads/2024/01/1696428580193.jpg",
     publishedAt: Date.parse("2025-05-06T18:45:00Z"),
     content: (
       <div className="space-y-6">
@@ -1135,7 +1135,7 @@ export const posts: BlogPost[] = [
     readTime: "6 min read",
     readTimeShort: "6 min",
     category: "Health & Safety",
-    image: "https://images.unsplash.com/photo-1551698618-1dfe5d97d256?q=80&w=2000&auto=format&fit=crop",
+    image: "https://bloximages.chicago2.vip.townnews.com/magicvalley.com/content/tncms/assets/v3/editorial/0/18/01852fb4-9829-5005-87c2-da25978e0134/5da89ed138809.image.jpg?resize=1200%2C800",
     publishedAt: Date.parse("2025-05-01T16:45:00Z"),
     content: (
       <div className="space-y-6">
@@ -1235,7 +1235,7 @@ export const posts: BlogPost[] = [
     readTime: "5 min read",
     readTimeShort: "5 min",
     category: "Strategy",
-    image: "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=2000&auto=format&fit=crop",
+    image: "https://s.hdnux.com/photos/01/34/13/65/24165708/3/ratio3x2_1920.jpg",
     publishedAt: Date.parse("2025-04-29T21:45:00Z"),
     content: (
       <div className="space-y-6">
@@ -1392,7 +1392,7 @@ export const posts: BlogPost[] = [
     readTime: "7 min read",
     readTimeShort: "7 min",
     category: "Mental Health",
-    image: "https://images.unsplash.com/photo-1556742049-0cfed4f6a45d?q=80&w=2000&auto=format&fit=crop",
+    image: "/blogs/image20.webp",
     publishedAt: Date.parse("2025-04-22T20:45:00Z"),
     content: (
       <div className="space-y-6">
@@ -1484,7 +1484,7 @@ export const posts: BlogPost[] = [
     readTime: "6 min read",
     readTimeShort: "6 min",
     category: "Parenting",
-    image: "https://images.unsplash.com/photo-1594736797933-d0501ba2fe65?q=80&w=2000&auto=format&fit=crop",
+    image: "https://rockytopsportsworld.com/wp-content/uploads/2019/02/Dad-and-daughter-playing-soccer-768x508.jpg",
     publishedAt: Date.parse("2025-04-17T19:00:00Z"),
     content: (
       <div className="space-y-6">
@@ -1583,7 +1583,7 @@ export const posts: BlogPost[] = [
     readTime: "5 min read",
     readTimeShort: "5 min",
     category: "Technology",
-    image: "https://images.unsplash.com/photo-1526374965328-7f61d4dc18c5?q=80&w=2000&auto=format&fit=crop",
+    image: "https://www.sportsimports.com/wp-content/uploads/Enhancing-Game-Like-Situations-in-Practice-.webp",
     publishedAt: Date.parse("2025-08-14T19:45:00Z"),
     content: (
       <div className="space-y-6">
@@ -1723,7 +1723,7 @@ export const posts: BlogPost[] = [
     readTime: "5 min read",
     readTimeShort: "5 min",
     category: "Canadian Volleyball",
-    image: "https://images.unsplash.com/photo-1518611012118-696072aa579a?q=80&w=2000&auto=format&fit=crop",
+    image: "https://mevza.org/live/wp-content/uploads/2021/06/slovenia2-1024x685.png",
     publishedAt: Date.parse("2025-07-17T21:00:00Z"),
     content: (
       <div className="space-y-6">
@@ -1841,7 +1841,7 @@ export const posts: BlogPost[] = [
     readTime: "5 min read",
     readTimeShort: "5 min",
     category: "Recruiting",
-    image: "https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?q=80&w=2000&auto=format&fit=crop",
+    image: "https://media.licdn.com/dms/image/v2/D5612AQH9girsS9x6pw/article-cover_image-shrink_720_1280/article-cover_image-shrink_720_1280/0/1734429266578?e=2147483647&v=beta&t=_vrNfx8A15uAQxiGg-fNWERyvLS1XvCnUZttayZOwSg",
     publishedAt: Date.parse("2025-06-12T20:00:00Z"),
     content: (
       <div className="space-y-6">
@@ -2004,7 +2004,7 @@ export const posts: BlogPost[] = [
     readTime: "6 min read",
     readTimeShort: "6 min",
     category: "Strategy",
-    image: "https://images.unsplash.com/photo-1547919307-1ecb10702e6f?q=80&w=2000&auto=format&fit=crop",
+    image: "/blogs/the-one-hitter.webp",
     publishedAt: Date.parse("2025-05-27T14:45:00Z"),
     content: (
       <div className="space-y-6">
@@ -2157,7 +2157,7 @@ export const posts: BlogPost[] = [
     readTime: "7 min read",
     readTimeShort: "7 min",
     category: "Mental Health",
-    image: "https://images.unsplash.com/photo-1571019613576-2b22c76fd955?q=80&w=2000&auto=format&fit=crop",
+    image: "https://www.bpmcdn.com/f/files/peacearch/import/2019-08/18041115_web1_MultiSport-web.jpg;w=960",
     publishedAt: Date.parse("2025-05-13T19:30:00Z"),
     content: (
       <div className="space-y-6">
@@ -2246,7 +2246,7 @@ export const posts: BlogPost[] = [
     readTime: "5 min read",
     readTimeShort: "5 min",
     category: "Training",
-    image: "https://images.unsplash.com/photo-1587385789097-0197a7fbd179?q=80&w=2000&auto=format&fit=crop",
+    image: "https://cdn.prod.website-files.com/632871e15b53a0140af28aeb/64f0d5a9af2fd5094deabf55_volleyball-520083_1280.jpg",
     publishedAt: Date.parse("2025-04-15T21:30:00Z"),
     content: (
       <div className="space-y-6">
@@ -2329,7 +2329,7 @@ export const posts: BlogPost[] = [
     readTime: "5 min read",
     readTimeShort: "5 min",
     category: "Skills",
-    image: "https://images.unsplash.com/photo-1628891890390-e028a02d8d96?q=80&w=2000&auto=format&fit=crop",
+    image: "https://dailyorange.s3.amazonaws.com/wp-content/uploads/2016/09/8.jpg",
     publishedAt: Date.parse("2025-04-10T21:45:00Z"),
     content: (
       <div className="space-y-6">
