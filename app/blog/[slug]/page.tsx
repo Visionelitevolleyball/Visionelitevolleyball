@@ -1,6 +1,6 @@
 "use client";
 
-import { use } from "react";
+import { use, useEffect, useState } from "react";
 import { motion } from "motion/react";
 import Image from "next/image";
 import Link from "next/link";
@@ -10,6 +10,8 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { ArrowLeft, ArrowRight, Calendar, Clock, User } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import remarkGfm from "remark-gfm";
 
 export default function BlogDetailPage({
   params,
@@ -17,8 +19,65 @@ export default function BlogDetailPage({
   params: Promise<{ slug: string }>;
 }) {
   const { slug } = use(params);
-  const post = posts.find((p) => p.slug === slug);
-  if (!post) return notFound();
+  const staticPost = posts.find((p) => p.slug === slug);
+
+  // Optional DB post
+  const [dbPost, setDbPost] = useState<null | {
+    title: string;
+    excerpt?: string | null;
+    author: string;
+    category?: string | null;
+    image?: string | null;
+    content: string;
+    dateDisplay: string;
+    contentFormat?: 'markdown' | 'html' | string;
+  }>(null);
+
+  useEffect(() => {
+    let ignore = false;
+    (async () => {
+      try {
+        const res = await fetch(`/api/blogs/${slug}`, { cache: "no-store" });
+        if (!res.ok) return;
+        const b = await res.json();
+        const date = new Date(b.publishedDate || b.createdAt || Date.now());
+        const mapped = {
+          title: b.title as string,
+          excerpt: (b.excerpt as string) || null,
+          author: (b.author as string) || "Admin",
+          category: (b.category as string) || "Blog",
+          image: (b.featuredImage as string) || null,
+          content: (b.content as string) || "",
+          dateDisplay: date.toLocaleDateString(),
+          contentFormat: (b.contentFormat as string) || 'markdown',
+        };
+        if (!ignore) setDbPost(mapped);
+      } catch {}
+    })();
+    return () => {
+      ignore = true;
+    };
+  }, [slug]);
+
+  if (!staticPost && !dbPost) return notFound();
+
+  const isDb = !!dbPost;
+  const post = dbPost || {
+    title: staticPost!.title,
+    excerpt: staticPost!.excerpt,
+    author: staticPost!.author,
+    category: staticPost!.category,
+    image: staticPost!.image,
+    content: staticPost!.content,
+    dateDisplay: staticPost!.dateDisplay,
+  };
+
+  function DbImage({ src, alt, className }: { src: string; alt: string; className?: string }) {
+    if (isDb) {
+      return <img src={src} alt={alt} className={className} />;
+    }
+    return <Image src={src} alt={alt} fill sizes="(max-width: 1024px) 100vw, 1024px" className={className} />;
+  }
 
   // Find next blog
   const currentIndex = posts.findIndex((p) => p.slug === slug);
@@ -83,9 +142,11 @@ export default function BlogDetailPage({
             <span className="inline-flex items-center gap-1">
               <Calendar className="h-4 w-4" /> {post.dateDisplay}
             </span>
-            <span className="inline-flex items-center gap-1">
-              <Clock className="h-4 w-4" /> {post.readTime}
-            </span>
+            {!isDb && (
+              <span className="inline-flex items-center gap-1">
+                <Clock className="h-4 w-4" /> {staticPost?.readTime}
+              </span>
+            )}
           </div>
         </div>
       </section>
@@ -95,15 +156,13 @@ export default function BlogDetailPage({
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
             <div className="relative h-56 sm:h-80 md:h-[420px]">
-              <Image
-                src={post.image}
-                alt={post.title}
-                fill
-                priority
-                fetchPriority="high"
-                sizes="(max-width: 1024px) 100vw, 1024px"
-                className="object-cover object-top"
-              />
+              {post.image && (
+                <DbImage
+                  src={post.image}
+                  alt={post.title}
+                  className="object-cover object-top"
+                />
+              )}
               <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent" />
             </div>
           </div>
@@ -114,7 +173,43 @@ export default function BlogDetailPage({
       <section className="relative pb-16 lg:pb-20">
         <div className="relative z-10 max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
           <article className="prose prose-neutral dark:prose-invert prose-lg max-w-3xl mx-auto prose-headings:scroll-mt-24 prose-headings:font-black prose-p:leading-relaxed prose-li:leading-relaxed">
-            {post.content}
+            {isDb && dbPost?.contentFormat === 'markdown' ? (
+              <ReactMarkdown
+                remarkPlugins={[remarkGfm]}
+                components={{
+                  h1: (props) => <h1 className="mt-10 mb-6 font-extrabold" {...props} />,
+                  h2: (props) => <h2 className="mt-10 mb-4 font-bold" {...props} />,
+                  h3: (props) => <h3 className="mt-8 mb-3 font-semibold" {...props} />,
+                  p: (props) => <p className="my-4 leading-7" {...props} />,
+                  ul: ({ node, ...props }) => <ul className="my-6 list-disc pl-6" {...props} />,
+                  ol: ({ node, ...props }) => <ol className="my-6 list-decimal pl-6" {...props} />,
+                  li: (props) => <li className="my-1" {...props} />,
+                  blockquote: (props) => <blockquote className="border-l-4 pl-4 italic my-6" {...props} />,
+                  a: (props) => <a className="text-primary underline" {...props} />,
+                  img: ({ node, ...props }) => (
+                    // eslint-disable-next-line @next/next/no-img-element
+                    <img className="my-8 rounded-xl mx-auto max-w-full h-auto" {...props} />
+                  ),
+                  code: ({ className, children, ...props }) => {
+                    const content = String(children ?? '')
+                    const isBlock = content.includes('\n')
+                    return isBlock ? (
+                      <pre className="my-6 rounded-lg bg-muted overflow-x-auto"><code {...props}>{children}</code></pre>
+                    ) : (
+                      <code className="px-1.5 py-0.5 rounded bg-muted" {...props}>{children}</code>
+                    )
+                  },
+                }}
+              >
+                {post.content as string}
+              </ReactMarkdown>
+            ) : (
+              isDb ? (
+                <div dangerouslySetInnerHTML={{ __html: post.content as string }} />
+              ) : (
+                post.content
+              )
+            )}
           </article>
 
           {/* Next Blog Section */}

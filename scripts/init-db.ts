@@ -59,7 +59,55 @@ async function initDatabase() {
       )
     `)
     console.log('✅ Created pending_newsletter_emails table')
-    
+
+    // Create blogs table
+    await client.execute(`
+      CREATE TABLE IF NOT EXISTS blogs (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        title TEXT NOT NULL,
+        slug TEXT NOT NULL UNIQUE,
+        excerpt TEXT,
+        content TEXT NOT NULL,
+        content_format TEXT DEFAULT 'markdown',
+        featured_image TEXT,
+        featured INTEGER DEFAULT 0 NOT NULL,
+        author TEXT NOT NULL DEFAULT 'Admin',
+        category TEXT,
+        tags TEXT,
+        status TEXT DEFAULT 'draft' NOT NULL CHECK (status IN ('draft','published')),
+        published_date TEXT,
+        created_at TEXT DEFAULT (CURRENT_TIMESTAMP) NOT NULL,
+        updated_at TEXT DEFAULT (CURRENT_TIMESTAMP) NOT NULL
+      )
+    `)
+    console.log('✅ Created blogs table')
+
+    // Create indexes for blogs table
+    await client.execute(`
+      CREATE INDEX IF NOT EXISTS idx_blogs_slug
+      ON blogs(slug)
+    `)
+
+    await client.execute(`
+      CREATE INDEX IF NOT EXISTS idx_blogs_status
+      ON blogs(status)
+    `)
+
+    await client.execute(`
+      CREATE INDEX IF NOT EXISTS idx_blogs_published_date
+      ON blogs(published_date)
+    `)
+    console.log('✅ Created blogs table indexes')
+
+    // Ensure content_format exists on existing deployments
+    const pragma = await client.execute(`PRAGMA table_info(blogs)`)
+    const hasContentFormat = Array.isArray(pragma.rows)
+      && pragma.rows.some((r: any) => (r.name || r['name']) === 'content_format')
+    if (!hasContentFormat) {
+      await client.execute(`ALTER TABLE blogs ADD COLUMN content_format TEXT DEFAULT 'markdown'`)
+      console.log('🔧 Added content_format column to blogs')
+    }
+
     // Create indexes for better query performance
     await client.execute(`
       CREATE INDEX IF NOT EXISTS idx_newsletter_email 

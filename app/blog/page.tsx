@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
@@ -24,9 +25,10 @@ interface BlogPost {
   image: string;
   featured?: boolean;
   publishedAt: number;
+  isDb?: boolean;
 }
 
-const blogPosts: BlogPost[] = sharedPosts.map((p) => ({
+const staticPosts: BlogPost[] = sharedPosts.map((p) => ({
   id: p.slug,
   title: p.title,
   excerpt: p.excerpt,
@@ -42,11 +44,121 @@ const blogPosts: BlogPost[] = sharedPosts.map((p) => ({
   publishedAt: p.publishedAt,
 }));
 
+function estimateReadTime(content: string) {
+  // Remove HTML tags
+  let text = content.replace(/<[^>]*>/g, ' ')
+  // Remove Markdown syntax (#, *, _, `, >, -, +, ![alt](url), [text](url))
+  text = text
+    .replace(/!\[[^\]]*\]\([^\)]*\)/g, ' ') // images
+    .replace(/\[[^\]]*\]\([^\)]*\)/g, ' ') // links
+    .replace(/[>#*_`~\-]+/g, ' ')
+  const words = text.trim() ? text.trim().split(/\s+/).length : 0
+  const minutes = Math.max(1, Math.ceil(words / 200))
+  return `${minutes} min read`
+}
+
+function DbImage({
+  src,
+  alt,
+  className,
+  sizes,
+  width,
+  height,
+  priority,
+  isDb,
+}: {
+  src: string
+  alt: string
+  className?: string
+  sizes?: string
+  width?: number
+  height?: number
+  priority?: boolean
+  isDb?: boolean
+}) {
+  if (isDb) {
+    return (
+      // Use native img for DB images to avoid Next image domain restrictions
+      <img src={src} alt={alt} className={className} />
+    )
+  }
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={width || 800}
+      height={height || 600}
+      priority={priority}
+      placeholder="blur"
+      blurDataURL={BLUR_DATA_URL}
+      sizes={sizes}
+      className={className}
+    />
+  )
+}
+
+// Merge DB blogs with static posts (DB first)
+function useMergedBlogPosts() {
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
+
+  useEffect(() => {
+    let ignore = false
+    ;(async () => {
+      try {
+        const res = await fetch('/api/blogs', { cache: 'no-store' })
+        if (!res.ok) return
+        const data: { items?: unknown } = await res.json()
+        type DbItem = {
+          slug: string
+          title: string
+          excerpt: string | null
+          author: string | null
+          category: string | null
+          featuredImage: string | null
+          featured: boolean | number | null
+          content: string | null
+          publishedDate: string | null
+          createdAt: string
+        }
+        const isDbItemArray = (arr: unknown): arr is DbItem[] => {
+          return Array.isArray(arr) && arr.every((it) => {
+            return !!it && typeof it === 'object' && 'slug' in it && 'title' in it
+          })
+        }
+        const raw: DbItem[] = isDbItemArray(data.items) ? data.items : []
+        const mapped: BlogPost[] = raw.map((b) => ({
+          id: b.slug,
+          title: b.title,
+          excerpt: b.excerpt ?? '',
+          author: b.author ?? 'Admin',
+          dateDisplay: new Date(b.publishedDate ?? b.createdAt).toLocaleDateString(),
+          readTime: estimateReadTime(b.content ?? ''),
+          category: b.category ?? 'Blog',
+          image: b.featuredImage ?? '/volleyball.png',
+          featured: Boolean(b.featured ?? false),
+          publishedAt: Date.parse((b.publishedDate ?? b.createdAt) || new Date().toISOString()),
+          isDb: true,
+        }))
+        if (!ignore) {
+          if (mapped.length > 0) setBlogPosts(mapped)
+          else setBlogPosts(staticPosts)
+        }
+      } catch {}
+    })()
+    return () => {
+      ignore = true
+    }
+  }, [])
+
+  return blogPosts
+}
+
 // Show immediate visual feedback while images stream in
 const BLUR_DATA_URL =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
 export default function BlogPage() {
+  const blogPosts = useMergedBlogPosts();
   return (
     <div className="relative">
       {/* Single Continuous Background for ENTIRE Page */}
@@ -137,8 +249,8 @@ export default function BlogPage() {
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
             {/* Featured Post */}
             {blogPosts
-              .filter((post) => post.featured)
-              .map((post) => (
+              .filter((post: BlogPost) => post.featured)
+              .map((post: BlogPost) => (
                 <article key={post.id} className="lg:col-span-2 group">
                   <Link href={`/blog/${post.id}`} className="block" prefetch>
                     <div
@@ -154,17 +266,15 @@ export default function BlogPage() {
                         {/* Image */}
                         <div className="relative h-64 lg:h-full overflow-hidden">
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
-                          <Image
+                          <DbImage
                             src={post.image}
                             alt={post.title}
                             width={800}
                             height={600}
                             priority
-                            fetchPriority="high"
-                            placeholder="blur"
-                            blurDataURL={BLUR_DATA_URL}
                             sizes="(min-width: 1024px) 50vw, 100vw"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            isDb={post.isDb}
                           />
                           {/* Featured Badge */}
                           <div className="absolute top-4 left-4 z-20">
@@ -228,8 +338,8 @@ export default function BlogPage() {
 
             {/* Regular Posts */}
             {blogPosts
-              .filter((post) => !post.featured)
-              .map((post) => (
+              .filter((post: BlogPost) => !post.featured)
+              .map((post: BlogPost) => (
                 <article key={post.id} className="group">
                   <Link href={`/blog/${post.id}`} className="block" prefetch>
                     <div
@@ -244,15 +354,14 @@ export default function BlogPage() {
                       {/* Image */}
                       <div className="relative h-48 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-                        <Image
+                        <DbImage
                           src={post.image}
                           alt={post.title}
                           width={600}
                           height={400}
-                          placeholder="blur"
-                          blurDataURL={BLUR_DATA_URL}
                           sizes="(min-width: 1024px) 50vw, 100vw"
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          isDb={post.isDb}
                         />
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4 z-20">

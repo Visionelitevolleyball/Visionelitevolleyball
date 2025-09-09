@@ -1,5 +1,6 @@
 @import "tailwindcss";
 @import "tw-animate-css";
+@plugin "@tailwindcss/typography";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -118,6 +119,22 @@
   }
   body {
     @apply bg-background text-foreground;
+  }
+
+  /* Markdown (prose) refinements */
+  .prose :where(ul, ol) {
+    margin-top: 1rem;
+    margin-bottom: 1rem;
+    padding-left: 1.5rem;
+  }
+  .prose :where(li) {
+    margin-top: 0.25rem;
+    margin-bottom: 0.25rem;
+  }
+  .prose :where(img) {
+    margin-top: 2rem;
+    margin-bottom: 2rem;
+    border-radius: 0.75rem;
   }
 
   /* Hide scrollbar for Chrome, Safari and Opera */
