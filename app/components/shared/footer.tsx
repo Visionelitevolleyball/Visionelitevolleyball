@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import Image from "next/image";
 import {
   Facebook,
@@ -11,10 +11,68 @@ import {
   Mail,
   MapPin,
   ArrowRight,
+  Loader2,
+  CheckCircle,
 } from "lucide-react";
 import { cn } from "@/lib/utils";
+import { openNewsletterPopup } from "@/app/components/newsletter-popup";
+import { newsletterStorage } from "@/lib/newsletter-storage";
 
 export function Footer() {
+  const [email, setEmail] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [isSubscribed, setIsSubscribed] = useState(false);
+
+  useEffect(() => {
+    // Check if user is already subscribed
+    setIsSubscribed(newsletterStorage.isSubscribed());
+  }, []);
+
+  const handleNewsletterSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    if (!email) return;
+
+    setIsSubmitting(true);
+
+    try {
+      // Submit email only to API
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({ 
+          email, 
+          source: 'footer' 
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        if (data.requiresMoreInfo) {
+          // Open popup with email pre-filled to collect name and city
+          openNewsletterPopup(email);
+        } else {
+          // Already subscribed
+          alert("You're already subscribed!");
+        }
+        setEmail("");
+      } else {
+        if (response.status === 409) {
+          alert("You're already subscribed!");
+        } else {
+          alert(data.error || "Something went wrong. Please try again.");
+        }
+      }
+    } catch (error) {
+      console.error("Newsletter submission error:", error);
+      alert("Network error. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
   return (
     <footer
       className={cn(
@@ -212,46 +270,78 @@ export function Footer() {
             <h3 className="text-sm font-semibold text-foreground uppercase tracking-wider mb-4">
               Stay Updated
             </h3>
-            <p className="text-sm text-muted-foreground mb-4">
-              Get discounts, special offers, and notifications of upcoming events!
-            </p>
-            <div className="flex flex-col sm:flex-row gap-2">
-              <input
-                type="email"
-                placeholder="Enter your email"
-                className={cn(
-                  "flex-1 px-4 py-2.5 rounded-lg",
-                  "bg-card",
-                  "border border-border",
-                  "text-foreground",
-                  "placeholder:text-muted-foreground",
-                  "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
-                  "transition-all duration-200",
-                  "text-sm"
-                )}
-              />
-              <button
-                className={cn(
-                  "px-4 sm:px-6 py-2.5 rounded-lg",
-                  "bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
-                  "text-black font-semibold text-sm",
-                  "transition-all duration-300",
-                  "hover:scale-105 hover:shadow-lg",
-                  "flex items-center gap-2 justify-center",
-                  "w-full sm:w-auto",
-                  "relative cursor-pointer overflow-hidden",
-                  "before:absolute before:w-[0.4rem] before:h-[20rem]",
-                  "before:top-0 before:translate-x-[-10rem]",
-                  "hover:before:translate-x-[15rem]",
-                  "before:duration-[0.8s] before:-skew-x-[10deg]",
-                  "before:transition-all before:bg-white",
-                  "before:blur-[10px] before:opacity-70"
-                )}
-              >
-                Subscribe
-                <ArrowRight className="h-4 w-4" />
-              </button>
-            </div>
+            {isSubscribed ? (
+              // Already subscribed message
+              <div className="p-4 rounded-lg bg-primary/10 border border-primary/20">
+                <div className="flex items-center gap-2 text-sm text-foreground">
+                  <CheckCircle className="h-5 w-5 text-primary" />
+                  <span className="font-medium">You&apos;re subscribed!</span>
+                </div>
+                <p className="text-sm text-muted-foreground mt-2">
+                  Thank you for subscribing to our newsletter. You&apos;ll receive updates on upcoming events and special offers.
+                </p>
+              </div>
+            ) : (
+              <>
+                <p className="text-sm text-muted-foreground mb-4">
+                  Get discounts, special offers, and notifications of upcoming events!
+                </p>
+                <form onSubmit={handleNewsletterSubmit} className="flex flex-col sm:flex-row gap-2">
+                  <input
+                    type="email"
+                    placeholder="Enter your email"
+                    value={email}
+                    onChange={(e) => setEmail(e.target.value)}
+                    required
+                    disabled={isSubmitting}
+                    className={cn(
+                      "flex-1 px-4 py-2.5 rounded-lg",
+                      "bg-card",
+                      "border border-border",
+                      "text-foreground",
+                      "placeholder:text-muted-foreground",
+                      "focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent",
+                      "transition-all duration-200",
+                      "text-sm",
+                      "disabled:opacity-50 disabled:cursor-not-allowed"
+                    )}
+                  />
+                  <button
+                    type="submit"
+                    disabled={isSubmitting}
+                    className={cn(
+                      "px-4 sm:px-6 py-2.5 rounded-lg",
+                      "bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
+                      "text-black font-semibold text-sm",
+                      "transition-all duration-300",
+                      "hover:scale-105 hover:shadow-lg",
+                      "flex items-center gap-2 justify-center",
+                      "w-full sm:w-auto",
+                      "relative cursor-pointer overflow-hidden",
+                      "before:absolute before:w-[0.4rem] before:h-[20rem]",
+                      "before:top-0 before:translate-x-[-10rem]",
+                      "hover:before:translate-x-[15rem]",
+                      "before:duration-[0.8s] before:-skew-x-[10deg]",
+                      "before:transition-all before:bg-white",
+                      "before:blur-[10px] before:opacity-70",
+                      "disabled:opacity-50 disabled:cursor-not-allowed"
+                    )}
+                  >
+                    {isSubmitting ? (
+                      <>
+                        <Loader2 className="h-4 w-4 animate-spin" />
+                        <span>Subscribing...</span>
+                      </>
+                    ) : (
+                      <>
+                        Subscribe
+                        <ArrowRight className="h-4 w-4" />
+                      </>
+                    )}
+                  </button>
+                </form>
+              </>
+            )}
           </div>
         </div>
 

@@ -1,7 +1,7 @@
 "use client";
 
 import React, { useState, useEffect } from "react";
-import { X, Trophy, Star, Users, CheckCircle, MapPin } from "lucide-react";
+import { X, Trophy, Star, Users, CheckCircle, MapPin, Loader2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import { motion, AnimatePresence } from "motion/react";
 import { usePathname } from "next/navigation";
@@ -12,11 +12,12 @@ import {
   SelectTrigger,
   SelectValue,
 } from "@/components/ui/select";
+import { newsletterStorage } from "@/lib/newsletter-storage";
 
 // Create a global event emitter for newsletter popup
-export const openNewsletterPopup = () => {
+export const openNewsletterPopup = (email?: string) => {
   if (typeof window !== 'undefined') {
-    window.dispatchEvent(new CustomEvent('open-newsletter-popup'));
+    window.dispatchEvent(new CustomEvent('open-newsletter-popup', { detail: { email, manual: true } }));
   }
 };
 
@@ -24,45 +25,77 @@ export function NewsletterPopup() {
   const [isVisible, setIsVisible] = useState(false);
   const [showThankYou, setShowThankYou] = useState(false);
   const [emailError, setEmailError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    location: "",
+    city: "",
   });
   const pathname = usePathname();
 
   useEffect(() => {
     // Listen for manual trigger events
-    const handleOpenPopup = () => {
-      setIsVisible(true);
+    const handleOpenPopup = (event: CustomEvent) => {
+      const email = event.detail?.email;
+      const isManual = event.detail?.manual;
+      
+      // Manual triggers always open (from footer or blog)
+      if (isManual) {
+        if (email) {
+          setFormData(prev => ({ ...prev, email }));
+          newsletterStorage.saveTemporaryEmail(email);
+        }
+        setIsVisible(true);
+        newsletterStorage.updateLastShown();
+        return;
+      }
+      
+      // For non-manual triggers, check if should show
+      if (newsletterStorage.shouldShowAutomatically()) {
+        if (email) {
+          setFormData(prev => ({ ...prev, email }));
+        }
+        setIsVisible(true);
+        newsletterStorage.updateLastShown();
+      }
     };
     
-    window.addEventListener('open-newsletter-popup', handleOpenPopup);
+    window.addEventListener('open-newsletter-popup', handleOpenPopup as EventListener);
+    
+    // Check for saved email from previous session
+    const savedEmail = newsletterStorage.getSavedEmail();
+    if (savedEmail && !formData.email) {
+      setFormData(prev => ({ ...prev, email: savedEmail }));
+    }
     
     // Only show popup automatically on home page
     if (pathname !== "/") {
       return () => {
-        window.removeEventListener('open-newsletter-popup', handleOpenPopup);
+        window.removeEventListener('open-newsletter-popup', handleOpenPopup as EventListener);
       };
     }
 
-    // Show popup after 10 seconds on home page
-    const timer = setTimeout(() => {
-      setIsVisible(true);
-    }, 10000);
+    // Show popup after 10 seconds on home page (if should show)
+    let timer: NodeJS.Timeout;
+    if (newsletterStorage.shouldShowAutomatically()) {
+      timer = setTimeout(() => {
+        setIsVisible(true);
+        newsletterStorage.updateLastShown();
+      }, 10000);
+    }
 
     return () => {
-      clearTimeout(timer);
-      window.removeEventListener('open-newsletter-popup', handleOpenPopup);
+      if (timer) clearTimeout(timer);
+      window.removeEventListener('open-newsletter-popup', handleOpenPopup as EventListener);
     };
-  }, [pathname]);
+  }, [pathname]); // eslint-disable-line react-hooks/exhaustive-deps
 
   const validateEmail = (email: string) => {
     const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return emailRegex.test(email);
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
     // Validate email
@@ -71,19 +104,61 @@ export function NewsletterPopup() {
       return;
     }
 
-    // Clear error and show thank you
-    setEmailError("");
-    console.log("Newsletter signup:", formData);
-    setShowThankYou(true);
+    // Validate all fields are filled
+    if (!formData.name || !formData.city) {
+      setEmailError("Please fill in all fields");
+      return;
+    }
 
-    // Auto close after 3 seconds
-    setTimeout(() => {
-      setIsVisible(false);
-      setShowThankYou(false);
-    }, 3000);
+    setIsSubmitting(true);
+    setEmailError("");
+
+    try {
+      const response = await fetch('/api/newsletter', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          name: formData.name,
+          email: formData.email,
+          city: formData.city,
+          source: 'popup'
+        }),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        // Mark as subscribed in localStorage
+        newsletterStorage.setSubscribed(formData.email);
+        newsletterStorage.clearSavedEmail();
+        
+        setShowThankYou(true);
+        // Reset form
+        setFormData({ name: "", email: "", city: "" });
+        
+        // Auto close after 3 seconds
+        setTimeout(() => {
+          setIsVisible(false);
+          setShowThankYou(false);
+        }, 3000);
+      } else {
+        setEmailError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Newsletter submission error:", error);
+      setEmailError("Network error. Please try again later.");
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   const handleClose = () => {
+    // Mark as dismissed if closing without subscribing
+    if (!showThankYou) {
+      newsletterStorage.setDismissed();
+    }
     setIsVisible(false);
     setShowThankYou(false);
   };
@@ -250,12 +325,12 @@ export function NewsletterPopup() {
                       )}
                     </div>
 
-                    {/* Location Dropdown */}
+                    {/* City Dropdown */}
                     <div>
                       <Select
-                        value={formData.location}
+                        value={formData.city}
                         onValueChange={(value) =>
-                          setFormData({ ...formData, location: value })
+                          setFormData({ ...formData, city: value })
                         }
                         required
                       >
@@ -275,15 +350,11 @@ export function NewsletterPopup() {
                           </div>
                         </SelectTrigger>
                         <SelectContent className="bg-background border-border">
-                          <SelectItem value="alberta">Alberta</SelectItem>
-                          <SelectItem value="british-columbia">
-                            British Columbia
-                          </SelectItem>
-                          <SelectItem value="manitoba">Manitoba</SelectItem>
-                          <SelectItem value="other">Other</SelectItem>
-                          <SelectItem value="outside-canada">
-                            Outside Canada
-                          </SelectItem>
+                          <SelectItem value="Alberta">Alberta</SelectItem>
+                          <SelectItem value="British Columbia">British Columbia</SelectItem>
+                          <SelectItem value="Manitoba">Manitoba</SelectItem>
+                          <SelectItem value="Other">Other</SelectItem>
+                          <SelectItem value="Outside Canada">Outside Canada</SelectItem>
                         </SelectContent>
                       </Select>
                     </div>
@@ -292,6 +363,7 @@ export function NewsletterPopup() {
                     <div className="flex justify-center">
                       <button
                         type="submit"
+                        disabled={isSubmitting}
                         className={cn(
                           "px-8 py-3 rounded-lg",
                           "bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
@@ -304,16 +376,23 @@ export function NewsletterPopup() {
                           "hover:before:translate-x-[30rem]",
                           "before:duration-[0.8s] before:-skew-x-[10deg]",
                           "before:transition-all before:bg-white",
-                          "before:blur-[10px] before:opacity-70"
+                          "before:blur-[10px] before:opacity-70",
+                          "disabled:opacity-50 disabled:cursor-not-allowed",
+                          "flex items-center gap-2"
                         )}
                       >
+                        {isSubmitting && <Loader2 className="h-4 w-4 animate-spin" />}
                         <span className="sm:hidden">
-                          Unlock exclusive savings and
-                          <br />
-                          never miss an event!
+                          {isSubmitting ? "Subscribing..." : (
+                            <>
+                              Unlock exclusive savings and
+                              <br />
+                              never miss an event!
+                            </>
+                          )}
                         </span>
                         <span className="hidden sm:inline">
-                          Unlock exclusive savings and never miss an event!
+                          {isSubmitting ? "Subscribing..." : "Unlock exclusive savings and never miss an event!"}
                         </span>
                       </button>
                     </div>
