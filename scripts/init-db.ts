@@ -2,6 +2,7 @@
 
 import { createClient } from '@libsql/client'
 import dotenv from 'dotenv'
+import { hashPassword } from '../lib/password'
 
 // Load environment variables
 dotenv.config({ path: '.env.local' })
@@ -98,6 +99,36 @@ async function initDatabase() {
       ON blogs(published_date)
     `)
     console.log('✅ Created blogs table indexes')
+
+    // Create admin_users table
+    await client.execute(`
+      CREATE TABLE IF NOT EXISTS admin_users (
+        id INTEGER PRIMARY KEY AUTOINCREMENT,
+        email TEXT NOT NULL UNIQUE,
+        password_hash TEXT NOT NULL,
+        name TEXT NOT NULL DEFAULT 'Admin',
+        role TEXT NOT NULL DEFAULT 'admin',
+        created_at TEXT DEFAULT (CURRENT_TIMESTAMP) NOT NULL,
+        updated_at TEXT DEFAULT (CURRENT_TIMESTAMP) NOT NULL
+      )
+    `)
+    console.log('✅ Created admin_users table')
+
+    // Seed or update default admin user
+    const adminEmail = 'luc@volleyballcalgary.ca'
+    const adminPassword = 'Luc@Admin123'
+    const passwordHash = await hashPassword(adminPassword)
+
+    await client.execute({
+      sql: `INSERT INTO admin_users (email, password_hash, name, role)
+            VALUES (?, ?, ?, ?)
+            ON CONFLICT(email) DO UPDATE SET
+              password_hash = excluded.password_hash,
+              name = excluded.name,
+              role = excluded.role`,
+      args: [adminEmail, passwordHash, 'Luc', 'admin'],
+    })
+    console.log(`✅ Seeded admin user: ${adminEmail}`)
 
     // Ensure content_format exists on existing deployments
     const pragma = await client.execute(`PRAGMA table_info(blogs)`)

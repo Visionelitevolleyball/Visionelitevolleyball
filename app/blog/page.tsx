@@ -8,7 +8,6 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, Calendar, Clock, User, ArrowRight } from "lucide-react";
-import { posts as sharedPosts } from "./posts";
 import { openNewsletterPopup } from "@/app/components/newsletter-popup";
 
 interface BlogPost {
@@ -28,21 +27,12 @@ interface BlogPost {
   isDb?: boolean;
 }
 
-const staticPosts: BlogPost[] = sharedPosts.map((p) => ({
-  id: p.slug,
-  title: p.title,
-  excerpt: p.excerpt,
-  author: p.author,
-  authorShort: p.authorShort,
-  dateDisplay: p.dateDisplay,
-  dateShort: p.dateShort,
-  readTime: p.readTime,
-  readTimeShort: p.readTimeShort,
-  category: p.category,
-  image: p.image,
-  featured: p.featured,
-  publishedAt: p.publishedAt,
-}));
+function formatUtcDate(input: string | number | Date) {
+  const d = new Date(input)
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC',
+  }).format(d)
+}
 
 function estimateReadTime(content: string) {
   // Remove HTML tags
@@ -78,8 +68,15 @@ function DbImage({
 }) {
   if (isDb) {
     return (
-      // Use native img for DB images to avoid Next image domain restrictions
-      <img src={src} alt={alt} className={className} />
+      // Use Next Image with unoptimized flag for DB images
+      <Image 
+        src={src} 
+        alt={alt} 
+        width={width || 800}
+        height={height || 450}
+        className={className} 
+        unoptimized 
+      />
     )
   }
   return (
@@ -100,6 +97,7 @@ function DbImage({
 // Merge DB blogs with static posts (DB first)
 function useMergedBlogPosts() {
   const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
+  const [loaded, setLoaded] = useState(false)
 
   useEffect(() => {
     let ignore = false
@@ -131,7 +129,7 @@ function useMergedBlogPosts() {
           title: b.title,
           excerpt: b.excerpt ?? '',
           author: b.author ?? 'Admin',
-          dateDisplay: new Date(b.publishedDate ?? b.createdAt).toLocaleDateString(),
+          dateDisplay: formatUtcDate(b.publishedDate ?? b.createdAt),
           readTime: estimateReadTime(b.content ?? ''),
           category: b.category ?? 'Blog',
           image: b.featuredImage ?? '/volleyball.png',
@@ -140,8 +138,8 @@ function useMergedBlogPosts() {
           isDb: true,
         }))
         if (!ignore) {
-          if (mapped.length > 0) setBlogPosts(mapped)
-          else setBlogPosts(staticPosts)
+          setBlogPosts(mapped)
+          setLoaded(true)
         }
       } catch {}
     })()
@@ -150,15 +148,114 @@ function useMergedBlogPosts() {
     }
   }, [])
 
-  return blogPosts
+  return { blogPosts, loaded }
 }
 
 // Show immediate visual feedback while images stream in
 const BLUR_DATA_URL =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
+// Lightweight shimmer overlay used by skeletons
+function Shimmer() {
+  return (
+    <>
+      <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent dark:via-white/10 animate-[shimmer_1.6s_ease-in-out_infinite]" />
+      <style jsx>{`
+        @keyframes shimmer {
+          100% { transform: translateX(100%); }
+        }
+      `}</style>
+    </>
+  )
+}
+
+function FeaturedPostSkeleton() {
+  return (
+    <article className="lg:col-span-2">
+      <div className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+        <div className="grid lg:grid-cols-2 h-full">
+          {/* Image area */}
+          <div className="relative h-64 lg:h-full">
+            <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800" />
+            <div className="absolute inset-0">
+              <Shimmer />
+            </div>
+            <div className="absolute top-4 left-4 h-7 w-32 rounded-full bg-black/20 backdrop-blur-sm" />
+          </div>
+
+          {/* Content area */}
+          <div className="p-8 lg:p-10 flex flex-col justify-between">
+            <div>
+              <div className="h-7 w-28 rounded-full bg-primary/10 mb-4" />
+              <div className="space-y-3">
+                <div className="h-6 w-3/4 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-6 w-2/3 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-6 w-1/3 rounded bg-gray-200 dark:bg-gray-800" />
+              </div>
+              <div className="mt-5 space-y-2">
+                <div className="h-4 w-full rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-4 w-11/12 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-4 w-10/12 rounded bg-gray-200 dark:bg-gray-800" />
+              </div>
+            </div>
+            <div className="mt-6 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="h-4 w-24 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-4 w-20 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-4 w-16 rounded bg-gray-200 dark:bg-gray-800" />
+              </div>
+              <div className="h-5 w-24 rounded bg-gray-200 dark:bg-gray-800" />
+            </div>
+          </div>
+        </div>
+        <div className="absolute inset-0 animate-pulse" aria-hidden="true" />
+      </div>
+    </article>
+  )
+}
+
+function PostCardSkeleton() {
+  return (
+    <article>
+      <div className="relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+        {/* Image area */}
+        <div className="relative h-48">
+          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800" />
+          <div className="absolute inset-0">
+            <Shimmer />
+          </div>
+          <div className="absolute top-4 left-4 h-6 w-20 rounded-full bg-black/20 backdrop-blur-sm" />
+        </div>
+
+        {/* Content */}
+        <div className="p-4 sm:p-6">
+          <div className="space-y-3">
+            <div className="h-5 w-3/4 rounded bg-gray-200 dark:bg-gray-800" />
+            <div className="h-5 w-2/3 rounded bg-gray-200 dark:bg-gray-800" />
+          </div>
+          <div className="mt-4 space-y-2">
+            <div className="h-4 w-full rounded bg-gray-200 dark:bg-gray-800" />
+            <div className="h-4 w-11/12 rounded bg-gray-200 dark:bg-gray-800" />
+          </div>
+          <div className="pt-4 mt-2 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="h-4 w-20 rounded bg-gray-200 dark:bg-gray-800" />
+              <span className="text-gray-300">·</span>
+              <div className="h-4 w-20 rounded bg-gray-200 dark:bg-gray-800" />
+              <span className="text-gray-300">·</span>
+              <div className="h-4 w-16 rounded bg-gray-200 dark:bg-gray-800" />
+            </div>
+            <div className="h-4 w-16 rounded bg-gray-200 dark:bg-gray-800" />
+          </div>
+        </div>
+        <div className="absolute inset-0 animate-pulse" aria-hidden="true" />
+      </div>
+    </article>
+  )
+}
+
 export default function BlogPage() {
-  const blogPosts = useMergedBlogPosts();
+  const { blogPosts, loaded } = useMergedBlogPosts();
   return (
     <div className="relative">
       {/* Single Continuous Background for ENTIRE Page */}
@@ -246,7 +343,19 @@ export default function BlogPage() {
       <section className="relative pb-16 lg:pb-20">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Grid layout mirrors homepage blog section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          {loaded && blogPosts.length === 0 && (
+            <div className="text-center text-gray-600 dark:text-gray-400 py-12">No posts yet.</div>
+          )}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8" aria-busy={!loaded} aria-live="polite">
+            {/* Loading Skeletons */}
+            {!loaded && (
+              <>
+                <FeaturedPostSkeleton />
+                {[...Array(4)].map((_, i) => (
+                  <PostCardSkeleton key={i} />
+                ))}
+              </>
+            )}
             {/* Featured Post */}
             {blogPosts
               .filter((post: BlogPost) => post.featured)

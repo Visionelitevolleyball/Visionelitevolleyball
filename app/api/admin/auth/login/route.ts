@@ -1,5 +1,9 @@
 import { NextResponse } from 'next/server'
-import { ADMIN_TOKEN_COOKIE, createAdminJWT, isAdminCredentialsValid } from '@/lib/auth'
+import { ADMIN_TOKEN_COOKIE, createAdminJWT } from '@/lib/auth'
+import { db } from '@/src/db/db'
+import { adminUsers } from '@/src/db/schema'
+import { eq } from 'drizzle-orm'
+import { verifyPassword } from '@/lib/password'
 
 export async function POST(req: Request) {
   try {
@@ -11,7 +15,14 @@ export async function POST(req: Request) {
       return NextResponse.json({ error: 'Email and password are required' }, { status: 400 })
     }
 
-    if (!isAdminCredentialsValid(email, password)) {
+    // Look up admin user in the database
+    const [user] = await db.select().from(adminUsers).where(eq(adminUsers.email, email))
+    if (!user) {
+      return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
+    }
+
+    const ok = await verifyPassword(password, user.passwordHash)
+    if (!ok) {
       return NextResponse.json({ error: 'Invalid credentials' }, { status: 401 })
     }
 

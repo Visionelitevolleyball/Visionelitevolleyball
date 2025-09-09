@@ -1,6 +1,6 @@
 "use client"
 
-import { useState, useTransition, useEffect, Suspense } from 'react'
+import { useState, useTransition, Suspense } from 'react'
 import { useRouter, useSearchParams } from 'next/navigation'
 import { Button } from '@/components/ui/button'
 
@@ -12,10 +12,6 @@ function LoginForm() {
   const [error, setError] = useState<string | null>(null)
   const [isPending, startTransition] = useTransition()
 
-  useEffect(() => {
-    // Prefill known admin email for convenience
-    setEmail(process.env.NEXT_PUBLIC_ADMIN_EMAIL ?? 'admin@visioneliteacademy.org')
-  }, [])
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -51,22 +47,26 @@ function LoginForm() {
           <label className="text-sm font-medium">Email</label>
           <input
             type="email"
+            name="email"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
             required
             className="w-full rounded-md border px-3 py-2 bg-transparent"
-            placeholder="admin@visioneliteacademy.org"
+            placeholder="enter your email"
+            autoComplete="username"
           />
         </div>
         <div className="space-y-1">
           <label className="text-sm font-medium">Password</label>
           <input
             type="password"
+            name="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
             className="w-full rounded-md border px-3 py-2 bg-transparent"
             placeholder="••••••••"
+            autoComplete="current-password"
           />
         </div>
         <Button type="submit" className="w-full" disabled={isPending}>

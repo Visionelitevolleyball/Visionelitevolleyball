@@ -5,6 +5,7 @@ import React from "react";
 import remarkGfm from "remark-gfm";
 import "@uiw/react-md-editor/markdown-editor.css";
 import "@uiw/react-markdown-preview/markdown.css";
+import "@/app/admin/markdown-editor.css";
 
 // SSR-safe dynamic import
 type UiMdEditorProps = {

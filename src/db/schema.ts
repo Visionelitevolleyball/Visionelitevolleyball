@@ -54,6 +54,20 @@ export const pendingNewsletterEmails = sqliteTable('pending_newsletter_emails', 
 export type InsertPendingNewsletterEmail = typeof pendingNewsletterEmails.$inferInsert
 export type SelectPendingNewsletterEmail = typeof pendingNewsletterEmails.$inferSelect
 
+// Admin Users Table (for admin authentication)
+export const adminUsers = sqliteTable('admin_users', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  email: text('email').notNull().unique(),
+  passwordHash: text('password_hash').notNull(),
+  name: text('name').notNull().default('Admin'),
+  role: text('role').notNull().default('admin'),
+  createdAt: text('created_at').default(sql`(CURRENT_TIMESTAMP)`).notNull(),
+  updatedAt: text('updated_at').default(sql`(CURRENT_TIMESTAMP)`).notNull(),
+})
+
+export type InsertAdminUser = typeof adminUsers.$inferInsert
+export type SelectAdminUser = typeof adminUsers.$inferSelect
+
 // Blogs Table
 // Stored in SQLite (Turso) using Drizzle ORM
 // Note: tags are persisted as a comma-separated string for simplicity
