@@ -103,7 +103,7 @@ function useMergedBlogPosts() {
     let ignore = false
     ;(async () => {
       try {
-        const res = await fetch('/api/blogs', { cache: 'no-store' })
+        const res = await fetch('/api/blogs?pageSize=50', { cache: 'no-store' })
         if (!res.ok) return
         const data: { items?: unknown } = await res.json()
         type DbItem = {

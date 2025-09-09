@@ -102,6 +102,7 @@ export default function BlogListAdmin() {
     setLoading(true)
     try {
       const params = new URLSearchParams()
+      params.set('pageSize', '50')
       if (searchTerm) params.set('search', searchTerm)
       if (filter !== 'all') params.set('status', filter)
       
