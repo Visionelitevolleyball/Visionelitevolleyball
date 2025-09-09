@@ -1,0 +1,216 @@
+/* Custom styles for Markdown Editor to fix list rendering */
+
+/* Fix list styles in markdown preview */
+.w-md-editor-preview ul,
+.wmde-markdown ul {
+  list-style-type: disc !important;
+  padding-left: 1.5rem !important;
+  margin: 1rem 0 !important;
+}
+
+.w-md-editor-preview ol,
+.wmde-markdown ol {
+  list-style-type: decimal !important;
+  padding-left: 1.5rem !important;
+  margin: 1rem 0 !important;
+}
+
+.w-md-editor-preview ul li,
+.wmde-markdown ul li,
+.w-md-editor-preview ol li,
+.wmde-markdown ol li {
+  display: list-item !important;
+  margin: 0.25rem 0 !important;
+}
+
+/* Nested lists */
+.w-md-editor-preview ul ul,
+.wmde-markdown ul ul {
+  list-style-type: circle !important;
+  margin-top: 0.5rem !important;
+}
+
+.w-md-editor-preview ul ul ul,
+.wmde-markdown ul ul ul {
+  list-style-type: square !important;
+}
+
+.w-md-editor-preview ol ol,
+.wmde-markdown ol ol {
+  list-style-type: lower-alpha !important;
+  margin-top: 0.5rem !important;
+}
+
+/* Typography improvements */
+.w-md-editor-preview h1,
+.wmde-markdown h1 {
+  font-size: 2rem !important;
+  font-weight: 700 !important;
+  margin: 1.5rem 0 1rem 0 !important;
+}
+
+.w-md-editor-preview h2,
+.wmde-markdown h2 {
+  font-size: 1.5rem !important;
+  font-weight: 600 !important;
+  margin: 1.25rem 0 0.75rem 0 !important;
+}
+
+.w-md-editor-preview h3,
+.wmde-markdown h3 {
+  font-size: 1.25rem !important;
+  font-weight: 600 !important;
+  margin: 1rem 0 0.5rem 0 !important;
+}
+
+.w-md-editor-preview p,
+.wmde-markdown p {
+  margin: 0.75rem 0 !important;
+  line-height: 1.7 !important;
+}
+
+.w-md-editor-preview blockquote,
+.wmde-markdown blockquote {
+  border-left: 4px solid #e5e7eb !important;
+  padding-left: 1rem !important;
+  margin: 1rem 0 !important;
+  font-style: italic !important;
+  color: #6b7280 !important;
+}
+
+.dark .w-md-editor-preview blockquote,
+.dark .wmde-markdown blockquote {
+  border-left-color: #4b5563 !important;
+  color: #9ca3af !important;
+}
+
+/* Code blocks */
+.w-md-editor-preview pre,
+.wmde-markdown pre {
+  background-color: #f3f4f6 !important;
+  border-radius: 0.375rem !important;
+  padding: 1rem !important;
+  overflow-x: auto !important;
+  margin: 1rem 0 !important;
+}
+
+.dark .w-md-editor-preview pre,
+.dark .wmde-markdown pre {
+  background-color: #1f2937 !important;
+}
+
+.w-md-editor-preview code,
+.wmde-markdown code {
+  font-family: ui-monospace, SFMono-Regular, "SF Mono", Consolas, "Liberation Mono", Menlo, monospace !important;
+  font-size: 0.875rem !important;
+}
+
+/* Inline code */
+.w-md-editor-preview p code,
+.wmde-markdown p code {
+  background-color: #f3f4f6 !important;
+  padding: 0.125rem 0.25rem !important;
+  border-radius: 0.25rem !important;
+  color: #dc2626 !important;
+}
+
+.dark .w-md-editor-preview p code,
+.dark .wmde-markdown p code {
+  background-color: #374151 !important;
+  color: #f87171 !important;
+}
+
+/* Links */
+.w-md-editor-preview a,
+.wmde-markdown a {
+  color: #2563eb !important;
+  text-decoration: underline !important;
+}
+
+.w-md-editor-preview a:hover,
+.wmde-markdown a:hover {
+  color: #1d4ed8 !important;
+}
+
+.dark .w-md-editor-preview a,
+.dark .wmde-markdown a {
+  color: #60a5fa !important;
+}
+
+.dark .w-md-editor-preview a:hover,
+.dark .wmde-markdown a:hover {
+  color: #93bbfc !important;
+}
+
+/* Tables */
+.w-md-editor-preview table,
+.wmde-markdown table {
+  width: 100% !important;
+  border-collapse: collapse !important;
+  margin: 1rem 0 !important;
+}
+
+.w-md-editor-preview th,
+.wmde-markdown th {
+  background-color: #f3f4f6 !important;
+  padding: 0.5rem !important;
+  border: 1px solid #e5e7eb !important;
+  text-align: left !important;
+  font-weight: 600 !important;
+}
+
+.w-md-editor-preview td,
+.wmde-markdown td {
+  padding: 0.5rem !important;
+  border: 1px solid #e5e7eb !important;
+}
+
+.dark .w-md-editor-preview th,
+.dark .wmde-markdown th {
+  background-color: #1f2937 !important;
+  border-color: #4b5563 !important;
+}
+
+.dark .w-md-editor-preview td,
+.dark .wmde-markdown td {
+  border-color: #4b5563 !important;
+}
+
+/* Horizontal rules */
+.w-md-editor-preview hr,
+.wmde-markdown hr {
+  border: none !important;
+  border-top: 1px solid #e5e7eb !important;
+  margin: 2rem 0 !important;
+}
+
+.dark .w-md-editor-preview hr,
+.dark .wmde-markdown hr {
+  border-top-color: #4b5563 !important;
+}
+
+/* Editor container styling */
+.w-md-editor {
+  background-color: white !important;
+  border-radius: 0.5rem !important;
+}
+
+.dark .w-md-editor {
+  background-color: #111827 !important;
+}
+
+.w-md-editor.w-md-editor-focus {
+  box-shadow: 0 0 0 3px rgba(236, 186, 88, 0.1) !important;
+  border-color: #ecba58 !important;
+}
+
+/* Toolbar styling */
+.w-md-editor-toolbar {
+  background-color: #f9fafb !important;
+  border-bottom: 1px solid #e5e7eb !important;
+}
+
+.dark .w-md-editor-toolbar {
+  background-color: #1f2937 !important;
+  border-bottom-color: #4b5563 !important;
+}

@@ -1,13 +1,13 @@
 "use client";
 
 import { motion } from "motion/react";
+import { useEffect, useState } from "react";
 import Image from "next/image";
 import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { BookOpen, Calendar, Clock, User, ArrowRight } from "lucide-react";
-import { posts as sharedPosts } from "./posts";
 import { openNewsletterPopup } from "@/app/components/newsletter-popup";
 
 interface BlogPost {
@@ -24,29 +24,238 @@ interface BlogPost {
   image: string;
   featured?: boolean;
   publishedAt: number;
+  isDb?: boolean;
 }
 
-const blogPosts: BlogPost[] = sharedPosts.map((p) => ({
-  id: p.slug,
-  title: p.title,
-  excerpt: p.excerpt,
-  author: p.author,
-  authorShort: p.authorShort,
-  dateDisplay: p.dateDisplay,
-  dateShort: p.dateShort,
-  readTime: p.readTime,
-  readTimeShort: p.readTimeShort,
-  category: p.category,
-  image: p.image,
-  featured: p.featured,
-  publishedAt: p.publishedAt,
-}));
+function formatUtcDate(input: string | number | Date) {
+  const d = new Date(input)
+  return new Intl.DateTimeFormat('en-US', {
+    year: 'numeric', month: 'short', day: 'numeric', timeZone: 'UTC',
+  }).format(d)
+}
+
+function estimateReadTime(content: string) {
+  // Remove HTML tags
+  let text = content.replace(/<[^>]*>/g, ' ')
+  // Remove Markdown syntax (#, *, _, `, >, -, +, ![alt](url), [text](url))
+  text = text
+    .replace(/!\[[^\]]*\]\([^\)]*\)/g, ' ') // images
+    .replace(/\[[^\]]*\]\([^\)]*\)/g, ' ') // links
+    .replace(/[>#*_`~\-]+/g, ' ')
+  const words = text.trim() ? text.trim().split(/\s+/).length : 0
+  const minutes = Math.max(1, Math.ceil(words / 200))
+  return `${minutes} min read`
+}
+
+function DbImage({
+  src,
+  alt,
+  className,
+  sizes,
+  width,
+  height,
+  priority,
+  isDb,
+}: {
+  src: string
+  alt: string
+  className?: string
+  sizes?: string
+  width?: number
+  height?: number
+  priority?: boolean
+  isDb?: boolean
+}) {
+  if (isDb) {
+    return (
+      // Use Next Image with unoptimized flag for DB images
+      <Image 
+        src={src} 
+        alt={alt} 
+        width={width || 800}
+        height={height || 450}
+        className={className} 
+        unoptimized 
+      />
+    )
+  }
+  return (
+    <Image
+      src={src}
+      alt={alt}
+      width={width || 800}
+      height={height || 600}
+      priority={priority}
+      placeholder="blur"
+      blurDataURL={BLUR_DATA_URL}
+      sizes={sizes}
+      className={className}
+    />
+  )
+}
+
+// Merge DB blogs with static posts (DB first)
+function useMergedBlogPosts() {
+  const [blogPosts, setBlogPosts] = useState<BlogPost[]>([])
+  const [loaded, setLoaded] = useState(false)
+
+  useEffect(() => {
+    let ignore = false
+    ;(async () => {
+      try {
+        const res = await fetch('/api/blogs', { cache: 'no-store' })
+        if (!res.ok) return
+        const data: { items?: unknown } = await res.json()
+        type DbItem = {
+          slug: string
+          title: string
+          excerpt: string | null
+          author: string | null
+          category: string | null
+          featuredImage: string | null
+          featured: boolean | number | null
+          content: string | null
+          publishedDate: string | null
+          createdAt: string
+        }
+        const isDbItemArray = (arr: unknown): arr is DbItem[] => {
+          return Array.isArray(arr) && arr.every((it) => {
+            return !!it && typeof it === 'object' && 'slug' in it && 'title' in it
+          })
+        }
+        const raw: DbItem[] = isDbItemArray(data.items) ? data.items : []
+        const mapped: BlogPost[] = raw.map((b) => ({
+          id: b.slug,
+          title: b.title,
+          excerpt: b.excerpt ?? '',
+          author: b.author ?? 'Admin',
+          dateDisplay: formatUtcDate(b.publishedDate ?? b.createdAt),
+          readTime: estimateReadTime(b.content ?? ''),
+          category: b.category ?? 'Blog',
+          image: b.featuredImage ?? '/volleyball.png',
+          featured: Boolean(b.featured ?? false),
+          publishedAt: Date.parse((b.publishedDate ?? b.createdAt) || new Date().toISOString()),
+          isDb: true,
+        }))
+        if (!ignore) {
+          setBlogPosts(mapped)
+          setLoaded(true)
+        }
+      } catch {}
+    })()
+    return () => {
+      ignore = true
+    }
+  }, [])
+
+  return { blogPosts, loaded }
+}
 
 // Show immediate visual feedback while images stream in
 const BLUR_DATA_URL =
   "data:image/gif;base64,R0lGODlhAQABAIAAAAAAAP///ywAAAAAAQABAAACAUwAOw==";
 
+// Lightweight shimmer overlay used by skeletons
+function Shimmer() {
+  return (
+    <>
+      <div className="pointer-events-none absolute inset-0 -translate-x-full bg-gradient-to-r from-transparent via-white/40 to-transparent dark:via-white/10 animate-[shimmer_1.6s_ease-in-out_infinite]" />
+      <style jsx>{`
+        @keyframes shimmer {
+          100% { transform: translateX(100%); }
+        }
+      `}</style>
+    </>
+  )
+}
+
+function FeaturedPostSkeleton() {
+  return (
+    <article className="lg:col-span-2">
+      <div className="relative overflow-hidden rounded-2xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+        <div className="grid lg:grid-cols-2 h-full">
+          {/* Image area */}
+          <div className="relative h-64 lg:h-full">
+            <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800" />
+            <div className="absolute inset-0">
+              <Shimmer />
+            </div>
+            <div className="absolute top-4 left-4 h-7 w-32 rounded-full bg-black/20 backdrop-blur-sm" />
+          </div>
+
+          {/* Content area */}
+          <div className="p-8 lg:p-10 flex flex-col justify-between">
+            <div>
+              <div className="h-7 w-28 rounded-full bg-primary/10 mb-4" />
+              <div className="space-y-3">
+                <div className="h-6 w-3/4 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-6 w-2/3 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-6 w-1/3 rounded bg-gray-200 dark:bg-gray-800" />
+              </div>
+              <div className="mt-5 space-y-2">
+                <div className="h-4 w-full rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-4 w-11/12 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-4 w-10/12 rounded bg-gray-200 dark:bg-gray-800" />
+              </div>
+            </div>
+            <div className="mt-6 flex items-center justify-between">
+              <div className="flex items-center gap-3">
+                <div className="h-4 w-24 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-4 w-20 rounded bg-gray-200 dark:bg-gray-800" />
+                <div className="h-4 w-16 rounded bg-gray-200 dark:bg-gray-800" />
+              </div>
+              <div className="h-5 w-24 rounded bg-gray-200 dark:bg-gray-800" />
+            </div>
+          </div>
+        </div>
+        <div className="absolute inset-0 animate-pulse" aria-hidden="true" />
+      </div>
+    </article>
+  )
+}
+
+function PostCardSkeleton() {
+  return (
+    <article>
+      <div className="relative overflow-hidden rounded-xl border border-gray-200 dark:border-gray-800 bg-white dark:bg-gray-900">
+        {/* Image area */}
+        <div className="relative h-48">
+          <div className="absolute inset-0 bg-gray-200 dark:bg-gray-800" />
+          <div className="absolute inset-0">
+            <Shimmer />
+          </div>
+          <div className="absolute top-4 left-4 h-6 w-20 rounded-full bg-black/20 backdrop-blur-sm" />
+        </div>
+
+        {/* Content */}
+        <div className="p-4 sm:p-6">
+          <div className="space-y-3">
+            <div className="h-5 w-3/4 rounded bg-gray-200 dark:bg-gray-800" />
+            <div className="h-5 w-2/3 rounded bg-gray-200 dark:bg-gray-800" />
+          </div>
+          <div className="mt-4 space-y-2">
+            <div className="h-4 w-full rounded bg-gray-200 dark:bg-gray-800" />
+            <div className="h-4 w-11/12 rounded bg-gray-200 dark:bg-gray-800" />
+          </div>
+          <div className="pt-4 mt-2 border-t border-gray-100 dark:border-gray-800 flex items-center justify-between">
+            <div className="flex items-center gap-2">
+              <div className="h-4 w-20 rounded bg-gray-200 dark:bg-gray-800" />
+              <span className="text-gray-300">·</span>
+              <div className="h-4 w-20 rounded bg-gray-200 dark:bg-gray-800" />
+              <span className="text-gray-300">·</span>
+              <div className="h-4 w-16 rounded bg-gray-200 dark:bg-gray-800" />
+            </div>
+            <div className="h-4 w-16 rounded bg-gray-200 dark:bg-gray-800" />
+          </div>
+        </div>
+        <div className="absolute inset-0 animate-pulse" aria-hidden="true" />
+      </div>
+    </article>
+  )
+}
+
 export default function BlogPage() {
+  const { blogPosts, loaded } = useMergedBlogPosts();
   return (
     <div className="relative">
       {/* Single Continuous Background for ENTIRE Page */}
@@ -134,11 +343,23 @@ export default function BlogPage() {
       <section className="relative pb-16 lg:pb-20">
         <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           {/* Grid layout mirrors homepage blog section */}
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8">
+          {loaded && blogPosts.length === 0 && (
+            <div className="text-center text-gray-600 dark:text-gray-400 py-12">No posts yet.</div>
+          )}
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 lg:gap-8" aria-busy={!loaded} aria-live="polite">
+            {/* Loading Skeletons */}
+            {!loaded && (
+              <>
+                <FeaturedPostSkeleton />
+                {[...Array(4)].map((_, i) => (
+                  <PostCardSkeleton key={i} />
+                ))}
+              </>
+            )}
             {/* Featured Post */}
             {blogPosts
-              .filter((post) => post.featured)
-              .map((post) => (
+              .filter((post: BlogPost) => post.featured)
+              .map((post: BlogPost) => (
                 <article key={post.id} className="lg:col-span-2 group">
                   <Link href={`/blog/${post.id}`} className="block" prefetch>
                     <div
@@ -154,17 +375,15 @@ export default function BlogPage() {
                         {/* Image */}
                         <div className="relative h-64 lg:h-full overflow-hidden">
                           <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-black/20 to-transparent z-10" />
-                          <Image
+                          <DbImage
                             src={post.image}
                             alt={post.title}
                             width={800}
                             height={600}
                             priority
-                            fetchPriority="high"
-                            placeholder="blur"
-                            blurDataURL={BLUR_DATA_URL}
                             sizes="(min-width: 1024px) 50vw, 100vw"
                             className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                            isDb={post.isDb}
                           />
                           {/* Featured Badge */}
                           <div className="absolute top-4 left-4 z-20">
@@ -228,8 +447,8 @@ export default function BlogPage() {
 
             {/* Regular Posts */}
             {blogPosts
-              .filter((post) => !post.featured)
-              .map((post) => (
+              .filter((post: BlogPost) => !post.featured)
+              .map((post: BlogPost) => (
                 <article key={post.id} className="group">
                   <Link href={`/blog/${post.id}`} className="block" prefetch>
                     <div
@@ -244,15 +463,14 @@ export default function BlogPage() {
                       {/* Image */}
                       <div className="relative h-48 overflow-hidden">
                         <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10" />
-                        <Image
+                        <DbImage
                           src={post.image}
                           alt={post.title}
                           width={600}
                           height={400}
-                          placeholder="blur"
-                          blurDataURL={BLUR_DATA_URL}
                           sizes="(min-width: 1024px) 50vw, 100vw"
                           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                          isDb={post.isDb}
                         />
                         {/* Category Badge */}
                         <div className="absolute top-4 left-4 z-20">

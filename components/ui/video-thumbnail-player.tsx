@@ -18,7 +18,6 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
       thumbnailUrl,
       videoUrl,
       title,
-      description,
       aspectRatio = "16/9",
       ...props
     },

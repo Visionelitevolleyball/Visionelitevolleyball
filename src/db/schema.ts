@@ -53,3 +53,41 @@ export const pendingNewsletterEmails = sqliteTable('pending_newsletter_emails', 
 
 export type InsertPendingNewsletterEmail = typeof pendingNewsletterEmails.$inferInsert
 export type SelectPendingNewsletterEmail = typeof pendingNewsletterEmails.$inferSelect
+
+// Admin Users Table (for admin authentication)
+export const adminUsers = sqliteTable('admin_users', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  email: text('email').notNull().unique(),
+  passwordHash: text('password_hash').notNull(),
+  name: text('name').notNull().default('Admin'),
+  role: text('role').notNull().default('admin'),
+  createdAt: text('created_at').default(sql`(CURRENT_TIMESTAMP)`).notNull(),
+  updatedAt: text('updated_at').default(sql`(CURRENT_TIMESTAMP)`).notNull(),
+})
+
+export type InsertAdminUser = typeof adminUsers.$inferInsert
+export type SelectAdminUser = typeof adminUsers.$inferSelect
+
+// Blogs Table
+// Stored in SQLite (Turso) using Drizzle ORM
+// Note: tags are persisted as a comma-separated string for simplicity
+export const blogs = sqliteTable('blogs', {
+  id: integer('id').primaryKey({ autoIncrement: true }),
+  title: text('title').notNull(),
+  slug: text('slug').notNull().unique(),
+  excerpt: text('excerpt'),
+  content: text('content').notNull(),
+  contentFormat: text('content_format').default('markdown'),
+  featuredImage: text('featured_image'),
+  featured: integer('featured', { mode: 'boolean' }).default(false).notNull(),
+  author: text('author').notNull().default('Admin'),
+  category: text('category'),
+  tags: text('tags'), // comma-separated values
+  status: text('status', { enum: ['draft', 'published'] }).notNull().default('draft'),
+  publishedDate: text('published_date'),
+  createdAt: text('created_at').default(sql`(CURRENT_TIMESTAMP)`).notNull(),
+  updatedAt: text('updated_at').default(sql`(CURRENT_TIMESTAMP)`).notNull(),
+})
+
+export type InsertBlog = typeof blogs.$inferInsert
+export type SelectBlog = typeof blogs.$inferSelect
