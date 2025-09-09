@@ -27,16 +27,38 @@ export default function GetInTouchPage() {
   });
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
+  const [error, setError] = useState("");
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (!form.name || !form.email || !form.message) return;
+    
     setSubmitting(true);
-    // Placeholder submit
-    setTimeout(() => {
+    setError("");
+
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
+
+      const data = await response.json();
+
+      if (response.ok) {
+        setSubmitted(true);
+        setForm({ name: "", email: "", message: "" });
+      } else {
+        setError(data.error || "Something went wrong. Please try again.");
+      }
+    } catch (error) {
+      console.error("Contact form submission error:", error);
+      setError("Network error. Please try again later.");
+    } finally {
       setSubmitting(false);
-      setSubmitted(true);
-    }, 600);
+    }
   };
 
   return (
@@ -124,6 +146,11 @@ export default function GetInTouchPage() {
               </div>
             ) : (
               <form onSubmit={onSubmit} className="space-y-4">
+                {error && (
+                  <div className="text-red-600 dark:text-red-400 text-sm p-3 bg-red-50 dark:bg-red-900/20 rounded-lg">
+                    {error}
+                  </div>
+                )}
                 <div>
                   <label className="block text-sm font-medium mb-1">Name</label>
                   <input

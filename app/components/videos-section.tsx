@@ -1,6 +1,5 @@
 "use client";
 
-import { useState } from "react";
 import { cn } from "@/lib/utils";
 import { VideoPlayer } from "@/components/ui/video-thumbnail-player";
 import { motion } from "motion/react";
@@ -12,78 +11,56 @@ interface Video {
   description: string;
   thumbnailUrl: string;
   videoUrl: string;
-  category?: string;
   featured?: boolean;
 }
 
 const videos: Video[] = [
   {
-    id: "1",
-    title: "Serving Fundamentals",
-    description:
-      "Master the perfect serve technique with our step-by-step guide",
-    thumbnailUrl:
-      "https://images.unsplash.com/photo-1612872087720-bb876e2e67d1?q=80&w=2000&auto=format&fit=crop",
-    videoUrl: "https://www.youtube.com/embed/ZU8rhOI8h7o?autoplay=1",
-    category: "Technique",
+    id: "EyBjO9vtx6Y",
+    title: "Spiking Approach Fundamentals",
+    description: "Perfect your spike approach with Calgary training tips",
+    thumbnailUrl: "https://img.youtube.com/vi/EyBjO9vtx6Y/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/EyBjO9vtx6Y?autoplay=1",
     featured: true,
   },
   {
-    id: "2",
-    title: "Spike Training Drills",
-    description: "Develop explosive power and timing for devastating spikes",
-    thumbnailUrl:
-      "https://images.unsplash.com/photo-1558365849-6ebd8b0454b2?q=80&w=2000&auto=format&fit=crop",
-    videoUrl: "https://www.youtube.com/embed/ZU8rhOI8h7o?autoplay=1",
-    category: "Training",
+    id: "_TXebu9kw2g",
+    title: "How to Set a Volleyball",
+    description: "Step-by-step guide for beginners",
+    thumbnailUrl: "https://img.youtube.com/vi/_TXebu9kw2g/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/_TXebu9kw2g?autoplay=1",
   },
   {
-    id: "3",
-    title: "Defensive Positioning",
-    description: "Learn court awareness and defensive strategies from the pros",
-    thumbnailUrl:
-      "https://images.unsplash.com/photo-1592656094267-764a45160876?q=80&w=2000&auto=format&fit=crop",
-    videoUrl: "https://www.youtube.com/embed/ZU8rhOI8h7o?autoplay=1",
-    category: "Strategy",
+    id: "HEmDi7PEMfQ",
+    title: "Mastering Tempo & Passing",
+    description: "Learn different types of volleyball passes",
+    thumbnailUrl: "https://img.youtube.com/vi/HEmDi7PEMfQ/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/HEmDi7PEMfQ?autoplay=1",
   },
   {
-    id: "4",
-    title: "Setting Techniques",
-    description: "Perfect your setting skills with professional coaching tips",
-    thumbnailUrl:
-      "https://images.unsplash.com/photo-1547347298-4074fc3086f0?q=80&w=2000&auto=format&fit=crop",
-    videoUrl: "https://www.youtube.com/embed/ZU8rhOI8h7o?autoplay=1",
-    category: "Technique",
+    id: "9OxARfjC97A",
+    title: "How to Win in Volleyball",
+    description: "Championship strategies from our elite athletes",
+    thumbnailUrl: "https://img.youtube.com/vi/9OxARfjC97A/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/9OxARfjC97A?autoplay=1",
   },
   {
-    id: "5",
-    title: "Team Communication",
-    description: "Build chemistry and improve on-court communication",
-    thumbnailUrl:
-      "https://images.unsplash.com/photo-1587280501635-68a0e82cd5ff?q=80&w=2000&auto=format&fit=crop",
-    videoUrl: "https://www.youtube.com/embed/ZU8rhOI8h7o?autoplay=1",
-    category: "Teamwork",
+    id: "m2w5t5QrHqw",
+    title: "Volleyball Blocking Tips",
+    description: "Where to look when blocking at the net",
+    thumbnailUrl: "https://img.youtube.com/vi/m2w5t5QrHqw/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/m2w5t5QrHqw?autoplay=1",
   },
   {
-    id: "6",
-    title: "Conditioning Workout",
-    description: "Volleyball-specific fitness training for peak performance",
-    thumbnailUrl:
-      "https://images.unsplash.com/photo-1585314540237-408b0456e2ed?q=80&w=2000&auto=format&fit=crop",
-    videoUrl: "https://www.youtube.com/embed/ZU8rhOI8h7o?autoplay=1",
-    category: "Fitness",
+    id: "mV_7dN6KbeQ",
+    title: "Blocking Footwork Mastery",
+    description: "Perfect your block step-by-step",
+    thumbnailUrl: "https://img.youtube.com/vi/mV_7dN6KbeQ/maxresdefault.jpg",
+    videoUrl: "https://www.youtube.com/embed/mV_7dN6KbeQ?autoplay=1",
   },
 ];
 
 export function VideosSection() {
-  const [selectedCategory, setSelectedCategory] = useState("All");
-
-  // Filter videos based on selected category
-  const filteredVideos =
-    selectedCategory === "All"
-      ? videos
-      : videos.filter((video) => video.category === selectedCategory);
-
   return (
     <section
       className={cn(
@@ -155,45 +132,12 @@ export function VideosSection() {
           Access exclusive training content, technique breakdowns, and match
           analysis from our professional coaching staff.
         </motion.p>
-
-        {/* Categories */}
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          transition={{ duration: 0.6, delay: 0.3 }}
-          className="flex flex-wrap justify-center gap-3 mt-8"
-        >
-          {[
-            "All",
-            "Technique",
-            "Training",
-            "Strategy",
-            "Fitness",
-            "Teamwork",
-          ].map((category) => (
-            <button
-              key={category}
-              onClick={() => setSelectedCategory(category)}
-              className={cn(
-                "px-5 py-2 rounded-full text-sm font-medium transition-all duration-300",
-                "border border-gray-200 dark:border-gray-700",
-                "hover:bg-primary hover:text-black hover:border-primary",
-                "dark:hover:bg-primary dark:hover:text-black dark:hover:border-primary",
-                category === selectedCategory &&
-                  "bg-primary text-black border-primary"
-              )}
-            >
-              {category}
-            </button>
-          ))}
-        </motion.div>
       </div>
 
       {/* Video Grid */}
       <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
-          {filteredVideos.map((video, index) => (
+          {videos.map((video, index) => (
             <motion.div
               key={video.id}
               initial={{ opacity: 0, y: 30 }}
@@ -206,42 +150,51 @@ export function VideosSection() {
               }}
               className="relative group"
             >
-              {/* Featured Badge */}
-              {video.featured && (
-                <div className="absolute -top-3 -right-3 z-10">
-                  <div className="flex items-center gap-1 px-3 py-1.5 rounded-full bg-gradient-to-r from-primary to-yellow-500 text-black text-xs font-semibold shadow-lg">
-                    <Sparkles className="h-3 w-3" />
-                    Featured
+              {/* Card Container */}
+              <div className={cn(
+                "bg-white dark:bg-gray-900/50 rounded-xl overflow-hidden",
+                "border border-gray-200 dark:border-gray-800",
+                "transition-all duration-300",
+                "hover:shadow-xl hover:scale-[1.02]",
+                video.featured && "border-primary/30 dark:border-primary/20"
+              )}>
+                {/* Featured Badge */}
+                {video.featured && (
+                  <div className="absolute top-3 right-3 z-10">
+                    <div className="flex items-center gap-1 px-2.5 py-1 rounded-full bg-gradient-to-r from-primary to-yellow-500 text-black text-xs font-semibold shadow-md">
+                      <Sparkles className="h-3 w-3" />
+                      Featured
+                    </div>
                   </div>
-                </div>
-              )}
-
-              {/* Category Badge */}
-              {video.category && (
-                <div className="absolute top-4 left-4 z-10">
-                  <div className="px-3 py-1 rounded-full bg-black/50 backdrop-blur-sm text-white text-xs font-medium">
-                    {video.category}
-                  </div>
-                </div>
-              )}
-
-              <div
-                className={cn(
-                  "relative overflow-hidden rounded-xl",
-                  "transform transition-all duration-300",
-                  "hover:scale-[1.02] hover:shadow-2xl",
-                  "ring-1 ring-gray-200 dark:ring-gray-800",
-                  video.featured &&
-                    "ring-2 ring-primary/50 dark:ring-primary/30"
                 )}
-              >
-                <VideoPlayer
-                  thumbnailUrl={video.thumbnailUrl}
-                  videoUrl={video.videoUrl}
-                  title={video.title}
-                  description={video.description}
-                  className="!shadow-none"
-                />
+
+                {/* Video Thumbnail */}
+                <div className="relative aspect-video overflow-hidden bg-gray-100 dark:bg-gray-800">
+                  <VideoPlayer
+                    thumbnailUrl={video.thumbnailUrl}
+                    videoUrl={video.videoUrl}
+                    title={video.title}
+                    description={video.description}
+                    className="!rounded-none !shadow-none"
+                  />
+                </div>
+
+                {/* Text Content */}
+                <div className="p-4 space-y-2">
+                  <h3 className={cn(
+                    "font-semibold text-base line-clamp-2",
+                    "text-gray-900 dark:text-gray-100",
+                    "group-hover:text-primary transition-colors duration-200"
+                  )}>
+                    {video.title}
+                  </h3>
+                  <p className={cn(
+                    "text-sm line-clamp-2",
+                    "text-gray-600 dark:text-gray-400"
+                  )}>
+                    {video.description}
+                  </p>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -256,6 +209,7 @@ export function VideosSection() {
           className="flex justify-center mt-12"
         >
           <button
+            onClick={() => window.open("https://www.youtube.com/@VisionEliteInternational/videos", "_blank")}
             className={cn(
               "group relative inline-flex items-center gap-2 px-8 py-4",
               "bg-gradient-to-r from-primary to-yellow-500",

@@ -333,7 +333,7 @@ export default function BlogPage() {
               </p>
               <Button
                 size="lg"
-                onClick={openNewsletterPopup}
+                onClick={() => openNewsletterPopup()}
                 className={cn(
                   "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
                   "text-black font-semibold text-base sm:text-lg px-6 sm:px-8 h-12 sm:h-14",

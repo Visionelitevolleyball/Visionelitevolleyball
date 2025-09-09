@@ -70,22 +70,14 @@ const VideoPlayer = React.forwardRef<HTMLDivElement, VideoPlayerProps>(
             sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
             className="object-cover transition-transform duration-300 group-hover:scale-105"
           />
-          {/* Overlay Gradient */}
-          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent" />
+          {/* Subtle Overlay on Hover */}
+          <div className="absolute inset-0 bg-black/0 transition-all duration-300 group-hover:bg-black/20" />
 
           {/* Play Button */}
           <div className="absolute inset-0 flex items-center justify-center">
-            <div className="flex h-16 w-16 items-center justify-center rounded-full bg-white/20 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-white/30">
-              <Play className="h-8 w-8 fill-white text-white" />
+            <div className="flex h-14 w-14 items-center justify-center rounded-full bg-black/50 backdrop-blur-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-primary/90">
+              <Play className="h-7 w-7 fill-white text-white ml-0.5" />
             </div>
-          </div>
-
-          {/* Title and Description */}
-          <div className="absolute bottom-0 left-0 p-6">
-            <h3 className="text-2xl font-bold text-white">{title}</h3>
-            {description && (
-              <p className="mt-1 text-sm text-white/80">{description}</p>
-            )}
           </div>
         </div>
 
