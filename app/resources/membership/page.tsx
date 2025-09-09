@@ -126,7 +126,7 @@ export default function MembershipPage() {
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
             Join thousands of young athletes developing their skills through our comprehensive programs.
-            We’ve been the catalyst for countless British Columbians advancing to college and university scholarships.
+            We&apos;ve been the catalyst for countless British Columbians advancing to college and university scholarships.
           </p>
 
           {/* Optional Hero Notice (removed as requested) */}
