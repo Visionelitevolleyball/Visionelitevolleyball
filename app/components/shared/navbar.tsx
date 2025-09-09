@@ -13,19 +13,20 @@ import {
   Calendar,
   Users,
   Star,
-  Video,
-  BookOpen,
-  HelpCircle,
   Info,
   MapPin,
   Mail,
   Briefcase,
+  BadgeCheck,
+  LifeBuoy,
+  FileText,
 } from "lucide-react";
 
 import { Button } from "@/components/ui/button";
 import { ModeToggle } from "@/components/mode-toggle";
 import { AnimatedTagline } from "@/components/ui/animated-tagline";
 import { HoverDropdown } from "@/app/components/shared/hover-dropdown";
+import { CONTACT } from "@/lib/constants";
 import {
   Sheet,
   SheetContent,
@@ -68,9 +69,9 @@ const navItems = [
     name: "Resources",
     href: "/resources",
     subItems: [
-      { name: "Training Videos", href: "/resources/videos", icon: Video },
-      { name: "Parent Guide", href: "/resources/parents", icon: BookOpen },
-      { name: "FAQ", href: "/resources/faq", icon: HelpCircle },
+      { name: "Membership Program", href: "/resources/membership", icon: BadgeCheck },
+      { name: "Athlete Support", href: "/resources/support", icon: LifeBuoy },
+      { name: "Policies & Forms", href: "/resources/policies", icon: FileText },
     ],
   },
   { name: "Blog", href: "/blog" },
@@ -174,13 +175,11 @@ export function Navbar() {
                 <AnimatedTagline className="ml-6" />
                 <div className="flex items-center space-x-8">
                   <a
-                    href="tel:403-510-1784"
+                    href={`tel:${CONTACT.phone}`}
                     className="flex items-center space-x-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
                   >
                     <Phone className="h-5 w-5" />
-                    <span className="text-[17.5px] font-medium">
-                      403-510-1784
-                    </span>
+                    <span className="text-[17.5px] font-medium">{CONTACT.phone}</span>
                   </a>
                   <Button 
                     onClick={() => window.open("https://visioneliteacademy.com/program-search/", "_blank")}
@@ -305,7 +304,7 @@ export function Navbar() {
           {/* Right side with phone and menu */}
           <div className="flex items-center gap-3">
             <a
-              href="tel:403-510-1784"
+              href={`tel:${CONTACT.phone}`}
               className="hidden sm:flex items-center justify-center p-2 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
               aria-label="Call us"
             >
@@ -412,11 +411,11 @@ export function Navbar() {
                   {/* Bottom Section */}
                   <div className="border-t bg-secondary/10 dark:bg-secondary/20 p-6 space-y-4">
                     <a
-                      href="tel:403-510-1784"
+                      href={`tel:${CONTACT.phone}`}
                       className="flex items-center justify-center space-x-3 text-gray-700 dark:text-gray-300 hover:text-primary dark:hover:text-primary transition-colors"
                     >
                       <Phone className="h-6 w-6" />
-                      <span className="text-lg font-medium">403-510-1784</span>
+                      <span className="text-lg font-medium">{CONTACT.phone}</span>
                     </a>
                     <Button 
                       onClick={() => window.open("https://visioneliteacademy.com/program-search/", "_blank")}
