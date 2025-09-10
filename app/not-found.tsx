@@ -44,7 +44,7 @@ export default function NotFound() {
           </h2>
           
           <p className="text-base lg:text-lg text-muted-foreground mb-6 max-w-md mx-auto">
-            Looks like this ball went way outside the court. The page you're looking for doesn't exist or has been moved.
+            Looks like this ball went way outside the court. The page you&apos;re looking for doesn&apos;t exist or has been moved.
           </p>
         </motion.div>
 
