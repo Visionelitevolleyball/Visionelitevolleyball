@@ -8,6 +8,7 @@ import { ScrollToTop } from "@/app/components/scroll-to-top";
 import { Footer } from "@/app/components/shared/footer";
 import { NewsletterPopup } from "@/app/components/newsletter-popup";
 import { GoogleAnalytics } from "@/app/components/analytics/google-analytics";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -35,6 +36,7 @@ export default function RootLayout({
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
         <GoogleAnalytics />
+        <SpeedInsights />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
