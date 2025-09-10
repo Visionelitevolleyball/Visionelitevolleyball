@@ -115,21 +115,22 @@ const coaches: Coach[] = [
     id: "cass-field",
     name: "Cass Field",
     role: "Youth Development Coach",
+    image: "/coaches/cass_field.webp",
     credentials: [
       "Youth Specialist",
       "NCCP Development Coach",
       "Community Program Leader",
     ],
     bioShort:
-      "Passionate about introducing young athletes to volleyball fundamentals while building confidence and love for the game.",
+      "I have over three years of coaching experience working with both girls' and boys' teams at the high school and club level.",
     bioFull:
-      "Cass specializes in youth development and grassroots volleyball programs. With a natural ability to connect with young athletes, Cass creates an environment where beginners feel comfortable learning and more experienced players are challenged to grow. Known for making practices fun and engaging while maintaining high standards, Cass has helped countless young players discover their passion for volleyball. Their approach focuses on building not just athletic skills, but also confidence, teamwork, and a lifelong love for the sport.",
+      "I have over three years of coaching experience working with both girls' and boys' teams at the high school and club level. I also played volleyball all throughout high school and club, competing in multiple positions including left side, right side, setter, and middle. Playing in so many roles has given me a well-rounded perspective of the game that I bring into my coaching. My coaching style focuses on developing strong individual skills and technical precision, while also building confidence and a love for the sport. I'm passionate about helping athletes grow not only in their abilities on the court, but also in their teamwork, communication, and overall approach to the game. I have three years of coaching experience in both high school and club teams, and I've played every position from left side to setter. My coaching style focuses on building strong individual skills and technical precision while keeping the game fun and confidence boosting.",
     achievements: [
       "Youth Program Excellence",
       "Community Impact Award",
       "Player Development Specialist",
     ],
-    experience: "8+ Years",
+    experience: "3+ Years",
     focus: ["Youth Engagement", "Skill Building", "Confidence Development"],
     gradient: "from-green-500/10 to-emerald-500/10",
     iconColor: "text-green-600",
