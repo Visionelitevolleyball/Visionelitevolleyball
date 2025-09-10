@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
+import SEO from "@/app/components/shared/seo";
 import {
   CheckCircle,
   Users,
@@ -14,8 +15,23 @@ import {
 } from "lucide-react";
 
 export default function VisionVBCPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "VISION Volleyball Club (VBC)",
+    "description": "Affordable club volleyball February-April with experienced coaches, twice-weekly practices, and local tournaments.",
+    "sport": "Volleyball"
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="VISION Volleyball Club"
+        description="Join VISION Volleyball Club (VBC) - affordable club volleyball Feb-April. Experienced coaches, twice-weekly practices, local tournaments. Tryouts in January!"
+        keywords="vision volleyball club, vbc fraser valley, affordable club volleyball, volleyball tryouts january, youth volleyball teams, club volleyball surrey"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/club/vision"
+        jsonLd={jsonLd}
+      />
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

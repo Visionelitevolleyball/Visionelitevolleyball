@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
+import SEO from "@/app/components/shared/seo";
 import { MapPin, Phone, Mail } from "lucide-react";
 
 interface Location {
@@ -29,8 +30,30 @@ const locations: Location[] = [
 ];
 
 export default function LocationsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": "Fraser Valley Volleyball Locations",
+    "description": "Volleyball training locations in Surrey, Langley, and Abbotsford",
+    "telephone": "403-510-1784",
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": "10238 168th St",
+      "addressLocality": "Surrey",
+      "addressRegion": "BC",
+      "addressCountry": "CA"
+    }
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Locations"
+        description="Fraser Valley Volleyball locations in Surrey, Langley & Abbotsford. Find our training facilities at Pacific Academy and other venues. Maps and directions."
+        keywords="volleyball locations surrey, volleyball facilities langley, volleyball venues abbotsford, pacific academy volleyball, fraser valley volleyball locations"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/contact/locations"
+        jsonLd={jsonLd}
+      />
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
       </div>

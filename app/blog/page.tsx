@@ -7,6 +7,7 @@ import Link from "next/link";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
+import SEO from "@/app/components/shared/seo";
 import { BookOpen, Calendar, Clock, User, ArrowRight } from "lucide-react";
 import { openNewsletterPopup } from "@/app/components/newsletter-popup";
 
@@ -256,8 +257,24 @@ function PostCardSkeleton() {
 
 export default function BlogPage() {
   const { blogPosts, loaded } = useMergedBlogPosts();
+  
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Blog",
+    "name": "Fraser Valley Volleyball Blog",
+    "description": "Latest news, tips, and stories from Fraser Valley Volleyball. Youth volleyball training insights, tournament updates, and coaching advice.",
+    "url": "https://www.fraservalleyvolleyball.ca/blog"
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Blog"
+        description="Fraser Valley Volleyball Blog - Latest volleyball news, training tips, tournament updates, coaching insights, and success stories from our youth programs."
+        keywords="volleyball blog fraser valley, youth volleyball news, volleyball training tips, tournament updates surrey, coaching advice volleyball"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/blog"
+        jsonLd={jsonLd}
+      />
       {/* Single Continuous Background for ENTIRE Page */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

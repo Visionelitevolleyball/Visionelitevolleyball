@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import SEO from "@/app/components/shared/seo";
 import { Heart, Users, GraduationCap, ArrowRight } from "lucide-react";
 
 const openings = [
@@ -26,8 +27,34 @@ const openings = [
 ];
 
 export default function JoinOurTeamPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "JobPosting",
+    "hiringOrganization": {
+      "@type": "Organization",
+      "name": "Fraser Valley Volleyball"
+    },
+    "jobLocation": {
+      "@type": "Place",
+      "address": {
+        "@type": "PostalAddress",
+        "addressLocality": "Fraser Valley",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      }
+    },
+    "employmentType": ["PART_TIME", "SEASONAL"]
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Join Our Team"
+        description="Join Fraser Valley Volleyball as a coach! We're hiring youth volleyball coaches, premier league coaches, and camp instructors. Part-time and seasonal positions."
+        keywords="volleyball coaching jobs fraser valley, youth volleyball coach positions, volleyball instructor jobs surrey, coaching opportunities langley"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/contact/join-our-team"
+        jsonLd={jsonLd}
+      />
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
       </div>

@@ -3,11 +3,37 @@
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
+import SEO from "@/app/components/shared/seo";
 import { Calendar, Award, Trophy, CheckCircle, ArrowRight } from "lucide-react";
 
 export default function TryoutsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Fraser Valley Volleyball Club Tryouts",
+    "description": "Open tryouts for VISION VBC and Sky High Volleyball Club. January tryouts for youth volleyball teams.",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "location": {
+      "@type": "Place",
+      "name": "Fraser Valley",
+      "address": {
+        "@type": "PostalAddress",
+        "addressRegion": "BC",
+        "addressCountry": "CA"
+      }
+    }
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Club Tryouts"
+        description="Register for Fraser Valley volleyball club tryouts. VISION VBC and Sky High Club tryouts in January. Open to all skill levels, ages 13U-15U."
+        keywords="volleyball tryouts fraser valley, club volleyball tryouts, january volleyball tryouts, youth volleyball tryouts surrey, vbc tryouts, sky high tryouts"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/club/tryouts"
+        jsonLd={jsonLd}
+      />
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

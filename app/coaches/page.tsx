@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { useState } from "react";
 import { cn } from "@/lib/utils";
+import SEO from "@/app/components/shared/seo";
 import {
   Trophy,
   Users,
@@ -152,8 +153,27 @@ export default function CoachesPage() {
     });
   };
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SportsTeam",
+    "name": "Fraser Valley Volleyball Coaching Staff",
+    "description": "Meet our experienced volleyball coaches including Emily Chen, Sarah Williams, Cass Field, and more.",
+    "coach": coaches.map(coach => ({
+      "@type": "Person",
+      "name": coach.name,
+      "jobTitle": coach.role
+    }))
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Coach Bios"
+        description="Meet Fraser Valley Volleyball's expert coaching team. Experienced youth volleyball coaches with NCCP certification, leading programs in Surrey, Langley & Abbotsford."
+        keywords="volleyball coaches fraser valley, youth volleyball coaches surrey, nccp certified coaches, volleyball instructors langley, coaching staff bios"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/coaches"
+        jsonLd={jsonLd}
+      />
       {/* Single Continuous Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

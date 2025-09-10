@@ -6,14 +6,29 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { CONTACT, EXTERNAL_LINKS } from "@/lib/constants";
+import SEO from "@/app/components/shared/seo";
 import { FileDown, Info, Check, Shield, Camera, ArrowRight } from "lucide-react";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 
 export default function SupportPage() {
   const [accepted, setAccepted] = useState(false);
 
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "name": "Fraser Valley Volleyball Support & FAQ",
+    "description": "Support resources, forms, waivers, and frequently asked questions for Fraser Valley Volleyball programs."
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Support & FAQ"
+        description="Fraser Valley Volleyball support resources - download forms, waivers, photo consent, FAQ, and get help with registration and program questions."
+        keywords="volleyball support resources, program FAQ, volleyball forms download, waiver forms, photo consent volleyball"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/resources/support"
+        jsonLd={jsonLd}
+      />
       {/* Background gradient */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

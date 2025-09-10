@@ -6,6 +6,7 @@ import { cn } from "@/lib/utils";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { VideoPlayer } from "@/components/ui/video-thumbnail-player";
+import SEO from "@/app/components/shared/seo";
 import {
   ArrowRight,
   Calendar,
@@ -57,8 +58,23 @@ const leagueTestimonials = [
 export default function LeaguesPage() {
   const router = useRouter();
   
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SportsActivityLocation",
+    "name": "Fraser Valley Volleyball Leagues",
+    "description": "Premier volleyball leagues for intermediate to advanced athletes. 8-week seasons with weekly practices and competitive matches.",
+    "sport": "Volleyball"
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Leagues"
+        description="Join Fraser Valley Premier Volleyball League - 8-week seasons with weekly practices, competitive matches, and championship tournaments. For intermediate to advanced players."
+        keywords="volleyball leagues fraser valley, premier volleyball league surrey, competitive volleyball langley, youth volleyball leagues, volleyball tournaments bc"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/leagues"
+        jsonLd={jsonLd}
+      />
       {/* Background Pattern - Consistent with reviews page */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

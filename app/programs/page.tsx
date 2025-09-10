@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import SEO from "../components/shared/seo";
 import {
   Trophy,
   Star,
@@ -25,8 +26,47 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 export default function ProgramsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "EducationalOrganization",
+    "name": "Fraser Valley Volleyball Programs",
+    "description": "Comprehensive volleyball training programs for all ages and skill levels in Surrey, Langley, and Abbotsford",
+    "url": "https://www.fraservalleyvolleyball.ca/programs",
+    "telephone": "403-510-1784",
+    "address": {
+      "@type": "PostalAddress",
+      "addressRegion": "BC",
+      "addressCountry": "CA",
+      "addressLocality": "Fraser Valley"
+    },
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "VISION Volleyball Academy",
+        "description": "10-week seasonal programs for grades 2-10"
+      },
+      {
+        "@type": "Offer",
+        "name": "Summer Day Camps",
+        "description": "Full-week volleyball camps during July and August"
+      },
+      {
+        "@type": "Offer",
+        "name": "VISION Premier League",
+        "description": "Competitive league for intermediate to advanced athletes"
+      }
+    ]
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Programs"
+        description="Discover volleyball programs for all ages in Fraser Valley. From beginner camps to elite training, join our academy, leagues, and club teams. Register today!"
+        keywords="fraser valley volleyball programs, volleyball camps surrey, volleyball training langley, youth volleyball abbotsford, volleyball academy, summer camps"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/programs"
+        jsonLd={jsonLd}
+      />
       {/* Single Continuous Background for ENTIRE Page */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

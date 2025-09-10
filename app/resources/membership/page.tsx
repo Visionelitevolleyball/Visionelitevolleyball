@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import SEO from "@/app/components/shared/seo";
 import { CheckCircle, Users, Gift, ShoppingCart, CalendarCheck, ArrowRight, Info } from "lucide-react";
 import { EXTERNAL_LINKS } from "@/lib/constants";
 
@@ -30,6 +31,27 @@ function GlareButton({ children, onClick }: { children: React.ReactNode; onClick
  
 
 export default function MembershipPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Product",
+    "name": "Fraser Valley Volleyball Membership",
+    "description": "Unlimited volleyball training memberships with priority registration and exclusive discounts",
+    "offers": [
+      {
+        "@type": "Offer",
+        "name": "Single Youth Membership",
+        "price": "71.95",
+        "priceCurrency": "CAD"
+      },
+      {
+        "@type": "Offer",
+        "name": "Double Youth Membership",
+        "price": "121.95",
+        "priceCurrency": "CAD"
+      }
+    ]
+  };
+
   const tiers = [
     {
       name: "SINGLE YOUTH Membership",
@@ -85,6 +107,13 @@ export default function MembershipPage() {
 
   return (
     <div className="relative">
+      <SEO 
+        title="Membership Options"
+        description="Unlimited volleyball training memberships at Fraser Valley. Monthly plans from $71.95 with priority registration, exclusive discounts, and buddy passes."
+        keywords="volleyball membership fraser valley, unlimited volleyball training, youth sports membership surrey, volleyball monthly pass langley"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/resources/membership"
+        jsonLd={jsonLd}
+      />
       {/* Background gradient */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

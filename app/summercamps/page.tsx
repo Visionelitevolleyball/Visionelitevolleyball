@@ -2,6 +2,7 @@
 
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import SEO from "@/app/components/shared/seo";
 import {
   Trophy,
   Users,
@@ -23,8 +24,31 @@ import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 
 export default function SummerCampsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Event",
+    "name": "Fraser Valley Volleyball Summer Camps",
+    "description": "Full-week volleyball summer camps for youth in July and August. Team training, skill development, and championship tournaments.",
+    "eventStatus": "https://schema.org/EventScheduled",
+    "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
+    "startDate": "2025-07-01",
+    "endDate": "2025-08-31",
+    "offers": {
+      "@type": "Offer",
+      "price": "400",
+      "priceCurrency": "CAD"
+    }
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Summer Camps"
+        description="Fraser Valley Volleyball Summer Camps - Full-week programs July & August. Team training, daily scrimmages, championship tournaments. Ages 12-14 & 15+. Register now!"
+        keywords="volleyball summer camps fraser valley, summer volleyball camps surrey, youth volleyball camps langley, summer sports camps abbotsford, volleyball day camps"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/summercamps"
+        jsonLd={jsonLd}
+      />
       {/* Single Continuous Background for ENTIRE Page */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

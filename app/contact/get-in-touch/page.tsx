@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
+import SEO from "@/app/components/shared/seo";
 import {
   Phone,
   Mail,
@@ -28,6 +29,19 @@ export default function GetInTouchPage() {
   const [submitting, setSubmitting] = useState(false);
   const [submitted, setSubmitted] = useState(false);
   const [error, setError] = useState("");
+
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ContactPage",
+    "name": "Contact Fraser Valley Volleyball",
+    "description": "Get in touch with Fraser Valley Volleyball. Contact us for program inquiries, registration help, or general questions.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Fraser Valley Volleyball",
+      "telephone": "403-510-1784",
+      "email": "info@fraservalleyvolleyball.ca"
+    }
+  };
 
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
@@ -63,6 +77,13 @@ export default function GetInTouchPage() {
 
   return (
     <div className="relative">
+      <SEO 
+        title="Get In Touch"
+        description="Contact Fraser Valley Volleyball - Call 403-510-1784 or send us a message. Get help with program registration, volleyball training questions, and more."
+        keywords="contact fraser valley volleyball, volleyball contact surrey, volleyball inquiries langley, contact vision elite academy, volleyball registration help"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/contact/get-in-touch"
+        jsonLd={jsonLd}
+      />
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
       </div>

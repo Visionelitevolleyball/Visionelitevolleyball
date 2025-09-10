@@ -3,6 +3,7 @@
 import * as React from "react";
 import { motion } from "motion/react";
 import { cn } from "@/lib/utils";
+import SEO from "@/app/components/shared/seo";
 import {
   Star,
   Play,
@@ -151,8 +152,27 @@ const videoReviews = [
 ];
 
 export default function ReviewsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "ReviewPage",
+    "name": "Fraser Valley Volleyball Reviews",
+    "description": "Parent, athlete, and coach testimonials for Fraser Valley Volleyball programs",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "150"
+    }
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Reviews & Testimonials"
+        description="Read reviews from Fraser Valley Volleyball parents, athletes & coaches. See why families love our youth volleyball programs in Surrey, Langley & Abbotsford."
+        keywords="fraser valley volleyball reviews, volleyball testimonials surrey, parent reviews volleyball, youth sports reviews langley, volleyball program feedback"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/reviews"
+        jsonLd={jsonLd}
+      />
       {/* Single Continuous Background for ENTIRE Page */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

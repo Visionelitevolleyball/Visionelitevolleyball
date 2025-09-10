@@ -1,0 +1,43 @@
+# Fraser Valley Volleyball - Robots.txt
+# https://www.fraservalleyvolleyball.ca
+
+# Allow all search engine crawlers
+User-agent: *
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Disallow: /_next/
+Disallow: /private/
+
+# Googlebot specific rules
+User-agent: Googlebot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 0
+
+# Bingbot specific rules
+User-agent: Bingbot
+Allow: /
+Disallow: /api/
+Disallow: /admin/
+Crawl-delay: 1
+
+# Block bad bots
+User-agent: AhrefsBot
+Disallow: /
+
+User-agent: SemrushBot
+Disallow: /
+
+User-agent: DotBot
+Disallow: /
+
+User-agent: MJ12bot
+Disallow: /
+
+# Sitemap location
+Sitemap: https://www.fraservalleyvolleyball.ca/sitemap.xml
+
+# Host directive (for Yandex)
+Host: https://www.fraservalleyvolleyball.ca

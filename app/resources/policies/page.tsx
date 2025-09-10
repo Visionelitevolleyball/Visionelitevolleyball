@@ -4,10 +4,25 @@ import { motion } from "motion/react";
 import { Badge } from "@/components/ui/badge";
 import { Accordion, AccordionContent, AccordionItem, AccordionTrigger } from "@/components/ui/accordion";
 import { CONTACT } from "@/lib/constants";
+import SEO from "@/app/components/shared/seo";
 
 export default function PoliciesPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "Fraser Valley Volleyball Policies",
+    "description": "Program policies including registration, refunds, cancellations, and code of conduct for Fraser Valley Volleyball programs."
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Program Policies"
+        description="Fraser Valley Volleyball program policies - registration, refunds, cancellations, weather policy, code of conduct, and safety guidelines for all participants."
+        keywords="volleyball policies fraser valley, registration policy, refund policy volleyball, code of conduct sports, youth volleyball rules"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/resources/policies"
+        jsonLd={jsonLd}
+      />
       {/* Background gradient */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

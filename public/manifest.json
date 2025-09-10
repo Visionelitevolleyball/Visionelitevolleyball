@@ -1,0 +1,76 @@
+{
+  "name": "Fraser Valley Volleyball - Vision Elite Academy",
+  "short_name": "FV Volleyball",
+  "description": "Premier youth volleyball training programs in Surrey, Langley & Abbotsford. Elite camps, leagues & club teams for grades 3-9.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ECBA58",
+  "orientation": "portrait-primary",
+  "scope": "/",
+  "lang": "en-CA",
+  "dir": "ltr",
+  "categories": ["sports", "education", "fitness"],
+  "icons": [
+    {
+      "src": "/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/icon-384.png",
+      "sizes": "384x384",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png"
+    },
+    {
+      "src": "/icon-1024.png",
+      "sizes": "1024x1024",
+      "type": "image/png"
+    }
+  ],
+  "screenshots": [
+    {
+      "src": "/screenshot-desktop.png",
+      "sizes": "1920x1080",
+      "type": "image/png",
+      "label": "Desktop view of Fraser Valley Volleyball"
+    },
+    {
+      "src": "/screenshot-mobile.png",
+      "sizes": "750x1334",
+      "type": "image/png",
+      "label": "Mobile view of Fraser Valley Volleyball"
+    }
+  ],
+  "related_applications": [],
+  "prefer_related_applications": false,
+  "shortcuts": [
+    {
+      "name": "Programs",
+      "short_name": "Programs",
+      "description": "View all volleyball programs",
+      "url": "/programs",
+      "icons": [{ "src": "/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Register",
+      "short_name": "Register",
+      "description": "Register for programs",
+      "url": "https://visioneliteacademy.com/program-search/",
+      "icons": [{ "src": "/icon-96.png", "sizes": "96x96" }]
+    },
+    {
+      "name": "Contact",
+      "short_name": "Contact",
+      "description": "Get in touch with us",
+      "url": "/contact",
+      "icons": [{ "src": "/icon-96.png", "sizes": "96x96" }]
+    }
+  ]
+}

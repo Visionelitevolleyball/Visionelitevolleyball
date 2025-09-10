@@ -5,10 +5,34 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Users, Trophy, Heart, Sparkles, ArrowRight } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import SEO from "@/app/components/shared/seo";
 
 export default function AboutUsPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "AboutPage",
+    "name": "About Fraser Valley Volleyball",
+    "description": "Learn about Fraser Valley Volleyball's mission, founded by Luc Tremblay in 2025, building on 25+ years of volleyball development experience.",
+    "mainEntity": {
+      "@type": "Organization",
+      "name": "Fraser Valley Volleyball",
+      "founder": {
+        "@type": "Person",
+        "name": "Luc Tremblay"
+      },
+      "foundingDate": "2025"
+    }
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="About Us"
+        description="Learn about Fraser Valley Volleyball - founded by Luc Tremblay in 2025. Community-focused, affordable volleyball programs serving 3,200+ athletes annually."
+        keywords="about fraser valley volleyball, luc tremblay volleyball, volleyball winnipeg founder, community volleyball programs, affordable volleyball surrey"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/contact/about-us"
+        jsonLd={jsonLd}
+      />
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

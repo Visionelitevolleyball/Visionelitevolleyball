@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
+import SEO from "@/app/components/shared/seo";
 import {
   Users,
   Trophy,
@@ -19,6 +20,12 @@ export default function SkyHighPage() {
 
   return (
     <div className="relative">
+      <SEO 
+        title="Sky High Volleyball Club"
+        description="Join Sky High Volleyball Club in Fraser Valley. Competitive volleyball for ages 13U-15U. Expert coaching, provincial championships, and player development pathway."
+        keywords="sky high volleyball, fraser valley volleyball club, competitive volleyball surrey, youth volleyball club, 13U volleyball, 15U volleyball"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/club/sky-high"
+      />
       {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />

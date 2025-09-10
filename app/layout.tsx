@@ -21,8 +21,53 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Volleyball Fraser Valley",
-  description: "Premier volleyball training and development in Fraser Valley",
+  title: {
+    default: "Fraser Valley Volleyball | Vision Elite Academy",
+    template: "%s | Vision Elite Academy"
+  },
+  description: "Premier youth volleyball training in Surrey, Langley & Abbotsford. Elite camps, leagues & club teams for grades 3-9. Join Vision Elite Academy today!",
+  keywords: ["fraser valley volleyball", "fraser valley volleyball club", "volleyball training surrey", "volleyball camps langley", "volleyball programs abbotsford", "vision elite academy", "youth volleyball", "volleyball academy"],
+  authors: [{ name: "Vision Elite Academy" }],
+  creator: "Vision Elite Academy",
+  publisher: "Vision Elite Academy",
+  metadataBase: new URL("https://www.fraservalleyvolleyball.ca"),
+  openGraph: {
+    type: "website",
+    locale: "en_CA",
+    url: "https://www.fraservalleyvolleyball.ca",
+    siteName: "Fraser Valley Volleyball",
+    title: "Fraser Valley Volleyball | Vision Elite Academy",
+    description: "Premier youth volleyball training in Surrey, Langley & Abbotsford. Elite camps, leagues & club teams for grades 3-9.",
+    images: [
+      {
+        url: "/og-image.jpg",
+        width: 1200,
+        height: 630,
+        alt: "Fraser Valley Volleyball - Vision Elite Academy"
+      }
+    ]
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Fraser Valley Volleyball | Vision Elite Academy",
+    description: "Premier youth volleyball training in Surrey, Langley & Abbotsford. Elite camps, leagues & club teams for grades 3-9.",
+    images: ["/og-image.jpg"],
+    creator: "@fraservalleyvb"
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      "max-video-preview": -1,
+      "max-image-preview": "large",
+      "max-snippet": -1
+    }
+  },
+  alternates: {
+    canonical: "https://www.fraservalleyvolleyball.ca"
+  }
 };
 
 export default function RootLayout({
@@ -32,6 +77,20 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5" />
+        <meta name="theme-color" content="#ECBA58" />
+        <meta name="geo.region" content="CA-BC" />
+        <meta name="geo.placename" content="Fraser Valley" />
+        <meta name="geo.position" content="49.1044;-122.6598" />
+        <meta name="ICBM" content="49.1044, -122.6598" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+        <link rel="manifest" href="/manifest.json" />
+        <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.googleapis.com" />
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin="anonymous" />
+      </head>
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >

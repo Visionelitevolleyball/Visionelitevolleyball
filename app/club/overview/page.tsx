@@ -5,6 +5,7 @@ import { cn } from "@/lib/utils";
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { SpotlightCard } from "@/components/ui/spotlight-card";
+import SEO from "@/app/components/shared/seo";
 import {
   Trophy,
   Users,
@@ -19,8 +20,27 @@ import {
 } from "lucide-react";
 
 export default function ClubOverviewPage() {
+  const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "SportsClub",
+    "name": "Fraser Valley Volleyball Club",
+    "description": "Affordable club volleyball in Fraser Valley with VISION Volleyball Club and Sky High Club. Local tournaments, quality coaching, and player development.",
+    "sport": "Volleyball",
+    "memberOf": {
+      "@type": "SportsOrganization",
+      "name": "Vision Elite Academy"
+    }
+  };
+
   return (
     <div className="relative">
+      <SEO 
+        title="Club Overview"
+        description="Join Fraser Valley Volleyball Club - affordable club volleyball with local tournaments, quality coaching, and teams for all skill levels. Register for tryouts today!"
+        keywords="fraser valley volleyball club, club volleyball surrey, volleyball club langley, affordable volleyball club, youth volleyball teams, volleyball tryouts"
+        canonicalUrl="https://www.fraservalleyvolleyball.ca/club/overview"
+        jsonLd={jsonLd}
+      />
       {/* Page Background & Grid Pattern */}
       <div className="absolute inset-0">
         <div className="absolute inset-0 bg-gradient-to-br from-gray-50 via-white to-gray-50 dark:from-gray-950 dark:via-background dark:to-gray-950" />
