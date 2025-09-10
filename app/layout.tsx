@@ -7,6 +7,7 @@ import { ThemeProvider } from "@/components/theme-provider";
 import { ScrollToTop } from "@/app/components/scroll-to-top";
 import { Footer } from "@/app/components/shared/footer";
 import { NewsletterPopup } from "@/app/components/newsletter-popup";
+import { GoogleAnalytics } from "@/app/components/analytics/google-analytics";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -33,6 +34,7 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <GoogleAnalytics />
         <ThemeProvider
           attribute="class"
           defaultTheme="light"
