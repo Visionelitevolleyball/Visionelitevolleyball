@@ -25,12 +25,8 @@ export default function NotFound() {
 
   return (
     <div className="h-[calc(100vh-4rem)] lg:h-[calc(100vh-7rem)] flex items-center justify-center relative overflow-hidden">
-      {/* Simple yellow gradient background like home page */}
-      <div className="absolute inset-0 bg-gradient-to-br from-yellow-50 via-white to-primary/10 dark:from-gray-900 dark:via-background dark:to-primary/5" />
-      
-      {/* Subtle floating orbs */}
-      <div className="absolute top-20 right-20 w-64 h-64 bg-primary/10 rounded-full blur-3xl" />
-      <div className="absolute bottom-20 left-20 w-64 h-64 bg-yellow-300/10 rounded-full blur-3xl" />
+      {/* Clean white background */}
+      <div className="absolute inset-0 bg-white dark:bg-background" />
 
       <div className="relative z-10 max-w-3xl mx-auto px-4 text-center">
         {/* 404 Text - Simple yellow gradient */}
@@ -114,15 +110,6 @@ export default function NotFound() {
             </p>
           </div>
         </motion.div>
-      </div>
-
-      {/* Simple court lines at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-20 opacity-5">
-        <div className="relative h-full">
-          <div className="absolute bottom-0 left-0 right-0 h-0.5 bg-secondary" />
-          <div className="absolute bottom-4 left-1/4 right-1/4 h-0.5 bg-secondary" />
-          <div className="absolute bottom-0 left-1/2 -translate-x-1/2 w-0.5 h-20 bg-secondary" />
-        </div>
       </div>
     </div>
   );
