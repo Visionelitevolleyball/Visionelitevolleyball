@@ -3,7 +3,7 @@
 ## TASK: Implement Complete Resources Section with Membership, Support, and Policies
 
 **CONTEXT & OBJECTIVE:**
-Transform the current dummy Resources dropdown menu into a fully functional section with real pages containing membership programs, athlete support resources, and essential policies for Fraser Valley Volleyball. The Resources section needs to provide comprehensive information about membership benefits, financial assistance, and legal/policy documentation while maintaining the existing design system and user experience patterns.
+Transform the current dummy Resources dropdown menu into a fully functional section with real pages containing membership programs, athlete support resources, and essential policies for Volleyball Fraser Valley. The Resources section needs to provide comprehensive information about membership benefits, financial assistance, and legal/policy documentation while maintaining the existing design system and user experience patterns.
 
 **PRELIMINARY RESEARCH PHASE (MANDATORY):**
 
@@ -117,7 +117,7 @@ const CONTACT = {
 ### Page 1: MEMBERSHIP PROGRAM (`/resources/membership`)
 
 #### Hero Section:
-**Title:** Fraser Valley Volleyball Membership Program  
+**Title:** Volleyball Fraser Valley Membership Program  
 **Subtitle:** Where Champions Are Made Since 1999  
 **Description:** Join thousands of young athletes developing their skills through our comprehensive programs. We've been the catalyst for countless British Columbians advancing to college and university scholarships.
 
@@ -161,7 +161,7 @@ const CONTACT = {
 10. Supporting accessible sport for all
 
 #### Background:
-With thousands of young athletes in Fraser Valley volleyball programs annually, we recognize the challenge of rising sports costs. Our Monthly Membership Program provides families an affordable way to budget for year-round volleyball participation, offering significant savings compared to seasonal registrations.
+With thousands of young athletes in Fvolleyballfraservalley.ca programs annually, we recognize the challenge of rising sports costs. Our Monthly Membership Program provides families an affordable way to budget for year-round volleyball participation, offering significant savings compared to seasonal registrations.
 
 #### CTA Section:
 **Get Started Today!**  
@@ -175,8 +175,8 @@ Ready to transform your volleyball experience? Join Fraser Valley's Membership P
 
 #### Section 1: Athlete Subsidy Program
 
-**Title:** 2025 Fraser Valley Volleyball Athlete Subsidy Program  
-**Description:** Fraser Valley Volleyball is committed to supporting young athletes in our community. Get funding for Vision Volleyball Club, League and Camps.
+**Title:** 2025 Volleyball Fraser Valley Athlete Subsidy Program  
+**Description:** Volleyball Fraser Valley is committed to supporting young athletes in our community. Get funding for Vision Volleyball Club, League and Camps.
 
 **Key Information:**
 - Assistance up to $500 per calendar year per athlete
@@ -210,7 +210,7 @@ RELEASE OF LIABILITY, WAIVER OF CLAIMS, ASSUMPTION OF RISKS AND INDEMNITY AGREEM
 
 **Key Points:**
 - Acknowledges inherent risks in sports participation
-- Releases Fraser Valley Volleyball from liability
+- Releases Volleyball Fraser Valley from liability
 - Includes photo/video consent for promotional use
 - Required for all program participants
 - NO unauthorized filming of athletes permitted at training sessions
@@ -268,7 +268,7 @@ RELEASE OF LIABILITY, WAIVER OF CLAIMS, ASSUMPTION OF RISKS AND INDEMNITY AGREEM
 3. **Code of Conduct:** Respectful behavior required, violations may result in suspension
 4. **Payments:** Due upon registration at posted rates
 5. **Privacy:** Consent to data collection per Privacy Policy
-6. **Intellectual Property:** All content property of Fraser Valley Volleyball
+6. **Intellectual Property:** All content property of Volleyball Fraser Valley
 7. **Assumption of Risk:** Acknowledgment of inherent sports risks
 8. **Modifications:** Terms may be updated with notice
 9. **Governing Law:** Province of British Columbia, Canada

@@ -32,7 +32,7 @@ export default function JoinOurTeamPage() {
     "@type": "JobPosting",
     "hiringOrganization": {
       "@type": "Organization",
-      "name": "Fraser Valley Volleyball"
+      "name": "Volleyball Fraser Valley"
     },
     "jobLocation": {
       "@type": "Place",
@@ -50,9 +50,9 @@ export default function JoinOurTeamPage() {
     <div className="relative">
       <SEO 
         title="Join Our Team"
-        description="Join Fraser Valley Volleyball as a coach! We're hiring youth volleyball coaches, premier league coaches, and camp instructors. Part-time and seasonal positions."
-        keywords="volleyball coaching jobs fraser valley, youth volleyball coach positions, volleyball instructor jobs surrey, coaching opportunities langley"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/contact/join-our-team"
+        description="Join Volleyball Fraser Valley as a coach! We're hiring youth volleyball coaches, premier league coaches, and camp instructors. Part-time and seasonal positions."
+        keywords="volleyball coaching jobs volleyball fraser valley, youth volleyball coach positions, volleyball instructor jobs surrey, coaching opportunities langley"
+        canonicalUrl="https://www.volleyballfraservalley.ca/contact/join-our-team"
         jsonLd={jsonLd}
       />
       <div className="absolute inset-0">

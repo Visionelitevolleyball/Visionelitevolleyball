@@ -14,9 +14,9 @@ interface SEOProps {
 
 export default function SEO({
   title,
-  description = 'Fraser Valley Volleyball - Premier youth volleyball training programs in Surrey, Langley, and Abbotsford. Elite coaching, camps, leagues, and club teams for grades 3-9.',
-  keywords = 'fraser valley volleyball, fraser valley volleyball club, volleyball training surrey, volleyball camps langley, volleyball programs abbotsford, elite vision academy volleyball',
-  ogImage = 'https://www.fraservalleyvolleyball.ca/og-image.jpg',
+  description = 'Volleyball Fraser Valley - Premier youth volleyball training programs in Surrey, Langley, and Abbotsford. Elite coaching, camps, leagues, and club teams for grades 3-9.',
+  keywords = 'volleyball fraser valley, volleyball fraser valley club, volleyball training surrey, volleyball camps langley, volleyball programs abbotsford, elite vision academy volleyball',
+  ogImage = 'https://www.volleyballfraservalley.ca/og-image.jpg',
   ogType = 'website',
   canonicalUrl,
   jsonLd

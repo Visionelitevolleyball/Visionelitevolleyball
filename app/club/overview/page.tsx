@@ -23,7 +23,7 @@ export default function ClubOverviewPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsClub",
-    "name": "Fraser Valley Volleyball Club",
+    "name": "Volleyball Fraser Valley Club",
     "description": "Affordable club volleyball in Fraser Valley with VISION Volleyball Club and Sky High Club. Local tournaments, quality coaching, and player development.",
     "sport": "Volleyball",
     "memberOf": {
@@ -36,9 +36,9 @@ export default function ClubOverviewPage() {
     <div className="relative">
       <SEO 
         title="Club Overview"
-        description="Join Fraser Valley Volleyball Club - affordable club volleyball with local tournaments, quality coaching, and teams for all skill levels. Register for tryouts today!"
-        keywords="fraser valley volleyball club, club volleyball surrey, volleyball club langley, affordable volleyball club, youth volleyball teams, volleyball tryouts"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/club/overview"
+        description="Join Volleyball Fraser Valley Club - affordable club volleyball with local tournaments, quality coaching, and teams for all skill levels. Register for tryouts today!"
+        keywords="volleyball fraser valley club, club volleyball surrey, volleyball club langley, affordable volleyball club, youth volleyball teams, volleyball tryouts"
+        canonicalUrl="https://www.volleyballfraservalley.ca/club/overview"
         jsonLd={jsonLd}
       />
       {/* Page Background & Grid Pattern */}
@@ -77,7 +77,7 @@ export default function ClubOverviewPage() {
                 "animate-gradient"
               )}
             >
-              CLUB VOLLEYBALL — FRASER VALLEY
+              CLUB VOLLEYBALL — VOLLEYBALL FRASER VALLEY
             </span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">

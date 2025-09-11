@@ -61,7 +61,7 @@ export default function LeaguesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsActivityLocation",
-    "name": "Fraser Valley Volleyball Leagues",
+    "name": "Volleyball Fraser Valley Leagues",
     "description": "Premier volleyball leagues for intermediate to advanced athletes. 8-week seasons with weekly practices and competitive matches.",
     "sport": "Volleyball"
   };
@@ -71,8 +71,8 @@ export default function LeaguesPage() {
       <SEO 
         title="Leagues"
         description="Join Fraser Valley Premier Volleyball League - 8-week seasons with weekly practices, competitive matches, and championship tournaments. For intermediate to advanced players."
-        keywords="volleyball leagues fraser valley, premier volleyball league surrey, competitive volleyball langley, youth volleyball leagues, volleyball tournaments bc"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/leagues"
+        keywords="volleyball leagues volleyball fraser valley, premier volleyball league surrey, competitive volleyball langley, youth volleyball leagues, volleyball tournaments bc"
+        canonicalUrl="https://www.volleyballfraservalley.ca/leagues"
         jsonLd={jsonLd}
       />
       {/* Background Pattern - Consistent with reviews page */}

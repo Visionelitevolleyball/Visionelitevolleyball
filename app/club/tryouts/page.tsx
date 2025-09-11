@@ -10,7 +10,7 @@ export default function TryoutsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "Fraser Valley Volleyball Club Tryouts",
+    "name": "Volleyball Fraser Valley Club Tryouts",
     "description": "Open tryouts for VISION VBC and Sky High Volleyball Club. January tryouts for youth volleyball teams.",
     "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -30,8 +30,8 @@ export default function TryoutsPage() {
       <SEO 
         title="Club Tryouts"
         description="Register for Fraser Valley volleyball club tryouts. VISION VBC and Sky High Club tryouts in January. Open to all skill levels, ages 13U-15U."
-        keywords="volleyball tryouts fraser valley, club volleyball tryouts, january volleyball tryouts, youth volleyball tryouts surrey, vbc tryouts, sky high tryouts"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/club/tryouts"
+        keywords="volleyball tryouts volleyball fraser valley, club volleyball tryouts, january volleyball tryouts, youth volleyball tryouts surrey, vbc tryouts, sky high tryouts"
+        canonicalUrl="https://www.volleyballfraservalley.ca/club/tryouts"
         jsonLd={jsonLd}
       />
       {/* Background */}

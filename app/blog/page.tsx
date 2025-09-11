@@ -261,18 +261,18 @@ export default function BlogPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Blog",
-    "name": "Fraser Valley Volleyball Blog",
-    "description": "Latest news, tips, and stories from Fraser Valley Volleyball. Youth volleyball training insights, tournament updates, and coaching advice.",
-    "url": "https://www.fraservalleyvolleyball.ca/blog"
+    "name": "Volleyball Fraser Valley Blog",
+    "description": "Latest news, tips, and stories from Volleyball Fraser Valley. Youth volleyball training insights, tournament updates, and coaching advice.",
+    "url": "https://www.volleyballfraservalley.ca/blog"
   };
 
   return (
     <div className="relative">
       <SEO 
         title="Blog"
-        description="Fraser Valley Volleyball Blog - Latest volleyball news, training tips, tournament updates, coaching insights, and success stories from our youth programs."
+        description="Volleyball Fraser Valley Blog - Latest volleyball news, training tips, tournament updates, coaching insights, and success stories from our youth programs."
         keywords="volleyball blog fraser valley, youth volleyball news, volleyball training tips, tournament updates surrey, coaching advice volleyball"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/blog"
+        canonicalUrl="https://www.volleyballfraservalley.ca/blog"
         jsonLd={jsonLd}
       />
       {/* Single Continuous Background for ENTIRE Page */}

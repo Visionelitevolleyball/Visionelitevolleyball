@@ -155,8 +155,8 @@ export default function ReviewsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ReviewPage",
-    "name": "Fraser Valley Volleyball Reviews",
-    "description": "Parent, athlete, and coach testimonials for Fraser Valley Volleyball programs",
+    "name": "Volleyball Fraser Valley Reviews",
+    "description": "Parent, athlete, and coach testimonials for Volleyball Fraser Valley programs",
     "aggregateRating": {
       "@type": "AggregateRating",
       "ratingValue": "4.9",
@@ -168,9 +168,9 @@ export default function ReviewsPage() {
     <div className="relative">
       <SEO 
         title="Reviews & Testimonials"
-        description="Read reviews from Fraser Valley Volleyball parents, athletes & coaches. See why families love our youth volleyball programs in Surrey, Langley & Abbotsford."
-        keywords="fraser valley volleyball reviews, volleyball testimonials surrey, parent reviews volleyball, youth sports reviews langley, volleyball program feedback"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/reviews"
+        description="Read reviews from Volleyball Fraser Valley parents, athletes & coaches. See why families love our youth volleyball programs in Surrey, Langley & Abbotsford."
+        keywords="volleyball volleyball fraser valley reviews, volleyball testimonials surrey, parent reviews volleyball, youth sports reviews langley, volleyball program feedback"
+        canonicalUrl="https://www.volleyballfraservalley.ca/reviews"
         jsonLd={jsonLd}
       />
       {/* Single Continuous Background for ENTIRE Page */}

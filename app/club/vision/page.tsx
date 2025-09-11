@@ -28,8 +28,8 @@ export default function VisionVBCPage() {
       <SEO 
         title="VISION Volleyball Club"
         description="Join VISION Volleyball Club (VBC) - affordable club volleyball Feb-April. Experienced coaches, twice-weekly practices, local tournaments. Tryouts in January!"
-        keywords="vision volleyball club, vbc fraser valley, affordable club volleyball, volleyball tryouts january, youth volleyball teams, club volleyball surrey"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/club/vision"
+        keywords="vision volleyball club, vbc volleyball fraser valley, affordable club volleyball, volleyball tryouts january, youth volleyball teams, club volleyball surrey"
+        canonicalUrl="https://www.volleyballfraservalley.ca/club/vision"
         jsonLd={jsonLd}
       />
       {/* Background */}

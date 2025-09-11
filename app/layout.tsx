@@ -22,34 +22,34 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: {
-    default: "Fraser Valley Volleyball | Vision Elite Academy",
+    default: "Volleyball Fraser Valley | Vision Elite Academy",
     template: "%s | Vision Elite Academy"
   },
   description: "Premier youth volleyball training in Surrey, Langley & Abbotsford. Elite camps, leagues & club teams for grades 3-9. Join Vision Elite Academy today!",
-  keywords: ["fraser valley volleyball", "fraser valley volleyball club", "volleyball training surrey", "volleyball camps langley", "volleyball programs abbotsford", "vision elite academy", "youth volleyball", "volleyball academy"],
+  keywords: ["volleyball fraser valley", "volleyball fraser valley club", "volleyball training surrey", "volleyball camps langley", "volleyball programs abbotsford", "vision elite academy", "youth volleyball", "volleyball academy"],
   authors: [{ name: "Vision Elite Academy" }],
   creator: "Vision Elite Academy",
   publisher: "Vision Elite Academy",
-  metadataBase: new URL("https://www.fraservalleyvolleyball.ca"),
+  metadataBase: new URL("https://www.volleyballfraservalley.ca"),
   openGraph: {
     type: "website",
     locale: "en_CA",
-    url: "https://www.fraservalleyvolleyball.ca",
-    siteName: "Fraser Valley Volleyball",
-    title: "Fraser Valley Volleyball | Vision Elite Academy",
+    url: "https://www.volleyballfraservalley.ca",
+    siteName: "Volleyball Fraser Valley",
+    title: "Volleyball Fraser Valley | Vision Elite Academy",
     description: "Premier youth volleyball training in Surrey, Langley & Abbotsford. Elite camps, leagues & club teams for grades 3-9.",
     images: [
       {
         url: "/og-image.jpg",
         width: 1200,
         height: 630,
-        alt: "Fraser Valley Volleyball - Vision Elite Academy"
+        alt: "Volleyball Fraser Valley - Vision Elite Academy"
       }
     ]
   },
   twitter: {
     card: "summary_large_image",
-    title: "Fraser Valley Volleyball | Vision Elite Academy",
+    title: "Volleyball Fraser Valley | Vision Elite Academy",
     description: "Premier youth volleyball training in Surrey, Langley & Abbotsford. Elite camps, leagues & club teams for grades 3-9.",
     images: ["/og-image.jpg"],
     creator: "@fraservalleyvb"
@@ -66,7 +66,7 @@ export const metadata: Metadata = {
     }
   },
   alternates: {
-    canonical: "https://www.fraservalleyvolleyball.ca"
+    canonical: "https://www.volleyballfraservalley.ca"
   }
 };
 

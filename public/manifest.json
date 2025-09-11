@@ -1,5 +1,5 @@
 {
-  "name": "Fraser Valley Volleyball - Vision Elite Academy",
+  "name": "Volleyball Fraser Valley - Vision Elite Academy",
   "short_name": "FV Volleyball",
   "description": "Premier youth volleyball training programs in Surrey, Langley & Abbotsford. Elite camps, leagues & club teams for grades 3-9.",
   "start_url": "/",
@@ -39,13 +39,13 @@
       "src": "/screenshot-desktop.png",
       "sizes": "1920x1080",
       "type": "image/png",
-      "label": "Desktop view of Fraser Valley Volleyball"
+      "label": "Desktop view of Volleyball Fraser Valley"
     },
     {
       "src": "/screenshot-mobile.png",
       "sizes": "750x1334",
       "type": "image/png",
-      "label": "Mobile view of Fraser Valley Volleyball"
+      "label": "Mobile view of Volleyball Fraser Valley"
     }
   ],
   "related_applications": [],

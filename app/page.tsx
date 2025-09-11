@@ -13,9 +13,9 @@ export default function Home() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsActivityLocation",
-    "name": "Fraser Valley Volleyball",
+    "name": "Volleyball Fraser Valley",
     "description": "Premier youth volleyball training programs in Surrey, Langley, and Abbotsford",
-    "url": "https://www.fraservalleyvolleyball.ca",
+    "url": "https://www.volleyballfraservalley.ca",
     "telephone": "403-510-1784",
     "address": {
       "@type": "PostalAddress",
@@ -37,9 +37,9 @@ export default function Home() {
   return (
     <div>
       <SEO 
-        title="Fraser Valley Volleyball"
+        title="Volleyball Fraser Valley"
         description="Premier youth volleyball training in Surrey, Langley & Abbotsford. Elite camps, leagues & club teams for grades 3-9. Join Vision Elite Academy today!"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca"
+        canonicalUrl="https://www.volleyballfraservalley.ca"
         jsonLd={jsonLd}
       />
       <HeroSection />

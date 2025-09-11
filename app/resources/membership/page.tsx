@@ -34,7 +34,7 @@ export default function MembershipPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Product",
-    "name": "Fraser Valley Volleyball Membership",
+    "name": "Volleyball Fraser Valley Membership",
     "description": "Unlimited volleyball training memberships with priority registration and exclusive discounts",
     "offers": [
       {
@@ -110,8 +110,8 @@ export default function MembershipPage() {
       <SEO 
         title="Membership Options"
         description="Unlimited volleyball training memberships at Fraser Valley. Monthly plans from $71.95 with priority registration, exclusive discounts, and buddy passes."
-        keywords="volleyball membership fraser valley, unlimited volleyball training, youth sports membership surrey, volleyball monthly pass langley"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/resources/membership"
+        keywords="volleyball membership volleyball fraser valley, unlimited volleyball training, youth sports membership surrey, volleyball monthly pass langley"
+        canonicalUrl="https://www.volleyballfraservalley.ca/resources/membership"
         jsonLd={jsonLd}
       />
       {/* Background gradient */}
@@ -139,7 +139,7 @@ export default function MembershipPage() {
             </Badge>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-3">
-            <span className="block text-gray-900 dark:text-gray-100">Fraser Valley Volleyball</span>
+            <span className="block text-gray-900 dark:text-gray-100">Volleyball Fraser Valley</span>
             <span
               className={cn(
                 "block mt-2",

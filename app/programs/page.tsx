@@ -29,9 +29,9 @@ export default function ProgramsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "EducationalOrganization",
-    "name": "Fraser Valley Volleyball Programs",
+    "name": "Volleyball Fraser Valley Programs",
     "description": "Comprehensive volleyball training programs for all ages and skill levels in Surrey, Langley, and Abbotsford",
-    "url": "https://www.fraservalleyvolleyball.ca/programs",
+    "url": "https://www.volleyballfraservalley.ca/programs",
     "telephone": "403-510-1784",
     "address": {
       "@type": "PostalAddress",
@@ -63,8 +63,8 @@ export default function ProgramsPage() {
       <SEO 
         title="Programs"
         description="Discover volleyball programs for all ages in Fraser Valley. From beginner camps to elite training, join our academy, leagues, and club teams. Register today!"
-        keywords="fraser valley volleyball programs, volleyball camps surrey, volleyball training langley, youth volleyball abbotsford, volleyball academy, summer camps"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/programs"
+        keywords="volleyball fraser valley programs, volleyball camps surrey, volleyball training langley, youth volleyball abbotsford, volleyball academy, summer camps"
+        canonicalUrl="https://www.volleyballfraservalley.ca/programs"
         jsonLd={jsonLd}
       />
       {/* Single Continuous Background for ENTIRE Page */}

@@ -16,17 +16,17 @@ export default function SupportPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "FAQPage",
-    "name": "Fraser Valley Volleyball Support & FAQ",
-    "description": "Support resources, forms, waivers, and frequently asked questions for Fraser Valley Volleyball programs."
+    "name": "Volleyball Fraser Valley Support & FAQ",
+    "description": "Support resources, forms, waivers, and frequently asked questions for Volleyball Fraser Valley programs."
   };
 
   return (
     <div className="relative">
       <SEO 
         title="Support & FAQ"
-        description="Fraser Valley Volleyball support resources - download forms, waivers, photo consent, FAQ, and get help with registration and program questions."
+        description="Volleyball Fraser Valley support resources - download forms, waivers, photo consent, FAQ, and get help with registration and program questions."
         keywords="volleyball support resources, program FAQ, volleyball forms download, waiver forms, photo consent volleyball"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/resources/support"
+        canonicalUrl="https://www.volleyballvolleyballfraservalley.ca/resources/support"
         jsonLd={jsonLd}
       />
       {/* Background gradient */}
@@ -54,11 +54,11 @@ export default function SupportPage() {
             </Badge>
           </div>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-black mb-3">
-            <span className="block text-gray-900 dark:text-gray-100">2025 Fraser Valley Volleyball</span>
+            <span className="block text-gray-900 dark:text-gray-100">2025 Volleyball Fraser Valley</span>
             <span className={cn("block mt-2","bg-gradient-to-br from-amber-300 via-yellow-500 to-amber-600","dark:from-amber-200 dark:via-yellow-400 dark:to-amber-600","bg-clip-text text-transparent","bg-[length:200%_100%]","animate-gradient")}>Athlete Subsidy Program</span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
-            Fraser Valley Volleyball is committed to supporting young athletes in our community. Get funding for Vision Volleyball Club, League and Camps.
+            Volleyball Fraser Valley is committed to supporting young athletes in our community. Get funding for Vision Volleyball Club, League and Camps.
           </p>
         </div>
       </section>
@@ -129,7 +129,7 @@ export default function SupportPage() {
 
             <ul className="grid grid-cols-1 lg:grid-cols-2 gap-2 text-gray-700 dark:text-gray-300 mb-4">
               <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /> Acknowledges inherent risks in sports participation</li>
-              <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /> Releases Fraser Valley Volleyball from liability</li>
+              <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /> Releases Volleyball Fraser Valley from liability</li>
               <li className="flex items-start gap-2"><Camera className="h-4 w-4 text-primary mt-0.5" /> Includes photo/video consent for promotional use</li>
               <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /> Required for all program participants</li>
               <li className="flex items-start gap-2"><Check className="h-4 w-4 text-primary mt-0.5" /> NO unauthorized filming permitted at training sessions</li>
@@ -166,7 +166,7 @@ export default function SupportPage() {
                 <AccordionItem value="waiver-full" className="border-0">
                   <AccordionTrigger className="px-0">Full Waiver Text</AccordionTrigger>
                   <AccordionContent className="px-0 text-gray-700 dark:text-gray-300 space-y-3">
-                    <p><strong>Assumption of Risks:</strong> I am aware that participation in sports, offered by or associated with Fraser Valley Volleyball (&quot;FVV&quot;) and its affiliate programs, exposes my child to inherent risks. By engaging my child in these activities, I freely accept and fully assume all inherent risks, dangers, and hazards, including the possibility of personal injury, death, property damage, or loss.</p>
+                    <p><strong>Assumption of Risks:</strong> I am aware that participation in sports, offered by or associated with Volleyball Fraser Valley (&quot;FVV&quot;) and its affiliate programs, exposes my child to inherent risks. By engaging my child in these activities, I freely accept and fully assume all inherent risks, dangers, and hazards, including the possibility of personal injury, death, property damage, or loss.</p>
                     <p><strong>Release of Liability:</strong> In consideration of FVV and its affiliates providing my child with the opportunity to participate in their activities, I agree to waive any and all claims that I have or may in the future have against FVV and its affiliates, directors, officers, employees, agents, representatives, assigns and successors, and to release them from any and all liability for any loss, damage, injury or expense that I or my child may suffer due to any cause whatsoever, including negligence, breach of contract, breach of statutory duty of care, and/or breach of the Occupiers Liability Act.</p>
                     <p><strong>Indemnity:</strong> I agree to hold harmless and indemnify FVV and its affiliates from any and all liability for any property damage or personal injury to any third party resulting from my child’s participation.</p>
                     <p><strong>Personal Information:</strong> I consent to FVV collecting and using personal information for the purpose of administering programs. I also authorize FVV to take photographs and/or video of my child for promotional use without charge. Unauthorized filming by parents or spectators is strictly prohibited at training sessions.</p>

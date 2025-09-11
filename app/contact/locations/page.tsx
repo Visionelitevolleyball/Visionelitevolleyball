@@ -24,7 +24,7 @@ const locations: Location[] = [
     address: "Pacific Academy (IS GYM), 10238 168th St.",
     city: "Surrey, BC",
     phone: "403-510-1784",
-    email: "info@volleyballfraser.ca",
+    email: "info@volleyballfraservalley.ca",
     features: ["IS GYM", "Multiple courts", "Ample parking", "Spectator seating"],
   },
 ];
@@ -33,7 +33,7 @@ export default function LocationsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "LocalBusiness",
-    "name": "Fraser Valley Volleyball Locations",
+    "name": "Volleyball Fraser Valley Locations",
     "description": "Volleyball training locations in Surrey, Langley, and Abbotsford",
     "telephone": "403-510-1784",
     "address": {
@@ -49,9 +49,9 @@ export default function LocationsPage() {
     <div className="relative">
       <SEO 
         title="Locations"
-        description="Fraser Valley Volleyball locations in Surrey, Langley & Abbotsford. Find our training facilities at Pacific Academy and other venues. Maps and directions."
-        keywords="volleyball locations surrey, volleyball facilities langley, volleyball venues abbotsford, pacific academy volleyball, fraser valley volleyball locations"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/contact/locations"
+        description="Volleyball Fraser Valley locations in Surrey, Langley & Abbotsford. Find our training facilities at Pacific Academy and other venues. Maps and directions."
+        keywords="volleyball locations surrey, volleyball facilities langley, volleyball venues abbotsford, pacific academy volleyball, volleyball fraser valley locations"
+        canonicalUrl="https://www.volleyballfraservalley.ca/contact/locations"
         jsonLd={jsonLd}
       />
       <div className="absolute inset-0">

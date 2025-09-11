@@ -27,7 +27,7 @@ export default function SummerCampsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "Event",
-    "name": "Fraser Valley Volleyball Summer Camps",
+    "name": "Volleyball Fraser Valley Summer Camps",
     "description": "Full-week volleyball summer camps for youth in July and August. Team training, skill development, and championship tournaments.",
     "eventStatus": "https://schema.org/EventScheduled",
     "eventAttendanceMode": "https://schema.org/OfflineEventAttendanceMode",
@@ -44,9 +44,9 @@ export default function SummerCampsPage() {
     <div className="relative">
       <SEO 
         title="Summer Camps"
-        description="Fraser Valley Volleyball Summer Camps - Full-week programs July & August. Team training, daily scrimmages, championship tournaments. Ages 12-14 & 15+. Register now!"
-        keywords="volleyball summer camps fraser valley, summer volleyball camps surrey, youth volleyball camps langley, summer sports camps abbotsford, volleyball day camps"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/summercamps"
+        description="Volleyball Fraser Valley Summer Camps - Full-week programs July & August. Team training, daily scrimmages, championship tournaments. Ages 12-14 & 15+. Register now!"
+        keywords="volleyball summer camps volleyball fraser valley, summer volleyball camps surrey, youth volleyball camps langley, summer sports camps abbotsford, volleyball day camps"
+        canonicalUrl="https://www.volleyballfraservalley.ca/summercamps"
         jsonLd={jsonLd}
       />
       {/* Single Continuous Background for ENTIRE Page */}

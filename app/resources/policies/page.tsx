@@ -10,17 +10,17 @@ export default function PoliciesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "WebPage",
-    "name": "Fraser Valley Volleyball Policies",
-    "description": "Program policies including registration, refunds, cancellations, and code of conduct for Fraser Valley Volleyball programs."
+    "name": "Volleyball Fraser Valley Policies",
+    "description": "Program policies including registration, refunds, cancellations, and code of conduct for Volleyball Fraser Valley programs."
   };
 
   return (
     <div className="relative">
       <SEO 
         title="Program Policies"
-        description="Fraser Valley Volleyball program policies - registration, refunds, cancellations, weather policy, code of conduct, and safety guidelines for all participants."
-        keywords="volleyball policies fraser valley, registration policy, refund policy volleyball, code of conduct sports, youth volleyball rules"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/resources/policies"
+        description="Volleyball Fraser Valley program policies - registration, refunds, cancellations, weather policy, code of conduct, and safety guidelines for all participants."
+        keywords="volleyball policies volleyball fraser valley, registration policy, refund policy volleyball, code of conduct sports, youth volleyball rules"
+        canonicalUrl="https://www.volleyballfraservalley.ca/resources/policies"
         jsonLd={jsonLd}
       />
       {/* Background gradient */}
@@ -115,7 +115,7 @@ export default function PoliciesPage() {
                 <p><strong>Code of Conduct:</strong> Respectful behavior is required; violations may result in suspension.</p>
                 <p><strong>Payments:</strong> Due upon registration at posted rates.</p>
                 <p><strong>Privacy:</strong> Consent to data collection per Privacy Policy.</p>
-                <p><strong>Intellectual Property:</strong> All content is property of Fraser Valley Volleyball.</p>
+                <p><strong>Intellectual Property:</strong> All content is property of Volleyball Fraser Valley.</p>
                 <p><strong>Assumption of Risk:</strong> Participation involves inherent sports risks.</p>
                 <p><strong>Modifications:</strong> Terms may be updated with notice.</p>
                 <p><strong>Governing Law:</strong> Province of British Columbia, Canada.</p>

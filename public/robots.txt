@@ -1,5 +1,5 @@
-# Fraser Valley Volleyball - Robots.txt
-# https://www.fraservalleyvolleyball.ca
+# Volleyball Fraser Valley - Robots.txt
+# https://www.volleyballfraservalley.ca
 
 # Allow all search engine crawlers
 User-agent: *
@@ -37,7 +37,7 @@ User-agent: MJ12bot
 Disallow: /
 
 # Sitemap location
-Sitemap: https://www.fraservalleyvolleyball.ca/sitemap.xml
+Sitemap: https://www.volleyballfraservalley.ca/sitemap.xml
 
 # Host directive (for Yandex)
-Host: https://www.fraservalleyvolleyball.ca
+Host: https://www.volleyballfraservalley.ca

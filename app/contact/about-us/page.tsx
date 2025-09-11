@@ -11,11 +11,11 @@ export default function AboutUsPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "AboutPage",
-    "name": "About Fraser Valley Volleyball",
-    "description": "Learn about Fraser Valley Volleyball's mission, founded by Luc Tremblay in 2025, building on 25+ years of volleyball development experience.",
+    "name": "About Volleyball Fraser Valley",
+    "description": "Learn about Volleyball Fraser Valley's mission, founded by Luc Tremblay in 2025, building on 25+ years of volleyball development experience.",
     "mainEntity": {
       "@type": "Organization",
-      "name": "Fraser Valley Volleyball",
+      "name": "Volleyball Fraser Valley",
       "founder": {
         "@type": "Person",
         "name": "Luc Tremblay"
@@ -28,9 +28,9 @@ export default function AboutUsPage() {
     <div className="relative">
       <SEO 
         title="About Us"
-        description="Learn about Fraser Valley Volleyball - founded by Luc Tremblay in 2025. Community-focused, affordable volleyball programs serving 3,200+ athletes annually."
-        keywords="about fraser valley volleyball, luc tremblay volleyball, volleyball winnipeg founder, community volleyball programs, affordable volleyball surrey"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/contact/about-us"
+        description="Learn about Volleyball Fraser Valley - founded by Luc Tremblay in 2025. Community-focused, affordable volleyball programs serving 3,200+ athletes annually."
+        keywords="about volleyball fraser valley, luc tremblay volleyball, volleyball winnipeg founder, community volleyball programs, affordable volleyball surrey"
+        canonicalUrl="https://www.volleyballfraservalley.ca/contact/about-us"
         jsonLd={jsonLd}
       />
       {/* Background */}

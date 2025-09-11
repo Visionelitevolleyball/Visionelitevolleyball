@@ -156,7 +156,7 @@ export default function CoachesPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "SportsTeam",
-    "name": "Fraser Valley Volleyball Coaching Staff",
+    "name": "Volleyball Fraser Valley Coaching Staff",
     "description": "Meet our experienced volleyball coaches including Emily Chen, Sarah Williams, Cass Field, and more.",
     "coach": coaches.map(coach => ({
       "@type": "Person",
@@ -169,9 +169,9 @@ export default function CoachesPage() {
     <div className="relative">
       <SEO 
         title="Coach Bios"
-        description="Meet Fraser Valley Volleyball's expert coaching team. Experienced youth volleyball coaches with NCCP certification, leading programs in Surrey, Langley & Abbotsford."
-        keywords="volleyball coaches fraser valley, youth volleyball coaches surrey, nccp certified coaches, volleyball instructors langley, coaching staff bios"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/coaches"
+        description="Meet Volleyball Fraser Valley's expert coaching team. Experienced youth volleyball coaches with NCCP certification, leading programs in Surrey, Langley & Abbotsford."
+        keywords="volleyball coaches volleyball fraser valley, youth volleyball coaches surrey, nccp certified coaches, volleyball instructors langley, coaching staff bios"
+        canonicalUrl="https://www.volleyballfraservalley.ca/coaches"
         jsonLd={jsonLd}
       />
       {/* Single Continuous Background */}

@@ -22,9 +22,9 @@ export default function SkyHighPage() {
     <div className="relative">
       <SEO 
         title="Sky High Volleyball Club"
-        description="Join Sky High Volleyball Club in Fraser Valley. Competitive volleyball for ages 13U-15U. Expert coaching, provincial championships, and player development pathway."
-        keywords="sky high volleyball, fraser valley volleyball club, competitive volleyball surrey, youth volleyball club, 13U volleyball, 15U volleyball"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/club/sky-high"
+        description="Join Sky High Volleyball Club in Volleyball Fraser Valley. Competitive volleyball for ages 13U-15U. Expert coaching, provincial championships, and player development pathway."
+        keywords="sky high volleyball, volleyball fraser valley club, competitive volleyball surrey, youth volleyball club, 13U volleyball, 15U volleyball"
+        canonicalUrl="https://www.volleyballfraservalley.ca/club/sky-high"
       />
       {/* Background */}
       <div className="absolute inset-0">
@@ -67,7 +67,7 @@ export default function SkyHighPage() {
                 "animate-gradient"
               )}
             >
-              FRASER VALLEY
+             FRASER VALLEY
             </span>
           </h1>
           <p className="text-lg sm:text-xl text-gray-600 dark:text-gray-400 max-w-3xl mx-auto">
@@ -87,9 +87,9 @@ export default function SkyHighPage() {
             <div className="relative">
               <h3 className="text-2xl font-bold mb-2">Introduction</h3>
               <p className="text-gray-700 dark:text-gray-300 mb-3">
-                Volleyball Fraser Valley is assisting in the launch of &quot;Sky
+                Volleyball Volleyball Fraser Valley is assisting in the launch of &quot;Sky
                 High Volleyball Club&quot;, a new club for athletes in the
-                Fraser Valley area. We’ve recognized several athletes in our
+                Volleyball Volleyball Fraser Valley. We’ve recognized several athletes in our
                 camps who can transition to more competitive training, and many
                 parents and coaches have asked for club options.
               </p>

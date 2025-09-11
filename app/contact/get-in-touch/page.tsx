@@ -33,13 +33,13 @@ export default function GetInTouchPage() {
   const jsonLd = {
     "@context": "https://schema.org",
     "@type": "ContactPage",
-    "name": "Contact Fraser Valley Volleyball",
-    "description": "Get in touch with Fraser Valley Volleyball. Contact us for program inquiries, registration help, or general questions.",
+    "name": "Contact Volleyball Fraser Valley",
+    "description": "Get in touch with Volleyball Fraser Valley. Contact us for program inquiries, registration help, or general questions.",
     "mainEntity": {
       "@type": "Organization",
-      "name": "Fraser Valley Volleyball",
+      "name": "Volleyball Fraser Valley",
       "telephone": "403-510-1784",
-      "email": "info@fraservalleyvolleyball.ca"
+      "email": "info@volleyballfraservalley.ca"
     }
   };
 
@@ -79,9 +79,9 @@ export default function GetInTouchPage() {
     <div className="relative">
       <SEO 
         title="Get In Touch"
-        description="Contact Fraser Valley Volleyball - Call 403-510-1784 or send us a message. Get help with program registration, volleyball training questions, and more."
-        keywords="contact fraser valley volleyball, volleyball contact surrey, volleyball inquiries langley, contact vision elite academy, volleyball registration help"
-        canonicalUrl="https://www.fraservalleyvolleyball.ca/contact/get-in-touch"
+        description="Contact Volleyball Fraser Valley - Call 403-510-1784 or send us a message. Get help with program registration, volleyball training questions, and more."
+        keywords="contact volleyball fraser valley, volleyball contact surrey, volleyball inquiries langley, contact vision elite academy, volleyball registration help"
+        canonicalUrl="https://www.volleyballfraservalley.ca/contact/get-in-touch"
         jsonLd={jsonLd}
       />
       <div className="absolute inset-0">
