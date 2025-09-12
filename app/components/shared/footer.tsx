@@ -91,11 +91,11 @@ export function Footer() {
               {/* Logo */}
               <div className="w-1/2 sm:w-auto flex-shrink-0">
                 <Image
-                  src="/Volleyball-Fraser Valley.png"
-                  alt="Volleyball Fraser Valley"
-                  width={240}
-                  height={78}
-                  className="w-full h-auto sm:w-[240px] sm:h-[78px] object-contain"
+                  src="/VE-A-logo.svg"
+                  alt="Vision Elite Academy"
+                  width={200}
+                  height={62}
+                  className="w-full h-auto sm:w-[200px] sm:h-[62px] object-contain"
                   priority
                 />
               </div>
@@ -349,18 +349,17 @@ export function Footer() {
         <div className="pt-6 border-t border-border">
           <div className="flex flex-col sm:flex-row items-center justify-between gap-4">
             <p className="text-xs text-muted-foreground">
-              © {new Date().getFullYear()} Volleyball Fraser Valley. All rights
-              reserved.
+              © {new Date().getFullYear()} Vision Elite Academy. All rights reserved.
             </p>
             <div className="flex items-center gap-6">
               <a
-                href="/privacy"
+                href="/resources/policies"
                 className="text-xs text-muted-foreground hover:text-primary transition-colors"
               >
                 Privacy Policy
               </a>
               <a
-                href="/terms"
+                href="/resources/policies"
                 className="text-xs text-muted-foreground hover:text-primary transition-colors"
               >
                 Terms of Service
