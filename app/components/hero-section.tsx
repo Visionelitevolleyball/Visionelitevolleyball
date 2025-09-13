@@ -92,6 +92,7 @@ export function HeroSection() {
         >
           <Button
             size="lg"
+            onClick={() => window.open("https://visioneliteacademy.com/program-search/", "_blank")}
             className={cn(
               "group relative bg-gradient-to-r from-primary to-yellow-500 hover:from-primary/90 hover:to-yellow-500/90",
               "text-black font-semibold text-lg px-8 h-14",
@@ -112,6 +113,7 @@ export function HeroSection() {
           <Button
             size="lg"
             variant="outline"
+            onClick={() => window.location.href = "/programs"}
             className={cn(
               "group font-medium text-lg px-8 h-14",
               "border-2 hover:bg-accent/50",
